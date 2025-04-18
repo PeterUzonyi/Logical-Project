@@ -15,10 +15,15 @@ public class Elements : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Rotation
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
+            //Rotation around
             transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0, 0, 1), 90);
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            //Vertical rotation
+            transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0, 1, 0), 180);
 
         }
     }

@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Resources\\Cards\\WhiteCards.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Resources\\Cards\\WhiteCards.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|c:\\users\\your-computer\\desktop\\logical-project\\assets\\scripts\\element\\elements.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\element\\elements.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|C:\\Users\\your-computer\\Desktop\\Logical-Project\\assets\\resources\\cards\\whitecards.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|solutionrelative:assets\\resources\\cards\\whitecards.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,6 +23,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Elements.cs",
+              "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Element\\Elements.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Element\\Elements.cs",
+              "ToolTip": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Element\\Elements.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Element\\Elements.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAAwBgAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-18T14:56:46.168Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "WhiteCards.txt",
               "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Resources\\Cards\\WhiteCards.txt",
               "RelativeDocumentMoniker": "Assets\\Resources\\Cards\\WhiteCards.txt",
@@ -26,8 +43,7 @@
               "RelativeToolTip": "Assets\\Resources\\Cards\\WhiteCards.txt",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-04-16T20:40:49.71Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-16T20:40:49.71Z"
             }
           ]
         }
