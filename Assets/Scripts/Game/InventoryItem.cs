@@ -7,9 +7,12 @@ using UnityEngine.EventSystems;
 public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public Image image;
+    public Text countText;
 
     [HideInInspector]
     public Transform parentAfterDrag;
+    [HideInInspector]
+    public int count = 0;
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -28,5 +31,10 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         transform.SetParent(parentAfterDrag);
         image.raycastTarget = true;
+    }
+
+    public void RefreshCount()
+    {
+        countText.text = count.ToString();
     }
 }
