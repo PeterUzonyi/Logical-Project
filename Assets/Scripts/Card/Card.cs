@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -10,7 +11,6 @@ using UnityEngine.UI;
 public class CardLoader : MonoBehaviour
 {
     public TextAsset cardFile; // Drag & drop ide a fájlt Unity-ben
-    public List<CardType> Cards = new List<CardType>();
     
     public Image BgImage;
     public TextMeshProUGUI ScoreText;
@@ -19,9 +19,24 @@ public class CardLoader : MonoBehaviour
     public Image RewardImage;
 
     public Image GridBgImage;
-    public Image GridSquareImage;
+    public GameObject Grid;
+    //public Image GridSquareImage;
 
-    public void LoadCards()
+    private List<CardType> Cards = new List<CardType>();
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        LoadCards();
+        StartCoroutine(WaitForInitialization());
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+    private void LoadCards()
     {
         string[] lines = cardFile.text.Split('\n');
 
@@ -45,9 +60,22 @@ public class CardLoader : MonoBehaviour
         }
     }
 
-    public void Visualize()
+    IEnumerator WaitForInitialization()
     {
-        for (int i = 51; i < 52; i++)
+        Grid gridScript = Grid.GetComponent<Grid>();
+
+        while (!gridScript.isInitialized)
+        {
+            //Wait, until the gridsquares are initialized
+            yield return null;
+        }
+
+        Visualize();
+    }
+
+    private void Visualize()
+    {
+        for (int i = 0; i < 1; i++)
         {
             //Background Color
             if (Cards[i].Color == "White")
@@ -56,8 +84,7 @@ public class CardLoader : MonoBehaviour
                 ScoreText.color = Color.black;
 
                 //Grid bg
-                GridBgImage.color = Color.black;
-                GridSquareImage.color = Color.white;
+                GridBgImage.color = Color.gray;                
             }
             else if (Cards[i].Color == "Black")
             {
@@ -65,8 +92,7 @@ public class CardLoader : MonoBehaviour
                 ScoreText.color = Color.white;
 
                 //Grid bg
-                GridBgImage.color = Color.white;
-                GridSquareImage.color = Color.black;
+                GridBgImage.color = Color.gray;
             }
 
             //Score
@@ -76,22 +102,19 @@ public class CardLoader : MonoBehaviour
             RewardImage.sprite = RewardSprites[Cards[i].RewardElement - 1];
 
             //Grid squares
-
+            for (int j = 0; j < Grid.transform.childCount; j++)
+            {
+                var square = Grid.transform.GetChild(j).gameObject;
+                var img = square.GetComponent<Image>();
+                if (Cards[i].Matrix[j / 7, j % 7] == 10)
+                {
+                    img.color = Color.black;
+                }
+                else if (Cards[i].Matrix[(j / 7), (j % 7)] == 0)
+                {
+                    img.color = Color.white;
+                }   
+            }
         }
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        LoadCards();
-        Visualize();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    
 }

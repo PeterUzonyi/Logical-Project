@@ -896,7 +896,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardFile: {fileID: 4900000, guid: bd209258813a32749979243f286872fc, type: 3}
-  Cards: []
   BgImage: {fileID: 906992120}
   ScoreText: {fileID: 1496983522}
   RewardSprites:
@@ -911,7 +910,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fe0ba00e65a99e24091dc38ce41be3fb, type: 3}
   RewardImage: {fileID: 1610498924}
   GridBgImage: {fileID: 517955407}
-  GridSquareImage: {fileID: 251187390616829505, guid: 86a6dd9ba1006264483af83b3707f8fd, type: 3}
+  Grid: {fileID: 517955402}
 --- !u!1001 &922137238
 PrefabInstance:
   m_ObjectHideFlags: 0

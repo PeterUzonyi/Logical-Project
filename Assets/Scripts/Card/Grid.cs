@@ -13,17 +13,15 @@ public class Grid : MonoBehaviour
     public float squareScale;
     public float everySquareOffSet;
 
+    public bool isInitialized = false;
+
     private Vector2 offSet = new Vector2(0, 0);
     private List<GameObject> gridSquares = new List<GameObject>();
     void Start()
     {
-        CreateGrid();
-    }
-
-    private void CreateGrid()
-    {
         SpawnGridSquares();
         SetGridSquaresPositions();
+        isInitialized = true;
     }
     private void SpawnGridSquares()
     {
