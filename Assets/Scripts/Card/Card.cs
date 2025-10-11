@@ -20,7 +20,6 @@ public class CardLoader : MonoBehaviour
 
     public Image GridBgImage;
     public GameObject Grid;
-    //public Image GridSquareImage;
 
     private List<CardType> Cards = new List<CardType>();
 
