@@ -13,11 +13,13 @@ public class CardLoader : MonoBehaviour
     public List<CardType> Cards = new List<CardType>();
     
     public Image BgImage;
-    public TextMeshProUGUI text;
+    public TextMeshProUGUI ScoreText;
     
     public Sprite[] RewardSprites;
     public Image RewardImage;
 
+    public Image GridBgImage;
+    public Image GridSquareImage;
 
     public void LoadCards()
     {
@@ -45,27 +47,35 @@ public class CardLoader : MonoBehaviour
 
     public void Visualize()
     {
-        for (int i = 0; i < 1; i++)
+        for (int i = 51; i < 52; i++)
         {
             //Background Color
             if (Cards[i].Color == "White")
             {
                 BgImage.color = Color.white;
-                text.color = Color.black;
+                ScoreText.color = Color.black;
+
+                //Grid bg
+                GridBgImage.color = Color.black;
+                GridSquareImage.color = Color.white;
             }
             else if (Cards[i].Color == "Black")
             {
                 BgImage.color = Color.black;
-                text.color = Color.white;
+                ScoreText.color = Color.white;
+
+                //Grid bg
+                GridBgImage.color = Color.white;
+                GridSquareImage.color = Color.black;
             }
 
             //Score
-            text.text = Cards[i].Score.ToString();
+            ScoreText.text = Cards[i].Score.ToString();
 
             //Reward Element
             RewardImage.sprite = RewardSprites[Cards[i].RewardElement - 1];
 
-            //Matrix
+            //Grid squares
 
         }
     }
