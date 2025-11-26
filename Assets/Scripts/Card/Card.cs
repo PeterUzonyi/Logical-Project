@@ -74,7 +74,7 @@ public class CardLoader : MonoBehaviour
 
     private void Visualize()
     {
-        for (int i = 0; i < 1; i++)
+        for (int i = 51; i < 52; i++)
         {
             //Background Color
             if (Cards[i].Color == "White")
