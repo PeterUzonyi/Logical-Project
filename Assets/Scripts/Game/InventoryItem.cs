@@ -9,12 +9,17 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     //public Image image;
     public GameObject Element;
     public Text countText;
-    
+
+    public int TotalSquareNumber;
+
 
     [HideInInspector]
     public Transform parentAfterDrag;
     [HideInInspector]
     public int count = 0;
+
+    public static InventoryItem SelectedInventoryItem {  get; set; }
+    
 
     [HideInInspector]
     private Vector3[] originalPositions;
@@ -22,6 +27,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private Transform[] children;
     private float scale;
     private bool Draggable = true;
+    
 
     public void Awake()
     {
@@ -53,6 +59,8 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             children[i].localScale = Vector3.one;
             children[i].localPosition = originalPositions[i] * scale;
         }
+
+        SelectedInventoryItem = this;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -69,6 +77,9 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             children[i].localScale = originalScales[i];
             children[i].localPosition = originalPositions[i];
         }
+        GameEvents.CheckIfElementCanBePlaced();
+
+        SelectedInventoryItem = null;
     }
 
     public void RefreshCount()

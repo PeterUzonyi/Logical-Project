@@ -17,21 +17,37 @@ public class Grid : MonoBehaviour
 
     private Vector2 offSet = new Vector2(0, 0);
     private List<GameObject> gridSquares = new List<GameObject>();
+
     void Start()
     {
         SpawnGridSquares();
         SetGridSquaresPositions();
         isInitialized = true;
     }
+
+    private void OnEnable()
+    {
+        GameEvents.CheckIfElementCanBePlaced += CheckIfElementCanBePlaced;
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.CheckIfElementCanBePlaced -= CheckIfElementCanBePlaced;
+    }
     private void SpawnGridSquares()
     {
+        int squareIndex = 0;
+
         for (int i = 0; i < rows; i++)
         {
             for (int j = 0; j < columns; j++)
             {
                 gridSquares.Add(Instantiate(gridSquare) as GameObject);
+
+                gridSquares[gridSquares.Count - 1].GetComponent<GridSquare>().SquareIndex = squareIndex;
                 gridSquares[gridSquares.Count - 1].transform.SetParent(this.transform);
                 gridSquares[gridSquares.Count - 1].transform.localScale = new Vector3(squareScale, squareScale, squareScale);
+                squareIndex++;
             }
         }
     }
@@ -81,5 +97,37 @@ public class Grid : MonoBehaviour
         }
     }
 
-    
+    private void CheckIfElementCanBePlaced()
+    {
+        var squareIndexes = new List<int>();
+
+        foreach (var square in gridSquares)
+        {
+            var gridSquare = square.GetComponent<GridSquare>();
+
+            if (gridSquare.Selected && gridSquare.SquareOccupied == false)
+            {
+                squareIndexes.Add(gridSquare.SquareIndex);
+                gridSquare.Selected = false;
+            }
+        }
+        
+        var currentSelectedShape = InventoryItem.SelectedInventoryItem;
+        if (currentSelectedShape == null) //Nincsen egyik elem se kiválasztva
+        {
+            return;
+        }
+
+        if (currentSelectedShape.TotalSquareNumber == squareIndexes.Count)
+        {
+            foreach (var squareIndex in squareIndexes)
+            {
+                gridSquares[squareIndex].GetComponent<GridSquare>().PlaceElementOnBoard();
+            }
+
+            currentSelectedShape = null;
+
+            //Késõbb kell az elem számát egyel csökkenteni
+        }
+    }
 }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
@@ -52,7 +53,13 @@ public class CardLoader : MonoBehaviour
                     Matrix[row, col] = int.Parse(parts[i + 3]);
                 }
 
-                CardType card = new CardType(parts[0], int.Parse(parts[1]), int.Parse(parts[2]), Matrix);
+                GameObject cardObject = new GameObject("Card");
+                CardType card = cardObject.AddComponent<CardType>();
+                card.Color = parts[0];
+                card.Score = int.Parse(parts[1]);
+                card.RewardElement = int.Parse(parts[2]);
+                card.Matrix = Matrix;
+                //CardType card = new CardType(parts[0], int.Parse(parts[1]), int.Parse(parts[2]), Matrix);
 
                 Cards.Add(card);
             }
