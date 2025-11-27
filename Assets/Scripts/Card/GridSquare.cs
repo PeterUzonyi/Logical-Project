@@ -20,16 +20,13 @@ public class GridSquare : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         hoverImage.gameObject.SetActive(true);
-        Debug.Log("Enter");
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
         hoverImage.gameObject.SetActive(true);
-        Debug.Log("In");
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         hoverImage.gameObject.SetActive(false);
-        Debug.Log("Out");
     }
 }

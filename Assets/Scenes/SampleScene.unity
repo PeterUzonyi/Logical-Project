@@ -442,8 +442,8 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 60, y: 60}
-  m_Spacing: {x: 15, y: 15}
+  m_CellSize: {x: 65, y: 65}
+  m_Spacing: {x: 10, y: 10}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!114 &237917600
@@ -2153,6 +2153,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: InventorySlot (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 974158732411910003, guid: 676b03ad59f368244b9cdc6212ff3569, type: 3}
+      propertyPath: m_CellSize.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 974158732411910003, guid: 676b03ad59f368244b9cdc6212ff3569, type: 3}
+      propertyPath: m_CellSize.y
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1118976256748179643, guid: 676b03ad59f368244b9cdc6212ff3569, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2762,6 +2770,14 @@ PrefabInstance:
     - target: {fileID: 19890733400118227, guid: 676b03ad59f368244b9cdc6212ff3569, type: 3}
       propertyPath: m_Name
       value: InventorySlot
+      objectReference: {fileID: 0}
+    - target: {fileID: 974158732411910003, guid: 676b03ad59f368244b9cdc6212ff3569, type: 3}
+      propertyPath: m_CellSize.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 974158732411910003, guid: 676b03ad59f368244b9cdc6212ff3569, type: 3}
+      propertyPath: m_CellSize.y
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1118976256748179643, guid: 676b03ad59f368244b9cdc6212ff3569, type: 3}
       propertyPath: m_IsActive

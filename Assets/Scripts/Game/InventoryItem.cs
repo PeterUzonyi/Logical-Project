@@ -9,11 +9,38 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     //public Image image;
     public GameObject Element;
     public Text countText;
+    
 
     [HideInInspector]
     public Transform parentAfterDrag;
     [HideInInspector]
     public int count = 0;
+
+    [HideInInspector]
+    private Vector3[] originalPositions;
+    private Vector3[] originalScales;
+    private Transform[] children;
+    private float scale;
+    private bool Draggable = true;
+
+    public void Awake()
+    {
+        Draggable = true;
+
+        int count = transform.childCount;
+        children = new Transform[count];
+        originalPositions = new Vector3[count];
+        originalScales = new Vector3[count];
+
+        for (int i = 0; i < count; i++)
+        {
+            children[i] = transform.GetChild(i);
+            originalPositions[i] = children[i].localPosition;
+            originalScales[i] = children[i].localScale;
+        }
+
+        scale = 1 / children[0].localScale.x;
+    }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -21,6 +48,11 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
         //image.raycastTarget = false;
+        for (int i = 0; i < children.Length; i++)
+        {
+            children[i].localScale = Vector3.one;
+            children[i].localPosition = originalPositions[i] * scale;
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -32,6 +64,11 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         transform.SetParent(parentAfterDrag);
         //image.raycastTarget = true;
+        for (int i = 0; i < children.Length; i++)
+        {
+            children[i].localScale = originalScales[i];
+            children[i].localPosition = originalPositions[i];
+        }
     }
 
     public void RefreshCount()
