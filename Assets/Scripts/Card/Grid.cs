@@ -18,6 +18,10 @@ public class Grid : MonoBehaviour
     private Vector2 offSet = new Vector2(0, 0);
     private List<GameObject> gridSquares = new List<GameObject>();
 
+    [HideInInspector]
+    private static int[] ElementsOnCard = new int[9];
+    public static int count = 0;
+
     void Start()
     {
         SpawnGridSquares();
@@ -130,4 +134,17 @@ public class Grid : MonoBehaviour
             //Késõbb kell az elem számát egyel csökkenteni
         }
     }
+
+    public static void ElementIsPlacedOnCard(int id)
+    {
+        //Csak akkor hívódik meg, ha az egész elemet leraktuk
+        count++;
+        if (count == InventoryItem.SelectedInventoryItem.TotalSquareNumber)
+        {
+            ElementsOnCard[id]++;
+            count = 0;
+        }
+    }
+
+
 }

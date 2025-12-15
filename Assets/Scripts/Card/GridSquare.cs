@@ -34,9 +34,12 @@ public class GridSquare : MonoBehaviour
     public void ActivateSquare()
     {
         hoverImage.gameObject.SetActive(false);
+        activeImage.color = InventoryItem.SelectedInventoryItem.GetComponentInChildren<Image>().color;
         activeImage.gameObject.SetActive(true);
         Selected = true;
         SquareOccupied = true;
+
+        Grid.ElementIsPlacedOnCard(InventoryItem.SelectedInventoryItem.ID);       
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

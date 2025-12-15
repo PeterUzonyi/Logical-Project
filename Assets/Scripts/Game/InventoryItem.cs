@@ -12,13 +12,16 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public int TotalSquareNumber;
 
+    public Vector3 rotationPoint;
+
 
     [HideInInspector]
     public Transform parentAfterDrag;
     [HideInInspector]
-    public int count = 0;
+    public int count = 1;
 
     public static InventoryItem SelectedInventoryItem {  get; set; }
+    public int ID;
     
 
     [HideInInspector]
@@ -46,6 +49,21 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         }
 
         scale = 1 / children[0].localScale.x;
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            //Rotation around
+            transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0, 0, 1), 90);
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            //Rotation around backwards
+            transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0, 0, 1), -90);
+
+        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
