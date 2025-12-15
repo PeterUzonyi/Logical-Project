@@ -18,7 +18,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     [HideInInspector]
     public Transform parentAfterDrag;
     [HideInInspector]
-    public int count = 1;
+    public int count = 0;
 
     public static InventoryItem SelectedInventoryItem {  get; set; }
     public int ID;
@@ -29,12 +29,12 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private Vector3[] originalScales;
     private Transform[] children;
     private float scale;
-    private bool Draggable = true;
+    //private bool Draggable = true;
     
 
     public void Awake()
     {
-        Draggable = true;
+        //Draggable = true;
 
         int count = transform.childCount;
         children = new Transform[count];

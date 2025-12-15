@@ -20,6 +20,8 @@ public class GridSquare : MonoBehaviour
         if (this.GetComponent<Image>().color == Color.black)
         {
             SquareOccupied = true;
+            activeImage.color = Color.black;
+            activeImage.gameObject.SetActive(true);
         }
         else
         {
