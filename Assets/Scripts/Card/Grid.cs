@@ -67,7 +67,7 @@ public class Grid : MonoBehaviour
         offSet.x = squareRect.rect.width * squareRect.transform.localScale.x + everySquareOffSet;
         offSet.y = squareRect.rect.height * squareRect.transform.localScale.y + everySquareOffSet;
 
-        foreach ( GameObject square in gridSquares)
+        foreach (GameObject square in gridSquares)
         {
             if (columnNumber + 1 > columns)
             {
@@ -115,7 +115,7 @@ public class Grid : MonoBehaviour
                 gridSquare.Selected = false;
             }
         }
-        
+
         var currentSelectedShape = InventoryItem.SelectedInventoryItem;
         if (currentSelectedShape == null) //Nincsen egyik elem se kiválasztva
         {
@@ -132,6 +132,12 @@ public class Grid : MonoBehaviour
             currentSelectedShape = null;
 
             //Késõbb kell az elem számát egyel csökkenteni
+
+            //Ki van töltve a kártya elemekkel
+            if(IsTheCardFull())
+            {
+                Debug.Log("A kártya tele van");
+            }
         }
     }
 
@@ -146,5 +152,16 @@ public class Grid : MonoBehaviour
         }
     }
 
-
+    public bool IsTheCardFull()
+    {
+        bool full = true;
+        foreach (GameObject square in gridSquares)
+        {
+            if (square.GetComponent<GridSquare>().SquareOccupied == false)
+            {
+                full = false;
+            }
+        }   
+        return full;
+    }
 }
