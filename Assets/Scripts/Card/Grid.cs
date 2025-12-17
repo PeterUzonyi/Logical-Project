@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Grid : MonoBehaviour
@@ -21,6 +22,7 @@ public class Grid : MonoBehaviour
     [HideInInspector]
     private static int[] ElementsOnCard = new int[9];
     public static int count = 0;
+    public int rewardElement;
 
     void Start()
     {
@@ -136,7 +138,13 @@ public class Grid : MonoBehaviour
             //Ki van töltve a kártya elemekkel
             if(IsTheCardFull())
             {
-                Debug.Log("A kártya tele van");
+                InventoryItem item;
+                ElementsOnCard[rewardElement]++; //A teljesítésért járó elem
+                for (int i = 0; i < ElementsOnCard.Count(); i++)
+                {
+                    item = InventoryManager.Instance.GetItemById(i);
+                    item.quantity += ElementsOnCard[i];
+                }
             }
 
             currentSelectedShape = null;

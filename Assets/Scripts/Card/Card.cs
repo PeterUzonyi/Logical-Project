@@ -22,7 +22,8 @@ public class CardLoader : MonoBehaviour
     public Image GridBgImage;
     public GameObject Grid;
 
-    private List<CardType> Cards = new List<CardType>();
+    public List<CardType> Cards = new List<CardType>();
+    public Grid gridScript;
 
     // Start is called before the first frame update
     void Start()
@@ -68,7 +69,7 @@ public class CardLoader : MonoBehaviour
 
     IEnumerator WaitForInitialization()
     {
-        Grid gridScript = Grid.GetComponent<Grid>();
+        gridScript = Grid.GetComponent<Grid>();
 
         while (!gridScript.isInitialized)
         {
@@ -106,6 +107,7 @@ public class CardLoader : MonoBehaviour
 
             //Reward Element
             RewardImage.sprite = RewardSprites[Cards[i].RewardElement - 1];
+            gridScript.rewardElement = Cards[i].RewardElement - 1;
 
             //Grid squares
             for (int j = 0; j < Grid.transform.childCount; j++)
@@ -120,7 +122,7 @@ public class CardLoader : MonoBehaviour
                 {
                     img.color = Color.white;
                 }   
-            }
+            }            
         }
     }
 }

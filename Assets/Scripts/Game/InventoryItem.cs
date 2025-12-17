@@ -33,7 +33,12 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     //private bool Draggable = true;
     
 
-    public void Awake()
+    void Start()
+    {
+        InventoryManager.Instance.RegisterItem(this);
+    }
+
+    void Awake()
     {
         //Draggable = true;
         RefreshCount();
@@ -64,7 +69,11 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         {
             //Rotation around backwards
             transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0, 0, 1), -90);
+        }
 
+        if (int.Parse(countText.text) != quantity)
+        {
+            RefreshCount();
         }
     }
 
@@ -98,7 +107,6 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             children[i].localPosition = originalPositions[i];
         }
         GameEvents.CheckIfElementCanBePlaced();
-        RefreshCount();
 
         SelectedInventoryItem = null;
     }
