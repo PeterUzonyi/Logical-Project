@@ -129,15 +129,17 @@ public class Grid : MonoBehaviour
                 gridSquares[squareIndex].GetComponent<GridSquare>().PlaceElementOnBoard();
             }
 
-            currentSelectedShape = null;
-
             //Késõbb kell az elem számát egyel csökkenteni
+            currentSelectedShape.quantity--;
+
 
             //Ki van töltve a kártya elemekkel
             if(IsTheCardFull())
             {
                 Debug.Log("A kártya tele van");
             }
+
+            currentSelectedShape = null;
         }
     }
 

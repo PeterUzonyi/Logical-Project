@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    //public Image image;
-    public GameObject Element;
-    public Text countText;
+    public TMP_Text countText;
 
     public int TotalSquareNumber;
 
     public Vector3 rotationPoint;
+
+    public int quantity = 1;
 
 
     [HideInInspector]
@@ -35,6 +36,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public void Awake()
     {
         //Draggable = true;
+        RefreshCount();
 
         int count = transform.childCount;
         children = new Transform[count];
@@ -96,12 +98,13 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             children[i].localPosition = originalPositions[i];
         }
         GameEvents.CheckIfElementCanBePlaced();
+        RefreshCount();
 
         SelectedInventoryItem = null;
     }
 
     public void RefreshCount()
     {
-        countText.text = count.ToString();
+        countText.text = quantity.ToString();
     }
 }
