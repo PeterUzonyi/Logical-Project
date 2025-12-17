@@ -37,6 +37,14 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     void Start()
     {
         InventoryManager.Instance.RegisterItem(this);
+
+        //Elem színének eltárolása
+        Transform childTransform = transform.GetChild(0);
+        Image childImage = childTransform.GetComponent<Image>();
+        if (childImage != null)
+        {
+            color = childImage.color;
+        }
     }
 
     void Awake()
@@ -94,29 +102,20 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 Draggable = false;
 
                 //Az elem színét szürkére állítjuk
-                /*
-                Transform childTransform = transform.GetChild(0);
-                Image childImage = childTransform.GetComponent<Image>();
-                if (childImage != null)
+                foreach (Transform child in transform)
                 {
-                    color = childImage.color;
-                    childImage.color = Color.gray;
+                    child.GetComponent<Image>().color = Color.gray;
                 }
-                */
             }
             if (quantity > 0)
             {
                 Draggable = true;
 
                 //Az elem színét visszaállítjuk
-                /*
-                Transform childTransform = transform.GetChild(0);
-                Image childImage = childTransform.GetComponent<Image>();
-                if (childImage != null)
+                foreach (Transform child in transform)
                 {
-                    childImage.color = color;
-                }
-                */
+                    child.GetComponent<Image>().color = color;
+                }                
             }
         }
     }
