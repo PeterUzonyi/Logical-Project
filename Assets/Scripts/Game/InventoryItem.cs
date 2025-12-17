@@ -30,7 +30,8 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private Vector3[] originalScales;
     private Transform[] children;
     private float scale;
-    //private bool Draggable = true;
+    private bool Draggable = true;
+    private Color color;
     
 
     void Start()
@@ -40,7 +41,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     void Awake()
     {
-        //Draggable = true;
+        Draggable = true;
         RefreshCount();
 
         int count = transform.childCount;
@@ -70,31 +71,80 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             //Rotation around backwards
             transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0, 0, 1), -90);
         }
+        else if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            //X tengelyen tükrözés
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1;
+            transform.localScale = localScale;
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            //Y tengelyen tükrözés
+            Vector3 localScale = transform.localScale;
+            localScale.y *= -1;
+            transform.localScale = localScale;
+        }
 
         if (int.Parse(countText.text) != quantity)
         {
             RefreshCount();
+            if (quantity == 0)
+            {
+                Draggable = false;
+
+                //Az elem színét szürkére állítjuk
+                /*
+                Transform childTransform = transform.GetChild(0);
+                Image childImage = childTransform.GetComponent<Image>();
+                if (childImage != null)
+                {
+                    color = childImage.color;
+                    childImage.color = Color.gray;
+                }
+                */
+            }
+            if (quantity > 0)
+            {
+                Draggable = true;
+
+                //Az elem színét visszaállítjuk
+                /*
+                Transform childTransform = transform.GetChild(0);
+                Image childImage = childTransform.GetComponent<Image>();
+                if (childImage != null)
+                {
+                    childImage.color = color;
+                }
+                */
+            }
         }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        parentAfterDrag = transform.parent;
-        transform.SetParent(transform.root);
-        transform.SetAsLastSibling();
-        //image.raycastTarget = false;
-        for (int i = 0; i < children.Length; i++)
+        if (Draggable)
         {
-            children[i].localScale = Vector3.one;
-            children[i].localPosition = originalPositions[i] * scale;
-        }
+            parentAfterDrag = transform.parent;
+            transform.SetParent(transform.root);
+            transform.SetAsLastSibling();
+            //image.raycastTarget = false;
+            for (int i = 0; i < children.Length; i++)
+            {
+                children[i].localScale = Vector3.one;
+                children[i].localPosition = originalPositions[i] * scale;
+            }
 
-        SelectedInventoryItem = this;
+            SelectedInventoryItem = this;
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        transform.position = Input.mousePosition;
+        if (Draggable)
+        {
+            transform.position = Input.mousePosition;
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
