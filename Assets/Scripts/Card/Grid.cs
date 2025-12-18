@@ -131,7 +131,7 @@ public class Grid : MonoBehaviour
                 gridSquares[squareIndex].GetComponent<GridSquare>().PlaceElementOnBoard();
             }
 
-            //Késõbb kell az elem számát egyel csökkenteni
+            //Elem számát egyel csökkentjük
             currentSelectedShape.quantity--;
 
 
@@ -143,7 +143,7 @@ public class Grid : MonoBehaviour
                 for (int i = 0; i < ElementsOnCard.Count(); i++)
                 {
                     item = InventoryManager.Instance.GetItemById(i);
-                    item.quantity += ElementsOnCard[i];
+                    item.quantity += ElementsOnCard[i];//Visszakap minden kártyára rakott és jutalom elemet
                 }
             }
 

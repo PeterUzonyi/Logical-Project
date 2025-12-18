@@ -82,6 +82,7 @@ public class CardLoader : MonoBehaviour
 
     private void Visualize()
     {
+        Cards = ShuffleList(Cards);
         for (int i = 51; i < 52; i++)
         {
             //Background Color
@@ -124,5 +125,23 @@ public class CardLoader : MonoBehaviour
                 }   
             }            
         }
+    }
+
+    //Fisher-Yates shuffle algorithm
+    public List<CardType> ShuffleList(List<CardType> cardList)
+    {
+        /*
+            Megkapja a teljes listát, mit ketté választ
+            fehérre és feketére (játékosok számától függ a fekete pakli mérete) 
+            és ezeket keveri meg külön-külön ez lesz az alaphelyzete a játéknak
+        */
+        for (int i = cardList.Count - 1; i > 0; i--)
+        {
+            int j = UnityEngine.Random.Range(0, i + 1);
+            CardType temp = cardList[i];
+            cardList[i] = cardList[j];
+            cardList[j] = temp;
+        }
+        return cardList;
     }
 }
