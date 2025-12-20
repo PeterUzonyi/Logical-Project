@@ -83,47 +83,45 @@ public class CardLoader : MonoBehaviour
     private void Visualize()
     {
         Cards = ShuffleList(Cards);
-        for (int i = 51; i < 52; i++)
+
+        //Background Color
+        if (Cards[0].Color == "White")
         {
-            //Background Color
-            if (Cards[i].Color == "White")
-            {
-                BgImage.color = Color.white;
-                ScoreText.color = Color.black;
+            BgImage.color = Color.white;
+            ScoreText.color = Color.black;
 
-                //Grid bg
-                GridBgImage.color = Color.gray;                
+            //Grid bg
+            GridBgImage.color = Color.gray;
+        }
+        else if (Cards[0].Color == "Black")
+        {
+            BgImage.color = Color.black;
+            ScoreText.color = Color.white;
+
+            //Grid bg
+            GridBgImage.color = Color.gray;
+        }
+
+        //Score
+        ScoreText.text = Cards[0].Score.ToString();
+
+        //Reward Element
+        RewardImage.sprite = RewardSprites[Cards[0].RewardElement - 1];
+        gridScript.rewardElement = Cards[0].RewardElement - 1;
+
+        //Grid squares
+        for (int i = 0; i < Grid.transform.childCount; i++)
+        {
+            var square = Grid.transform.GetChild(i).gameObject;
+            var img = square.GetComponent<Image>();
+            if (Cards[0].Matrix[i / 7, i % 7] == 10)
+            {
+                img.color = Color.black;
             }
-            else if (Cards[i].Color == "Black")
+            else if (Cards[0].Matrix[(i / 7), (i % 7)] == 0)
             {
-                BgImage.color = Color.black;
-                ScoreText.color = Color.white;
-
-                //Grid bg
-                GridBgImage.color = Color.gray;
+                img.color = Color.white;
             }
-
-            //Score
-            ScoreText.text = Cards[i].Score.ToString();
-
-            //Reward Element
-            RewardImage.sprite = RewardSprites[Cards[i].RewardElement - 1];
-            gridScript.rewardElement = Cards[i].RewardElement - 1;
-
-            //Grid squares
-            for (int j = 0; j < Grid.transform.childCount; j++)
-            {
-                var square = Grid.transform.GetChild(j).gameObject;
-                var img = square.GetComponent<Image>();
-                if (Cards[i].Matrix[j / 7, j % 7] == 10)
-                {
-                    img.color = Color.black;
-                }
-                else if (Cards[i].Matrix[(j / 7), (j % 7)] == 0)
-                {
-                    img.color = Color.white;
-                }   
-            }            
         }
     }
 

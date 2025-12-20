@@ -16,18 +16,9 @@ public class GridSquare : MonoBehaviour
     void Start()
     {
         Selected = false;
-
-        if (this.GetComponent<Image>().color == Color.black)
-        {
-            SquareOccupied = true;
-            activeImage.color = Color.black;
-            activeImage.gameObject.SetActive(true);
-        }
-        else
-        {
-            SquareOccupied = false;
-        }
+        Invoke("DelayedMethod", 0.1f);
     }
+    
 
     public void PlaceElementOnBoard()
     {
@@ -41,7 +32,11 @@ public class GridSquare : MonoBehaviour
         Selected = true;
         SquareOccupied = true;
 
-        Grid.ElementIsPlacedOnCard(InventoryItem.SelectedInventoryItem.ID);       
+        Grid grid = transform.parent.GetComponent<Grid>();
+        if (grid != null )
+        {
+            grid.ElementIsPlacedOnCard(InventoryItem.SelectedInventoryItem.ID);
+        }   
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -58,5 +53,20 @@ public class GridSquare : MonoBehaviour
     {
         hoverImage.gameObject.SetActive(false);
         Selected = false;
+    }
+
+    private void DelayedMethod()
+    {
+        //Késleltetni kell, hogy a card beszínezze a gridsquare-ket
+        if (this.GetComponent<Image>().color == Color.black)
+        {
+            SquareOccupied = true;
+            activeImage.color = Color.black;
+            activeImage.gameObject.SetActive(true);
+        }
+        else
+        {
+            SquareOccupied = false;
+        }
     }
 }

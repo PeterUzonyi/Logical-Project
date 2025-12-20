@@ -20,8 +20,8 @@ public class Grid : MonoBehaviour
     private List<GameObject> gridSquares = new List<GameObject>();
 
     [HideInInspector]
-    private static int[] ElementsOnCard = new int[9];
-    public static int count = 0;
+    public int[] ElementsOnCard = new int[9];
+    public int count = 0;
     public int rewardElement;
 
     void Start()
@@ -144,6 +144,7 @@ public class Grid : MonoBehaviour
                 {
                     item = InventoryManager.Instance.GetItemById(i);
                     item.quantity += ElementsOnCard[i];//Visszakap minden kártyára rakott és jutalom elemet
+                    ElementsOnCard[i] = 0;
                 }
             }
 
@@ -151,7 +152,7 @@ public class Grid : MonoBehaviour
         }
     }
 
-    public static void ElementIsPlacedOnCard(int id)
+    public void ElementIsPlacedOnCard(int id)
     {
         //Csak akkor hívódik meg, ha az egész elemet leraktuk
         count++;
