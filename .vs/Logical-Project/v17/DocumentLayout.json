@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|C:\\Users\\your-computer\\Desktop\\Logical-Project\\assets\\scripts\\game\\gameevents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\game\\gameevents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|C:\\Users\\your-computer\\Desktop\\Logical-Project\\assets\\scripts\\card\\gridsquare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\card\\gridsquare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -19,11 +23,7 @@
       "RelativeMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\card\\cardtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|C:\\Users\\your-computer\\Desktop\\Logical-Project\\assets\\scripts\\game\\gameevents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\game\\gameevents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|c:\\users\\your-computer\\desktop\\logical-project\\assets\\scripts\\game\\inventoryitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|C:\\Users\\your-computer\\Desktop\\Logical-Project\\assets\\scripts\\game\\inventoryitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\game\\inventoryitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -34,11 +34,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "GameEvents.cs",
               "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Game\\GameEvents.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Game\\GameEvents.cs",
@@ -51,7 +51,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "GridSquare.cs",
               "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Card\\GridSquare.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Card\\GridSquare.cs",
@@ -59,12 +59,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Card\\GridSquare.cs",
               "ViewState": "AQIAAD4AAAAAAAAAAAAUwEgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-26T12:19:53.693Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-26T12:19:53.693Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Grid.cs",
               "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Card\\Grid.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Card\\Grid.cs",
@@ -72,12 +71,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Card\\Grid.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-11T08:53:18.915Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-11T08:53:18.915Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "CardType.cs",
               "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Card\\CardType.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Card\\CardType.cs",
@@ -85,12 +83,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Card\\CardType.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T08:20:12.632Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-10T08:20:12.632Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Card.cs",
               "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Card\\Card.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Card\\Card.cs",
@@ -98,8 +95,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Card\\Card.cs",
               "ViewState": "AQIAABEAAAAAAAAAAAAAABgAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T08:12:49.332Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-10T08:12:49.332Z"
             },
             {
               "$type": "Document",
@@ -111,8 +107,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Game\\InventoryItem.cs",
               "ViewState": "AQIAABoAAAAAAAAAAAAowDkAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-21T07:48:29.85Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-21T07:48:29.85Z"
             }
           ]
         }
