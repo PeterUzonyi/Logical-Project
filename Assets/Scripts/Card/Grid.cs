@@ -23,6 +23,7 @@ public class Grid : MonoBehaviour
     public int[] ElementsOnCard = new int[9];
     public int count = 0;
     public int rewardElement;
+    public int scoreNumber;
 
     void Start()
     {
@@ -149,6 +150,8 @@ public class Grid : MonoBehaviour
                     item.quantity += ElementsOnCard[i];//Visszakap minden kártyára rakott és jutalom elemet
                     ElementsOnCard[i] = 0;
                 }
+
+                ownerPlayer.RefreshScore(scoreNumber);
             }
 
             currentSelectedShape = null;

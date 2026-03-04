@@ -104,6 +104,7 @@ public class CardLoader : MonoBehaviour
 
         //Score
         ScoreText.text = Cards[0].Score.ToString();
+        gridScript.scoreNumber = Cards[0].Score;
 
         //Reward Element
         RewardImage.sprite = RewardSprites[Cards[0].RewardElement - 1];

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -11,8 +13,15 @@ public class Player : MonoBehaviour
 
     public GameObject BlockingPanel; //Ha másik játékos van soron, akkor SetActive(False), különben (True)
 
+    public TMP_Text Score;
+    public int PlayerScore = 0;
 
     public InventoryManager inventoryManager;
+
+    void Awake()
+    {
+        RefreshScore(0);
+    }
     public void MyTurn(bool value)
     {
         IsMyRound = value;
@@ -30,5 +39,14 @@ public class Player : MonoBehaviour
     public void EndMyTurn()
     {
         FindAnyObjectByType<TurnManager>().EndTurn();
+    }
+
+    public void RefreshScore(int value)
+    {
+        PlayerScore += value;
+        if(Score.text != PlayerScore.ToString())
+        {
+            Score.text = PlayerScore.ToString();
+        }
     }
 }

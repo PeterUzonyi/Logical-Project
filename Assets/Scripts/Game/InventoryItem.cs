@@ -37,7 +37,6 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     void Start()
     {
-        //InventoryManager.Instance.RegisterItem(this);
         myInventoryManager.RegisterItem(this);
 
         //Elem színének eltárolása
