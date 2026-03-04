@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class TurnManager : MonoBehaviour
 {
+    public static TurnManager Instance { get; private set; }
+
     public Player player1;
     public Player player2;
 
-    private Player currentPlayer;//Soron lévõ játékos
+    public Player currentPlayer { get; private set; } //Soron lévõ játékos
 
+    void Awake()
+    {
+        Instance = this;
+    }
     void Start()
     {
         currentPlayer = player1;
         player1.MyTurn(true);
+        player2.MyTurn(false);
     }
 
     public void EndTurn()

@@ -33,10 +33,12 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private bool Draggable = true;
     private Color color;
     
+    public InventoryManager myInventoryManager;
 
     void Start()
     {
-        InventoryManager.Instance.RegisterItem(this);
+        //InventoryManager.Instance.RegisterItem(this);
+        myInventoryManager.RegisterItem(this);
 
         //Elem színének eltárolása
         Transform childTransform = transform.GetChild(0);

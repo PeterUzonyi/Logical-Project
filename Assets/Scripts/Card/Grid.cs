@@ -138,11 +138,14 @@ public class Grid : MonoBehaviour
             //Ki van töltve a kártya elemekkel
             if(IsTheCardFull())
             {
+                Player ownerPlayer = TurnManager.Instance.currentPlayer;
+                InventoryManager ownerInventory = ownerPlayer.inventoryManager;
+
                 InventoryItem item;
                 ElementsOnCard[rewardElement]++; //A teljesítésért járó elem
                 for (int i = 0; i < ElementsOnCard.Count(); i++)
                 {
-                    item = InventoryManager.Instance.GetItemById(i);
+                    item = ownerInventory.GetItemById(i);
                     item.quantity += ElementsOnCard[i];//Visszakap minden kártyára rakott és jutalom elemet
                     ElementsOnCard[i] = 0;
                 }

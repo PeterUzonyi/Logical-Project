@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
 
     public GameObject BlockingPanel; //Ha másik játékos van soron, akkor SetActive(False), különben (True)
 
+
+    public InventoryManager inventoryManager;
     public void MyTurn(bool value)
     {
         IsMyRound = value;
