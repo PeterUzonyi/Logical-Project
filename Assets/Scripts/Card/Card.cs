@@ -32,11 +32,6 @@ public class CardLoader : MonoBehaviour
         StartCoroutine(WaitForInitialization());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     private void LoadCards()
     {
         string[] lines = cardFile.text.Split('\n');
