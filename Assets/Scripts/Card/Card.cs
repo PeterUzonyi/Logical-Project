@@ -22,7 +22,9 @@ public class CardLoader : MonoBehaviour
     public Image GridBgImage;
     public GameObject Grid;
 
-    public List<CardType> Cards = new List<CardType>();
+    //public List<CardType> Cards = new List<CardType>();
+    public List<CardType> WhiteCards = new List<CardType>();
+    public List<CardType> BlackCards = new List<CardType>();
     public Grid gridScript;
 
     // Start is called before the first frame update
@@ -57,7 +59,15 @@ public class CardLoader : MonoBehaviour
                 card.Matrix = Matrix;
                 //CardType card = new CardType(parts[0], int.Parse(parts[1]), int.Parse(parts[2]), Matrix);
 
-                Cards.Add(card);
+                //Cards.Add(card);
+                if (card.Color == "White")
+                {
+                    WhiteCards.Add(card);
+                }
+                else
+                {
+                    BlackCards.Add(card);
+                }
             }
         }
     }
@@ -72,12 +82,15 @@ public class CardLoader : MonoBehaviour
             yield return null;
         }
 
-        Visualize();
+        BlackCards = ShuffleList(BlackCards);
+        WhiteCards = ShuffleList(WhiteCards);
+
+        Visualize(WhiteCards);
     }
 
-    private void Visualize()
+    private void Visualize(List<CardType> Cards)
     {
-        Cards = ShuffleList(Cards);
+        //Cards = ShuffleList(Cards);
 
         //Background Color
         if (Cards[0].Color == "White")
@@ -126,7 +139,8 @@ public class CardLoader : MonoBehaviour
     {
         /*
             Megkapja a teljes listát, mit ketté választ
-            fehérre és feketére (játékosok számától függ a fekete pakli mérete) 
+            fehérre és feketére (játékosok számától függ a fekete pakli mérete (összesen 20 lap))
+            (2 játékos: 12 fekete lap| 3 játékos: 14 fekete lap| 4 játékos: 16 fekete lap)
             és ezeket keveri meg külön-külön ez lesz az alaphelyzete a játéknak
         */
         for (int i = cardList.Count - 1; i > 0; i--)
@@ -136,6 +150,31 @@ public class CardLoader : MonoBehaviour
             cardList[i] = cardList[j];
             cardList[j] = temp;
         }
+        if (cardList[0].Color == "Black")
+        {
+            int playerCount = 2;
+            int startIndex = 12;
+            int range = 0;
+
+            switch (playerCount)
+            {
+                case 2:
+                    startIndex = 12;
+                    break;
+                case 3:
+                    startIndex = 14;
+                    break;
+                case 4:
+                    startIndex = 16;
+                    break;
+            }
+
+            range = 20 - startIndex;
+
+            //A megkevert fekete pakliból csak a játékosok számától függû db fekete lapot adunk vissza
+            cardList.RemoveRange(startIndex, range);
+        }
+        Debug.Log(cardList[0].Color + ": " + cardList.Count);
         return cardList;
     }
 }
