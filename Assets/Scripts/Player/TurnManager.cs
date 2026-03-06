@@ -9,6 +9,8 @@ public class TurnManager : MonoBehaviour
     public Player player1;
     public Player player2;
 
+    public int playerCount = 2;
+
     public Player currentPlayer { get; private set; } //Soron lévõ játékos
 
     void Awake()
@@ -20,6 +22,7 @@ public class TurnManager : MonoBehaviour
         currentPlayer = player1;
         player1.MyTurn(true);
         player2.MyTurn(false);
+        playerCount = 2;
     }
 
     public void EndTurn()

@@ -16,7 +16,6 @@ public class GridSquare : MonoBehaviour
     void Start()
     {
         Selected = false;
-        Invoke("DelayedMethod", 0.1f);
     }
     
 
@@ -51,22 +50,10 @@ public class GridSquare : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        hoverImage.gameObject.SetActive(false);
-        Selected = false;
-    }
-
-    private void DelayedMethod()
-    {
-        //Késleltetni kell, hogy a card beszínezze a gridsquare-ket
-        if (this.GetComponent<Image>().color == Color.black)
+        if (!InventoryItem.IsDragging)
         {
-            SquareOccupied = true;
-            activeImage.color = Color.black;
-            activeImage.gameObject.SetActive(true);
-        }
-        else
-        {
-            SquareOccupied = false;
+            hoverImage.gameObject.SetActive(false);
+            Selected = false;
         }
     }
 }

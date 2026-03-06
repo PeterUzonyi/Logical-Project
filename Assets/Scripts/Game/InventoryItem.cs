@@ -35,6 +35,8 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     
     public InventoryManager myInventoryManager;
 
+    public static bool IsDragging = false;
+
     void Start()
     {
         myInventoryManager.RegisterItem(this);
@@ -123,6 +125,8 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        IsDragging = true;
+
         if (Draggable)
         {
             parentAfterDrag = transform.parent;
@@ -149,14 +153,16 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        // Elõször küldd el az eseményt
+        GameEvents.CheckIfElementCanBePlaced?.Invoke();
+        IsDragging = false;
+
         transform.SetParent(parentAfterDrag);
-        //image.raycastTarget = true;
         for (int i = 0; i < children.Length; i++)
         {
             children[i].localScale = originalScales[i];
             children[i].localPosition = originalPositions[i];
         }
-        GameEvents.CheckIfElementCanBePlaced();
 
         SelectedInventoryItem = null;
     }

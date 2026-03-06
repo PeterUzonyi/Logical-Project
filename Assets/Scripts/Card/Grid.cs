@@ -25,6 +25,8 @@ public class Grid : MonoBehaviour
     public int rewardElement;
     public int scoreNumber;
 
+    public CardLoader OwnerCardLoader;
+
     void Start()
     {
         SpawnGridSquares();
@@ -106,6 +108,19 @@ public class Grid : MonoBehaviour
 
     private void CheckIfElementCanBePlaced()
     {
+
+        // Ha egyetlen Selected square sincs ebben a Grid-ben, ne csináljon semmit
+        bool anySelected = false;
+        foreach (var square in gridSquares)
+        {
+            if (square.GetComponent<GridSquare>().Selected)
+            {
+                anySelected = true;
+                break;
+            }
+        }
+        if (!anySelected) return; // ez kiszûri az összes "idegen" Grid-et
+
         var squareIndexes = new List<int>();
 
         foreach (var square in gridSquares)
@@ -144,6 +159,7 @@ public class Grid : MonoBehaviour
 
                 InventoryItem item;
                 ElementsOnCard[rewardElement]++; //A teljesítésért járó elem
+
                 for (int i = 0; i < ElementsOnCard.Count(); i++)
                 {
                     item = ownerInventory.GetItemById(i);
@@ -152,6 +168,8 @@ public class Grid : MonoBehaviour
                 }
 
                 ownerPlayer.RefreshScore(scoreNumber);
+
+                ownerPlayer.RemoveCard(OwnerCardLoader.SlotIndex);
             }
 
             currentSelectedShape = null;
@@ -178,7 +196,7 @@ public class Grid : MonoBehaviour
             {
                 full = false;
             }
-        }   
+        }
         return full;
     }
 }

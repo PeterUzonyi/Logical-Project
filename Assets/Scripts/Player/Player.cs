@@ -18,6 +18,9 @@ public class Player : MonoBehaviour
 
     public InventoryManager inventoryManager;
 
+    [SerializeField]
+    private CardLoader[] cardSlots = new CardLoader[4];
+
     void Awake()
     {
         RefreshScore(0);
@@ -34,6 +37,37 @@ public class Player : MonoBehaviour
         {//Más játékos van soron
             BlockingPanel.SetActive(true);
         }
+    }
+
+    // Kártya átvétele a CommonReserve-bõl
+    public bool ReceiveCard(CardType card)
+    {
+        // Megkeresi az elsõ üres slotot
+        for (int i = 0; i < cardSlots.Length; i++)
+        {
+            if (cardSlots[i].CurrentCard == null)
+            {
+                cardSlots[i].gameObject.SetActive(true);
+                cardSlots[i].ShowCard(card);
+                return true;
+            }
+        }
+
+        Debug.LogWarning($"{PlayerName} keze tele van, nem lehet több lapot felvenni!");
+        return false;
+    }
+
+    // Kártya eltávolítása egy slotból (ha megoldja a lapot)
+    public void RemoveCard(int slotIndex)
+    {
+        if (slotIndex < 0 || slotIndex >= cardSlots.Length)
+        {
+            return;
+        }
+
+        cardSlots[slotIndex].CurrentCard = null;
+        cardSlots[slotIndex].ResetGrid();
+        cardSlots[slotIndex].gameObject.SetActive(false);
     }
 
     public void EndMyTurn()
