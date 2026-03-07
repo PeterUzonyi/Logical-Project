@@ -6310,7 +6310,7 @@ MonoBehaviour:
   Score: {fileID: 1120978147}
   PlayerScore: 0
   inventoryManager: {fileID: 402887051}
-  cardSlots:
+  MyCardSlots:
   - {fileID: 2145180699}
   - {fileID: 742204131}
   - {fileID: 1794213839}
@@ -8309,7 +8309,7 @@ MonoBehaviour:
   Score: {fileID: 1942952563}
   PlayerScore: 0
   inventoryManager: {fileID: 989790822}
-  cardSlots:
+  MyCardSlots:
   - {fileID: 1525901002}
   - {fileID: 994744747}
   - {fileID: 1458784827}

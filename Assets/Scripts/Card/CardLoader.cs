@@ -28,6 +28,13 @@ public class CardLoader : MonoBehaviour, IPointerClickHandler
 
     public CardType CurrentCard { get; set; }
 
+    private CardType pendingCard = null; // eltároljuk a kártyát, ha még nem kész
+
+    void Awake()
+    {
+        gridScript = Grid.GetComponent<Grid>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,19 +43,31 @@ public class CardLoader : MonoBehaviour, IPointerClickHandler
 
     IEnumerator WaitForInitialization()
     {
-        gridScript = Grid.GetComponent<Grid>();
-
         while (!gridScript.isInitialized || !CardManager.Instance.IsReady)
         {
             //Wait, until the gridsquares are initialized and the CardManager is ready too
             yield return null;
+        }
+
+        // Ha közben érkezett kártya, most jelenítjük meg
+        if (pendingCard != null)
+        {
+            Visualize(pendingCard);
+            pendingCard = null;
         }
     }
 
     public void ShowCard(CardType card)
     {
         CurrentCard = card;
-        Visualize(card); // a már meglévõ Visualize() metódus
+        if (gridScript != null && gridScript.isInitialized)
+        {
+            Visualize(card);
+        }
+        else
+        {
+            pendingCard = card; // majd a coroutine végén rajzoljuk ki
+        }
     }
     private void Visualize(CardType card)
     {

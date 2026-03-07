@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     public InventoryManager inventoryManager;
 
     [SerializeField]
-    private CardLoader[] cardSlots = new CardLoader[4];
+    private CardLoader[] MyCardSlots = new CardLoader[4];
 
     void Awake()
     {
@@ -39,16 +39,28 @@ public class Player : MonoBehaviour
         }
     }
 
+    public bool IsCardSlotsFull()
+    {
+        for (int i = 0; i < MyCardSlots.Length; i++)
+        {
+            if (MyCardSlots[i].CurrentCard == null)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
     // Kártya átvétele a CommonReserve-bõl
     public bool ReceiveCard(CardType card)
     {
         // Megkeresi az elsõ üres slotot
-        for (int i = 0; i < cardSlots.Length; i++)
+        for (int i = 0; i < MyCardSlots.Length; i++)
         {
-            if (cardSlots[i].CurrentCard == null)
+            if (MyCardSlots[i].CurrentCard == null)
             {
-                cardSlots[i].gameObject.SetActive(true);
-                cardSlots[i].ShowCard(card);
+                MyCardSlots[i].gameObject.SetActive(true);
+                MyCardSlots[i].ShowCard(card);
                 return true;
             }
         }
@@ -60,14 +72,14 @@ public class Player : MonoBehaviour
     // Kártya eltávolítása egy slotból (ha megoldja a lapot)
     public void RemoveCard(int slotIndex)
     {
-        if (slotIndex < 0 || slotIndex >= cardSlots.Length)
+        if (slotIndex < 0 || slotIndex >= MyCardSlots.Length)
         {
             return;
         }
 
-        cardSlots[slotIndex].CurrentCard = null;
-        cardSlots[slotIndex].ResetGrid();
-        cardSlots[slotIndex].gameObject.SetActive(false);
+        MyCardSlots[slotIndex].CurrentCard = null;
+        MyCardSlots[slotIndex].ResetGrid();
+        MyCardSlots[slotIndex].gameObject.SetActive(false);
     }
 
     public void EndMyTurn()

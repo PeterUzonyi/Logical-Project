@@ -116,10 +116,18 @@ public class CommonReserve : MonoBehaviour
     {
         Player currentPlayer = TurnManager.Instance.currentPlayer;
 
+        if (currentPlayer.IsCardSlotsFull()) //A játékos elõtt 4 db kártya van, nem tud újat elvenni
+        {
+            Debug.LogWarning($"{currentPlayer.PlayerName} keze tele van, nem lehet több lapot felvenni!");
+            return;
+        }
+
         // Megpróbálja átadni a lapot a soron lévõ játékosnak
         CardType selected = SelectCard(slotIndex);
 
         if (selected != null)
+        {
             currentPlayer.ReceiveCard(selected);
+        }
     }
 }
