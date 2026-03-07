@@ -15,6 +15,9 @@ public class CommonReserve : MonoBehaviour
     // Közös inventory (ugyanúgy mûködik mint a játékosnál)
     public InventoryManager inventoryManager;
 
+    public GameObject CommonReservePanel;
+    private Player originPlayer;
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -27,6 +30,23 @@ public class CommonReserve : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //InitializeSlots();
+        StartCoroutine(InitializeSlotsWhenReady());
+    }
+
+    private IEnumerator InitializeSlotsWhenReady()
+    {
+        while (CardManager.Instance == null || !CardManager.Instance.IsReady)
+            yield return null;
+
+        // Megvárjuk, hogy minden CardLoader coroutine-ja is lefusson
+        foreach (var slot in cardSlots)
+        {
+            if (slot == null) continue;
+            while (slot.gridScript == null || !slot.gridScript.isInitialized)
+                yield return null;
+        }
+
         InitializeSlots();
     }
 
@@ -129,5 +149,25 @@ public class CommonReserve : MonoBehaviour
         {
             currentPlayer.ReceiveCard(selected);
         }
+    }
+
+    public void OnBackClicked()
+    {
+        if (originPlayer == null)
+        {
+            return;
+        }
+
+        CommonReservePanel.SetActive(false);
+        originPlayer.PlayerPanel.SetActive(false);
+        TurnManager.Instance.currentPlayer.PlayerPanel.SetActive(true);
+        originPlayer = null;
+    }
+
+    public void Open(Player fromPlayer)
+    {
+        originPlayer = fromPlayer;
+        CommonReservePanel.SetActive(true);
+        fromPlayer.PlayerPanel.SetActive(false);
     }
 }

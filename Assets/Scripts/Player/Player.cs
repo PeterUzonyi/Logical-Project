@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private CardLoader[] MyCardSlots = new CardLoader[4];
 
+    public GameObject PlayerPanel;
+
     void Awake()
     {
         RefreshScore(0);
@@ -37,10 +39,12 @@ public class Player : MonoBehaviour
 
         if (IsMyRound)
         {//Ez a játékos van soron
+            PlayerPanel.SetActive(true);
             BlockingPanel.SetActive(false);
         }
         else
         {//Más játékos van soron
+            PlayerPanel.SetActive(false);
             BlockingPanel.SetActive(true);
         }
     }
@@ -100,5 +104,10 @@ public class Player : MonoBehaviour
         {
             Score.text = PlayerScore.ToString();
         }
+    }
+
+    public void OpenCommonReserve()
+    {
+        CommonReserve.Instance.Open(this);
     }
 }
