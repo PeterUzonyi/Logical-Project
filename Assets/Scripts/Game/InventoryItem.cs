@@ -31,6 +31,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private Transform[] children;
     private float scale;
     private bool Draggable = true;
+    public bool dragLocked = false; //A CommonResereve itemek miatt kell
     private Color color;
     
     public InventoryManager myInventoryManager;
@@ -110,7 +111,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                     child.GetComponent<Image>().color = Color.gray;
                 }
             }
-            if (quantity > 0)
+            if (quantity > 0 && !dragLocked)
             {
                 Draggable = true;
 
@@ -125,22 +126,24 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if (!Draggable)
+        {
+            return;
+        }
+
         IsDragging = true;
 
-        if (Draggable)
+        parentAfterDrag = transform.parent;
+        transform.SetParent(transform.root);
+        transform.SetAsLastSibling();
+        //image.raycastTarget = false;
+        for (int i = 0; i < children.Length; i++)
         {
-            parentAfterDrag = transform.parent;
-            transform.SetParent(transform.root);
-            transform.SetAsLastSibling();
-            //image.raycastTarget = false;
-            for (int i = 0; i < children.Length; i++)
-            {
-                children[i].localScale = Vector3.one;
-                children[i].localPosition = originalPositions[i] * scale;
-            }
-
-            SelectedInventoryItem = this;
+            children[i].localScale = Vector3.one;
+            children[i].localPosition = originalPositions[i] * scale;
         }
+
+        SelectedInventoryItem = this;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -153,6 +156,11 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (!Draggable)
+        {
+            return;
+        }
+
         // Elõször küldd el az eseményt
         GameEvents.CheckIfElementCanBePlaced?.Invoke();
         IsDragging = false;
@@ -170,5 +178,11 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public void RefreshCount()
     {
         countText.text = quantity.ToString();
+    }
+
+    public void SetDraggable(bool value)
+    {
+        Draggable = value;
+        dragLocked = !value;
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
 
 public class CommonReserve : MonoBehaviour
 {
@@ -30,21 +31,28 @@ public class CommonReserve : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //InitializeSlots();
         StartCoroutine(InitializeSlotsWhenReady());
+        StartCoroutine(LockInventoryWhenReady());
     }
 
     private IEnumerator InitializeSlotsWhenReady()
     {
         while (CardManager.Instance == null || !CardManager.Instance.IsReady)
+        {
             yield return null;
+        }
 
         // Megvárjuk, hogy minden CardLoader coroutine-ja is lefusson
         foreach (var slot in cardSlots)
         {
-            if (slot == null) continue;
+            if (slot == null)
+            {
+                continue;
+            }
             while (slot.gridScript == null || !slot.gridScript.isInitialized)
+            {
                 yield return null;
+            }
         }
 
         InitializeSlots();
@@ -56,7 +64,10 @@ public class CommonReserve : MonoBehaviour
         // Az elsõ 4 slot fehér, a következõ 4 fekete lapot kap
         for (int i = 0; i < cardSlots.Length; i++)
         {
-            if (cardSlots[i] == null) continue;
+            if (cardSlots[i] == null)
+            {
+                continue;
+            }
 
             string color;
             if (i < 4)
@@ -71,9 +82,29 @@ public class CommonReserve : MonoBehaviour
             CardType card = CardManager.Instance.DrawCard(color);
 
             if (card != null)
+            {
                 cardSlots[i].ShowCard(card);
+            }
             else
+            {
                 cardSlots[i].gameObject.SetActive(false); // pakli üres
+            }
+        }
+    }
+
+    private IEnumerator LockInventoryWhenReady()
+    {
+        //9 fajta Item van
+        int expectedCount = 9;
+
+        while (inventoryManager.GetAllItems().Count() < expectedCount)
+        {
+            yield return null;
+        }
+
+        foreach (var item in inventoryManager.GetAllItems())
+        {
+            item.SetDraggable(false);
         }
     }
 

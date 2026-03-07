@@ -23,4 +23,9 @@ public class InventoryManager : MonoBehaviour
         InventoryItems.TryGetValue(id, out InventoryItem item);
         return item;
     }
+
+    public IEnumerable<InventoryItem> GetAllItems()
+    {
+        return InventoryItems.Values;
+    }
 }
