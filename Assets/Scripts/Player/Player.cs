@@ -29,6 +29,12 @@ public class Player : MonoBehaviour
     {
         IsMyRound = value;
 
+        //Eltûnjenek az üres kártya prefabok
+        for (int i = 0; i < MyCardSlots.Length; i++)
+        {
+            RemoveCard(i);
+        }
+
         if (IsMyRound)
         {//Ez a játékos van soron
             BlockingPanel.SetActive(false);
