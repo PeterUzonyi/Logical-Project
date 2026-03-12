@@ -24,7 +24,7 @@ public class CardLoader : MonoBehaviour, IPointerClickHandler
     public int SlotIndex;
 
     [HideInInspector]
-    public Grid gridScript;
+    public MyGrid gridScript;
 
     public CardType CurrentCard { get; set; }
 
@@ -32,7 +32,7 @@ public class CardLoader : MonoBehaviour, IPointerClickHandler
 
     void Awake()
     {
-        gridScript = Grid.GetComponent<Grid>();
+        gridScript = Grid.GetComponent<MyGrid>();
     }
 
     // Start is called before the first frame update

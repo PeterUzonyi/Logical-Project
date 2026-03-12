@@ -20,6 +20,8 @@ public class TurnManager : MonoBehaviour
     void Start()
     {
         currentPlayer = player1;
+        //A CommonReserve Inicializálása miatt kell
+        currentPlayer.OpenCommonReserve();
         player1.MyTurn(true);
         player2.MyTurn(false);
         playerCount = 2;

@@ -18,6 +18,7 @@ public class CommonReserve : MonoBehaviour
 
     public GameObject CommonReservePanel;
     private Player originPlayer;
+    private bool CommonReserveReady = false;
 
     void Awake()
     {
@@ -104,8 +105,17 @@ public class CommonReserve : MonoBehaviour
 
         foreach (var item in inventoryManager.GetAllItems())
         {
+            //item.quantity = 10;
+            //item.RefreshCount();
             item.SetDraggable(false);
         }
+
+        CommonReserveReady = true;
+    }
+
+    public bool IsCommonReserveReady()
+    {
+        return CommonReserveReady;
     }
 
     /// <summary>
@@ -141,9 +151,18 @@ public class CommonReserve : MonoBehaviour
         CardType nextCard = CardManager.Instance.DrawCard(color);
 
         if (nextCard != null)
+        {
             slot.ShowCard(nextCard);
+        }
         else
+        {
             slot.gameObject.SetActive(false); // pakli elfogyott
+        }
+
+        //TakePuzzle has Ended
+        TurnManager.Instance.currentPlayer.ActionHasEnded();
+        Debug.Log("TakePuzzle has Ended");
+        OnBackClicked();
 
         return selectedCard; // visszaadjuk a játékosnak
     }
@@ -154,6 +173,8 @@ public class CommonReserve : MonoBehaviour
     public bool TakeFromInventory(int itemId, int amount)
     {
         InventoryItem item = inventoryManager.GetItemById(itemId);
+        //Debug.Log("Item: " + item);
+        //Debug.Log("Mennyiség: " + item.quantity);
         if (item != null && item.quantity >= amount)
         {
             item.quantity -= amount;

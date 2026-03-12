@@ -23,24 +23,43 @@ public class Player : MonoBehaviour
 
     public GameObject PlayerPanel;
 
+    public ActionType selectedAction;
+    public bool masterActionUsed;
+    public bool actionHasEnded;
+
     void Awake()
     {
         RefreshScore(0);
-    }
-    public void MyTurn(bool value)
-    {
-        IsMyRound = value;
 
         //Eltûnjenek az üres kártya prefabok
         for (int i = 0; i < MyCardSlots.Length; i++)
         {
             RemoveCard(i);
         }
+    }
+    public void MyTurn(bool value)
+    {
+        IsMyRound = value;
 
         if (IsMyRound)
         {//Ez a játékos van soron
             PlayerPanel.SetActive(true);
             BlockingPanel.SetActive(false);
+
+            ActionCount = 0;
+            masterActionUsed = false;
+            actionHasEnded = false;
+
+            /*
+            Debug.Log("CommonReserve ready e?: " + CommonReserve.Instance.IsCommonReserveReady());
+            
+            if (!CommonReserve.Instance.IsCommonReserveReady())
+            {
+                StartCoroutine(WaitForCommonReserve());
+            }
+            */
+
+            FindAnyObjectByType<ActionSelectionPanel>().ShowPanel();
         }
         else
         {//Más játékos van soron
@@ -48,6 +67,18 @@ public class Player : MonoBehaviour
             BlockingPanel.SetActive(true);
         }
     }
+    
+    /*
+    private IEnumerator WaitForCommonReserve()
+    {
+        while (!CommonReserve.Instance.IsCommonReserveReady())
+        {
+            yield return null;
+        }
+
+        FindAnyObjectByType<ActionSelectionPanel>().ShowPanel();
+    }
+    */
 
     public bool IsCardSlotsFull()
     {
@@ -92,9 +123,97 @@ public class Player : MonoBehaviour
         MyCardSlots[slotIndex].gameObject.SetActive(false);
     }
 
+
+    public void SetSelectedAction(ActionType action)//Kiválasztott Akció
+    {
+        selectedAction = action;
+        UseAction();
+    }
+
+    public void UseAction()//Akció végrehajtása
+    {
+        if (selectedAction == ActionType.TakePuzzle)
+        {
+            TakePuzzle();
+        }
+        else if (selectedAction == ActionType.TakeElement)
+        {
+            TakeElement();
+        }
+        else if (selectedAction == ActionType.UpdrageElement)
+        {
+            UpgradeElement();
+        }
+        /*
+        else if (selectedAction == ActionType.PlaceElement)
+        {
+            PlaceElement();
+        }
+        */
+        else if (selectedAction == ActionType.MesterAction && masterActionUsed == false)
+        {
+            MasterAction();
+        }
+    }
+
+    public void ActionHasEnded()
+    {
+        ActionCount++;
+        Debug.Log(ActionCount);
+
+        if (ActionCount == 3)//Kör vége, megvolt a 3 akció
+        {
+            EndMyTurn();
+        }
+        else//Még nem volt meg a 3 akció, következõ akció
+        {
+            Debug.Log("Show panel hívás");
+            FindAnyObjectByType<ActionSelectionPanel>().ShowPanel();
+        }
+    }
+
+    public void TakePuzzle()
+    {
+        OpenCommonReserve();
+    }
+
+    public void TakeElement()
+    {
+        if (CommonReserve.Instance.TakeFromInventory(0, 1))
+        {
+            InventoryItem item = inventoryManager.GetItemById(0);
+            item.quantity++;
+        }
+
+        Debug.Log("TakeElement has Ended");
+
+        Debug.Log("ActionHasEnded hívás elõtt");
+        ActionHasEnded();
+        Debug.Log("ActionHasEnded hívás után");
+    }
+
+    public void UpgradeElement()
+    {
+        ActionHasEnded();
+    }
+
+    /*
+    public void PlaceElement()
+    {
+        //ActionHasEnded();
+    }
+    */
+
+    public void MasterAction()
+    {
+        masterActionUsed = true;
+        ActionHasEnded();
+    }
+
     public void EndMyTurn()
     {
         FindAnyObjectByType<TurnManager>().EndTurn();
+        Debug.Log("Másik játékos köre");
     }
 
     public void RefreshScore(int value)

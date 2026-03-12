@@ -15,6 +15,8 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public int quantity = 1;
 
+    public int level;
+
 
     [HideInInspector]
     public Transform parentAfterDrag;

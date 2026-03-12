@@ -31,7 +31,7 @@ public class GridSquare : MonoBehaviour
         Selected = true;
         SquareOccupied = true;
 
-        Grid grid = transform.parent.GetComponent<Grid>();
+        MyGrid grid = transform.parent.GetComponent<MyGrid>();
         if (grid != null )
         {
             grid.ElementIsPlacedOnCard(InventoryItem.SelectedInventoryItem.ID);

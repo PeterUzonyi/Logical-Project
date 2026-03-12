@@ -653,9 +653,12 @@ MonoBehaviour:
   TotalSquareNumber: 0
   rotationPoint: {x: 0, y: 0, z: 0}
   quantity: 1
+  level: 4
   parentAfterDrag: {fileID: 0}
   count: 0
   ID: 0
+  dragLocked: 0
+  myInventoryManager: {fileID: 0}
 --- !u!222 &2521360838019796543
 CanvasRenderer:
   m_ObjectHideFlags: 0
