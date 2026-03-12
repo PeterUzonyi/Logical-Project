@@ -6,6 +6,7 @@ using UnityEngine;
 public class ActionSelectionPanel : MonoBehaviour
 {
     public GameObject panel;
+    public GameObject CommonReserveBlockingPanel;
 
     public void ShowPanel()
     {
@@ -23,5 +24,19 @@ public class ActionSelectionPanel : MonoBehaviour
         HidePanel();
         TurnManager.Instance.currentPlayer.SetSelectedAction(selected);
         
+    }
+
+    public void OnExitClicked()
+    {
+        HidePanel();
+        TurnManager.Instance.currentPlayer.BlockingPanel.SetActive(true);
+        CommonReserveBlockingPanel.SetActive(true);
+    }
+
+    public void OnActionClicked()
+    {
+        ShowPanel();
+        TurnManager.Instance.currentPlayer.BlockingPanel.SetActive(false);
+        CommonReserveBlockingPanel.SetActive(false);
     }
 }
