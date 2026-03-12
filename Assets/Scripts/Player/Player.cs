@@ -50,15 +50,6 @@ public class Player : MonoBehaviour
             masterActionUsed = false;
             actionHasEnded = false;
 
-            /*
-            Debug.Log("CommonReserve ready e?: " + CommonReserve.Instance.IsCommonReserveReady());
-            
-            if (!CommonReserve.Instance.IsCommonReserveReady())
-            {
-                StartCoroutine(WaitForCommonReserve());
-            }
-            */
-
             FindAnyObjectByType<ActionSelectionPanel>().ShowPanel();
         }
         else
@@ -67,18 +58,6 @@ public class Player : MonoBehaviour
             BlockingPanel.SetActive(true);
         }
     }
-    
-    /*
-    private IEnumerator WaitForCommonReserve()
-    {
-        while (!CommonReserve.Instance.IsCommonReserveReady())
-        {
-            yield return null;
-        }
-
-        FindAnyObjectByType<ActionSelectionPanel>().ShowPanel();
-    }
-    */
 
     public bool IsCardSlotsFull()
     {
@@ -144,12 +123,6 @@ public class Player : MonoBehaviour
         {
             UpgradeElement();
         }
-        /*
-        else if (selectedAction == ActionType.PlaceElement)
-        {
-            PlaceElement();
-        }
-        */
         else if (selectedAction == ActionType.MesterAction && masterActionUsed == false)
         {
             MasterAction();
@@ -167,7 +140,6 @@ public class Player : MonoBehaviour
         }
         else//Még nem volt meg a 3 akció, következõ akció
         {
-            Debug.Log("Show panel hívás");
             FindAnyObjectByType<ActionSelectionPanel>().ShowPanel();
         }
     }
@@ -186,23 +158,13 @@ public class Player : MonoBehaviour
         }
 
         Debug.Log("TakeElement has Ended");
-
-        Debug.Log("ActionHasEnded hívás elõtt");
         ActionHasEnded();
-        Debug.Log("ActionHasEnded hívás után");
     }
 
     public void UpgradeElement()
     {
         ActionHasEnded();
     }
-
-    /*
-    public void PlaceElement()
-    {
-        //ActionHasEnded();
-    }
-    */
 
     public void MasterAction()
     {

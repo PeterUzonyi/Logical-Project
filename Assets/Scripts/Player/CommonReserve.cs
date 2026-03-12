@@ -20,6 +20,9 @@ public class CommonReserve : MonoBehaviour
     private Player originPlayer;
     private bool CommonReserveReady = false;
 
+    public GameObject RemainingBlackCards;
+    public GameObject RemainingWhiteCards;
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -90,13 +93,15 @@ public class CommonReserve : MonoBehaviour
             {
                 cardSlots[i].gameObject.SetActive(false); // pakli üres
             }
+
+            RefreshRemainingCardCount();
         }
     }
 
     private IEnumerator LockInventoryWhenReady()
     {
         //9 fajta Item van
-        int expectedCount = 9;
+        int expectedCount = 90;
 
         while (inventoryManager.GetAllItems().Count() < expectedCount)
         {
@@ -105,8 +110,6 @@ public class CommonReserve : MonoBehaviour
 
         foreach (var item in inventoryManager.GetAllItems())
         {
-            //item.quantity = 10;
-            //item.RefreshCount();
             item.SetDraggable(false);
         }
 
@@ -164,6 +167,8 @@ public class CommonReserve : MonoBehaviour
         Debug.Log("TakePuzzle has Ended");
         OnBackClicked();
 
+        RefreshRemainingCardCount();
+
         return selectedCard; // visszaadjuk a játékosnak
     }
 
@@ -173,13 +178,13 @@ public class CommonReserve : MonoBehaviour
     public bool TakeFromInventory(int itemId, int amount)
     {
         InventoryItem item = inventoryManager.GetItemById(itemId);
-        //Debug.Log("Item: " + item);
-        //Debug.Log("Mennyiség: " + item.quantity);
         if (item != null && item.quantity >= amount)
         {
             item.quantity -= amount;
             return true;
         }
+
+        //ActionSelectionPanel.Instance.ShowErrorMessage("Nincs több ilyen elem a CommonReserve-ben");
         Debug.LogWarning($"Nincs elég elem (ID: {itemId}) a közös készletben!");
         return false;
     }
@@ -221,5 +226,13 @@ public class CommonReserve : MonoBehaviour
         originPlayer = fromPlayer;
         CommonReservePanel.SetActive(true);
         fromPlayer.PlayerPanel.SetActive(false);
+    }
+
+    public void RefreshRemainingCardCount()
+    {
+        TMP_Text BText = RemainingBlackCards.GetComponent<TMP_Text>();
+        BText.text = CardManager.Instance.BlackCards.Count().ToString();
+        TMP_Text WText = RemainingWhiteCards.GetComponent<TMP_Text>();
+        WText.text = CardManager.Instance.WhiteCards.Count().ToString();
     }
 }

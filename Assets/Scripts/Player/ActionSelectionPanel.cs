@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ActionSelectionPanel : MonoBehaviour
 {
     public GameObject panel;
     public GameObject CommonReserveBlockingPanel;
+
+    public GameObject ErrorMessagePanel;
 
     public void ShowPanel()
     {
@@ -39,4 +43,23 @@ public class ActionSelectionPanel : MonoBehaviour
         TurnManager.Instance.currentPlayer.BlockingPanel.SetActive(false);
         CommonReserveBlockingPanel.SetActive(false);
     }
+
+    /*
+    public void ShowErrorMessage(string ErrorMessage)
+    {
+        if (ErrorMessage == "")
+        {
+            TMP_Text text = ErrorMessagePanel.GetComponent<TMP_Text>();
+            text.text = "";
+            ErrorMessagePanel.SetActive(false);
+        }
+        else
+        {
+            TMP_Text text = ErrorMessagePanel.GetComponent<TMP_Text>();
+            text.text = ErrorMessage;
+            ErrorMessagePanel.SetActive(true);
+        }
+        
+    }
+    */
 }
