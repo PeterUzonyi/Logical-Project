@@ -27,7 +27,12 @@ public class ActionSelectionPanel : MonoBehaviour
         ActionType selected = (ActionType)actionTypeIndex;
         HidePanel();
         TurnManager.Instance.currentPlayer.SetSelectedAction(selected);
-        
+
+        //Buttonok megjelenítése
+        if (actionTypeIndex == 4 && TurnManager.Instance.currentPlayer.masterActionUsed == false)
+        {
+            TurnManager.Instance.currentPlayer.endMasterActionBtn.SetActive(true);
+        }
     }
 
     public void OnExitClicked()
@@ -35,6 +40,9 @@ public class ActionSelectionPanel : MonoBehaviour
         HidePanel();
         TurnManager.Instance.currentPlayer.BlockingPanel.SetActive(true);
         CommonReserveBlockingPanel.SetActive(true);
+
+        //Buttonok megjelenítése
+        TurnManager.Instance.currentPlayer.actionBtn.SetActive(true);
     }
 
     public void OnActionClicked()

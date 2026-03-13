@@ -27,6 +27,12 @@ public class Player : MonoBehaviour
     public bool masterActionUsed;
     public bool actionHasEnded;
 
+    public HashSet<MyGrid> gridsUsedInMasterAction = new HashSet<MyGrid>();
+    public int masterActionCardCount = 0;
+
+    public GameObject actionBtn;
+    public GameObject endMasterActionBtn;
+
     void Awake()
     {
         RefreshScore(0);
@@ -127,6 +133,10 @@ public class Player : MonoBehaviour
         {
             MasterAction();
         }
+        else
+        {
+            FindAnyObjectByType<ActionSelectionPanel>().ShowPanel();
+        }
     }
 
     public void ActionHasEnded()
@@ -168,8 +178,16 @@ public class Player : MonoBehaviour
 
     public void MasterAction()
     {
-        masterActionUsed = true;
-        ActionHasEnded();
+        gridsUsedInMasterAction.Clear();
+
+        masterActionCardCount = 0;
+        for (int i = 0; i < MyCardSlots.Length; i++)
+        {
+            if (MyCardSlots[i].CurrentCard != null)
+            {
+                masterActionCardCount++;
+            }
+        }
     }
 
     public void EndMyTurn()
@@ -190,5 +208,12 @@ public class Player : MonoBehaviour
     public void OpenCommonReserve()
     {
         CommonReserve.Instance.Open(this);
+    }
+
+    public void OnEndMasterActionClicked()
+    {
+        masterActionUsed = true;
+        Debug.Log("MasterAction has Ended");
+        TurnManager.Instance.currentPlayer.ActionHasEnded();
     }
 }

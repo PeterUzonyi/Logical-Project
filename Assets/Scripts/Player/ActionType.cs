@@ -8,5 +8,5 @@ public enum ActionType
     TakeElement,     //Kész
     UpdrageElement,
     PlaceElement,    //Kész
-    MesterAction
+    MesterAction     //kész
 }

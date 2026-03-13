@@ -108,7 +108,10 @@ public class MyGrid : MonoBehaviour
 
     private void CheckIfElementCanBePlaced()
     {
-
+        if (TurnManager.Instance.currentPlayer.selectedAction == ActionType.MesterAction && TurnManager.Instance.currentPlayer.gridsUsedInMasterAction.Contains(this))
+        {
+            return;
+        }
         // Ha egyetlen Selected square sincs ebben a Grid-ben, ne csináljon semmit
         bool anySelected = false;
         foreach (var square in gridSquares)
@@ -175,9 +178,30 @@ public class MyGrid : MonoBehaviour
             currentSelectedShape = null;
         }
 
-        //PlaceElement has Ended
-        TurnManager.Instance.currentPlayer.ActionHasEnded();
-        Debug.Log("PlaceElement has Ended");
+        if (TurnManager.Instance.currentPlayer.selectedAction == ActionType.MesterAction)
+        {//MasterAction
+            TurnManager.Instance.currentPlayer.gridsUsedInMasterAction.Add(this);
+
+            int used = TurnManager.Instance.currentPlayer.gridsUsedInMasterAction.Count;
+            int total = TurnManager.Instance.currentPlayer.masterActionCardCount;
+
+            Debug.Log($"MasterAction: {used}/{total} elem lerakva");
+
+            if (used == total)
+            {//MasterAction has Ended
+                TurnManager.Instance.currentPlayer.masterActionUsed = true;
+                Debug.Log("MasterAction has Ended");
+                TurnManager.Instance.currentPlayer.ActionHasEnded();
+            }
+
+            return;
+        }
+        else
+        {//PlaceElement Action
+            //PlaceElement has Ended
+            TurnManager.Instance.currentPlayer.ActionHasEnded();
+            Debug.Log("PlaceElement has Ended");
+        }  
     }
 
     public void ElementIsPlacedOnCard(int id)
