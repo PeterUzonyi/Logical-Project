@@ -213,6 +213,7 @@ public class Player : MonoBehaviour
     public void OnEndMasterActionClicked()
     {
         masterActionUsed = true;
+        endMasterActionBtn.SetActive(false);
         Debug.Log("MasterAction has Ended");
         TurnManager.Instance.currentPlayer.ActionHasEnded();
     }

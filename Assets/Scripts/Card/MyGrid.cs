@@ -190,6 +190,7 @@ public class MyGrid : MonoBehaviour
             if (used == total)
             {//MasterAction has Ended
                 TurnManager.Instance.currentPlayer.masterActionUsed = true;
+                TurnManager.Instance.currentPlayer.endMasterActionBtn.SetActive(false);
                 Debug.Log("MasterAction has Ended");
                 TurnManager.Instance.currentPlayer.ActionHasEnded();
             }
