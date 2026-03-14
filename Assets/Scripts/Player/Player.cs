@@ -173,7 +173,9 @@ public class Player : MonoBehaviour
 
     public void UpgradeElement()
     {
-        ActionHasEnded();
+        PlayerPanel.SetActive(false);
+        UpgradePanel.Instance.Open(this);
+        //ActionHasEnded();
     }
 
     public void MasterAction()

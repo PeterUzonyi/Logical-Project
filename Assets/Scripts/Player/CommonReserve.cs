@@ -235,4 +235,48 @@ public class CommonReserve : MonoBehaviour
         TMP_Text WText = RemainingWhiteCards.GetComponent<TMP_Text>();
         WText.text = CardManager.Instance.WhiteCards.Count().ToString();
     }
+
+
+    public List<InventoryItem> GetUpgradeOptions(int returnedId, int returnedLevel)
+    {
+        int targetLevel = returnedLevel + 1;
+
+        var available = inventoryManager.GetAllItems()
+            .Where(i => i.quantity > 0)
+            .ToList();
+
+        // Célszintû elemek (bármilyen forma)
+        var targetItems = available
+            .Where(i => i.level == targetLevel)
+            .ToList();
+
+        List<InventoryItem> mandatoryOptions;
+
+        if (targetItems.Count > 0)
+        {
+            // Van célszintû ezek közül választhat
+            mandatoryOptions = targetItems;
+        }
+        else
+        {
+            // Nincs célszintû következõ elérhetõ magasabb szint
+            mandatoryOptions = new List<InventoryItem>();
+            for (int lvl = targetLevel + 1; lvl <= 4; lvl++)
+            {
+                var higher = available.Where(i => i.level == lvl).ToList();
+                if (higher.Count > 0)
+                {
+                    mandatoryOptions = higher;
+                    break;
+                }
+            }
+        }
+
+        // Opcionális: azonos vagy alacsonyabb szintû, de MÁS forma
+        var optionalOptions = available
+            .Where(i => i.level <= returnedLevel && i.ID != returnedId)
+            .ToList();
+
+        return mandatoryOptions.Union(optionalOptions).ToList();
+    }
 }
