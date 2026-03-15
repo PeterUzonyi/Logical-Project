@@ -128,6 +128,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        Debug.Log($"OnBeginDrag fired: Draggable={Draggable}, dragLocked={dragLocked}");
         if (!Draggable)
         {
             return;
