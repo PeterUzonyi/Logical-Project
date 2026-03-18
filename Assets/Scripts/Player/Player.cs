@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
 
     public GameObject actionBtn;
     public GameObject endMasterActionBtn;
+    public GameObject endVegsoRendrakasBtn;
 
     void Awake()
     {
@@ -56,7 +57,14 @@ public class Player : MonoBehaviour
             masterActionUsed = false;
             actionHasEnded = false;
 
-            FindAnyObjectByType<ActionSelectionPanel>().ShowPanel();
+            if (!TurnManager.Instance.isVegsoRendrakas)
+            {
+                FindAnyObjectByType<ActionSelectionPanel>().ShowPanel();
+            }
+            else
+            {
+                endVegsoRendrakasBtn.SetActive(true);
+            }
         }
         else
         {//Más játékos van soron
@@ -129,6 +137,10 @@ public class Player : MonoBehaviour
         {
             UpgradeElement();
         }
+        else if (selectedAction==ActionType.PlaceElement)
+        {
+
+        }
         else if (selectedAction == ActionType.MesterAction && masterActionUsed == false)
         {
             MasterAction();
@@ -144,18 +156,32 @@ public class Player : MonoBehaviour
         ActionCount++;
         Debug.Log(ActionCount);
 
-        if (ActionCount == 3)//Kör vége, megvolt a 3 akció
+        if (CardManager.Instance.BlackCards.Count == 0 && TurnManager.Instance.isLastRound == false)
         {
-            EndMyTurn();
+            Debug.Log("Utolsó kör eleje: " + TurnManager.Instance.currentPlayer);
+            TurnManager.Instance.LastRound();
         }
-        else//Még nem volt meg a 3 akció, következõ akció
+
+        if (!TurnManager.Instance.isVegsoRendrakas)
         {
-            FindAnyObjectByType<ActionSelectionPanel>().ShowPanel();
+            if (ActionCount == 3)//Kör vége, megvolt a 3 akció
+            {
+                EndMyTurn();
+            }
+            else//Még nem volt meg a 3 akció, következõ akció
+            {
+                FindAnyObjectByType<ActionSelectionPanel>().ShowPanel();
+            }
+        }
+        else
+        {
+            Debug.Log("Mínusz pontok: -" + ActionCount);
         }
     }
 
     public void TakePuzzle()
     {
+        CommonReserve.Instance.CommonReserveBlockingPanel.SetActive(false);
         OpenCommonReserve();
     }
 
@@ -214,9 +240,27 @@ public class Player : MonoBehaviour
 
     public void OnEndMasterActionClicked()
     {
-        masterActionUsed = true;
-        endMasterActionBtn.SetActive(false);
-        Debug.Log("MasterAction has Ended");
-        TurnManager.Instance.currentPlayer.ActionHasEnded();
+        if (gridsUsedInMasterAction.Count != 0)
+        {
+            masterActionUsed = true;
+            endMasterActionBtn.SetActive(false);
+            Debug.Log("MasterAction has Ended");
+            TurnManager.Instance.currentPlayer.ActionHasEnded();
+        }
+        else
+        {
+            masterActionUsed = false;
+            endMasterActionBtn.SetActive(false);
+            Debug.Log("MasterAction was cancelled");
+            ActionCount--;
+            TurnManager.Instance.currentPlayer.ActionHasEnded();
+        }
+        
+    }
+
+    public void OnEndVegsoRendrakasClicked()
+    {
+        RefreshScore(ActionCount * -1);
+        EndMyTurn();
     }
 }

@@ -17,6 +17,7 @@ public class CommonReserve : MonoBehaviour
     public InventoryManager inventoryManager;
 
     public GameObject CommonReservePanel;
+    public GameObject CommonReserveBlockingPanel;
     private Player originPlayer;
     private bool CommonReserveReady = false;
 
@@ -31,6 +32,7 @@ public class CommonReserve : MonoBehaviour
             return;
         }
         Instance = this;
+        CommonReserveBlockingPanel.SetActive(true);
     }
     // Start is called before the first frame update
     void Start()
@@ -206,6 +208,8 @@ public class CommonReserve : MonoBehaviour
         {
             currentPlayer.ReceiveCard(selected);
         }
+
+        CommonReserveBlockingPanel.SetActive(false);
     }
 
     public void OnBackClicked()
@@ -225,6 +229,7 @@ public class CommonReserve : MonoBehaviour
     {
         originPlayer = fromPlayer;
         CommonReservePanel.SetActive(true);
+        //CommonReserveBlockingPanel.SetActive(true);
         fromPlayer.PlayerPanel.SetActive(false);
     }
 
