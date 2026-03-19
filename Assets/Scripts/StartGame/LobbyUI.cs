@@ -33,7 +33,7 @@ public class LobbyUI : MonoBehaviourPunCallbacks
     [SerializeField] private GameObject roomListItemPrefab;
     [SerializeField] private TMP_InputField createRoomNameInput;
     [SerializeField] private Button createRoomButton;
-    [SerializeField] private Button joinRandomButton;
+    //[SerializeField] private Button joinRandomButton;
     [SerializeField] private Button backToMainMenuButton;
 
     [Header("Waiting Room Panel")]
@@ -61,7 +61,7 @@ public class LobbyUI : MonoBehaviourPunCallbacks
 
         connectButton.onClick.AddListener(OnConnectClicked);
         createRoomButton.onClick.AddListener(OnCreateRoomClicked);
-        joinRandomButton.onClick.AddListener(() => NetworkManager.Instance.JoinRandomRoom());
+        //joinRandomButton.onClick.AddListener(() => NetworkManager.Instance.JoinRandomRoom());
         leaveRoomButton.onClick.AddListener(() => NetworkManager.Instance.LeaveRoom());
         backToMainMenuButton?.onClick.AddListener(OnBackToMainMenu);
         readyButton.onClick.AddListener(ToggleReady);
