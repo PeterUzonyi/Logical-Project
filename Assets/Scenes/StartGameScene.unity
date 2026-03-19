@@ -348,25 +348,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cf5020c064cc3047b61d245c5d64c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connectPanel: {fileID: 0}
-  roomListPanel: {fileID: 0}
-  waitingRoomPanel: {fileID: 0}
-  playerNameInput: {fileID: 0}
-  connectButton: {fileID: 0}
-  statusLabel: {fileID: 0}
-  roomListContainer: {fileID: 0}
-  roomListItemPrefab: {fileID: 0}
-  createRoomNameInput: {fileID: 0}
-  createRoomButton: {fileID: 0}
-  backToMainMenuButton: {fileID: 0}
-  playerListContainer: {fileID: 0}
-  playerListItemPrefab: {fileID: 0}
-  readyButton: {fileID: 0}
-  startButton: {fileID: 0}
-  leaveRoomButton: {fileID: 0}
-  roomNameLabel: {fileID: 0}
-  thinkingTimeSlider: {fileID: 0}
-  thinkingTimeLabel: {fileID: 0}
+  connectPanel: {fileID: 975360581}
+  roomListPanel: {fileID: 1081196496}
+  waitingRoomPanel: {fileID: 1175914443}
+  playerNameInput: {fileID: 1958637201}
+  connectButton: {fileID: 1574826878}
+  statusLabel: {fileID: 435487388}
+  roomListContainer: {fileID: 876423880}
+  roomListItemPrefab: {fileID: 4962422949439547539, guid: 5011ea10299f31a4bb7b910e76aba439, type: 3}
+  createRoomNameInput: {fileID: 1442523836}
+  createRoomButton: {fileID: 710948193}
+  backToMainMenuButton: {fileID: 862914558}
+  playerListContainer: {fileID: 1476072428}
+  playerListItemPrefab: {fileID: 7694316406875916181, guid: dcbe4ceec03dc9a4cbec245d76e70a2a, type: 3}
+  readyButton: {fileID: 2113000324}
+  startButton: {fileID: 751667126}
+  leaveRoomButton: {fileID: 1925480425}
+  roomNameLabel: {fileID: 19916760}
+  thinkingTimeSlider: {fileID: 819795179}
+  thinkingTimeLabel: {fileID: 1691024122}
   gameSceneName: GameScene
 --- !u!1 &110852715
 GameObject:
@@ -2609,31 +2609,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 710948194}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1596039219}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: GameScene
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1081196496}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &710948194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2754,31 +2730,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 751667127}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1596039219}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: GameScene
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1175914443}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &751667127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3195,6 +3147,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 876423880}
+  - component: {fileID: 876423882}
+  - component: {fileID: 876423881}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -3221,6 +3175,46 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
+--- !u!114 &876423881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876423879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
+--- !u!114 &876423882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876423879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 5
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &876994371
 GameObject:
   m_ObjectHideFlags: 0
@@ -3798,7 +3792,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &989286628
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5365,6 +5359,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1476072428}
+  - component: {fileID: 1476072430}
+  - component: {fileID: 1476072429}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -5391,6 +5387,46 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
+--- !u!114 &1476072429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476072427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
+--- !u!114 &1476072430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476072427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 5
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &1495312703
 GameObject:
   m_ObjectHideFlags: 0
@@ -5805,31 +5841,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1574826879}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1596039219}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: GameScene
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 975360581}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1574826879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8248,31 +8260,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2113000325}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1596039219}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: GameScene
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1175914443}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2113000325
 MonoBehaviour:
   m_ObjectHideFlags: 0
