@@ -163,7 +163,7 @@ public class LobbyUI : MonoBehaviourPunCallbacks
         isReady = !isReady;
 
         var label = readyButton.GetComponentInChildren<TextMeshProUGUI>();
-        if (label) label.text = isReady ? "Kész" : "Kész";
+        if (label) label.text = isReady ? "Mégsem" : "Kész";
 
         PhotonNetwork.LocalPlayer.SetCustomProperties(
             new ExitGames.Client.Photon.Hashtable { { "ready", isReady } }
@@ -213,8 +213,17 @@ public class LobbyUI : MonoBehaviourPunCallbacks
     // Helper 
     private void ShowPanel(GameObject target)
     {
-        connectPanel.SetActive(target == connectPanel);
-        roomListPanel.SetActive(target == roomListPanel);
-        waitingRoomPanel.SetActive(target == waitingRoomPanel);
+        if (connectPanel)
+        {
+            connectPanel.SetActive(target == connectPanel);
+        }
+        if (roomListPanel)
+        {
+            roomListPanel.SetActive(target == roomListPanel);
+        }
+        if (waitingRoomPanel)
+        {
+            waitingRoomPanel.SetActive(target == waitingRoomPanel);
+        }
     }
 }
