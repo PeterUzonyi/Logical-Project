@@ -6,7 +6,7 @@ public enum ActionType
 {
     TakePuzzle,      //Kész
     TakeElement,     //Kész
-    UpdrageElement,
+    UpdrageElement,  //Kész
     PlaceElement,    //Kész
     MesterAction     //kész
 }

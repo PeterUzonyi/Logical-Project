@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Photon;
+using Photon.Pun;
 
 public class Player : MonoBehaviour
 {
@@ -22,6 +24,7 @@ public class Player : MonoBehaviour
     private CardLoader[] MyCardSlots = new CardLoader[4];
 
     public GameObject PlayerPanel;
+    [SerializeField] private Image panelBackground;
 
     public ActionType selectedAction;
     public bool masterActionUsed;
@@ -36,6 +39,11 @@ public class Player : MonoBehaviour
 
     void Awake()
     {
+        if (panelBackground != null)
+        {
+            panelBackground.color = GameConfig.PlayerColors[PlayerID - 1];
+        }            
+
         RefreshScore(0);
 
         //Eltûnjenek az üres kártya prefabok
@@ -48,6 +56,44 @@ public class Player : MonoBehaviour
     {
         IsMyRound = value;
 
+        // Online módban csak akkor engedélyezzük, ha tényleg a mi actorunk van soron
+        if (PhotonNetwork.IsConnected && OnlineTurnManager.Instance != null)
+        {
+            bool actuallyMyTurn = value && OnlineTurnManager.Instance.IsMyTurn;
+            BlockingPanel.SetActive(!actuallyMyTurn);
+            PlayerPanel.SetActive(actuallyMyTurn);
+
+            if (!actuallyMyTurn)
+            {
+                return;
+            }
+        }
+        else
+        {
+            // Lokális logika marad
+            PlayerPanel.SetActive(value);
+            BlockingPanel.SetActive(!value);
+            if (!value)
+            {
+                return;
+            }
+        }
+
+        // Közös kör-kezdõ logika
+        ActionCount = 0;
+        masterActionUsed = false;
+        actionHasEnded = false;
+
+        if (!TurnManager.Instance.isVegsoRendrakas)
+        {
+            FindAnyObjectByType<ActionSelectionPanel>().ShowPanel();
+        }
+        else
+        {
+            endVegsoRendrakasBtn.SetActive(true);
+        }
+
+        /*
         if (IsMyRound)
         {//Ez a játékos van soron
             PlayerPanel.SetActive(true);
@@ -57,20 +103,14 @@ public class Player : MonoBehaviour
             masterActionUsed = false;
             actionHasEnded = false;
 
-            if (!TurnManager.Instance.isVegsoRendrakas)
-            {
-                FindAnyObjectByType<ActionSelectionPanel>().ShowPanel();
-            }
-            else
-            {
-                endVegsoRendrakasBtn.SetActive(true);
-            }
+            
         }
         else
         {//Más játékos van soron
             PlayerPanel.SetActive(false);
             BlockingPanel.SetActive(true);
         }
+        */
     }
 
     public bool IsCardSlotsFull()
@@ -220,7 +260,17 @@ public class Player : MonoBehaviour
 
     public void EndMyTurn()
     {
-        FindAnyObjectByType<TurnManager>().EndTurn();
+        if (PhotonNetwork.IsConnected && OnlineTurnManager.Instance != null)
+        {
+            // Online: jelezzük a szervernek hogy végeztünk
+            OnlineTurnManager.Instance.SubmitMove();
+            // A TurnManager.EndTurn()-t az OnOnlineTurnChanged fogja meghívni
+        }
+        else
+        {
+            // Lokális játék: marad a régi logika
+            FindAnyObjectByType<TurnManager>().EndTurn();
+        }
         Debug.Log("Másik játékos köre");
     }
 

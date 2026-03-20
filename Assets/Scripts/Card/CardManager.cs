@@ -137,11 +137,11 @@ public class CardManager : MonoBehaviour
         if (cardList[0].Color == "Black")
         {
             //A playerCount jelenleg 2
-            int playerCount = TurnManager.Instance.playerCount;//Itt a gond
+            int count = TurnManager.Instance.playerCount;//Itt a gond
             int startIndex = 12;
             int range = 0;
 
-            switch (playerCount)
+            switch (count)
             {
                 case 2:
                     startIndex = 12;
