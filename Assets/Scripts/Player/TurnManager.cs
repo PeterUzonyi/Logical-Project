@@ -15,7 +15,7 @@ public class TurnManager : MonoBehaviour
     public int playerCount = 2;
     */
     [SerializeField] private List<Player> allPlayers; // Inspectorban: mind a 4 Player bekötve
-    private List<Player> players = new List<Player>(); // csak az aktív játékosok
+    public List<Player> players = new List<Player>(); // csak az aktív játékosok
     public Player currentPlayer { get; private set; } //Soron lévõ játékos
     public int playerCount => players.Count;
 

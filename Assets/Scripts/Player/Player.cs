@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     public int masterActionCardCount = 0;
 
     public GameObject actionBtn;
+    public GameObject changePlayerViewBtn;
     public GameObject endMasterActionBtn;
     public GameObject endVegsoRendrakasBtn;
 
@@ -286,6 +287,14 @@ public class Player : MonoBehaviour
     public void OpenCommonReserve()
     {
         CommonReserve.Instance.Open(this);
+    }
+
+    public void OnChangePlayerViewClicked()
+    {
+        int next = (PlayerID % TurnManager.Instance.playerCount);
+
+        PlayerPanel.SetActive(false);
+        TurnManager.Instance.players[next].PlayerPanel.SetActive(true);
     }
 
     public void OnEndMasterActionClicked()
