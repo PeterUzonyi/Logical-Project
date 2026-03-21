@@ -34,9 +34,8 @@ public class TurnManager : MonoBehaviour
         isGameOver = false;
         lastPlayerTurn = 0;
         isVegsoRendrakas = false;
-    }
-    void Start()
-    {
+
+
         int count = PhotonNetwork.IsConnected
             ? PhotonNetwork.PlayerList.Length  // online: szobában lévõk száma
             : GameConfig.PlayerCount;           // lokális: fõmenübõl beállított
@@ -54,7 +53,9 @@ public class TurnManager : MonoBehaviour
                 allPlayers[i].gameObject.SetActive(false);
             }
         }
-
+    }
+    void Start()
+    {
         // Online módban a helyi játékos legyen players[0]
         if (PhotonNetwork.IsConnected)
         {

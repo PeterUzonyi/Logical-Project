@@ -11408,7 +11408,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1004556512
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23929,6 +23929,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ActionSelection
       objectReference: {fileID: 0}
+    - target: {fileID: 953686356447270679, guid: 609f2d60cf956f94bbae8da1f484d4dc, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 953686356447270679, guid: 609f2d60cf956f94bbae8da1f484d4dc, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 1823469757049358119, guid: 609f2d60cf956f94bbae8da1f484d4dc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
