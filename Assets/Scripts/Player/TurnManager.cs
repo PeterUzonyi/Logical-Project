@@ -8,12 +8,7 @@ using System.Linq;
 public class TurnManager : MonoBehaviour
 {
     public static TurnManager Instance { get; private set; }
-    /*
-    public Player player1;
-    public Player player2;
 
-    public int playerCount = 2;
-    */
     [SerializeField] private List<Player> allPlayers; // Inspectorban: mind a 4 Player bekötve
     public List<Player> players = new List<Player>(); // csak az aktív játékosok
     public Player currentPlayer { get; private set; } //Soron lévõ játékos
@@ -64,26 +59,10 @@ public class TurnManager : MonoBehaviour
 
             for (int i = 0; i < players.Count; i++)
             {
-                /*
-                players[i].PlayerID = photonPlayers[i].ActorNumber;
-                players[i].PlayerName = photonPlayers[i].NickName;
-                */
                 players[i].PlayerID = i + 1; // fix 1-4
                 players[i].PhotonActorNumber = photonPlayers[i].ActorNumber; // Photon szám
                 players[i].PlayerName = photonPlayers[i].NickName;
             }
-
-            // Helyi játékos legyen players[0]
-            /*
-            int localIdx = players.FindIndex(p => p.PlayerID == PhotonNetwork.LocalPlayer.ActorNumber);
-
-            if (localIdx > 0)
-            {
-                var tmp = players[0];
-                players[0] = players[localIdx];
-                players[localIdx] = tmp;
-            }
-            */
         }
         else
         {
@@ -101,7 +80,6 @@ public class TurnManager : MonoBehaviour
             for (int i = 0; i < players.Count; i++)
             {
                 players[i].BlockingPanel.SetActive(true);
-                //players[i].PlayerPanel.SetActive(false);
             }
         }
         else
@@ -119,112 +97,12 @@ public class TurnManager : MonoBehaviour
             }
         }
 
-        /*
-        for (int i = 0; i < players.Count; i++)
-        {
-            if (i == 0)
-            {
-                players[i].MyTurn(true);
-            }
-            else
-            {
-                players[i].MyTurn(false);
-            }
-        }
-        */
-
         if (PhotonNetwork.IsConnected && OnlineTurnManager.Instance != null)
         {
             OnlineTurnManager.OnTurnChanged += OnOnlineTurnChanged;
             OnlineTurnManager.OnTimeUp += OnOnlineTimeUp;
         }
-
-        /*
-        // Online módban: a saját gépen a helyi játékos legyen players[0]
-        if (PhotonNetwork.IsConnected)
-        {
-            SpawnPlayersOnline(count);
-        }
-        else
-        {
-            SpawnPlayersLocal(count);
-        }
-
-        currentPlayer = players[0];
-        currentPlayer.OpenCommonReserve();
-
-        for (int i = 0; i < players.Count; i++)
-            players[i].MyTurn(i == 0);
-
-        if (PhotonNetwork.IsConnected && OnlineTurnManager.Instance != null)
-        {
-            OnlineTurnManager.OnTurnChanged += OnOnlineTurnChanged;
-            OnlineTurnManager.OnTimeUp += OnOnlineTimeUp;
-        }
-        */
-        /*
-        // Online módban: player1 legyen mindig a helyi játékos
-        if (PhotonNetwork.IsConnected && !PhotonNetwork.IsMasterClient)
-        {
-            var temp = player1;
-            player1 = player2;
-            player2 = temp;
-        }
-
-        currentPlayer = player1;
-        //A CommonReserve Inicializálása miatt kell
-        currentPlayer.OpenCommonReserve();
-        player1.MyTurn(true);
-        player2.MyTurn(false);
-        playerCount = 2;
-
-        // Ha online mód van, feliratkozunk az OnlineTurnManager eseményeire
-        if (PhotonNetwork.IsConnected && OnlineTurnManager.Instance != null)
-        {
-            OnlineTurnManager.OnTurnChanged += OnOnlineTurnChanged;
-            OnlineTurnManager.OnTimeUp += OnOnlineTimeUp;
-        }
-        */
     }
-
-    /*
-    private void SpawnPlayersLocal(int count)
-    {
-        for (int i = 0; i < count; i++)
-        {
-            Player p = Instantiate(playerPrefab, spawnPoints[i].position, Quaternion.identity);
-            p.PlayerID = i + 1;
-            p.PlayerName = $"Játékos {i + 1}";
-            players.Add(p);
-        }
-    }
-
-    private void SpawnPlayersOnline(int count)
-    {
-        // MasterClient = players[0], többi sorrendben
-        var photonPlayers = PhotonNetwork.PlayerList
-            .OrderBy(p => p.IsMasterClient ? 0 : 1)
-            .ToList();
-
-        for (int i = 0; i < count; i++)
-        {
-            Player p = Instantiate(playerPrefab, spawnPoints[i].position, Quaternion.identity);
-            p.PlayerID = photonPlayers[i].ActorNumber;
-            p.PlayerName = photonPlayers[i].NickName;
-            players.Add(p);
-        }
-
-        // Helyi játékos legyen players[0]
-        int localIdx = players.FindIndex(
-            p => p.PlayerID == PhotonNetwork.LocalPlayer.ActorNumber);
-        if (localIdx > 0)
-        {
-            var tmp = players[0];
-            players[0] = players[localIdx];
-            players[localIdx] = tmp;
-        }
-    }
-    */
 
     void OnDestroy()
     {
@@ -263,20 +141,7 @@ public class TurnManager : MonoBehaviour
             }
             
         }
-        /*
-        if (currentPlayer == player1) 
-        {
-            currentPlayer = player2;
-            player1.MyTurn(false);
-            player2.MyTurn(true);
-        }
-        else 
-        {
-            currentPlayer = player1;
-            player1.MyTurn(true);
-            player2.MyTurn(false);
-        }
-        */
+
         if (isLastRound)
         {
             lastPlayerTurn++;
@@ -301,7 +166,6 @@ public class TurnManager : MonoBehaviour
     private void OnOnlineTurnChanged(int actorNumber)
     {
         // Az actorNumber alapján döntjük el ki a currentPlayer
-        // 1. MasterClient = player1, 2. másik játékos = player2 (Photon sorrendben)
         var next=players.FirstOrDefault(p => p.PhotonActorNumber == actorNumber);
         if (next == null)
         {
@@ -321,28 +185,6 @@ public class TurnManager : MonoBehaviour
                 players[i].MyTurn(false);
             }
         }
-        /*
-        var photonPlayer = PhotonNetwork.PlayerList.FirstOrDefault(p => p.ActorNumber == actorNumber);
-        if (photonPlayer == null)
-        {
-            return;
-        }
-
-        bool masterClientIsNext = photonPlayer.IsMasterClient;
-
-        if (masterClientIsNext)
-        {
-            currentPlayer = player1;
-            player1.MyTurn(true);
-            player2.MyTurn(false);
-        }
-        else
-        {
-            currentPlayer = player2;
-            player1.MyTurn(false);
-            player2.MyTurn(true);
-        }
-        */
     }
     private void OnOnlineTimeUp()
     {

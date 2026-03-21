@@ -48,12 +48,8 @@ public class OnlineTurnManager : MonoBehaviourPun
         // Csak a MasterClient indítja az elsõ kört
         if (PhotonNetwork.IsMasterClient)
         {
+            //Késleltetni kell
             StartCoroutine(StartFirstTurn());
-            /*
-            photonView.RPC(nameof(RPC_SetTurn),
-                RpcTarget.All,
-                PhotonNetwork.MasterClient.ActorNumber);
-            */
         }
     }
 
@@ -90,8 +86,7 @@ public class OnlineTurnManager : MonoBehaviourPun
     /// Igaz ha a helyi játékos van soron.
     /// A GameManager-edben ezzel ellenõrizd hogy engedélyezed e a lépést.
     /// </summary>
-    public bool IsMyTurn =>
-        PhotonNetwork.LocalPlayer.ActorNumber == activeActorNumber;
+    public bool IsMyTurn => PhotonNetwork.LocalPlayer.ActorNumber == activeActorNumber;
 
     /// <summary>
     /// Hívd meg amikor a helyi játékos elvégezte a lépését.

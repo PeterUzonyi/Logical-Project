@@ -67,11 +67,9 @@ public class Player : MonoBehaviour
         // Online módban csak akkor engedélyezzük, ha tényleg a mi actorunk van soron
         if (PhotonNetwork.IsConnected && OnlineTurnManager.Instance != null)
         {
-            //bool actuallyMyTurn = value && OnlineTurnManager.Instance.IsMyTurn;
             bool isLocalPlayer = PhotonActorNumber == PhotonNetwork.LocalPlayer.ActorNumber;
             bool actuallyMyTurn = isLocalPlayer && OnlineTurnManager.Instance.IsMyTurn;
             BlockingPanel.SetActive(!actuallyMyTurn);
-            //PlayerPanel.SetActive(actuallyMyTurn);
 
             if (!actuallyMyTurn)
             {
@@ -106,25 +104,6 @@ public class Player : MonoBehaviour
         {
             endVegsoRendrakasBtn.SetActive(true);
         }
-
-        /*
-        if (IsMyRound)
-        {//Ez a játékos van soron
-            PlayerPanel.SetActive(true);
-            BlockingPanel.SetActive(false);
-
-            ActionCount = 0;
-            masterActionUsed = false;
-            actionHasEnded = false;
-
-            
-        }
-        else
-        {//Más játékos van soron
-            PlayerPanel.SetActive(false);
-            BlockingPanel.SetActive(true);
-        }
-        */
     }
 
     public bool IsCardSlotsFull()
@@ -255,7 +234,6 @@ public class Player : MonoBehaviour
     {
         PlayerPanel.SetActive(false);
         UpgradePanel.Instance.Open(this);
-        //ActionHasEnded();
     }
 
     public void MasterAction()
@@ -327,7 +305,6 @@ public class Player : MonoBehaviour
             ActionCount--;
             TurnManager.Instance.currentPlayer.ActionHasEnded();
         }
-        
     }
 
     public void OnEndVegsoRendrakasClicked()
