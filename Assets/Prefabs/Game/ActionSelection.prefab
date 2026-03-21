@@ -180,6 +180,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 8354576021652404920}
+  CommonReserveBlockingPanel: {fileID: 0}
+  ErrorMessagePanel: {fileID: 0}
 --- !u!1 &1418965498912743499
 GameObject:
   m_ObjectHideFlags: 0

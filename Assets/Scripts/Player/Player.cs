@@ -66,6 +66,7 @@ public class Player : MonoBehaviour
 
             if (!actuallyMyTurn)
             {
+                FindAnyObjectByType<ActionSelectionPanel>().HidePanel();
                 return;
             }
         }
