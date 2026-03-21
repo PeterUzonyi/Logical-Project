@@ -170,6 +170,20 @@ public class LobbyUI : MonoBehaviourPunCallbacks
         );
     }
 
+    public override void OnRoomPropertiesUpdate(ExitGames.Client.Photon.Hashtable propertiesThatChanged)
+    {
+        if (propertiesThatChanged.TryGetValue("thinkTime", out var t))
+        {
+            float value = System.Convert.ToSingle(t);
+            if (thinkingTimeLabel)
+                thinkingTimeLabel.text = $"Gondolkodási idõ: {value}s";
+
+            // Ha a slider látható (csak hostnál), frissítsd azt is
+            if (thinkingTimeSlider && thinkingTimeSlider.gameObject.activeSelf)
+                thinkingTimeSlider.SetValueWithoutNotify(value);
+        }
+    }
+
     public override void OnPlayerPropertiesUpdate(PhotonPlayer targetPlayer,
         ExitGames.Client.Photon.Hashtable changedProps)
     {
