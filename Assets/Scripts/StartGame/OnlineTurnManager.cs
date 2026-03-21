@@ -27,6 +27,8 @@ public class OnlineTurnManager : MonoBehaviourPun
     private float remainingTime;
     private bool timerRunning = false;
 
+    public int ActiveActorNumber => activeActorNumber;
+
     // Lifecycle
     void Awake()
     {
@@ -46,10 +48,21 @@ public class OnlineTurnManager : MonoBehaviourPun
         // Csak a MasterClient indítja az elsõ kört
         if (PhotonNetwork.IsMasterClient)
         {
+            StartCoroutine(StartFirstTurn());
+            /*
             photonView.RPC(nameof(RPC_SetTurn),
                 RpcTarget.All,
                 PhotonNetwork.MasterClient.ActorNumber);
+            */
         }
+    }
+
+    private IEnumerator StartFirstTurn()
+    {
+        yield return new WaitForSeconds(0.5f);
+        photonView.RPC(nameof(RPC_SetTurn),
+            RpcTarget.All,
+            PhotonNetwork.MasterClient.ActorNumber);
     }
 
     void Update()

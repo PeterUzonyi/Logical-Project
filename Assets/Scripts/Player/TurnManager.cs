@@ -64,11 +64,17 @@ public class TurnManager : MonoBehaviour
 
             for (int i = 0; i < players.Count; i++)
             {
+                /*
                 players[i].PlayerID = photonPlayers[i].ActorNumber;
+                players[i].PlayerName = photonPlayers[i].NickName;
+                */
+                players[i].PlayerID = i + 1; // fix 1-4
+                players[i].PhotonActorNumber = photonPlayers[i].ActorNumber; // Photon szám
                 players[i].PlayerName = photonPlayers[i].NickName;
             }
 
             // Helyi játékos legyen players[0]
+            /*
             int localIdx = players.FindIndex(p => p.PlayerID == PhotonNetwork.LocalPlayer.ActorNumber);
 
             if (localIdx > 0)
@@ -77,6 +83,7 @@ public class TurnManager : MonoBehaviour
                 players[0] = players[localIdx];
                 players[localIdx] = tmp;
             }
+            */
         }
         else
         {
@@ -89,6 +96,30 @@ public class TurnManager : MonoBehaviour
         currentPlayer = players[0];
         currentPlayer.OpenCommonReserve();
 
+        if (PhotonNetwork.IsConnected)
+        {
+            for (int i = 0; i < players.Count; i++)
+            {
+                players[i].BlockingPanel.SetActive(true);
+                //players[i].PlayerPanel.SetActive(false);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < players.Count; i++)
+            {
+                if (i == 0)
+                {
+                    players[i].MyTurn(true);
+                }
+                else
+                {
+                    players[i].MyTurn(false);
+                }
+            }
+        }
+
+        /*
         for (int i = 0; i < players.Count; i++)
         {
             if (i == 0)
@@ -100,6 +131,7 @@ public class TurnManager : MonoBehaviour
                 players[i].MyTurn(false);
             }
         }
+        */
 
         if (PhotonNetwork.IsConnected && OnlineTurnManager.Instance != null)
         {
@@ -270,9 +302,10 @@ public class TurnManager : MonoBehaviour
     {
         // Az actorNumber alapján döntjük el ki a currentPlayer
         // 1. MasterClient = player1, 2. másik játékos = player2 (Photon sorrendben)
-        var next=players.FirstOrDefault(p => p.PlayerID == actorNumber);
+        var next=players.FirstOrDefault(p => p.PhotonActorNumber == actorNumber);
         if (next == null)
         {
+            Debug.LogWarning("Nem található játékos ezzel az ActorNumber-rel: " + actorNumber);
             return;
         }
 

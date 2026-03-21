@@ -38,6 +38,8 @@ public class Player : MonoBehaviour
     public GameObject endMasterActionBtn;
     public GameObject endVegsoRendrakasBtn;
 
+    public int PhotonActorNumber; // Photon ActorNumber tárolása
+
     void Awake()
     {
         if (panelBackground != null)
@@ -55,18 +57,28 @@ public class Player : MonoBehaviour
     }
     public void MyTurn(bool value)
     {
+        Debug.Log($"MyTurn: {PlayerID}, value={value}, " +
+              $"IsMyTurn={OnlineTurnManager.Instance?.IsMyTurn}, " +
+              $"LocalActorNumber={PhotonNetwork.LocalPlayer.ActorNumber}, " +
+              $"ActiveActor={OnlineTurnManager.Instance?.ActiveActorNumber}");
+
         IsMyRound = value;
 
         // Online módban csak akkor engedélyezzük, ha tényleg a mi actorunk van soron
         if (PhotonNetwork.IsConnected && OnlineTurnManager.Instance != null)
         {
-            bool actuallyMyTurn = value && OnlineTurnManager.Instance.IsMyTurn;
+            //bool actuallyMyTurn = value && OnlineTurnManager.Instance.IsMyTurn;
+            bool isLocalPlayer = PhotonActorNumber == PhotonNetwork.LocalPlayer.ActorNumber;
+            bool actuallyMyTurn = isLocalPlayer && OnlineTurnManager.Instance.IsMyTurn;
             BlockingPanel.SetActive(!actuallyMyTurn);
-            PlayerPanel.SetActive(actuallyMyTurn);
+            //PlayerPanel.SetActive(actuallyMyTurn);
 
             if (!actuallyMyTurn)
             {
-                FindAnyObjectByType<ActionSelectionPanel>().HidePanel();
+                if (isLocalPlayer)
+                {
+                    FindAnyObjectByType<ActionSelectionPanel>().HidePanel();
+                }                
                 return;
             }
         }
