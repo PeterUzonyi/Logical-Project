@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 using UnityEngine.EventSystems;
-using UnityEditor.Experimental.GraphView;
 
 public class UpgradePanel : MonoBehaviour
 {
