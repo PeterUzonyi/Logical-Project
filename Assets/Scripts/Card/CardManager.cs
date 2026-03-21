@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using System.Linq;
 
-public class CardManager : MonoBehaviour
+public class CardManager : MonoBehaviourPun
 {
     public static CardManager Instance { get; private set; }
 
@@ -30,6 +32,7 @@ public class CardManager : MonoBehaviour
 
     private void LoadCards()
     {
+        int idCounter = 0;
         string[] lines = cardFile.text.Split('\n');
 
         foreach (string line in lines)
@@ -51,7 +54,9 @@ public class CardManager : MonoBehaviour
                 card.Score = int.Parse(parts[1]);
                 card.RewardElement = int.Parse(parts[2]);
                 card.Matrix = Matrix;
-                
+                card.UniqueID = idCounter;
+                idCounter++;
+
                 DontDestroyOnLoad(cardObject);
 
                 if (card.Color == "White")
@@ -68,6 +73,46 @@ public class CardManager : MonoBehaviour
         BlackCards = ShuffleList(BlackCards);
         WhiteCards = ShuffleList(WhiteCards);
 
+        if (PhotonNetwork.IsConnected)
+        {
+            //Online
+            if (PhotonNetwork.IsMasterClient)
+            {
+                // MasterClient elküldi a keverés sorrendjét
+                int[] blackOrder = BlackCards.Select(c => c.UniqueID).ToArray();
+                int[] whiteOrder = WhiteCards.Select(c => c.UniqueID).ToArray();
+                photonView.RPC(nameof(RPC_SyncCardOrder), RpcTarget.Others, blackOrder, whiteOrder);
+                IsReady = true;
+            }
+            else
+            {
+                //Többi cliens várja az RPC-t
+                IsReady = false;
+            }
+        }
+        else
+        {
+            //Lokális
+            IsReady = true;
+        }
+    }
+
+    [PunRPC]
+    private void RPC_SyncCardOrder(int[] blackOrder, int[] whiteOrder)
+    {
+        // Átrendezi a fekete paklit a MasterClient sorrendje szerint
+        BlackCards = blackOrder
+            .Select(id => BlackCards.FirstOrDefault(c => c.UniqueID == id))
+            .Where(c => c != null)
+            .ToList();
+
+        // Átrendezi a fehér paklit a MasterClient sorrendje szerint
+        WhiteCards = whiteOrder
+            .Select(id => WhiteCards.FirstOrDefault(c => c.UniqueID == id))
+            .Where(c => c != null)
+            .ToList();
+
+        // Most már szinkronban van, készen áll
         IsReady = true;
     }
 

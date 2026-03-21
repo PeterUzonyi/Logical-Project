@@ -9,6 +9,7 @@ public class CardType : MonoBehaviour
     public int Score;
     public int RewardElement;
     public int[,] Matrix = new int[7,7];
+    public int UniqueID;
 
     public CardType(string color, int score, int rewardElement, int[,] matrix)
     {
@@ -16,5 +17,14 @@ public class CardType : MonoBehaviour
         Score = score;
         RewardElement = rewardElement;
         Matrix = matrix;
+    }
+
+    public CardType(string color, int score, int rewardElement, int[,] matrix, int uniqueID)
+    {
+        Color = color;
+        Score = score;
+        RewardElement = rewardElement;
+        Matrix = matrix;
+        UniqueID = uniqueID;
     }
 }

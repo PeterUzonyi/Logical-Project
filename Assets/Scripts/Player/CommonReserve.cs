@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Linq;
+using Photon.Pun;
 
-public class CommonReserve : MonoBehaviour
+public class CommonReserve : MonoBehaviourPun
 {
     public static CommonReserve Instance { get; private set; }
 
@@ -164,10 +165,12 @@ public class CommonReserve : MonoBehaviour
             slot.gameObject.SetActive(false); // pakli elfogyott
         }
 
+        
         //TakePuzzle has Ended
         TurnManager.Instance.currentPlayer.ActionHasEnded();
         Debug.Log("TakePuzzle has Ended");
         OnBackClicked();
+        
 
         RefreshRemainingCardCount();
 
@@ -201,15 +204,62 @@ public class CommonReserve : MonoBehaviour
             return;
         }
 
-        // Megpróbálja átadni a lapot a soron lévõ játékosnak
-        CardType selected = SelectCard(slotIndex);
 
-        if (selected != null)
+        if (PhotonNetwork.IsConnected)
         {
-            currentPlayer.ReceiveCard(selected);
+            //Online mód:
+            // RPC küldés minden kliensnek
+            photonView.RPC(nameof(RPC_SelectCard), RpcTarget.All, slotIndex, currentPlayer.PlayerID);
+        }
+        else
+        {
+            //Lokális mód:
+            // Megpróbálja átadni a lapot a soron lévõ játékosnak
+            CardType selected = SelectCard(slotIndex);
+
+            if (selected != null)
+            {
+                currentPlayer.ReceiveCard(selected);
+            }
+
+            CommonReserveBlockingPanel.SetActive(false);
+        }
+    }
+
+    [PunRPC]
+    private void RPC_SelectCard(int slotIndex, int playerID)
+    {
+        if (slotIndex < 0 || slotIndex >= cardSlots.Length) return;
+
+        CardLoader slot = cardSlots[slotIndex];
+        CardType selectedCard = slot.CurrentCard;
+        if (selectedCard == null) return;
+
+        // Slot frissítése mindenkinél
+        string color = slotIndex < 4 ? "White" : "Black";
+        CardType nextCard = CardManager.Instance.DrawCard(color);
+
+        if (nextCard != null)
+            slot.ShowCard(nextCard);
+        else
+            slot.gameObject.SetActive(false);
+
+        RefreshRemainingCardCount();
+
+        // Csak a helyi kliensen adjuk át a kártyát a játékosnak
+        Player player = TurnManager.Instance.players.FirstOrDefault(p => p.PlayerID == playerID);
+        if (player != null)
+        {
+            player.ReceiveCard(selectedCard);
         }
 
-        CommonReserveBlockingPanel.SetActive(false);
+        // Csak az akció tulajdonosánál fut le a kör logika
+        if (PhotonNetwork.LocalPlayer.ActorNumber == TurnManager.Instance.players
+            .FirstOrDefault(p => p.PlayerID == playerID)?.PhotonActorNumber)
+        {
+            TurnManager.Instance.currentPlayer.ActionHasEnded();
+            OnBackClicked();
+        }
     }
 
     public void OnBackClicked()

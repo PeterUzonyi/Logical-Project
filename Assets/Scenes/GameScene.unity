@@ -6957,6 +6957,7 @@ GameObject:
   m_Component:
   - component: {fileID: 623477430}
   - component: {fileID: 623477431}
+  - component: {fileID: 623477432}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -7015,6 +7016,29 @@ MonoBehaviour:
   changePlayerViewBtn: {fileID: 0}
   endMasterActionBtn: {fileID: 239421432}
   endVegsoRendrakasBtn: {fileID: 1119444849}
+  PhotonActorNumber: 0
+--- !u!114 &623477432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623477429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 3
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &625292190
 GameObject:
   m_ObjectHideFlags: 0
@@ -16389,6 +16413,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1359381167}
   - component: {fileID: 1359381168}
+  - component: {fileID: 1359381169}
   m_Layer: 0
   m_Name: Player4
   m_TagString: Untagged
@@ -16447,6 +16472,29 @@ MonoBehaviour:
   changePlayerViewBtn: {fileID: 0}
   endMasterActionBtn: {fileID: 341265236}
   endVegsoRendrakasBtn: {fileID: 1658906662}
+  PhotonActorNumber: 0
+--- !u!114 &1359381169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359381166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 6
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1375610597
 GameObject:
   m_ObjectHideFlags: 0
@@ -16457,6 +16505,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1375610598}
   - component: {fileID: 1375610599}
+  - component: {fileID: 1375610600}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Untagged
@@ -16515,6 +16564,29 @@ MonoBehaviour:
   changePlayerViewBtn: {fileID: 0}
   endMasterActionBtn: {fileID: 1079625044}
   endVegsoRendrakasBtn: {fileID: 1002459344}
+  PhotonActorNumber: 0
+--- !u!114 &1375610600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375610597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 4
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1001 &1395018463
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17035,6 +17107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1447666249}
   - component: {fileID: 1447666250}
+  - component: {fileID: 1447666251}
   m_Layer: 0
   m_Name: Player3
   m_TagString: Untagged
@@ -17093,6 +17166,29 @@ MonoBehaviour:
   changePlayerViewBtn: {fileID: 0}
   endMasterActionBtn: {fileID: 1310806902}
   endVegsoRendrakasBtn: {fileID: 618696176}
+  PhotonActorNumber: 0
+--- !u!114 &1447666251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447666248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 5
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1001 &1458784825
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18475,6 +18571,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1564360064}
   - component: {fileID: 1564360065}
+  - component: {fileID: 1564360066}
   m_Layer: 0
   m_Name: CommonReserve
   m_TagString: Untagged
@@ -18524,6 +18621,28 @@ MonoBehaviour:
   CommonReserveBlockingPanel: {fileID: 1939615311}
   RemainingBlackCards: {fileID: 625292190}
   RemainingWhiteCards: {fileID: 968034434}
+--- !u!114 &1564360066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564360063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 2
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!114 &1564540055 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8428034663777022356, guid: 609f2d60cf956f94bbae8da1f484d4dc, type: 3}
@@ -23169,6 +23288,10 @@ PrefabInstance:
     - target: {fileID: 3194803349649838975, guid: fcd1531485169cc4498112aad9c305be, type: 3}
       propertyPath: m_Name
       value: CardManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5727195488834758697, guid: fcd1531485169cc4498112aad9c305be, type: 3}
+      propertyPath: sceneViewId
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

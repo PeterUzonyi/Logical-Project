@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2633175839955611198}
   - component: {fileID: 3909001367013469467}
+  - component: {fileID: 5727195488834758697}
   m_Layer: 0
   m_Name: CardManager
   m_TagString: Untagged
@@ -45,3 +46,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardFile: {fileID: 4900000, guid: bd209258813a32749979243f286872fc, type: 3}
+--- !u!114 &5727195488834758697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3194803349649838975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
