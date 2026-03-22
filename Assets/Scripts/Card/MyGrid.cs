@@ -3,8 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Photon.Pun;
+using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.UI;
 
-public class MyGrid : MonoBehaviour
+public class MyGrid : MonoBehaviourPun
 {
     public int columns;
     public int rows;
@@ -145,19 +148,77 @@ public class MyGrid : MonoBehaviour
 
         if (currentSelectedShape.TotalSquareNumber == squareIndexes.Count)
         {
-            foreach (var squareIndex in squareIndexes)
+            if (PhotonNetwork.IsConnected)
             {
-                gridSquares[squareIndex].GetComponent<GridSquare>().PlaceElementOnBoard();
+                //Online mód
+                int playerID = TurnManager.Instance.currentPlayer.PlayerID;
+                int slotIndex = OwnerCardLoader.SlotIndex;
+                int itemID = currentSelectedShape.ID;
+                Color c = currentSelectedShape.ItemColor;
+
+                int totalSquares = currentSelectedShape.TotalSquareNumber;
+
+                NetworkManager.Instance.photonView.RPC(
+                    nameof(NetworkManager.RPC_PlaceElementOnGrid),
+                    RpcTarget.All,
+                    playerID,
+                    slotIndex,
+                    squareIndexes.ToArray(),
+                    itemID,
+                    c.r, c.g, c.b,
+                    totalSquares);
             }
+            else
+            {
+                //Lokális mód
+                foreach (var squareIndex in squareIndexes)
+                {
+                    gridSquares[squareIndex].GetComponent<GridSquare>().PlaceElementOnBoard();
+                }
 
-            //Elem számát egyel csökkentjük
-            currentSelectedShape.quantity--;
-
+                //Elem számát egyel csökkentjük
+                currentSelectedShape.quantity--;
+            }
 
             //Ki van töltve a kártya elemekkel
             if(IsTheCardFull())
             {
                 Player ownerPlayer = TurnManager.Instance.currentPlayer;
+
+                if (PhotonNetwork.IsConnected)
+                {
+                    //Online mód
+                    int[] elementsSnapshot = (int[])ElementsOnCard.Clone();
+                    NetworkManager.Instance.photonView.RPC(
+                        nameof(NetworkManager.RPC_CardCompleted),
+                        RpcTarget.All,
+                        ownerPlayer.PlayerID,
+                        OwnerCardLoader.SlotIndex,
+                        elementsSnapshot,
+                        scoreNumber,
+                        rewardElement);
+                }
+                else
+                {
+                    //Lokális mód
+                    InventoryManager ownerInventory = ownerPlayer.inventoryManager;
+
+                    InventoryItem item;
+                    ElementsOnCard[rewardElement]++; //A teljesítésért járó elem
+
+                    for (int i = 0; i < ElementsOnCard.Count(); i++)
+                    {
+                        item = ownerInventory.GetItemById(i);
+                        item.quantity += ElementsOnCard[i];//Visszakap minden kártyára rakott és jutalom elemet
+                        ElementsOnCard[i] = 0;
+                    }
+
+                    ownerPlayer.RefreshScore(scoreNumber);
+
+                    ownerPlayer.RemoveCard(OwnerCardLoader.SlotIndex);
+                }
+
+                /*
                 InventoryManager ownerInventory = ownerPlayer.inventoryManager;
 
                 InventoryItem item;
@@ -173,10 +234,13 @@ public class MyGrid : MonoBehaviour
                 ownerPlayer.RefreshScore(scoreNumber);
 
                 ownerPlayer.RemoveCard(OwnerCardLoader.SlotIndex);
+                */
             }
 
             currentSelectedShape = null;
+                
         }
+
 
         if (TurnManager.Instance.currentPlayer.selectedAction == ActionType.MesterAction)
         {//MasterAction
@@ -205,11 +269,88 @@ public class MyGrid : MonoBehaviour
         }  
     }
 
+    public GridSquare GetGridSquare(int index)
+    {
+        if (index < 0 || index >= gridSquares.Count) return null;
+        return gridSquares[index].GetComponent<GridSquare>();
+    }
+
+    /*
+    /// <summary>
+    /// Lokális kártya-teljesítés logika (online és offline módban is használt).
+    /// </summary>
+    private void ApplyCardCompletion(Player ownerPlayer, int score, int reward)
+    {
+        InventoryManager ownerInventory = ownerPlayer.inventoryManager;
+        InventoryItem item;
+
+        ElementsOnCard[reward]++;
+
+        for (int i = 0; i < ElementsOnCard.Length; i++)
+        {
+            item = ownerInventory.GetItemById(i);
+            item.quantity += ElementsOnCard[i];
+            ElementsOnCard[i] = 0;
+        }
+
+        ownerPlayer.RefreshScore(score);
+        ownerPlayer.RemoveCard(OwnerCardLoader.SlotIndex);
+    }
+    */
+
+    [PunRPC]
+    private void RPC_CardCompleted(int playerID, int slotIndex, int[] elements, int score, int rewardElement)
+    {
+        // Megkeressük a játékost PlayerID alapján
+        Player ownerPlayer = TurnManager.Instance.players
+            .FirstOrDefault(p => p.PlayerID == playerID);
+
+        if (ownerPlayer == null)
+        {
+            Debug.LogWarning($"RPC_CardCompleted: nem található játékos ID={playerID}");
+            return;
+        }
+
+        InventoryManager ownerInventory = ownerPlayer.inventoryManager;
+
+        // Jutalom elem hozzáadása
+        elements[rewardElement]++;
+
+        // Elemek visszaadása az inventoryba
+        for (int i = 0; i < elements.Length; i++)
+        {
+            InventoryItem item = ownerInventory.GetItemById(i);
+            if (item != null)
+                item.quantity += elements[i];
+        }
+
+        // Pontszám frissítése
+        ownerPlayer.RefreshScore(score);
+
+        // Kártya eltávolítása
+        ownerPlayer.RemoveCard(slotIndex);
+
+        // ElementsOnCard nullázása lokálisan
+        for (int i = 0; i < ElementsOnCard.Length; i++)
+            ElementsOnCard[i] = 0;
+    }
+
     public void ElementIsPlacedOnCard(int id)
     {
         //Csak akkor hívódik meg, ha az egész elemet leraktuk
         count++;
         if (count == InventoryItem.SelectedInventoryItem.TotalSquareNumber)
+        {
+            ElementsOnCard[id]++;
+            count = 0;
+        }
+    }
+
+    //Online miatt
+    public void ElementIsPlacedOnCard(int id, int totalSquares)
+    {
+        count++;
+        if (count == totalSquares)
         {
             ElementsOnCard[id]++;
             count = 0;

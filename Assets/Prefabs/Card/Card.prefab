@@ -225,7 +225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df3229de8a60044a8b81399d296139f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardFile: {fileID: 4900000, guid: bd209258813a32749979243f286872fc, type: 3}
   BgImage: {fileID: 5429653891086667394}
   ScoreText: {fileID: 4489431756009544623}
   RewardSprites:
@@ -241,7 +240,7 @@ MonoBehaviour:
   RewardImage: {fileID: 1899728832644772938}
   GridBgImage: {fileID: 5861806092352530667}
   Grid: {fileID: 6772660901612944485}
-  Cards: []
+  SlotIndex: 0
   gridScript: {fileID: 0}
 --- !u!1 &6772660901612944485
 GameObject:
@@ -256,6 +255,7 @@ GameObject:
   - component: {fileID: 7774758438701468590}
   - component: {fileID: 4623139972790153097}
   - component: {fileID: 5861806092352530667}
+  - component: {fileID: 1978367763417294121}
   m_Layer: 5
   m_Name: Grid
   m_TagString: Untagged
@@ -334,7 +334,11 @@ MonoBehaviour:
   squareScale: 0.9
   everySquareOffSet: 0.5
   isInitialized: 0
+  ElementsOnCard: 000000000000000000000000000000000000000000000000000000000000000000000000
+  count: 0
   rewardElement: 0
+  scoreNumber: 0
+  OwnerCardLoader: {fileID: 0}
 --- !u!114 &5861806092352530667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,6 +369,28 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1978367763417294121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6772660901612944485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 1
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &7466330231035634456
 GameObject:
   m_ObjectHideFlags: 0

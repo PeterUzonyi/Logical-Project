@@ -291,6 +291,12 @@ public class Player : MonoBehaviour
         Debug.Log("Másik játékos köre");
     }
 
+    public CardLoader GetCardLoaderBySlot(int slotIndex)
+    {
+        if (slotIndex < 0 || slotIndex >= MyCardSlots.Length) return null;
+        return MyCardSlots[slotIndex];
+    }
+
     public void RefreshScore(int value)
     {
         PlayerScore += value;

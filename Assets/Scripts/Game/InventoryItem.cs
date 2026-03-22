@@ -35,7 +35,9 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private bool Draggable = true;
     public bool dragLocked = false; //A CommonResereve itemek miatt kell
     private Color color;
-    
+
+    public Color ItemColor { get; private set; }
+
     public InventoryManager myInventoryManager;
 
     public static bool IsDragging = false;
@@ -146,6 +148,11 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         }
 
         SelectedInventoryItem = this;
+
+        // Szín mentése itt, amíg biztosan elérhetõ
+        Image img = GetComponentInChildren<Image>();
+        if (img != null)
+            ItemColor = img.color;
     }
 
     public void OnDrag(PointerEventData eventData)

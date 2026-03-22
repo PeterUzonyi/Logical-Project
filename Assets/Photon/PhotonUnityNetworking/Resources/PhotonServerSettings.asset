@@ -45,6 +45,8 @@ MonoBehaviour:
   - RPC_SyncCardOrder
   - RPC_TakeElement
   - RPC_UpgradeElement
+  - RPC_CardCompleted
+  - RPC_PlaceElementOnGrid
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 0

@@ -56,4 +56,22 @@ public class GridSquare : MonoBehaviour
             Selected = false;
         }
     }
+
+    /// <summary>
+    /// Online szinkronizált verzió — szín kívülrõl jön, nem SelectedInventoryItem-bõl
+    /// </summary>
+    public void ActivateSquareSync(Color color, int itemID, int totalSquares)
+    {
+        hoverImage.gameObject.SetActive(false);
+        activeImage.color = color;
+        activeImage.gameObject.SetActive(true);
+        Selected = true;
+        SquareOccupied = true;
+
+        MyGrid grid = GetComponentInParent<MyGrid>();
+        if (grid != null)
+        {
+            grid.ElementIsPlacedOnCard(itemID, totalSquares);
+        }
+    }
 }
