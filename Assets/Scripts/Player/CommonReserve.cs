@@ -194,6 +194,46 @@ public class CommonReserve : MonoBehaviourPun
         return false;
     }
 
+    /// <summary>
+    /// Online módban ezt hívja a Player.TakeElement().
+    /// RPC-n keresztül szinkronizálja az elem elvételét minden kliensre.
+    /// </summary>
+    public void RequestTakeElement(int playerID)
+    {
+        photonView.RPC(nameof(RPC_TakeElement), RpcTarget.All, playerID);
+    }
+
+    [PunRPC]
+    private void RPC_TakeElement(int playerID)
+    {
+        // CommonReserve inventoryból levonás minden kliensen
+        InventoryItem commonItem = inventoryManager.GetItemById(0);
+        if (commonItem == null || commonItem.quantity < 1)
+        {
+            Debug.LogWarning("Nincs elég elem (ID: 0) a közös készletben!");
+            return;
+        }
+        commonItem.quantity--;
+
+        // A megfelelõ játékos inventoryjába hozzáadás minden kliensen
+        Player player = TurnManager.Instance.players.FirstOrDefault(p => p.PlayerID == playerID);
+        if (player != null)
+        {
+            InventoryItem playerItem = player.inventoryManager.GetItemById(0);
+            if (playerItem != null)
+                playerItem.quantity++;
+        }
+
+        Debug.Log("TakeElement has Ended");
+
+        // ActionHasEnded() csak az akció tulajdonosának kliensén fut le
+        if (PhotonNetwork.LocalPlayer.ActorNumber == TurnManager.Instance.players
+                .FirstOrDefault(p => p.PlayerID == playerID)?.PhotonActorNumber)
+        {
+            TurnManager.Instance.currentPlayer.ActionHasEnded();
+        }
+    }
+
     public void OnSlotClicked(int slotIndex)
     {
         Player currentPlayer = TurnManager.Instance.currentPlayer;

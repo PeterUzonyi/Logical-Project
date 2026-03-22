@@ -220,14 +220,23 @@ public class Player : MonoBehaviour
 
     public void TakeElement()
     {
-        if (CommonReserve.Instance.TakeFromInventory(0, 1))
+        if (PhotonNetwork.IsConnected)
         {
-            InventoryItem item = inventoryManager.GetItemById(0);
-            item.quantity++;
+            //Online mód
+            CommonReserve.Instance.RequestTakeElement(PlayerID);
         }
+        else
+        {
+            //Lokális mód
+            if (CommonReserve.Instance.TakeFromInventory(0, 1))
+            {
+                InventoryItem item = inventoryManager.GetItemById(0);
+                item.quantity++;
+            }
 
-        Debug.Log("TakeElement has Ended");
-        ActionHasEnded();
+            Debug.Log("TakeElement has Ended");
+            ActionHasEnded();
+        }
     }
 
     public void UpgradeElement()
