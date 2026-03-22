@@ -40,6 +40,8 @@ public class Player : MonoBehaviour
 
     public int PhotonActorNumber; // Photon ActorNumber tárolása
 
+    [SerializeField] private UpgradePanel upgradePanel;
+
     void Awake()
     {
         if (panelBackground != null)
@@ -242,7 +244,21 @@ public class Player : MonoBehaviour
     public void UpgradeElement()
     {
         PlayerPanel.SetActive(false);
-        UpgradePanel.Instance.Open(this);
+
+        // Ha az Instance még null (inaktív panel), aktiváljuk a direkt referencián keresztül
+        if (upgradePanel != null)
+        {
+            upgradePanel.gameObject.SetActive(true);
+            upgradePanel.Open(this);
+        }
+        else if (UpgradePanel.Instance != null)
+        {
+            UpgradePanel.Instance.Open(this);
+        }
+        else
+        {
+            Debug.LogError("UpgradePanel nem található!");
+        }
     }
 
     public void MasterAction()

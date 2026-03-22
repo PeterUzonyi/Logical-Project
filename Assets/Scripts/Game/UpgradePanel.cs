@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 using UnityEngine.EventSystems;
+using Photon.Pun;
 
 public class UpgradePanel : MonoBehaviour
 {
@@ -30,7 +31,7 @@ public class UpgradePanel : MonoBehaviour
     void Awake()
     {
         Instance = this;
-        upgradePanel.SetActive(false);
+        //upgradePanel.SetActive(false);
     }
 
     //
@@ -129,44 +130,58 @@ public class UpgradePanel : MonoBehaviour
     {
         if (selectedPlayerItem == null || commonItem == null) return;
 
-        // Játékos visszaadja CommonReserve +1
-        selectedPlayerItem.quantity--;
-        selectedPlayerItem.RefreshCount();
-
-        InventoryItem commonReturnTarget = CommonReserve.Instance.inventoryManager
-            .GetAllItems()
-            .FirstOrDefault(i => i.ID == selectedPlayerItem.ID && i.level == selectedPlayerItem.level);
-
-        if (commonReturnTarget != null)
+        if (PhotonNetwork.IsConnected)
         {
-            commonReturnTarget.quantity++;
-            commonReturnTarget.RefreshCount();
+            //Online rész
+            CommonReserve.Instance.RequestUpgradeElement(
+            currentPlayer.PlayerID,
+            selectedPlayerItem.ID, selectedPlayerItem.level,
+            commonItem.ID, commonItem.level);
+            Close();
         }
-
-        // Játékos megkapja játékos inventory +1
-        commonItem.quantity--;
-        commonItem.RefreshCount();
-
-        InventoryItem playerReceiveTarget = currentPlayer.inventoryManager
-            .GetAllItems()
-            .FirstOrDefault(i => i.ID == commonItem.ID && i.level == commonItem.level);
-
-        if (playerReceiveTarget != null)
+        else
         {
-            playerReceiveTarget.quantity++;
-            playerReceiveTarget.RefreshCount();
+            //Lokális rész
+            // Játékos visszaadja CommonReserve +1
+            selectedPlayerItem.quantity--;
+            selectedPlayerItem.RefreshCount();
+
+            InventoryItem commonReturnTarget = CommonReserve.Instance.inventoryManager
+                .GetAllItems()
+                .FirstOrDefault(i => i.ID == selectedPlayerItem.ID && i.level == selectedPlayerItem.level);
+
+            if (commonReturnTarget != null)
+            {
+                commonReturnTarget.quantity++;
+                commonReturnTarget.RefreshCount();
+            }
+
+            // Játékos megkapja játékos inventory +1
+            commonItem.quantity--;
+            commonItem.RefreshCount();
+
+            InventoryItem playerReceiveTarget = currentPlayer.inventoryManager
+                .GetAllItems()
+                .FirstOrDefault(i => i.ID == commonItem.ID && i.level == commonItem.level);
+
+            if (playerReceiveTarget != null)
+            {
+                playerReceiveTarget.quantity++;
+                playerReceiveTarget.RefreshCount();
+            }
+
+            Debug.Log($"Upgrade: visszaadta [ID={selectedPlayerItem.ID} Lv{selectedPlayerItem.level}] " +
+                      $"kapta [ID={commonItem.ID} Lv{commonItem.level}]");
+
+            Close();
+            currentPlayer.ActionHasEnded();
         }
-
-        Debug.Log($"Upgrade: visszaadta [ID={selectedPlayerItem.ID} Lv{selectedPlayerItem.level}] " +
-                  $"kapta [ID={commonItem.ID} Lv{commonItem.level}]");
-
-        Close();
-        currentPlayer.ActionHasEnded();
     }
 
     //
     //Segédek
     //
+
     private void RefreshHighlight(Transform container, InventoryItem selectedItem)
     {
         int index = 0;

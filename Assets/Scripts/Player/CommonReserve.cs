@@ -374,4 +374,45 @@ public class CommonReserve : MonoBehaviourPun
 
         return mandatoryOptions.Union(optionalOptions).ToList();
     }
+
+    /// <summary>
+    /// Online módban ezt hívja az UpgradePanel.ExecuteSwap().
+    /// </summary>
+    public void RequestUpgradeElement(int playerID, int returnId, int returnLevel, int receiveId, int receiveLevel)
+    {
+        photonView.RPC(nameof(RPC_UpgradeElement), RpcTarget.All, playerID, returnId, returnLevel, receiveId, receiveLevel);
+    }
+
+    [PunRPC]
+    private void RPC_UpgradeElement(int playerID, int returnId, int returnLevel, int receiveId, int receiveLevel)
+    {
+        Player player = TurnManager.Instance.players.FirstOrDefault(p => p.PlayerID == playerID);
+        if (player == null) return;
+
+        // Játékos visszaadja a saját elemét a CommonReserve-be
+        InventoryItem playerReturn = player.inventoryManager
+            .GetAllItems().FirstOrDefault(i => i.ID == returnId && i.level == returnLevel);
+        if (playerReturn != null) { playerReturn.quantity--; playerReturn.RefreshCount(); }
+
+        InventoryItem commonReturn = inventoryManager
+            .GetAllItems().FirstOrDefault(i => i.ID == returnId && i.level == returnLevel);
+        if (commonReturn != null) { commonReturn.quantity++; commonReturn.RefreshCount(); }
+
+        // Játékos megkapja a közös elem a CommonReserve-bõl
+        InventoryItem commonGive = inventoryManager
+            .GetAllItems().FirstOrDefault(i => i.ID == receiveId && i.level == receiveLevel);
+        if (commonGive != null) { commonGive.quantity--; commonGive.RefreshCount(); }
+
+        InventoryItem playerReceive = player.inventoryManager
+            .GetAllItems().FirstOrDefault(i => i.ID == receiveId && i.level == receiveLevel);
+        if (playerReceive != null) { playerReceive.quantity++; playerReceive.RefreshCount(); }
+
+        Debug.Log($"RPC_UpgradeElement: visszaadta [ID={returnId} Lv{returnLevel}] kapta [ID={receiveId} Lv{receiveLevel}]");
+
+        // ActionHasEnded() csak az akció tulajdonosánál
+        if (PhotonNetwork.LocalPlayer.ActorNumber == player.PhotonActorNumber)
+        {
+            TurnManager.Instance.currentPlayer.ActionHasEnded();
+        }
+    }
 }

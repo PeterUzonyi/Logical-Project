@@ -7017,6 +7017,7 @@ MonoBehaviour:
   endMasterActionBtn: {fileID: 239421432}
   endVegsoRendrakasBtn: {fileID: 1119444849}
   PhotonActorNumber: 0
+  upgradePanel: {fileID: 1004556515}
 --- !u!114 &623477432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11440,7 +11441,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1004556511}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -16473,6 +16474,7 @@ MonoBehaviour:
   endMasterActionBtn: {fileID: 341265236}
   endVegsoRendrakasBtn: {fileID: 1658906662}
   PhotonActorNumber: 0
+  upgradePanel: {fileID: 1004556515}
 --- !u!114 &1359381169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16565,6 +16567,7 @@ MonoBehaviour:
   endMasterActionBtn: {fileID: 1079625044}
   endVegsoRendrakasBtn: {fileID: 1002459344}
   PhotonActorNumber: 0
+  upgradePanel: {fileID: 1004556515}
 --- !u!114 &1375610600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17167,6 +17170,7 @@ MonoBehaviour:
   endMasterActionBtn: {fileID: 1310806902}
   endVegsoRendrakasBtn: {fileID: 618696176}
   PhotonActorNumber: 0
+  upgradePanel: {fileID: 1004556515}
 --- !u!114 &1447666251
 MonoBehaviour:
   m_ObjectHideFlags: 0
