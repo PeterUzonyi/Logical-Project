@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon;
 using Photon.Pun;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class TurnManager : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class TurnManager : MonoBehaviour
     public bool isVegsoRendrakas;
 
     public bool isGameOver = false;
+
 
     void Awake()
     {
@@ -112,16 +114,17 @@ public class TurnManager : MonoBehaviour
 
     public void EndTurn()
     {
+        if (currentPlayer == startedLastRound && lastPlayerTurn > 1 && isVegsoRendrakas && !isLastRound)
+        {
+            GameOver();
+        }
+
         if (currentPlayer == startedLastRound && lastPlayerTurn > 1 && isLastRound)
         {
             VegsoRendrakas();
         }
 
-        if (currentPlayer == startedLastRound && lastPlayerTurn > 1 && isVegsoRendrakas)
-        {
-            isGameOver = true;
-            Debug.Log("Game Over");
-        }
+        
 
         // Következõ játékos körbe forgatva
         int idx = players.IndexOf(currentPlayer);
@@ -142,7 +145,7 @@ public class TurnManager : MonoBehaviour
             
         }
 
-        if (isLastRound)
+        if (isLastRound || isVegsoRendrakas)
         {
             lastPlayerTurn++;
         }
@@ -153,14 +156,41 @@ public class TurnManager : MonoBehaviour
     {
         isLastRound = true;
         startedLastRound = currentPlayer;
+        InfoPanel.Instance.Show("Miután " + currentPlayer.name + " befejezte ezt a kört, utána kezdõdik az utolsó " +
+            "kör. \n\nMindenkire még egyszer kerül sor, addig, amíg " + currentPlayer.name + " végre nem hajtotta " +
+            "az összes akcióját. \n\nEzután fog következi a Végsõ Rendrakás.");
     }
 
     public void VegsoRendrakas()
     {
         Debug.Log("Végsõ Rendrakás");
         isVegsoRendrakas = true;
+        isLastRound = false;
         lastPlayerTurn = 0;
         startedLastRound = currentPlayer;
+        InfoPanel.Instance.Show("Most kezdõdik a Végsõ Rendrakás, mindenkire még egyszer kerül sor. \n\nEbben a körben" +
+            " semmilyen akciót nem lehet végrehajtani, csak az elõtted lévõ feladványokat lehet befejezni. Minden " +
+            "egyes elem lerakása egy kártyára 1 pontba kerül, amit a kör befejezése után vonunk le. \n\nHa végeztél a " +
+            "végsõ rendrakás köröddel, akkor ezt a megfelelõ gomb megnyomásával jelezheted.");
+    }
+
+    public void GameOver()
+    {
+        isGameOver = true;
+        Debug.Log("Game Over");
+
+        var sortedPlayers = players.OrderByDescending(p => p.PlayerScore).ToList();
+        string result = "";
+        int rank = 1;
+
+        foreach ( Player player in sortedPlayers )
+        {
+            result += rank + ". " + player.name + ": " + player.PlayerScore + " pont\n";
+            rank++;
+        }
+
+        InfoPanel.Instance.Show("A játék véget ért, íme a végsõ állás: \n\n" + result);
+        //SceneManager.LoadScene("StartGameScene");
     }
 
     private void OnOnlineTurnChanged(int actorNumber)
