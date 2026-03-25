@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
     public ActionType selectedAction;
     public bool masterActionUsed;
     public bool actionHasEnded;
+    public bool ElementPlacementSuccessfull;
 
     public HashSet<MyGrid> gridsUsedInMasterAction = new HashSet<MyGrid>();
     public int masterActionCardCount = 0;
@@ -97,6 +98,7 @@ public class Player : MonoBehaviour
         ActionCount = 0;
         masterActionUsed = false;
         actionHasEnded = false;
+        ElementPlacementSuccessfull = false;
 
         if (!TurnManager.Instance.isVegsoRendrakas)
         {
@@ -188,6 +190,16 @@ public class Player : MonoBehaviour
 
     public void ActionHasEnded()
     {
+        if (selectedAction == ActionType.PlaceElement && ElementPlacementSuccessfull)
+        {
+            ElementPlacementSuccessfull = false;
+        }
+        else if (selectedAction == ActionType.PlaceElement && !ElementPlacementSuccessfull)
+        {
+            FindAnyObjectByType<ActionSelectionPanel>().ShowPanel();
+            return;
+        }
+
         ActionCount++;
         Debug.Log(ActionCount);
 

@@ -180,10 +180,13 @@ public class MyGrid : MonoBehaviourPun
                 currentSelectedShape.quantity--;
             }
 
+            Player ownerPlayer = TurnManager.Instance.currentPlayer;
+            ownerPlayer.ElementPlacementSuccessfull = true;
+
             //Ki van töltve a kártya elemekkel
-            if(IsTheCardFull())
+            if (IsTheCardFull())
             {
-                Player ownerPlayer = TurnManager.Instance.currentPlayer;
+                //Player ownerPlayer = TurnManager.Instance.currentPlayer;
 
                 if (PhotonNetwork.IsConnected)
                 {
@@ -217,46 +220,31 @@ public class MyGrid : MonoBehaviourPun
 
                     ownerPlayer.RemoveCard(OwnerCardLoader.SlotIndex);
                 }
-
-                /*
-                InventoryManager ownerInventory = ownerPlayer.inventoryManager;
-
-                InventoryItem item;
-                ElementsOnCard[rewardElement]++; //A teljesítésért járó elem
-
-                for (int i = 0; i < ElementsOnCard.Count(); i++)
-                {
-                    item = ownerInventory.GetItemById(i);
-                    item.quantity += ElementsOnCard[i];//Visszakap minden kártyára rakott és jutalom elemet
-                    ElementsOnCard[i] = 0;
-                }
-
-                ownerPlayer.RefreshScore(scoreNumber);
-
-                ownerPlayer.RemoveCard(OwnerCardLoader.SlotIndex);
-                */
             }
 
             currentSelectedShape = null;
-                
         }
 
 
         if (TurnManager.Instance.currentPlayer.selectedAction == ActionType.MesterAction)
         {//MasterAction
-            TurnManager.Instance.currentPlayer.gridsUsedInMasterAction.Add(this);
+            if (TurnManager.Instance.currentPlayer.ElementPlacementSuccessfull)
+            {
+                TurnManager.Instance.currentPlayer.ElementPlacementSuccessfull = false;
+                TurnManager.Instance.currentPlayer.gridsUsedInMasterAction.Add(this);
 
-            int used = TurnManager.Instance.currentPlayer.gridsUsedInMasterAction.Count;
-            int total = TurnManager.Instance.currentPlayer.masterActionCardCount;
+                int used = TurnManager.Instance.currentPlayer.gridsUsedInMasterAction.Count;
+                int total = TurnManager.Instance.currentPlayer.masterActionCardCount;
 
-            Debug.Log($"MasterAction: {used}/{total} elem lerakva");
+                Debug.Log($"MasterAction: {used}/{total} elem lerakva");
 
-            if (used == total)
-            {//MasterAction has Ended
-                TurnManager.Instance.currentPlayer.masterActionUsed = true;
-                TurnManager.Instance.currentPlayer.endMasterActionBtn.SetActive(false);
-                Debug.Log("MasterAction has Ended");
-                TurnManager.Instance.currentPlayer.ActionHasEnded();
+                if (used == total)
+                {//MasterAction has Ended
+                    TurnManager.Instance.currentPlayer.masterActionUsed = true;
+                    TurnManager.Instance.currentPlayer.endMasterActionBtn.SetActive(false);
+                    Debug.Log("MasterAction has Ended");
+                    TurnManager.Instance.currentPlayer.ActionHasEnded();
+                }
             }
 
             return;
@@ -274,29 +262,6 @@ public class MyGrid : MonoBehaviourPun
         if (index < 0 || index >= gridSquares.Count) return null;
         return gridSquares[index].GetComponent<GridSquare>();
     }
-
-    /*
-    /// <summary>
-    /// Lokális kártya-teljesítés logika (online és offline módban is használt).
-    /// </summary>
-    private void ApplyCardCompletion(Player ownerPlayer, int score, int reward)
-    {
-        InventoryManager ownerInventory = ownerPlayer.inventoryManager;
-        InventoryItem item;
-
-        ElementsOnCard[reward]++;
-
-        for (int i = 0; i < ElementsOnCard.Length; i++)
-        {
-            item = ownerInventory.GetItemById(i);
-            item.quantity += ElementsOnCard[i];
-            ElementsOnCard[i] = 0;
-        }
-
-        ownerPlayer.RefreshScore(score);
-        ownerPlayer.RemoveCard(OwnerCardLoader.SlotIndex);
-    }
-    */
 
     [PunRPC]
     private void RPC_CardCompleted(int playerID, int slotIndex, int[] elements, int score, int rewardElement)
