@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using Photon;
 using Photon.Pun;
+using System.Linq;
 
 public class Player : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class Player : MonoBehaviour
 
     public TMP_Text Score;
     public int PlayerScore = 0;
+    public int CompletedPuzzles = 0;
+    public int RemainingElements = 0;
 
     public InventoryManager inventoryManager;
 
@@ -226,6 +229,12 @@ public class Player : MonoBehaviour
         else
         {
             Debug.Log("Mínusz pontok: -" + ActionCount);
+        }
+
+        RemainingElements = 0;
+        foreach (var item in inventoryManager.GetAllItems())
+        {
+            RemainingElements += item.quantity;
         }
     }
 

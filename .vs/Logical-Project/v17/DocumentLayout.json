@@ -3,18 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|C:\\Users\\your-computer\\Desktop\\Logical-Project\\assets\\scripts\\player\\turnmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\turnmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|c:\\users\\your-computer\\desktop\\logical-project\\assets\\scripts\\card\\mygrid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\card\\mygrid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|c:\\users\\your-computer\\desktop\\logical-project\\assets\\scripts\\player\\actionselectionpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\actionselectionpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|C:\\Users\\your-computer\\Desktop\\Logical-Project\\assets\\scripts\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -23,16 +11,20 @@
       "RelativeMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\startgame\\networkmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|c:\\users\\your-computer\\desktop\\logical-project\\assets\\scripts\\card\\mygrid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\card\\mygrid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|C:\\Users\\your-computer\\Desktop\\Logical-Project\\assets\\scripts\\player\\turnmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\turnmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|c:\\users\\your-computer\\desktop\\logical-project\\assets\\scripts\\player\\actionselectionpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\actionselectionpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|C:\\Users\\your-computer\\Desktop\\Logical-Project\\assets\\scripts\\game\\infopanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\game\\infopanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|C:\\Users\\your-computer\\Desktop\\Logical-Project\\assets\\scripts\\player\\gameconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\gameconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|C:\\Users\\your-computer\\Desktop\\Logical-Project\\assets\\scripts\\card\\gridsquare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\card\\gridsquare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|C:\\Users\\your-computer\\Desktop\\Logical-Project\\assets\\scripts\\card\\cardmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -41,10 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|C:\\Users\\your-computer\\Desktop\\Logical-Project\\assets\\scripts\\card\\cardloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\card\\cardloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|C:\\Users\\your-computer\\Desktop\\Logical-Project\\assets\\scripts\\card\\cardtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\card\\cardtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|C:\\Users\\your-computer\\Desktop\\Logical-Project\\assets\\scripts\\startgame\\locallobbyui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -58,11 +46,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "MyGrid.cs",
+              "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Card\\MyGrid.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Card\\MyGrid.cs",
+              "ToolTip": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Card\\MyGrid.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Card\\MyGrid.cs",
+              "ViewState": "AQIAALAAAAAAAAAAAAAswL0AAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T08:23:27.971Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "ActionSelectionPanel.cs",
               "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Player\\ActionSelectionPanel.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\ActionSelectionPanel.cs",
@@ -87,19 +88,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "GameConfig.cs",
-              "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Player\\GameConfig.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\GameConfig.cs",
-              "ToolTip": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Player\\GameConfig.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Player\\GameConfig.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-25T08:18:19.114Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "NetworkManager.cs",
               "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\StartGame\\NetworkManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\StartGame\\NetworkManager.cs",
@@ -107,61 +96,38 @@
               "RelativeToolTip": "Assets\\Scripts\\StartGame\\NetworkManager.cs",
               "ViewState": "AQIAAGAAAAAAAAAAAAAwwMQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-22T16:29:03.126Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "GridSquare.cs",
-              "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Card\\GridSquare.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Card\\GridSquare.cs",
-              "ToolTip": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Card\\GridSquare.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Card\\GridSquare.cs",
-              "ViewState": "AQIAADgAAAAAAAAAAAAQwEYAAAA1AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-22T16:28:03.44Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MyGrid.cs",
-              "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Card\\MyGrid.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Card\\MyGrid.cs",
-              "ToolTip": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Card\\MyGrid.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Card\\MyGrid.cs",
-              "ViewState": "AQIAAOYAAAAAAAAAAAAAAPYAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-22T16:02:58.653Z",
+              "WhenOpened": "2026-03-22T16:29:03.126Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Player.cs",
               "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Player\\Player.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\Player.cs",
               "ToolTip": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Player\\Player.cs",
               "RelativeToolTip": "Assets\\Scripts\\Player\\Player.cs",
-              "ViewState": "AQIAAL0AAAAAAAAAAAAuwMcAAAATAAAA",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAABQAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T08:14:18.798Z"
+              "WhenOpened": "2026-02-26T08:14:18.798Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "TurnManager.cs",
               "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Player\\TurnManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\TurnManager.cs",
               "ToolTip": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Player\\TurnManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\Player\\TurnManager.cs",
-              "ViewState": "AQIAAJEAAAAAAAAAAAAwwJ8AAAAKAAAA",
+              "ViewState": "AQIAALIAAAAAAAAAAAA1wNQAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-26T08:30:28.635Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 7,
               "Title": "CardLoader.cs",
               "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Card\\CardLoader.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Card\\CardLoader.cs",
@@ -173,7 +139,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 6,
               "Title": "CardManager.cs",
               "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Card\\CardManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Card\\CardManager.cs",
@@ -185,19 +151,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "CardType.cs",
-              "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Card\\CardType.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Card\\CardType.cs",
-              "ToolTip": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Card\\CardType.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Card\\CardType.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAQwBsAAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-21T12:35:14.404Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 8,
               "Title": "LocalLobbyUI.cs",
               "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\StartGame\\LocalLobbyUI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\StartGame\\LocalLobbyUI.cs",

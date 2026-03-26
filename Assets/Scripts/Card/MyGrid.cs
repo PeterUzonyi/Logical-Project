@@ -187,6 +187,7 @@ public class MyGrid : MonoBehaviourPun
             if (IsTheCardFull())
             {
                 //Player ownerPlayer = TurnManager.Instance.currentPlayer;
+                ownerPlayer.CompletedPuzzles++;
 
                 if (PhotonNetwork.IsConnected)
                 {

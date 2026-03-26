@@ -181,10 +181,13 @@ public class TurnManager : MonoBehaviour
         isGameOver = true;
         Debug.Log("Game Over");
 
-        var sortedPlayers = players.OrderByDescending(p => p.PlayerScore).ToList();
+        var sortedPlayers = players.OrderByDescending(p => p.PlayerScore)
+            .ThenByDescending(p=>p.CompletedPuzzles)
+            .ThenByDescending(p=>p.RemainingElements).ToList();
         string result = "";
         int rank = 1;
 
+        /*
         foreach ( Player player in sortedPlayers )
         {
             result += rank + ". " + player.name + ": " + player.PlayerScore + " pont\n";
@@ -193,6 +196,43 @@ public class TurnManager : MonoBehaviour
 
         InfoPanel.Instance.Show("A játék véget ért, íme a végsõ állás: \n\n" + result);
         //SceneManager.LoadScene("StartGameScene");
+        */
+
+        int i = 0;
+
+        while (i < sortedPlayers.Count)
+        {
+            // Megkeressük meddig tart az egyforma csoport
+            int j = i;
+            while (j < sortedPlayers.Count
+                && sortedPlayers[j].PlayerScore == sortedPlayers[i].PlayerScore
+                && sortedPlayers[j].CompletedPuzzles == sortedPlayers[i].CompletedPuzzles
+                && sortedPlayers[j].RemainingElements == sortedPlayers[i].RemainingElements)
+            {
+                j++;
+            }
+
+            // i..j-1 indexig mindenki azonos helyezésen van
+            bool isTie = (j - i) > 1;
+            for (int k = i; k < j; k++)
+            {
+                Player p = sortedPlayers[k];
+                string rankStr = isTie ? rank + ". (döntetlen)" : rank + ".";
+                result += $"{rankStr} {p.name}: {p.PlayerScore} pont" +
+                          $" | Feladványok: {p.CompletedPuzzles}" +
+                          $" | Alkatrészek: {p.RemainingElements}\n";
+            }
+
+            if (isTie)
+            {
+                result += "Az érintettek osztoznak a gyõzelemben. Gratulálunk!\n";
+            }
+
+            rank += (j - i); // pl. ha 2 játékos osztja az 1. helyet, a következõ a 3.
+            i = j;
+        }
+
+        InfoPanel.Instance.Show("A játék véget ért, íme a végsõ állás: \n\n" + result);
     }
 
     private void OnOnlineTurnChanged(int actorNumber)
