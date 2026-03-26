@@ -205,8 +205,11 @@ public class Player : MonoBehaviour
 
         if (CardManager.Instance.BlackCards.Count == 0 && TurnManager.Instance.isLastRound == false)
         {
-            Debug.Log("Utolsó kör eleje: " + TurnManager.Instance.currentPlayer);
-            TurnManager.Instance.LastRound();
+            if (!TurnManager.Instance.isLastRound&&!TurnManager.Instance.isVegsoRendrakas)
+            {
+                Debug.Log("Utolsó kör eleje: " + TurnManager.Instance.currentPlayer);
+                TurnManager.Instance.LastRound();
+            }
         }
 
         if (!TurnManager.Instance.isVegsoRendrakas)

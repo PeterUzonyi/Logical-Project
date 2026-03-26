@@ -17,7 +17,7 @@ public class TurnManager : MonoBehaviour
 
     public bool isLastRound = false;
     public Player startedLastRound;
-    public int lastPlayerTurn;
+    private bool lastRoundExtra;
 
     public bool isVegsoRendrakas;
 
@@ -29,7 +29,7 @@ public class TurnManager : MonoBehaviour
         Instance = this;
         isLastRound = false;
         isGameOver = false;
-        lastPlayerTurn = 0;
+        lastRoundExtra = false;
         isVegsoRendrakas = false;
 
 
@@ -114,21 +114,27 @@ public class TurnManager : MonoBehaviour
 
     public void EndTurn()
     {
-        if (currentPlayer == startedLastRound && lastPlayerTurn > 1 && isVegsoRendrakas && !isLastRound)
-        {
-            GameOver();
-        }
-
-        if (currentPlayer == startedLastRound && lastPlayerTurn > 1 && isLastRound)
-        {
-            VegsoRendrakas();
-        }
-
-        
-
         // Következõ játékos körbe forgatva
         int idx = players.IndexOf(currentPlayer);
         int nextIdx = (idx + 1) % players.Count;
+        Player nextPlayer = players[nextIdx];
+
+        if (isLastRound)
+        {
+            if (currentPlayer == startedLastRound && lastRoundExtra)
+            {
+                VegsoRendrakas();
+            }
+            else if (currentPlayer == startedLastRound && !lastRoundExtra)
+            {
+                lastRoundExtra = true;
+            }
+        }
+        else if (isVegsoRendrakas && nextPlayer == startedLastRound)
+        {
+            GameOver();
+            return;
+        }
 
         currentPlayer = players[nextIdx];
 
@@ -142,19 +148,13 @@ public class TurnManager : MonoBehaviour
             {
                 players[i].MyTurn(false);
             }
-            
         }
-
-        if (isLastRound || isVegsoRendrakas)
-        {
-            lastPlayerTurn++;
-        }
-        
     }
 
     public void LastRound()
     {
         isLastRound = true;
+        lastRoundExtra = false;
         startedLastRound = currentPlayer;
         InfoPanel.Instance.Show("Miután " + currentPlayer.name + " befejezte ezt a kört, utána kezdõdik az utolsó " +
             "kör. \n\nMindenkire még egyszer kerül sor, addig, amíg " + currentPlayer.name + " végre nem hajtotta " +
@@ -166,8 +166,10 @@ public class TurnManager : MonoBehaviour
         Debug.Log("Végsõ Rendrakás");
         isVegsoRendrakas = true;
         isLastRound = false;
-        lastPlayerTurn = 0;
-        startedLastRound = currentPlayer;
+        lastRoundExtra = false;
+        int idx = players.IndexOf(currentPlayer);
+        int nextIdx = (idx + 1) % players.Count;
+        startedLastRound = players[nextIdx];
         InfoPanel.Instance.Show("Most kezdõdik a Végsõ Rendrakás, mindenkire még egyszer kerül sor. \n\nEbben a körben" +
             " semmilyen akciót nem lehet végrehajtani, csak az elõtted lévõ feladványokat lehet befejezni. Minden " +
             "egyes elem lerakása egy kártyára 1 pontba kerül, amit a kör befejezése után vonunk le. \n\nHa végeztél a " +
