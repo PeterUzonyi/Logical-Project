@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|c:\\users\\your-computer\\desktop\\logical-project\\assets\\scripts\\card\\cardmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\card\\cardmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|c:\\users\\your-computer\\desktop\\logical-project\\assets\\scripts\\player\\commonreserve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\commonreserve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|C:\\Users\\your-computer\\Desktop\\Logical-Project\\assets\\scripts\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -25,18 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|C:\\Users\\your-computer\\Desktop\\Logical-Project\\assets\\scripts\\game\\infopanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\game\\infopanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|C:\\Users\\your-computer\\Desktop\\Logical-Project\\assets\\scripts\\card\\cardmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\card\\cardmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|C:\\Users\\your-computer\\Desktop\\Logical-Project\\assets\\scripts\\card\\cardloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\card\\cardloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|C:\\Users\\your-computer\\Desktop\\Logical-Project\\assets\\scripts\\startgame\\locallobbyui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\startgame\\locallobbyui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,11 +42,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
+              "Title": "CommonReserve.cs",
+              "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Player\\CommonReserve.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\CommonReserve.cs",
+              "ToolTip": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Player\\CommonReserve.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\CommonReserve.cs",
+              "ViewState": "AQIAAIsBAAAAAAAAAAAYwKIBAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T08:42:01.193Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CardManager.cs",
+              "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Card\\CardManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Card\\CardManager.cs",
+              "ToolTip": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Card\\CardManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Card\\CardManager.cs",
+              "ViewState": "AQIAAHMAAAAAAAAAAADwv3gAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T08:41:22.985Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "MyGrid.cs",
               "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Card\\MyGrid.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Card\\MyGrid.cs",
@@ -63,7 +85,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "ActionSelectionPanel.cs",
               "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Player\\ActionSelectionPanel.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\ActionSelectionPanel.cs",
@@ -76,7 +98,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "InfoPanel.cs",
               "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Game\\InfoPanel.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Game\\InfoPanel.cs",
@@ -88,7 +110,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "NetworkManager.cs",
               "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\StartGame\\NetworkManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\StartGame\\NetworkManager.cs",
@@ -101,20 +123,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Player.cs",
               "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Player\\Player.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\Player.cs",
               "ToolTip": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Player\\Player.cs",
               "RelativeToolTip": "Assets\\Scripts\\Player\\Player.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAABQAAAAkAAAA",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAABUAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-26T08:14:18.798Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "TurnManager.cs",
               "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Player\\TurnManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\TurnManager.cs",
@@ -124,42 +146,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-26T08:30:28.635Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "CardLoader.cs",
-              "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Card\\CardLoader.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Card\\CardLoader.cs",
-              "ToolTip": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Card\\CardLoader.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Card\\CardLoader.cs",
-              "ViewState": "AQIAAH8AAAAAAAAAAAArwHMAAAAbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-21T12:30:53.786Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "CardManager.cs",
-              "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Card\\CardManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Card\\CardManager.cs",
-              "ToolTip": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Card\\CardManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Card\\CardManager.cs",
-              "ViewState": "AQIAAG8AAAAAAAAAAAAYwHkAAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-21T12:31:12.383Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "LocalLobbyUI.cs",
-              "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\StartGame\\LocalLobbyUI.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\StartGame\\LocalLobbyUI.cs",
-              "ToolTip": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\StartGame\\LocalLobbyUI.cs",
-              "RelativeToolTip": "Assets\\Scripts\\StartGame\\LocalLobbyUI.cs",
-              "ViewState": "AQIAAEEAAAAAAAAAAAAYwF4AAAAuAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-20T10:09:10.93Z"
             }
           ]
         }

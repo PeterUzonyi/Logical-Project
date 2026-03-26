@@ -70,14 +70,20 @@ public class CardManager : MonoBehaviourPun
             }
         }
 
+        /*
         BlackCards = ShuffleList(BlackCards);
         WhiteCards = ShuffleList(WhiteCards);
+        */
 
         if (PhotonNetwork.IsConnected)
         {
             //Online
             if (PhotonNetwork.IsMasterClient)
             {
+                // Csak a host kever és vágja le a fekete paklit
+                BlackCards = ShuffleList(BlackCards);
+                WhiteCards = ShuffleList(WhiteCards);
+
                 // MasterClient elküldi a keverés sorrendjét
                 int[] blackOrder = BlackCards.Select(c => c.UniqueID).ToArray();
                 int[] whiteOrder = WhiteCards.Select(c => c.UniqueID).ToArray();
@@ -93,6 +99,8 @@ public class CardManager : MonoBehaviourPun
         else
         {
             //Lokális
+            BlackCards = ShuffleList(BlackCards);
+            WhiteCards = ShuffleList(WhiteCards);
             IsReady = true;
         }
     }
