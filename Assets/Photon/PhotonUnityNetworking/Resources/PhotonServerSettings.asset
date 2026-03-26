@@ -47,6 +47,12 @@ MonoBehaviour:
   - RPC_UpgradeElement
   - RPC_CardCompleted
   - RPC_PlaceElementOnGrid
+  - RPC_GameOver
+  - RPC_LastRound
+  - RPC_SetLastRoundExtra
+  - RPC_VegsoRendrakas
+  - RPC_RequestStatSync
+  - RPC_SyncPlayerStats
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 0

@@ -17,7 +17,7 @@ public class TurnManager : MonoBehaviour
 
     public bool isLastRound = false;
     public Player startedLastRound;
-    private bool lastRoundExtra;
+    public bool lastRoundExtra;
 
     public bool isVegsoRendrakas;
 
@@ -153,56 +153,162 @@ public class TurnManager : MonoBehaviour
 
     public void LastRound()
     {
+        if (PhotonNetwork.IsConnected)
+        {
+            //Online mód
+            OnlineTurnManager.Instance.SyncLastRound(currentPlayer.PlayerID);
+        }
+        else
+        {
+            //Lokális mód
+            ApplyLastRound(currentPlayer.PlayerID);
+            /*
+            isLastRound = true;
+            lastRoundExtra = false;
+            startedLastRound = currentPlayer;
+            InfoPanel.Instance.Show("Miután " + currentPlayer.name + " befejezte ezt a kört, utána kezdõdik az utolsó " +
+                "kör. \n\nMindenkire még egyszer kerül sor, addig, amíg " + currentPlayer.name + " végre nem hajtotta " +
+                "az összes akcióját. \n\nEzután fog következi a Végsõ Rendrakás.");
+            */
+        }
+    }
+
+    public void ApplyLastRound(int playerID)
+    {
+        Player player = players.FirstOrDefault(p => p.PlayerID == playerID);
+        if (player == null) return;
         isLastRound = true;
         lastRoundExtra = false;
-        startedLastRound = currentPlayer;
-        InfoPanel.Instance.Show("Miután " + currentPlayer.name + " befejezte ezt a kört, utána kezdõdik az utolsó " +
-            "kör. \n\nMindenkire még egyszer kerül sor, addig, amíg " + currentPlayer.name + " végre nem hajtotta " +
-            "az összes akcióját. \n\nEzután fog következi a Végsõ Rendrakás.");
+        startedLastRound = player;
+        InfoPanel.Instance.Show(
+            "Miután " + player.PlayerName + " befejezte ezt a kört, utána kezdõdik az utolsó kör." +
+            "\n\nMindenkire még egyszer kerül sor, addig, amíg " + player.PlayerName +
+            " végre nem hajtotta az összes akcióját.\n\nEzután fog következni a Végsõ Rendrakás.");
     }
 
     public void VegsoRendrakas()
     {
-        Debug.Log("Végsõ Rendrakás");
+        if (PhotonNetwork.IsConnected)
+        {
+            //Online mód
+            int nextIdx = (players.IndexOf(currentPlayer) + 1) % players.Count;
+            OnlineTurnManager.Instance.SyncVegsoRendrakas(players[nextIdx].PlayerID);
+        }
+        else
+        {
+            //Lokális mód
+            int nextIdx = (players.IndexOf(currentPlayer) + 1) % players.Count;
+            ApplyVegsoRendrakas(players[nextIdx].PlayerID);
+
+            Debug.Log("Végsõ Rendrakás");
+
+            /*
+            isVegsoRendrakas = true;
+            isLastRound = false;
+            lastRoundExtra = false;
+            int idx = players.IndexOf(currentPlayer);
+            int nextIdx = (idx + 1) % players.Count;
+            startedLastRound = players[nextIdx];
+            InfoPanel.Instance.Show("Most kezdõdik a Végsõ Rendrakás, mindenkire még egyszer kerül sor. \n\nEbben a körben" +
+                " semmilyen akciót nem lehet végrehajtani, csak az elõtted lévõ feladványokat lehet befejezni. Minden " +
+                "egyes elem lerakása egy kártyára 1 pontba kerül, amit a kör befejezése után vonunk le. \n\nHa végeztél a " +
+                "végsõ rendrakás köröddel, akkor ezt a megfelelõ gomb megnyomásával jelezheted.");
+            */
+        }
+    }
+
+    public void ApplyVegsoRendrakas(int startingPlayerID)
+    {
+        Player startingPlayer = players.FirstOrDefault(p => p.PlayerID == startingPlayerID);
+        if (startingPlayer == null) return;
         isVegsoRendrakas = true;
         isLastRound = false;
         lastRoundExtra = false;
-        int idx = players.IndexOf(currentPlayer);
-        int nextIdx = (idx + 1) % players.Count;
-        startedLastRound = players[nextIdx];
-        InfoPanel.Instance.Show("Most kezdõdik a Végsõ Rendrakás, mindenkire még egyszer kerül sor. \n\nEbben a körben" +
-            " semmilyen akciót nem lehet végrehajtani, csak az elõtted lévõ feladványokat lehet befejezni. Minden " +
-            "egyes elem lerakása egy kártyára 1 pontba kerül, amit a kör befejezése után vonunk le. \n\nHa végeztél a " +
-            "végsõ rendrakás köröddel, akkor ezt a megfelelõ gomb megnyomásával jelezheted.");
+        startedLastRound = startingPlayer;
+        InfoPanel.Instance.Show(
+            "Most kezdõdik a Végsõ Rendrakás, mindenkire még egyszer kerül sor.\n\nEbben a körben " +
+            "semmilyen akciót nem lehet végrehajtani, csak az elõtted lévõ feladványokat lehet befejezni. " +
+            "Minden egyes elem lerakása egy kártyára 1 pontba kerül, amit a kör befejezése után vonunk le." +
+            "\n\nHa végeztél a végsõ rendrakás köröddel, azt a megfelelõ gomb megnyomásával jelezheted.");
     }
 
     public void GameOver()
     {
+        if (PhotonNetwork.IsConnected)
+        {
+            //Online mód
+            OnlineTurnManager.Instance.SyncGameOver();
+        }
+        else
+        {
+            //Lokális mód
+            ApplyGameOver();
+            /*
+            isGameOver = true;
+            Debug.Log("Game Over");
+
+            var sortedPlayers = players.OrderByDescending(p => p.PlayerScore)
+                .ThenByDescending(p => p.CompletedPuzzles)
+                .ThenByDescending(p => p.RemainingElements).ToList();
+            string result = "";
+            int rank = 1;
+            int i = 0;
+
+            while (i < sortedPlayers.Count)
+            {
+                // Megkeressük meddig tart az egyforma csoport
+                int j = i;
+                while (j < sortedPlayers.Count
+                    && sortedPlayers[j].PlayerScore == sortedPlayers[i].PlayerScore
+                    && sortedPlayers[j].CompletedPuzzles == sortedPlayers[i].CompletedPuzzles
+                    && sortedPlayers[j].RemainingElements == sortedPlayers[i].RemainingElements)
+                {
+                    j++;
+                }
+
+                // i..j-1 indexig mindenki azonos helyezésen van
+                bool isTie = (j - i) > 1;
+                for (int k = i; k < j; k++)
+                {
+                    Player p = sortedPlayers[k];
+                    string rankStr = isTie ? rank + ". (döntetlen)" : rank + ".";
+                    result += $"{rankStr} {p.name}: {p.PlayerScore} pont" +
+                              $" | Feladványok: {p.CompletedPuzzles}" +
+                              $" | Alkatrészek: {p.RemainingElements}\n";
+                }
+
+                if (isTie)
+                {
+                    result += "Az érintettek osztoznak a gyõzelemben. Gratulálunk!\n";
+                }
+
+                rank += (j - i); // pl. ha 2 játékos osztja az 1. helyet, a következõ a 3.
+                i = j;
+            }
+
+            InfoPanel.Instance.Show("A játék véget ért, íme a végsõ állás: \n\n" + result);
+            */
+        }
+        
+    }
+
+    public void ApplyGameOver()
+    {
         isGameOver = true;
         Debug.Log("Game Over");
 
-        var sortedPlayers = players.OrderByDescending(p => p.PlayerScore)
-            .ThenByDescending(p=>p.CompletedPuzzles)
-            .ThenByDescending(p=>p.RemainingElements).ToList();
+        var sortedPlayers = players
+            .OrderByDescending(p => p.PlayerScore)
+            .ThenByDescending(p => p.CompletedPuzzles)
+            .ThenByDescending(p => p.RemainingElements)
+            .ToList();
+
         string result = "";
         int rank = 1;
-
-        /*
-        foreach ( Player player in sortedPlayers )
-        {
-            result += rank + ". " + player.name + ": " + player.PlayerScore + " pont\n";
-            rank++;
-        }
-
-        InfoPanel.Instance.Show("A játék véget ért, íme a végsõ állás: \n\n" + result);
-        //SceneManager.LoadScene("StartGameScene");
-        */
-
         int i = 0;
 
         while (i < sortedPlayers.Count)
         {
-            // Megkeressük meddig tart az egyforma csoport
             int j = i;
             while (j < sortedPlayers.Count
                 && sortedPlayers[j].PlayerScore == sortedPlayers[i].PlayerScore
@@ -212,36 +318,43 @@ public class TurnManager : MonoBehaviour
                 j++;
             }
 
-            // i..j-1 indexig mindenki azonos helyezésen van
             bool isTie = (j - i) > 1;
             for (int k = i; k < j; k++)
             {
                 Player p = sortedPlayers[k];
                 string rankStr = isTie ? rank + ". (döntetlen)" : rank + ".";
-                result += $"{rankStr} {p.name}: {p.PlayerScore} pont" +
+                result += $"{rankStr} {p.PlayerName}: {p.PlayerScore} pont" +
                           $" | Feladványok: {p.CompletedPuzzles}" +
                           $" | Alkatrészek: {p.RemainingElements}\n";
             }
-
             if (isTie)
-            {
                 result += "Az érintettek osztoznak a gyõzelemben. Gratulálunk!\n";
-            }
 
-            rank += (j - i); // pl. ha 2 játékos osztja az 1. helyet, a következõ a 3.
+            rank += (j - i);
             i = j;
         }
 
-        InfoPanel.Instance.Show("A játék véget ért, íme a végsõ állás: \n\n" + result);
+        InfoPanel.Instance.Show("A játék véget ért, íme a végsõ állás:\n\n" + result);
     }
 
     private void OnOnlineTurnChanged(int actorNumber)
     {
         // Az actorNumber alapján döntjük el ki a currentPlayer
-        var next=players.FirstOrDefault(p => p.PhotonActorNumber == actorNumber);
+        var next = players.FirstOrDefault(p => p.PhotonActorNumber == actorNumber);
         if (next == null)
         {
             Debug.LogWarning("Nem található játékos ezzel az ActorNumber-rel: " + actorNumber);
+            return;
+        }
+
+        // Az állapotgép logikát csak a MasterClient futtatja
+        if (PhotonNetwork.IsMasterClient)
+        {
+            CheckRoundState(next);
+        }
+
+        if (isGameOver)
+        {
             return;
         }
 
@@ -258,6 +371,32 @@ public class TurnManager : MonoBehaviour
             }
         }
     }
+
+    /// <summary>
+    /// Csak MasterClienten fut. Ellenõrzi kell-e állapotot váltani
+    /// mielõtt a következõ játékos körét elindítanánk.
+    /// </summary>
+    private void CheckRoundState(Player nextPlayer)
+    {
+        if (isLastRound)
+        {
+            if (currentPlayer == startedLastRound && lastRoundExtra)
+            {
+                OnlineTurnManager.Instance.SyncVegsoRendrakas(nextPlayer.PlayerID);
+                return;
+            }
+            else if (currentPlayer == startedLastRound && !lastRoundExtra)
+            {
+                OnlineTurnManager.Instance.SyncLastRoundExtra();
+            }
+        }
+        else if (isVegsoRendrakas && nextPlayer == startedLastRound)
+        {
+            OnlineTurnManager.Instance.SyncGameOver();
+            return;
+        }
+    }
+
     private void OnOnlineTimeUp()
     {
         // Ha lejárt az idõ, a játékos körét befejezettnek tekintjük

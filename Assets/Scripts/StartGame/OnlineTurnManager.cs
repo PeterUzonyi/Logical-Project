@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using System.Linq;
 
 /// <summary>
 /// Online körkezelõ. A játék jelenetben egy GameObjecthez csatold.
@@ -122,6 +123,100 @@ public class OnlineTurnManager : MonoBehaviourPun
         photonView.RPC(nameof(RPC_SetTurn),
             RpcTarget.All,
             players[nextIdx].ActorNumber);
+    }
+
+    public void SyncLastRound(int playerID)
+    {
+        photonView.RPC(nameof(RPC_LastRound), RpcTarget.All, playerID);
+    }
+
+    public void SyncVegsoRendrakas(int startingPlayerID)
+    {
+        photonView.RPC(nameof(RPC_VegsoRendrakas), RpcTarget.All, startingPlayerID);
+    }
+
+    public void SyncGameOver()
+    {
+        //photonView.RPC(nameof(RPC_GameOver), RpcTarget.All);
+
+        // Elõször mindenki elküldi a saját adatait, majd a MasterClient elindítja a GameOver-t
+        // Kis késleltetés kell hogy az RPC-k megérkezzenek
+        StartCoroutine(SyncStatsAndGameOver());
+    }
+
+    private IEnumerator SyncStatsAndGameOver()
+    {
+        // Mindenki küldje el a saját statját
+        photonView.RPC(nameof(RPC_RequestStatSync), RpcTarget.All);
+
+        // Várunk hogy az adatok megérkezzenek
+        yield return new WaitForSeconds(0.5f);
+
+        // Most már mehet a GameOver
+        photonView.RPC(nameof(RPC_GameOver), RpcTarget.All);
+    }
+
+    public void SyncPlayerStats(int playerID, int score, int completedPuzzles, int remainingElements)
+    {
+        photonView.RPC(nameof(RPC_SyncPlayerStats), RpcTarget.All,
+            playerID, score, completedPuzzles, remainingElements);
+    }
+
+    [PunRPC]
+    private void RPC_RequestStatSync()
+    {
+        // Mindenki elküldi a saját helyi játékosának adatait
+        Player localPlayer = TurnManager.Instance.players
+            .FirstOrDefault(p => p.PhotonActorNumber == PhotonNetwork.LocalPlayer.ActorNumber);
+
+        if (localPlayer != null)
+        {
+            localPlayer.SyncStatsToAll();
+        }
+    }
+
+    [PunRPC]
+    private void RPC_SyncPlayerStats(int playerID, int score, int completedPuzzles, int remainingElements)
+    {
+        Player player = TurnManager.Instance.players.FirstOrDefault(p => p.PlayerID == playerID);
+        if (player == null) return;
+
+        player.PlayerScore = score;
+        player.CompletedPuzzles = completedPuzzles;
+        player.RemainingElements = remainingElements;
+
+        // Pontszám UI frissítése
+        if (player.Score != null)
+            player.Score.text = score.ToString();
+    }
+
+    public void SyncLastRoundExtra()
+    {
+        photonView.RPC(nameof(RPC_SetLastRoundExtra), RpcTarget.All);
+    }
+
+    [PunRPC]
+    private void RPC_LastRound(int playerID)
+    {
+        TurnManager.Instance.ApplyLastRound(playerID);
+    }
+
+    [PunRPC]
+    private void RPC_VegsoRendrakas(int startingPlayerID)
+    {
+        TurnManager.Instance.ApplyVegsoRendrakas(startingPlayerID);
+    }
+
+    [PunRPC]
+    private void RPC_GameOver()
+    {
+        TurnManager.Instance.ApplyGameOver();
+    }
+
+    [PunRPC]
+    private void RPC_SetLastRoundExtra()
+    {
+        TurnManager.Instance.lastRoundExtra = true;
     }
 
     [PunRPC]

@@ -364,7 +364,22 @@ public class Player : MonoBehaviour
 
     public void OnEndVegsoRendrakasClicked()
     {
+        endVegsoRendrakasBtn.SetActive(false);
         RefreshScore(ActionCount * -1);
         EndMyTurn();
+    }
+
+    public void SyncStatsToAll()
+    {
+        if (!PhotonNetwork.IsConnected) return;
+
+        // Csak a saját kliensünk küldi el a saját adatait
+        if (PhotonActorNumber != PhotonNetwork.LocalPlayer.ActorNumber) return;
+
+        OnlineTurnManager.Instance.SyncPlayerStats(
+            PlayerID,
+            PlayerScore,
+            CompletedPuzzles,
+            RemainingElements);
     }
 }
