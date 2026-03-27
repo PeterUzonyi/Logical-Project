@@ -125,6 +125,18 @@ public class Player : MonoBehaviour
         return true;
     }
 
+    public bool IsCardSlotsEmpty()
+    {
+        for (int i = 0; i < MyCardSlots.Length; i++)
+        {
+            if (MyCardSlots[i].CurrentCard != null)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
     // Kártya átvétele a CommonReserve-bõl
     public bool ReceiveCard(CardType card)
     {

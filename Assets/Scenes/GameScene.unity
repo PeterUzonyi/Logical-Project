@@ -7103,6 +7103,8 @@ MonoBehaviour:
   BlockingPanel: {fileID: 815648981}
   Score: {fileID: 1942952563}
   PlayerScore: 0
+  CompletedPuzzles: 0
+  RemainingElements: 0
   inventoryManager: {fileID: 989790822}
   MyCardSlots:
   - {fileID: 1525901002}
@@ -7114,6 +7116,7 @@ MonoBehaviour:
   selectedAction: 0
   masterActionUsed: 0
   actionHasEnded: 0
+  ElementPlacementSuccessfull: 0
   masterActionCardCount: 0
   actionBtn: {fileID: 385966789}
   changePlayerViewBtn: {fileID: 0}
@@ -16775,6 +16778,8 @@ MonoBehaviour:
   BlockingPanel: {fileID: 1532263446}
   Score: {fileID: 1970770952}
   PlayerScore: 0
+  CompletedPuzzles: 0
+  RemainingElements: 0
   inventoryManager: {fileID: 212009528}
   MyCardSlots:
   - {fileID: 1132631663}
@@ -16786,6 +16791,7 @@ MonoBehaviour:
   selectedAction: 0
   masterActionUsed: 0
   actionHasEnded: 0
+  ElementPlacementSuccessfull: 0
   masterActionCardCount: 0
   actionBtn: {fileID: 1641016929}
   changePlayerViewBtn: {fileID: 0}
@@ -16868,6 +16874,8 @@ MonoBehaviour:
   BlockingPanel: {fileID: 356302904}
   Score: {fileID: 465683826}
   PlayerScore: 0
+  CompletedPuzzles: 0
+  RemainingElements: 0
   inventoryManager: {fileID: 1598369929}
   MyCardSlots:
   - {fileID: 1278305086}
@@ -16879,6 +16887,7 @@ MonoBehaviour:
   selectedAction: 0
   masterActionUsed: 0
   actionHasEnded: 0
+  ElementPlacementSuccessfull: 0
   masterActionCardCount: 0
   actionBtn: {fileID: 536935938}
   changePlayerViewBtn: {fileID: 0}
@@ -17564,6 +17573,8 @@ MonoBehaviour:
   BlockingPanel: {fileID: 132800083}
   Score: {fileID: 1133776821}
   PlayerScore: 0
+  CompletedPuzzles: 0
+  RemainingElements: 0
   inventoryManager: {fileID: 1833366746}
   MyCardSlots:
   - {fileID: 55369408}
@@ -17575,6 +17586,7 @@ MonoBehaviour:
   selectedAction: 0
   masterActionUsed: 0
   actionHasEnded: 0
+  ElementPlacementSuccessfull: 0
   masterActionCardCount: 0
   actionBtn: {fileID: 1100376112}
   changePlayerViewBtn: {fileID: 0}
@@ -21368,7 +21380,7 @@ MonoBehaviour:
   players: []
   isLastRound: 0
   startedLastRound: {fileID: 0}
-  lastPlayerTurn: 0
+  lastRoundExtra: 0
   isVegsoRendrakas: 0
   isGameOver: 0
 --- !u!1 &1879916810
@@ -24774,6 +24786,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ActionSelection
       objectReference: {fileID: 0}
+    - target: {fileID: 885325023971459007, guid: 609f2d60cf956f94bbae8da1f484d4dc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 885325023971459007, guid: 609f2d60cf956f94bbae8da1f484d4dc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -250
+      objectReference: {fileID: 0}
     - target: {fileID: 953686356447270679, guid: 609f2d60cf956f94bbae8da1f484d4dc, type: 3}
       propertyPath: m_Type
       value: 1
@@ -24782,6 +24802,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 1148658423806923520, guid: 609f2d60cf956f94bbae8da1f484d4dc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148658423806923520, guid: 609f2d60cf956f94bbae8da1f484d4dc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 250
+      objectReference: {fileID: 0}
     - target: {fileID: 1823469757049358119, guid: 609f2d60cf956f94bbae8da1f484d4dc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -24865,6 +24893,42 @@ PrefabInstance:
     - target: {fileID: 1823469757049358119, guid: 609f2d60cf956f94bbae8da1f484d4dc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2415219353140412634, guid: 609f2d60cf956f94bbae8da1f484d4dc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -350
+      objectReference: {fileID: 0}
+    - target: {fileID: 2415219353140412634, guid: 609f2d60cf956f94bbae8da1f484d4dc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -250
+      objectReference: {fileID: 0}
+    - target: {fileID: 2572638129094789586, guid: 609f2d60cf956f94bbae8da1f484d4dc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -350
+      objectReference: {fileID: 0}
+    - target: {fileID: 2572638129094789586, guid: 609f2d60cf956f94bbae8da1f484d4dc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 3168019376680116808, guid: 609f2d60cf956f94bbae8da1f484d4dc, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 700
+      objectReference: {fileID: 0}
+    - target: {fileID: 3168019376680116808, guid: 609f2d60cf956f94bbae8da1f484d4dc, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 4639517061866035849, guid: 609f2d60cf956f94bbae8da1f484d4dc, type: 3}
+      propertyPath: m_Color.b
+      value: 0.41320753
+      objectReference: {fileID: 0}
+    - target: {fileID: 4639517061866035849, guid: 609f2d60cf956f94bbae8da1f484d4dc, type: 3}
+      propertyPath: m_Color.g
+      value: 0.41320753
+      objectReference: {fileID: 0}
+    - target: {fileID: 4639517061866035849, guid: 609f2d60cf956f94bbae8da1f484d4dc, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4882375781257570861, guid: 609f2d60cf956f94bbae8da1f484d4dc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
