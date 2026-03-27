@@ -208,7 +208,10 @@ public class MyGrid : MonoBehaviourPun
                     InventoryManager ownerInventory = ownerPlayer.inventoryManager;
 
                     InventoryItem item;
-                    ElementsOnCard[rewardElement]++; //A teljesítésért járó elem
+
+                    //A teljesítésért járó elem
+                    ElementsOnCard[rewardElement]++; 
+                    CommonReserve.Instance.TakeFromInventory(rewardElement, 1);
 
                     for (int i = 0; i < ElementsOnCard.Count(); i++)
                     {

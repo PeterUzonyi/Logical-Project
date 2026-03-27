@@ -139,6 +139,10 @@ public class LobbyUI : MonoBehaviourPunCallbacks
         startButton.gameObject.SetActive(isHost);
         if (thinkingTimeSlider) thinkingTimeSlider.gameObject.SetActive(isHost);
 
+        //Új belépéskor adatok frissítése
+        if (PhotonNetwork.CurrentRoom.CustomProperties.TryGetValue("thinkTime", out var t))
+            ApplyThinkingTime(System.Convert.ToSingle(t));
+
         RefreshPlayerList();
     }
 
@@ -173,15 +177,7 @@ public class LobbyUI : MonoBehaviourPunCallbacks
     public override void OnRoomPropertiesUpdate(ExitGames.Client.Photon.Hashtable propertiesThatChanged)
     {
         if (propertiesThatChanged.TryGetValue("thinkTime", out var t))
-        {
-            float value = System.Convert.ToSingle(t);
-            if (thinkingTimeLabel)
-                thinkingTimeLabel.text = $"Gondolkodási idõ: {value}s";
-
-            // Ha a slider látható (csak hostnál), frissítsd azt is
-            if (thinkingTimeSlider && thinkingTimeSlider.gameObject.activeSelf)
-                thinkingTimeSlider.SetValueWithoutNotify(value);
-        }
+            ApplyThinkingTime(System.Convert.ToSingle(t));
     }
 
     public override void OnPlayerPropertiesUpdate(PhotonPlayer targetPlayer,
@@ -239,5 +235,15 @@ public class LobbyUI : MonoBehaviourPunCallbacks
         {
             waitingRoomPanel.SetActive(target == waitingRoomPanel);
         }
+    }
+
+    //Gondolkodási idõ lekérése
+    private void ApplyThinkingTime(float value)
+    {
+        if (thinkingTimeLabel)
+            thinkingTimeLabel.text = $"Gondolkodási idõ: {value}s";
+
+        if (thinkingTimeSlider && thinkingTimeSlider.gameObject.activeSelf)
+            thinkingTimeSlider.SetValueWithoutNotify(value);
     }
 }

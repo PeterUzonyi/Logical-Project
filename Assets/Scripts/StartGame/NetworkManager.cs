@@ -160,7 +160,9 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
         InventoryManager ownerInventory = ownerPlayer.inventoryManager;
 
+        //A teljesítésért járó elem
         elements[rewardElement]++;
+        CommonReserve.Instance.TakeFromInventory(rewardElement, 1);
 
         for (int i = 0; i < elements.Length; i++)
         {
