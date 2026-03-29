@@ -413,7 +413,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 620cffff940cffff2622ffff6622ffffe822ffff2c2cffff2e2cffff0a39ffff5a9fffff6ea6ffff28b3ffff14fbffff267400001a760000b8890000ac8b0000ecd40000
+      m_ExpandedIDs: 620dfaffe069faff126afaffa67ffaffe67ffaff5e80faff4e94faff8e94faff5ea7faff0e15fbff4015fbffcc2afbff042bfbff942bfbff2042fbff648dfbffaaa8fbff7089fdffa289fdff2e9ffdff669ffdffeaf4fdff1cf5fdffa80afeffe00afeff2662feff5862feffe477feff1c78feffc806ffff0e1affff9c63ffff727dffff0ac7ffff62daffffc0dfffff82e7ffff26faffff14fbffff6a6900006c6a00004c6b0000906c0000a06c00004c980000d8ab0000e4ad0000e0c60000ecc8000082b801000eb90100d6b901001cf301001ef40100fef4010042f6010052f60100123002005c390200ce3a02005a3b0200123c0200223c0200346b0200786c0200886c0200
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -930,7 +930,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/StartGame
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -938,15 +938,15 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/StartGame
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\your-computer\Desktop\Logical-Project
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 1c680000
-    m_LastClickedID: 26652
+    scrollPos: {x: 0, y: 88.600006}
+    m_SelectedIDs: 14680000
+    m_LastClickedID: 26644
     m_ExpandedIDs: 0000000002680000046800000668000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
