@@ -63,10 +63,12 @@ public class Player : MonoBehaviour
     }
     public void MyTurn(bool value)
     {
+        /*
         Debug.Log($"MyTurn: {PlayerID}, value={value}, " +
               $"IsMyTurn={OnlineTurnManager.Instance?.IsMyTurn}, " +
               $"LocalActorNumber={PhotonNetwork.LocalPlayer.ActorNumber}, " +
               $"ActiveActor={OnlineTurnManager.Instance?.ActiveActorNumber}");
+        */
 
         IsMyRound = value;
 
@@ -111,6 +113,8 @@ public class Player : MonoBehaviour
         {
             endVegsoRendrakasBtn.SetActive(true);
         }
+
+        ThinkingTimer.Instance?.StartTimer();
     }
 
     public bool IsCardSlotsFull()
@@ -205,15 +209,36 @@ public class Player : MonoBehaviour
 
     public void ActionHasEnded()
     {
-        if (selectedAction == ActionType.PlaceElement && ElementPlacementSuccessfull)
+        if (!ThinkingTimer.Instance.TimeIsUp)
         {
-            ElementPlacementSuccessfull = false;
+            //A Timer nem járt le
+            if (selectedAction == ActionType.PlaceElement && ElementPlacementSuccessfull)
+            {
+                ElementPlacementSuccessfull = false;
+            }
+            else if (selectedAction == ActionType.PlaceElement && !ElementPlacementSuccessfull)
+            {
+                FindAnyObjectByType<ActionSelectionPanel>().ShowPanel();
+                return;
+            }
         }
-        else if (selectedAction == ActionType.PlaceElement && !ElementPlacementSuccessfull)
+
+        if (PhotonNetwork.IsConnected && OnlineTurnManager.Instance != null)
         {
-            FindAnyObjectByType<ActionSelectionPanel>().ShowPanel();
-            return;
+            if (!ThinkingTimer.Instance.TimeIsUp)
+            {
+                OnlineTurnManager.Instance.SyncResetTimer();
+            }
         }
+        else
+        {
+            ThinkingTimer.Instance?.ResetTimer();
+        }
+
+        //Esetleges gombok eltüntetése
+        actionBtn.SetActive(false);
+        endMasterActionBtn.SetActive(false);
+        endVegsoRendrakasBtn.SetActive(false);
 
         ActionCount++;
         Debug.Log(ActionCount);
@@ -231,6 +256,7 @@ public class Player : MonoBehaviour
         {
             if (ActionCount == 3)//Kör vége, megvolt a 3 akció
             {
+                ThinkingTimer.Instance?.StopTimer();
                 EndMyTurn();
             }
             else//Még nem volt meg a 3 akció, következõ akció
@@ -313,6 +339,8 @@ public class Player : MonoBehaviour
 
     public void EndMyTurn()
     {
+        ThinkingTimer.Instance?.StopTimer();
+
         if (PhotonNetwork.IsConnected && OnlineTurnManager.Instance != null)
         {
             // Online: jelezzük a szervernek hogy végeztünk

@@ -53,6 +53,8 @@ MonoBehaviour:
   - RPC_VegsoRendrakas
   - RPC_RequestStatSync
   - RPC_SyncPlayerStats
+  - RPC_ResetTimer
+  - RPC_TimeUp
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 0

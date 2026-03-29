@@ -27,6 +27,7 @@ public class OnlineTurnManager : MonoBehaviourPun
     private float thinkingTime = 30f;
     private float remainingTime;
     private bool timerRunning = false;
+    private bool timeUpHandle = false;
 
     public int ActiveActorNumber => activeActorNumber;
 
@@ -71,12 +72,13 @@ public class OnlineTurnManager : MonoBehaviourPun
 
         OnTimerTick?.Invoke(remainingTime);
 
-        if (remainingTime <= 0f)
+        if (remainingTime <= 0f && !timeUpHandle)
         {
+            timeUpHandle = true;
             timerRunning = false;
             // Csak a MasterClient lépteti tovább ha lejár az idõ
             if (PhotonNetwork.IsMasterClient)
-                NextTurn();
+                photonView.RPC(nameof(RPC_TimeUp), RpcTarget.All);
             OnTimeUp?.Invoke();
         }
     }
@@ -226,7 +228,47 @@ public class OnlineTurnManager : MonoBehaviourPun
         activeActorNumber = actorNumber;
         remainingTime = thinkingTime;
         timerRunning = true;
-
+        timeUpHandle = false;
         OnTurnChanged?.Invoke(actorNumber);
+    }
+
+    public void SyncResetTimer()
+    {
+        photonView.RPC(nameof(RPC_ResetTimer), RpcTarget.All);
+    }
+
+    [PunRPC]
+    private void RPC_ResetTimer()
+    {
+        remainingTime = thinkingTime;
+        timerRunning = true;
+        timeUpHandle = false;
+        ThinkingTimer.Instance?.ResetTimer();
+    }
+
+    [PunRPC]
+    private void RPC_TimeUp()
+    {
+        // Minden kliensen resetelünk
+        remainingTime = thinkingTime;
+        timerRunning = true;
+        timeUpHandle = false;
+        ThinkingTimer.Instance?.ResetTimer();
+
+        Player current = TurnManager.Instance?.currentPlayer;
+        if (current == null) return;
+
+        // Csak a soron lévõ játékos kliensén fut le ténylegesen
+        if (current.PhotonActorNumber != PhotonNetwork.LocalPlayer.ActorNumber) return;
+
+        // TimeIsUp visszaállítása mielõtt ActionHasEnded lefut
+        if (ThinkingTimer.Instance != null)
+            ThinkingTimer.Instance.TimeIsUp = false;
+
+
+        if (TurnManager.Instance.isVegsoRendrakas)
+            current.OnEndVegsoRendrakasClicked();
+        else
+            current.ActionHasEnded();
     }
 }
