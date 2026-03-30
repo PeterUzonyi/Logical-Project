@@ -64,6 +64,7 @@ public class TurnManager : MonoBehaviour
                 players[i].PlayerID = i + 1; // fix 1-4
                 players[i].PhotonActorNumber = photonPlayers[i].ActorNumber; // Photon szám
                 players[i].PlayerName = photonPlayers[i].NickName;
+                players[i].ApplyColor();
             }
         }
         else
@@ -71,6 +72,7 @@ public class TurnManager : MonoBehaviour
             for (int i = 0; i < players.Count; i++)
             {
                 players[i].PlayerName = GameConfig.PlayerNames[i];
+                players[i].ApplyColor();
             }
         }
 
@@ -162,14 +164,6 @@ public class TurnManager : MonoBehaviour
         {
             //Lokális mód
             ApplyLastRound(currentPlayer.PlayerID);
-            /*
-            isLastRound = true;
-            lastRoundExtra = false;
-            startedLastRound = currentPlayer;
-            InfoPanel.Instance.Show("Miután " + currentPlayer.name + " befejezte ezt a kört, utána kezdõdik az utolsó " +
-                "kör. \n\nMindenkire még egyszer kerül sor, addig, amíg " + currentPlayer.name + " végre nem hajtotta " +
-                "az összes akcióját. \n\nEzután fog következi a Végsõ Rendrakás.");
-            */
         }
     }
 
@@ -201,19 +195,6 @@ public class TurnManager : MonoBehaviour
             ApplyVegsoRendrakas(players[nextIdx].PlayerID);
 
             Debug.Log("Végsõ Rendrakás");
-
-            /*
-            isVegsoRendrakas = true;
-            isLastRound = false;
-            lastRoundExtra = false;
-            int idx = players.IndexOf(currentPlayer);
-            int nextIdx = (idx + 1) % players.Count;
-            startedLastRound = players[nextIdx];
-            InfoPanel.Instance.Show("Most kezdõdik a Végsõ Rendrakás, mindenkire még egyszer kerül sor. \n\nEbben a körben" +
-                " semmilyen akciót nem lehet végrehajtani, csak az elõtted lévõ feladványokat lehet befejezni. Minden " +
-                "egyes elem lerakása egy kártyára 1 pontba kerül, amit a kör befejezése után vonunk le. \n\nHa végeztél a " +
-                "végsõ rendrakás köröddel, akkor ezt a megfelelõ gomb megnyomásával jelezheted.");
-            */
         }
     }
 
@@ -243,51 +224,6 @@ public class TurnManager : MonoBehaviour
         {
             //Lokális mód
             ApplyGameOver();
-            /*
-            isGameOver = true;
-            Debug.Log("Game Over");
-
-            var sortedPlayers = players.OrderByDescending(p => p.PlayerScore)
-                .ThenByDescending(p => p.CompletedPuzzles)
-                .ThenByDescending(p => p.RemainingElements).ToList();
-            string result = "";
-            int rank = 1;
-            int i = 0;
-
-            while (i < sortedPlayers.Count)
-            {
-                // Megkeressük meddig tart az egyforma csoport
-                int j = i;
-                while (j < sortedPlayers.Count
-                    && sortedPlayers[j].PlayerScore == sortedPlayers[i].PlayerScore
-                    && sortedPlayers[j].CompletedPuzzles == sortedPlayers[i].CompletedPuzzles
-                    && sortedPlayers[j].RemainingElements == sortedPlayers[i].RemainingElements)
-                {
-                    j++;
-                }
-
-                // i..j-1 indexig mindenki azonos helyezésen van
-                bool isTie = (j - i) > 1;
-                for (int k = i; k < j; k++)
-                {
-                    Player p = sortedPlayers[k];
-                    string rankStr = isTie ? rank + ". (döntetlen)" : rank + ".";
-                    result += $"{rankStr} {p.name}: {p.PlayerScore} pont" +
-                              $" | Feladványok: {p.CompletedPuzzles}" +
-                              $" | Alkatrészek: {p.RemainingElements}\n";
-                }
-
-                if (isTie)
-                {
-                    result += "Az érintettek osztoznak a gyõzelemben. Gratulálunk!\n";
-                }
-
-                rank += (j - i); // pl. ha 2 játékos osztja az 1. helyet, a következõ a 3.
-                i = j;
-            }
-
-            InfoPanel.Instance.Show("A játék véget ért, íme a végsõ állás: \n\n" + result);
-            */
         }
         
     }

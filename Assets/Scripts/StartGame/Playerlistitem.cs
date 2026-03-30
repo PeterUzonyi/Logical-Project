@@ -21,6 +21,17 @@ public class PlayerListItem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI playerNameLabel;
     [SerializeField] private TextMeshProUGUI readyLabel;
     [SerializeField] private GameObject hostBadge;
+    [SerializeField] private Image colorImage; // ezt kösd be az Editorban
+
+    private readonly Color[] palette = new Color[]
+    {
+        new Color(0.85f, 0.22f, 0.22f),
+        new Color(0.22f, 0.45f, 0.85f),
+        new Color(0.22f, 0.72f, 0.33f),
+        new Color(0.95f, 0.75f, 0.10f),
+        new Color(0.70f, 0.25f, 0.80f),
+        new Color(0.95f, 0.50f, 0.10f),
+    };
 
     public void Setup(PhotonPlayer player)
     {
@@ -45,5 +56,15 @@ public class PlayerListItem : MonoBehaviour
 
         if (hostBadge)
             hostBadge.SetActive(player.IsMasterClient);
+
+        // Szín megjelenítése (pl. egy Image komponensen)
+        if (colorImage != null)
+        {
+            int colorIndex = 0;
+            if (player.CustomProperties.TryGetValue("colorIndex", out var ci))
+                colorIndex = (int)ci;
+
+            colorImage.color = palette[colorIndex]; // palette itt is kell, vagy GameConfig-ból olvasd
+        }
     }
 }

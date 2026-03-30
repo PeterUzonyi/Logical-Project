@@ -48,10 +48,12 @@ public class Player : MonoBehaviour
 
     void Awake()
     {
+        /*
         if (panelBackground != null)
         {
             panelBackground.color = GameConfig.PlayerColors[PlayerID - 1];
-        }            
+        } 
+        */
 
         RefreshScore(0);
 
@@ -421,5 +423,11 @@ public class Player : MonoBehaviour
             PlayerScore,
             CompletedPuzzles,
             RemainingElements);
+    }
+
+    public void ApplyColor()
+    {
+        if (panelBackground != null)
+            panelBackground.color = GameConfig.PlayerColors[PlayerID - 1];
     }
 }

@@ -36,6 +36,34 @@ public class OnlineTurnManager : MonoBehaviourPun
     {
         if (Instance != null) { Destroy(gameObject); return; }
         Instance = this;
+
+        // Csak online módban töltjük fel Photon adatokból
+        if (!PhotonNetwork.IsConnected) return;
+        // Játékos színek betöltése Photon property-kbõl
+        var palette = new Color[]
+        {
+        new Color(0.85f, 0.22f, 0.22f),
+        new Color(0.22f, 0.45f, 0.85f),
+        new Color(0.22f, 0.72f, 0.33f),
+        new Color(0.95f, 0.75f, 0.10f),
+        new Color(0.70f, 0.25f, 0.80f),
+        new Color(0.95f, 0.50f, 0.10f),
+        };
+
+        var players = PhotonNetwork.PlayerList
+        .OrderBy(p => p.IsMasterClient ? 0 : 1)
+        .ToList();
+
+
+        GameConfig.PlayerCount = players.Count;
+        for (int i = 0; i < players.Count; i++)
+        {
+            int colorIndex = 0;
+            if (players[i].CustomProperties.TryGetValue("colorIndex", out var ci))
+                colorIndex = (int)ci;
+            GameConfig.PlayerColors[i] = palette[colorIndex];
+            GameConfig.PlayerNames[i] = players[i].NickName;
+        }
     }
 
     void Start()

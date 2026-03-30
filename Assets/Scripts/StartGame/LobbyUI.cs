@@ -49,6 +49,19 @@ public class LobbyUI : MonoBehaviourPunCallbacks
     [Header("Játék jelenet neve")]
     [SerializeField] private string gameSceneName = "GameScene"; // a te meglévõ scene neved
 
+    [Header("Szín választók (Waiting Room)")]
+    [SerializeField] private TMP_Dropdown localColorDropdown; // csak a saját játékos dropdownja
+
+    private readonly Color[] palette = new Color[]
+    {
+        new Color(0.85f, 0.22f, 0.22f),
+        new Color(0.22f, 0.45f, 0.85f),
+        new Color(0.22f, 0.72f, 0.33f),
+        new Color(0.95f, 0.75f, 0.10f),
+        new Color(0.70f, 0.25f, 0.80f),
+        new Color(0.95f, 0.50f, 0.10f),
+    };
+
     // Belsõ állapot 
     private Dictionary<string, GameObject> roomItems = new();
     private Dictionary<int, GameObject> playerItems = new();
@@ -67,6 +80,7 @@ public class LobbyUI : MonoBehaviourPunCallbacks
         readyButton.onClick.AddListener(ToggleReady);
         startButton.onClick.AddListener(OnStartClicked);
         thinkingTimeSlider?.onValueChanged.AddListener(OnThinkingTimeChanged);
+        SetupColorDropdown();
 
         // Feliratkozás NetworkManager eseményekre
         NetworkManager.Instance.OnStatusChanged += msg => { if (statusLabel) statusLabel.text = msg; };
@@ -245,5 +259,45 @@ public class LobbyUI : MonoBehaviourPunCallbacks
 
         if (thinkingTimeSlider && thinkingTimeSlider.gameObject.activeSelf)
             thinkingTimeSlider.SetValueWithoutNotify(value);
+    }
+
+    private void SetupColorDropdown()
+    {
+        if (localColorDropdown == null) return;
+
+        localColorDropdown.ClearOptions();
+        var options = new List<TMP_Dropdown.OptionData>();
+        for (int j = 0; j < palette.Length; j++)
+            options.Add(new TMP_Dropdown.OptionData("", CreateColorSprite(palette[j])));
+
+        localColorDropdown.AddOptions(options);
+
+        int savedIndex = 0;
+        if (PhotonNetwork.LocalPlayer.CustomProperties.TryGetValue("colorIndex", out var ci))
+        {
+            savedIndex = (int)ci;
+        }
+
+        localColorDropdown.SetValueWithoutNotify(savedIndex);
+        localColorDropdown.RefreshShownValue();
+        localColorDropdown.onValueChanged.AddListener(OnLocalColorChanged);
+
+        OnLocalColorChanged(savedIndex);
+    }
+
+    private void OnLocalColorChanged(int colorIndex)
+    {
+        // Szín szinkronizálása Photonon keresztül
+        PhotonNetwork.LocalPlayer.SetCustomProperties(new ExitGames.Client.Photon.Hashtable { { "colorIndex", colorIndex } });
+    }
+
+    private Sprite CreateColorSprite(Color color)
+    {
+        Texture2D tex = new Texture2D(32, 32);
+        Color[] pixels = new Color[32 * 32];
+        for (int i = 0; i < pixels.Length; i++) pixels[i] = color;
+        tex.SetPixels(pixels);
+        tex.Apply();
+        return Sprite.Create(tex, new Rect(0, 0, 32, 32), Vector2.one * 0.5f);
     }
 }
