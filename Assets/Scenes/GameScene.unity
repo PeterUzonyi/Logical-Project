@@ -1521,7 +1521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &133626639
 Transform:
   m_ObjectHideFlags: 0
@@ -1552,6 +1552,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   infoText: {fileID: 902991878}
   panel: {fileID: 1418931977}
+  menuSceneName: StartGameScene
 --- !u!1 &137255067
 GameObject:
   m_ObjectHideFlags: 0
@@ -17198,7 +17199,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1418931978
 RectTransform:
   m_ObjectHideFlags: 0

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Photon.Pun;
+using UnityEngine.SceneManagement;
 
 public class InfoPanel : MonoBehaviour
 {
@@ -9,6 +11,9 @@ public class InfoPanel : MonoBehaviour
     [SerializeField] private GameObject panel;
 
     public static InfoPanel Instance { get; private set; }
+
+    [Header("Jelenet neve")]
+    [SerializeField] private string menuSceneName = "StartGameScene";
 
     void Awake()
     {
@@ -27,5 +32,19 @@ public class InfoPanel : MonoBehaviour
     public void OnOkClicked()
     {
         panel.SetActive(false);
+
+        // Csak GameOver után navigálunk vissza
+        if (TurnManager.Instance == null || !TurnManager.Instance.isGameOver) return;
+
+        if (PhotonNetwork.IsConnected && PhotonNetwork.InRoom)
+        {
+            // Online: kilépés a szobából, a callback intézi a visszanavigálást
+            PhotonNetwork.LeaveRoom();
+        }
+        else
+        {
+            // Lokális: egyszerû jelenetváltás
+            SceneManager.LoadScene(menuSceneName);
+        }
     }
 }

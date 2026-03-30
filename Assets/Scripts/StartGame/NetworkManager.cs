@@ -29,7 +29,11 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     void Awake()
     {
-        if (Instance != null) { Destroy(gameObject); return; }
+        if (Instance != null) 
+        {
+            Destroy(gameObject); 
+            return; 
+        }
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
@@ -80,6 +84,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         OnStatusChanged?.Invoke("Csatlakozás a szobához...");
     }
 
+    //Ez nem kell, nem is használom
     public void JoinRandomRoom()
     {
         PhotonNetwork.JoinRandomRoom();
@@ -179,7 +184,16 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     }
 
     public override void OnJoinedRoom() => OnRoomJoined?.Invoke();
-    public override void OnLeftRoom() => OnRoomLeft?.Invoke();
+    public override void OnLeftRoom()
+    {
+        OnRoomLeft?.Invoke();
+
+        // Ha GameOver után léptünk ki, töltsük be a menü jelenetet
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name != "StartGameScene")
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("StartGameScene");
+        }
+    } 
 
     public override void OnPlayerEnteredRoom(PhotonPlayer newPlayer)
         => OnOtherPlayerEntered?.Invoke(newPlayer);

@@ -97,6 +97,15 @@ public class LobbyUI : MonoBehaviourPunCallbacks
         string name = playerNameInput != null ? playerNameInput.text.Trim() : "";
         if (string.IsNullOrEmpty(name))
             name = "Játékos_" + Random.Range(100, 999);
+
+        if (PhotonNetwork.IsConnected)
+        {
+            // Már csatlakozva vagyunk, csak navigálunk
+            PhotonNetwork.LocalPlayer.NickName = name;
+            ShowPanel(roomListPanel);
+            return;
+        }
+
         NetworkManager.Instance.ConnectToPhoton(name);
     }
 
