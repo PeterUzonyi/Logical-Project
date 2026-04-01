@@ -6,6 +6,7 @@ using TMPro;
 using Photon;
 using Photon.Pun;
 using System.Linq;
+using UnityEngine.Localization.Settings;
 
 public class Player : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class Player : MonoBehaviour
     public GameObject BlockingPanel; //Ha másik játékos van soron, akkor SetActive(False), különben (True)
 
     public TMP_Text Score;
-    public int PlayerScore = 0;
+    public int PlayerScore;
     public int CompletedPuzzles = 0;
     public int RemainingElements = 0;
 
@@ -48,13 +49,7 @@ public class Player : MonoBehaviour
 
     void Awake()
     {
-        /*
-        if (panelBackground != null)
-        {
-            panelBackground.color = GameConfig.PlayerColors[PlayerID - 1];
-        } 
-        */
-
+        PlayerScore = 0;
         RefreshScore(0);
 
         //Eltûnjenek az üres kártya prefabok
@@ -65,13 +60,7 @@ public class Player : MonoBehaviour
     }
     public void MyTurn(bool value)
     {
-        /*
-        Debug.Log($"MyTurn: {PlayerID}, value={value}, " +
-              $"IsMyTurn={OnlineTurnManager.Instance?.IsMyTurn}, " +
-              $"LocalActorNumber={PhotonNetwork.LocalPlayer.ActorNumber}, " +
-              $"ActiveActor={OnlineTurnManager.Instance?.ActiveActorNumber}");
-        */
-
+        RefreshScore(0);
         IsMyRound = value;
 
         // Online módban csak akkor engedélyezzük, ha tényleg a mi actorunk van soron
@@ -365,10 +354,16 @@ public class Player : MonoBehaviour
 
     public void RefreshScore(int value)
     {
+        string code = LocalizationSettings.SelectedLocale.Identifier.Code;
         PlayerScore += value;
-        if(Score.text != PlayerScore.ToString())
+
+        if (code == "hu")
         {
-            Score.text = PlayerScore.ToString();
+            Score.text = PlayerName + " pontszáma: \n" + PlayerScore.ToString();
+        }
+        else
+        {
+            Score.text = PlayerName + "'s score: \n" + PlayerScore.ToString();
         }
     }
 

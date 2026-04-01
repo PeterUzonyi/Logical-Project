@@ -4,6 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Localization.Settings;
 
 public class ActionSelectionPanel : MonoBehaviour
 {
@@ -26,26 +27,56 @@ public class ActionSelectionPanel : MonoBehaviour
     {
         ActionType selected = (ActionType)actionTypeIndex;
 
+        string code = LocalizationSettings.SelectedLocale.Identifier.Code;
 
         //Adott esetben nem lehet bizonyos akciókat választani
         if (selected == ActionType.MesterAction && TurnManager.Instance.currentPlayer.masterActionUsed)
         {
-            ShowErrorMessage("Ebben a körben már elhasználtad a mester akciódat!");
+            if (code == "hu")
+            {
+                ShowErrorMessage("Ebben a körben már elhasználtad a mester akciódat!");
+            }
+            else
+            {
+                ShowErrorMessage("You already used your master action in this round!");
+            }
+            
             return;
         }
         if ((selected == ActionType.PlaceElement || selected == ActionType.MesterAction) && TurnManager.Instance.currentPlayer.IsCardSlotsEmpty())
         {
-            ShowErrorMessage("Nem tudod ezt az akciót választani, mert nincsen elõtted feladvány kártya!");
+            if (code == "hu")
+            {
+                ShowErrorMessage("Nem tudod ezt az akciót választani, mert nincsen elõtted feladvány kártya!");
+            }
+            else
+            {
+                ShowErrorMessage("You cannot choose this action, because you don't have any puzzle!");
+            }
             return;
         }
         if (selected == ActionType.TakePuzzle && TurnManager.Instance.currentPlayer.IsCardSlotsFull())
         {
-            ShowErrorMessage("Nem tudod ezt az akciót választani, mert nincs elõtted hely egy új feladvány kártyának!");
+            if (code == "hu")
+            {
+                ShowErrorMessage("Nem tudod ezt az akciót választani, mert nincs elõtted hely egy új feladvány kártyának!");
+            }
+            else
+            {
+                ShowErrorMessage("You cannot choose this action, because you don't have space for more puzzle!");
+            }
             return;
         }
         if (selected == ActionType.TakeElement && TurnManager.Instance.currentPlayer.IsCardSlotsFull())
         {
-            ShowErrorMessage("A CommonReserve-ben nincsen több lvl1-es elem!");
+            if (code == "hu")
+            {
+                ShowErrorMessage("A CommonReserve-ben nincsen több lvl 1-es elem!");
+            }
+            else
+            {
+                ShowErrorMessage("There are no more lvl 1 item in the Common Reserve!");
+            }
             return;
         }
         ShowErrorMessage("");

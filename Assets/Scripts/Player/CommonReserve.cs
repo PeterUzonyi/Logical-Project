@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Linq;
 using Photon.Pun;
+using UnityEngine.Localization.Settings;
 
 public class CommonReserve : MonoBehaviourPun
 {
@@ -22,8 +23,8 @@ public class CommonReserve : MonoBehaviourPun
     private Player originPlayer;
     private bool CommonReserveReady = false;
 
-    public GameObject RemainingBlackCards;
-    public GameObject RemainingWhiteCards;
+    public TMP_Text RemainingBlackCards;
+    public TMP_Text RemainingWhiteCards;
 
     void Awake()
     {
@@ -325,10 +326,18 @@ public class CommonReserve : MonoBehaviourPun
 
     public void RefreshRemainingCardCount()
     {
-        TMP_Text BText = RemainingBlackCards.GetComponent<TMP_Text>();
-        BText.text = CardManager.Instance.BlackCards.Count().ToString();
-        TMP_Text WText = RemainingWhiteCards.GetComponent<TMP_Text>();
-        WText.text = CardManager.Instance.WhiteCards.Count().ToString();
+        string code = LocalizationSettings.SelectedLocale.Identifier.Code;
+
+        if (code == "hu")
+        {
+            RemainingBlackCards.text = "Fekete Kártyák: \n" + CardManager.Instance.BlackCards.Count();
+            RemainingWhiteCards.text = "Fehér Kártyák: \n" + CardManager.Instance.WhiteCards.Count();
+        }
+        else
+        {
+            RemainingBlackCards.text = "Black Cards: \n" + CardManager.Instance.BlackCards.Count();
+            RemainingWhiteCards.text = "White Cards: \n" + CardManager.Instance.WhiteCards.Count();
+        }
     }
 
 

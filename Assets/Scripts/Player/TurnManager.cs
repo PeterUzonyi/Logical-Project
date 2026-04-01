@@ -5,6 +5,7 @@ using Photon;
 using Photon.Pun;
 using System.Linq;
 using UnityEngine.SceneManagement;
+using UnityEngine.Localization.Settings;
 
 public class TurnManager : MonoBehaviour
 {
@@ -174,10 +175,25 @@ public class TurnManager : MonoBehaviour
         isLastRound = true;
         lastRoundExtra = false;
         startedLastRound = player;
-        InfoPanel.Instance.Show(
+
+        string code = LocalizationSettings.SelectedLocale.Identifier.Code;
+
+        if (code == "hu")
+        {
+            InfoPanel.Instance.Show(
             "Miután " + player.PlayerName + " befejezte ezt a kört, utána kezdõdik az utolsó kör." +
             "\n\nMindenkire még egyszer kerül sor, addig, amíg " + player.PlayerName +
             " végre nem hajtotta az összes akcióját.\n\nEzután fog következni a Végsõ Rendrakás.");
+        }
+        else
+        {
+            InfoPanel.Instance.Show(
+            "After " + player.PlayerName + " finished this round, then the last round begins." +
+            "\n\nEveryone gets another round, until " + player.PlayerName +
+            " has completed all of its actions.\n\nEzután fog következni a Végsõ Rendrakás.");
+        }
+
+        
     }
 
     public void VegsoRendrakas()
@@ -206,11 +222,25 @@ public class TurnManager : MonoBehaviour
         isLastRound = false;
         lastRoundExtra = false;
         startedLastRound = startingPlayer;
-        InfoPanel.Instance.Show(
+
+        string code = LocalizationSettings.SelectedLocale.Identifier.Code;
+
+        if (code == "hu")
+        {
+            InfoPanel.Instance.Show(
             "Most kezdõdik a Végsõ Rendrakás, mindenkire még egyszer kerül sor.\n\nEbben a körben " +
             "semmilyen akciót nem lehet végrehajtani, csak az elõtted lévõ feladványokat lehet befejezni. " +
             "Minden egyes elem lerakása egy kártyára 1 pontba kerül, amit a kör befejezése után vonunk le." +
-            "\n\nHa végeztél a végsõ rendrakás köröddel, azt a megfelelõ gomb megnyomásával jelezheted.");
+            "\n\nHa végeztél a Végsõ Rendrakás köröddel, azt a megfelelõ gomb megnyomásával jelezd.");
+        }
+        else
+        {
+            InfoPanel.Instance.Show(
+            "Now it is time for the Final Touches, everyone gets a last round.\n\nDuring this round " +
+            "noone can do any actions, except placing down elements onto the puzzles in front of you. " +
+            "For each element placed down you lose 1 point, which is deducted after you finished this round." +
+            "\n\nIf you are finished with the Final Touches, indicate this by clicking the appropriate button.");
+        }        
     }
 
     public void GameOver()
@@ -243,6 +273,8 @@ public class TurnManager : MonoBehaviour
         int rank = 1;
         int i = 0;
 
+        string code = LocalizationSettings.SelectedLocale.Identifier.Code;
+
         while (i < sortedPlayers.Count)
         {
             int j = i;
@@ -258,19 +290,49 @@ public class TurnManager : MonoBehaviour
             for (int k = i; k < j; k++)
             {
                 Player p = sortedPlayers[k];
-                string rankStr = isTie ? rank + ". (döntetlen)" : rank + ".";
-                result += $"{rankStr} {p.PlayerName}: {p.PlayerScore} pont" +
-                          $" | Feladványok: {p.CompletedPuzzles}" +
-                          $" | Alkatrészek: {p.RemainingElements}\n";
+
+                if (code == "hu")
+                {
+                    string rankStr = isTie ? rank + ". (döntetlen)" : rank + ".";
+                    result += $"{rankStr} {p.PlayerName}: {p.PlayerScore} pont" +
+                              $" | Feladványok: {p.CompletedPuzzles}" +
+                              $" | Alkatrészek: {p.RemainingElements}\n";
+                }
+                else
+                {
+                    string rankStr = isTie ? rank + ". (tie)" : rank + ".";
+                    result += $"{rankStr} {p.PlayerName}: {p.PlayerScore} score" +
+                              $" | puzzles: {p.CompletedPuzzles}" +
+                              $" | elements: {p.RemainingElements}\n";
+                }
+
+                
             }
             if (isTie)
-                result += "Az érintettek osztoznak a gyõzelemben. Gratulálunk!\n";
+            {
+                if (code == "hu")
+                {
+                    result += "Az érintettek osztoznak a gyõzelemben. Gratulálunk mindenkinek!\n";
+                }
+                else
+                {
+                    result += "All tied players share the victory. You are all awesome!\n";
+                }
+            }
+                
 
             rank += (j - i);
             i = j;
         }
 
-        InfoPanel.Instance.Show("A játék véget ért, íme a végsõ állás:\n\n" + result);
+        if (code == "hu")
+        {
+            InfoPanel.Instance.Show("A játék véget ért, íme a végsõ állás:\n\n" + result);
+        }
+        else
+        {
+            InfoPanel.Instance.Show("The game is over, here are the final standings:\n\n" + result);
+        }
     }
 
     private void OnOnlineTurnChanged(int actorNumber)
