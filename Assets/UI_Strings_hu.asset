@@ -43,7 +43,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1406808494080
-    m_Localized: "J\xE1t\xE9kosok sz\xE1ma"
+    m_Localized: "J\xE1t\xE9kosok sz\xE1ma:"
     m_Metadata:
       m_Items: []
   - m_Id: 1633573539840
@@ -80,9 +80,9 @@ MonoBehaviour:
       az \xF6sszes alkatr\xE9szt az asztalra, hogy mindenki el\xE9rhesse: ez lesz
       a tartal\xE9k.\r\n-    Minden j\xE1t\xE9kos vegyen mag\xE1hoz egy 1. \xE9s
       egy 2. szint\u0171 alkatr\xE9szt a tartal\xE9kb\xF3l (minden alkatr\xE9sz akkora
-      szint\u0171, ah\xE1ny kis n\xE9gyzetb\u0151l \xE1ll).\r\n\r\n\n150%><b>A J\xC1T\xC9K
-      MENETE\r</b>\r</size>\nA kezd\u0151j\xE1t\xE9kos kezd, majd a t\xF6bbiek az
-      \xF3ramutat\xF3 j\xE1r\xE1s\xE1nak ir\xE1ny\xE1ban ker\xFClnek sorra. Amikor
+      szint\u0171, ah\xE1ny kis n\xE9gyzetb\u0151l \xE1ll).\r\n\r\n\n<size=150%><b>A
+      J\xC1T\xC9K MENETE\r</b>\r</size>\nA kezd\u0151j\xE1t\xE9kos kezd, majd a t\xF6bbiek
+      az \xF3ramutat\xF3 j\xE1r\xE1s\xE1nak ir\xE1ny\xE1ban ker\xFClnek sorra. Amikor
       sorra ker\xFClsz, 3 akci\xF3t hajthatsz v\xE9gre. A k\xF6vetkez\u0151 akci\xF3k
       k\xF6z\xFCl v\xE1laszthatsz (egy akci\xF3t ak\xE1r t\xF6bbsz\xF6r is v\xE9grehajthatsz):\r\n-   
       <b>Elveszel egy feladv\xE1nyt</b> a k\xE9t sor valamelyik\xE9b\u0151l, \xE9s
@@ -136,63 +136,19 @@ MonoBehaviour:
       a legt\xF6bb pontot szerezte.\r\n-    D\xF6ntetlen eset\xE9n az gy\u0151z,
       aki t\xF6bb feladv\xE1nyt teljes\xEDtett.\r\n-    Ha m\xE9g mindig d\xF6ntetlen,
       az gy\u0151z, akinek t\xF6bb alkatr\xE9sze van.\r\n-    Ha m\xE9g ez sem d\xF6nt,
-      az \xE9rintettek osztoznak a gy\u0151zelemben. Gratul\xE1lunk!\r\n alkatr\xE9sz\xE9t
-      a k\xF6z\xF6s tartal\xE9kba, \xE9s vegy\xE9l el helyette egy eggyel magasabb
-      szint\u0171 alkatr\xE9szt.\r\n       - Ha nincs a k\xF6z\xF6s tartal\xE9kban
-      megfelel\u0151 szint\u0171 alkatr\xE9sz, vedd el helyette a k\xF6vetkez\u0151
-      rendelkez\xE9sre \xE1ll\xF3 magasabb szint\u0171t (az alkatr\xE9sz form\xE1ja
-      nem sz\xE1m\xEDt).\r\n       - Fontos: ha akarsz, elvehetsz azonos vagy alacsonyabb
-      szint\u0171, de m\xE1s form\xE1j\xFA alkatr\xE9szt is.\r\n-    <b>Egy alkatr\xE9szedet
-      az egyik feladv\xE1nyodra teszed</b> a saj\xE1t k\xE9szletedb\u0151l. Tetsz\u0151legesen
-      forgathatod az alkatr\xE9szt, de az nem takarhat le m\xE1s alkatr\xE9szeket
-      \xE9s nem l\xF3ghat ki a feh\xE9r n\xE9gyzetekb\u0151l \xE1ll\xF3 ter\xFCletr\u0151l.
-      A m\xE1r letett alkatr\xE9szeket nem veheted vissza \xE9s nem mozd\xEDthatod
-      el a hely\xFCkr\u0151l, am\xEDg meg nem oldottad a feladv\xE1nyt (l\xE1sd a
-      Feladv\xE1nyok megold\xE1sa r\xE9szt).\r\n-    <b>Mesterakci\xF3</b> (k\xF6r\xF6nk\xE9nt
-      legfeljebb egyszer hajthat\xF3 v\xE9gre): tegy\xE9l legfeljebb egy alkatr\xE9szt
-      minden el\u0151tted l\xE9v\u0151, befejezetlen feladv\xE1nyra. Minden alkatr\xE9sznek
-      a saj\xE1t k\xE9szletedben kell lennie ennek az akci\xF3nak a megkezd\xE9sekor.\r\n\r\n\n<size=150%><b>FELADV\xC1NYOK
-      MEGOLD\xC1SA\r</b>\r</size>\nEgy feladv\xE1ny akkor tekinthet\u0151 megoldottnak,
-      ha a feh\xE9r n\xE9gyzetekb\u0151l \xE1ll\xF3 ter\xFCletet siker\xFClt teljesen
-      kit\xF6lteni alkatr\xE9szekkel. Ha egy akci\xF3d eredm\xE9nyek\xE9pp megoldott\xE1l
-      egy feladv\xE1nyt, az akci\xF3 v\xE9grehajt\xE1sa ut\xE1n a k\xF6vetkez\u0151ket
-      kell tenned:\r\n-    Tedd vissza a feladv\xE1nyr\xF3l az \xF6sszes alkatr\xE9szt
-      a saj\xE1t k\xE9szletedbe (\xFAjra haszn\xE1lhatod \u0151ket).\r\n-    Tedd
-      f\xE9lre a feladv\xE1nyt egy k\xE9ppel felfel\xE9 tartott kupacra \xFAgy, hogy
-      l\xE1that\xF3ak maradjanak a feladv\xE1nyok teljes\xEDt\xE9s\xE9vel megszerzett
-      pontjaid.\r\n-    Vedd el a k\xF6z\xF6s tartal\xE9kb\xF3l a feladv\xE1ny teljes\xEDt\xE9s\xE9\xE9rt
-      j\xE1r\xF3 \xFAj alkatr\xE9szt.\r\n\r\n\n<size=150%><b>A J\xC1T\xC9K V\xC9GE\r</b>\r</size>\nAmikor
-      a fekete feladv\xE1nyok paklija elfogy, a j\xE1t\xE9k a v\xE9g\xE9hez k\xF6zeledik
-      (ekkor m\xE9g marad 4 fekete feladv\xE1ny a sorban). Fejezz\xE9tek be a fordul\xF3t,
-      hogy minden j\xE1t\xE9kos ugyanannyiszor ker\xFClj\xF6n sorra, majd j\xE1tsszatok
-      le m\xE9g egy utols\xF3, teljes fordul\xF3t (l\xE1sd V\xE9gs\u0151 rendrak\xE1s).\r\n\n\n<size=150%><b>V\xC9GS\u0150
-      RENDRAK\xC1S\r</b>\r</size>\nAz utols\xF3 fordul\xF3 befejezt\xE9vel mindenkinek
-      lehet\u0151s\xE9ge ny\xEDlik m\xE9g egy v\xE9gs\u0151 rendrak\xE1sra, melynek
-      sor\xE1n teljes\xEDthetitek a m\xE9g befejezetlen feladv\xE1nyaitokat:\r\n-   
-      Letehetsz a saj\xE1t k\xE9szletedb\u0151l annyi alkatr\xE9sz a m\xE9g teljes\xEDtetlen
-      feladv\xE1nyaidra, amennyit akarsz, de minden most letett alkatr\xE9sz\xE9rt
-      1 pont levon\xE1s j\xE1r.\r\n-    Ha v\xE9gezt\xE9l a rendrak\xE1ssal, tedd
-      az \xF6sszes \xEDgy teljes\xEDtett feladv\xE1nyt a teljes\xEDtett feladv\xE1nyaid
-      kupacra (a jutalom alkatr\xE9szt ekkor m\xE1r nem kapod meg).\r\n\r\n\n<size=150%><b>V\xC9GS\u0150
-      PONTOZ\xC1S\r</b>\r</size>\nAdd \xF6ssze a teljes\xEDtett feladv\xE1nyaid kupac\xE1nak
-      pontjait, \xE9s vonj le bel\u0151le 1 pontot minden, a v\xE9gs\u0151 rendrak\xE1s
-      sor\xE1n letett alkatr\xE9sz\xE9rt. Az lesz a j\xE1t\xE9k gy\u0151ztese, aki
-      a legt\xF6bb pontot szerezte.\r\n-    D\xF6ntetlen eset\xE9n az gy\u0151z,
-      aki t\xF6bb feladv\xE1nyt teljes\xEDtett.\r\n-    Ha m\xE9g mindig d\xF6ntetlen,
-      az gy\u0151z, akinek t\xF6bb alkatr\xE9sze van.\r\n-    Ha m\xE9g ez sem d\xF6nt,
-      az \xE9rintettek osztoznak a gy\u0151zelemben. Gratul\xE1lunk!\r\n"
+      az \xE9rintettek osztoznak a gy\u0151zelemben. Gratul\xE1lunk!\r "
     m_Metadata:
       m_Items: []
   - m_Id: 17743500939264
-    m_Localized: "CSATLAKOZ\xC1S"
+    m_Localized: "Csatlakoz\xE1s"
     m_Metadata:
       m_Items: []
   - m_Id: 18002604068864
-    m_Localized: "SZOBA L\xC9TREHOZ\xC1SA"
+    m_Localized: "Szoba L\xE9trehoz\xE1sa"
     m_Metadata:
       m_Items: []
   - m_Id: 18242556006400
-    m_Localized: "SZOBA ELHAGY\xC1SA"
+    m_Localized: "Szoba Elhagy\xE1sa"
     m_Metadata:
       m_Items: []
   - m_Id: 18413817827328
@@ -200,39 +156,39 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 18798448087040
-    m_Localized: "FELADV\xC1NYK\xC1RTYA ELV\xC9TELE"
+    m_Localized: "Feladv\xE1ny k\xE1rtya Elv\xE9tele"
     m_Metadata:
       m_Items: []
   - m_Id: 19029541654528
-    m_Localized: "lvl 1-es ELEM ELV\xC9TELE"
+    m_Localized: "lvl 1-es elem elv\xE9tele"
     m_Metadata:
       m_Items: []
   - m_Id: 19293917024256
-    m_Localized: "ELEM FEJLESZT\xC9SE"
+    m_Localized: "Elem Fejleszt\xE9se"
     m_Metadata:
       m_Items: []
   - m_Id: 19415853830144
-    m_Localized: "ELEM LERAK\xC1SA"
+    m_Localized: "Elem Lerak\xE1sa"
     m_Metadata:
       m_Items: []
   - m_Id: 19554634960896
-    m_Localized: "MESTERAKCI\xD3"
+    m_Localized: "Mesterakci\xF3"
     m_Metadata:
       m_Items: []
   - m_Id: 19848068468736
-    m_Localized: "N\xC9ZET VISSZAV\xC1LT\xC1SA"
+    m_Localized: "N\xE9zet Vissza \xC1ll\xEDt\xE1s"
     m_Metadata:
       m_Items: []
   - m_Id: 20130932330496
-    m_Localized: "K\xD6VETKEZ\u0150 J\xC1T\xC9KOS \xC1LL\xC1SA"
+    m_Localized: "K\xF6vetkez\u0151 J\xE1t\xE9kos \xC1ll\xE1sa"
     m_Metadata:
       m_Items: []
   - m_Id: 20376383000576
-    m_Localized: "K\xD6Z\xD6S K\xC9SZLET MEGN\xC9Z\xC9S"
+    m_Localized: "K\xF6z\xF6s K\xE9szlet Megn\xE9z\xE9se"
     m_Metadata:
       m_Items: []
   - m_Id: 20629215645696
-    m_Localized: "AKCI\xD3 V\xC1LASZT\xC1S"
+    m_Localized: "Akci\xF3 v\xE1laszt\xE1s"
     m_Metadata:
       m_Items: []
   - m_Id: 20742457659392

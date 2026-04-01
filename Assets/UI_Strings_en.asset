@@ -43,7 +43,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1406808494080
-    m_Localized: Number of Players
+    m_Localized: 'Number of Players:'
     m_Metadata:
       m_Items: []
   - m_Id: 1633573539840
@@ -67,8 +67,8 @@ MonoBehaviour:
       piece.\n\n\n<size=150%><b>SETUP\r</b>\r</size>\n-    Take all the white puzzles
       and create a white puzzle deck. Then create a black puzzle deck according to
       the table below:\r\n    |--------------------------------------|----|----|----|\n   
-      |Number of Players:   |  2 |  3 |  4 |\n    |Black puzzles:             | 12|
-      14| 16|\n    |--------------------------------------|----|----|----|\n-   
+      |Number of Players:               |  2 |  3 |  4 |\n    |Black puzzles:                      
+      | 12| 14| 16|\n    |--------------------------------------|----|----|----|\n-   
       Put both decks in the middle of the table face down and place four puzzles
       from each deck face up in a row next to it.\r\n-    Create a reserve of pieces
       in reach of all players.\r\n-    Give every player a level-1 piece and a level-2
@@ -116,15 +116,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 17743500939264
-    m_Localized: CONNECT
+    m_Localized: Connect
     m_Metadata:
       m_Items: []
   - m_Id: 18002604068864
-    m_Localized: CREATE ROOM
+    m_Localized: Create Room
     m_Metadata:
       m_Items: []
   - m_Id: 18242556006400
-    m_Localized: LEAVE ROOM
+    m_Localized: Leave Room
     m_Metadata:
       m_Items: []
   - m_Id: 18413817827328
@@ -132,39 +132,39 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 18798448087040
-    m_Localized: TAKE PUZZLE
+    m_Localized: Take Puzzle
     m_Metadata:
       m_Items: []
   - m_Id: 19029541654528
-    m_Localized: TAKE lvl 1 ELEMENT
+    m_Localized: Take lvl 1 Element
     m_Metadata:
       m_Items: []
   - m_Id: 19293917024256
-    m_Localized: UPGRADE ELEMENT
+    m_Localized: Upgrade Element
     m_Metadata:
       m_Items: []
   - m_Id: 19415853830144
-    m_Localized: PLACE ELEMENT
+    m_Localized: Place Element
     m_Metadata:
       m_Items: []
   - m_Id: 19554634960896
-    m_Localized: MASTER ACTION
+    m_Localized: Master Action
     m_Metadata:
       m_Items: []
   - m_Id: 19848068468736
-    m_Localized: CHANGE VIEW BACK
+    m_Localized: Change View Back
     m_Metadata:
       m_Items: []
   - m_Id: 20130932330496
-    m_Localized: NEXT PLAYER'S VIEW
+    m_Localized: Next Player's View
     m_Metadata:
       m_Items: []
   - m_Id: 20376383000576
-    m_Localized: COMMON RESERVE VIEW
+    m_Localized: Common Reserve View
     m_Metadata:
       m_Items: []
   - m_Id: 20629215645696
-    m_Localized: SELECT ACTION
+    m_Localized: Select Action
     m_Metadata:
       m_Items: []
   - m_Id: 20742457659392
