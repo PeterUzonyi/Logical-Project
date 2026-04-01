@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|c:\\users\\your-computer\\desktop\\logical-project\\assets\\scripts\\startgame\\languageswitcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\startgame\\languageswitcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|c:\\users\\your-computer\\desktop\\logical-project\\assets\\scripts\\startgame\\networkmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\startgame\\networkmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -47,6 +51,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "LanguageSwitcher.cs",
+              "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\StartGame\\LanguageSwitcher.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\StartGame\\LanguageSwitcher.cs",
+              "ToolTip": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\StartGame\\LanguageSwitcher.cs",
+              "RelativeToolTip": "Assets\\Scripts\\StartGame\\LanguageSwitcher.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-01T10:35:54.302Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "NetworkManager.cs",
               "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\StartGame\\NetworkManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\StartGame\\NetworkManager.cs",
@@ -59,7 +76,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "InfoPanel.cs",
               "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Game\\InfoPanel.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Game\\InfoPanel.cs",
@@ -71,7 +88,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Playerlistitem.cs",
               "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\StartGame\\Playerlistitem.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\StartGame\\Playerlistitem.cs",
@@ -83,7 +100,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "LobbyUI.cs",
               "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\StartGame\\LobbyUI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\StartGame\\LobbyUI.cs",
@@ -95,7 +112,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "GameConfig.cs",
               "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Player\\GameConfig.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\GameConfig.cs",
@@ -107,7 +124,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "LocalLobbyUI.cs",
               "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\StartGame\\LocalLobbyUI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\StartGame\\LocalLobbyUI.cs",
@@ -119,7 +136,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "TurnManager.cs",
               "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Player\\TurnManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\TurnManager.cs",
@@ -131,7 +148,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Player.cs",
               "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Player\\Player.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\Player.cs",

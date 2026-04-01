@@ -1,0 +1,248 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: UI_Strings_hu
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: hu
+  m_SharedData: {fileID: 11400000, guid: 6b67f3bf91b40df4ba36e590cea8b559, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 176321335296
+    m_Localized: "J\xC1T\xC9K IND\xCDT\xC1SA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 521642577920
+    m_Localized: "J\xC1T\xC9K LE\xCDR\xC1S"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 724185518080
+    m_Localized: "KIL\xC9P\xC9S"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 874601648128
+    m_Localized: "Online J\xE1t\xE9k"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1033985200128
+    m_Localized: "Lok\xE1lis J\xE1t\xE9k"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1231390117888
+    m_Localized: VISSZA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1406808494080
+    m_Localized: "J\xE1t\xE9kosok sz\xE1ma"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1633573539840
+    m_Localized: "J\xC1T\xC9K"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2361805377536
+    m_Localized: "L-PROJECT J\xC1T\xC9KSZAB\xC1LY"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2738785226752
+    m_Localized: "<size=150%><b>TARTOZ\xC9KOK</b>\r</size>\n-    32 feh\xE9r feladv\xE1ny\r\n-   
+      20 fekete feladv\xE1ny\r\n-    90 alkatr\xE9sz (10 db mind a 9 form\xE1b\xF3l)\r\n\r\n\n<size=150%><b>A
+      J\xC1T\xC9K \xC1TTEKINT\xC9SE\r</b>\r</size>\nFeladv\xE1nyokat fogtok megoldani
+      oly m\xF3don, hogy az alkatr\xE9szeitekkel pontosan kit\xF6ltitek a feladv\xE1ny
+      \xE1ltal megadott ter\xFCletet. A c\xE9lotok a feladv\xE1nyok teljes\xEDt\xE9s\xE9vel
+      a legt\xF6bb pontot szerezni.\r\n\n\n<size=120%><b>AZ ALKATR\xC9SZEK\r</b>\r</size>\nMinden
+      j\xE1t\xE9kos csup\xE1n k\xE9t alkatr\xE9sszel kezdi a j\xE1t\xE9kot. A j\xE1t\xE9k
+      sor\xE1n tov\xE1bbi alkatr\xE9szekhez juthattok, amelyek seg\xEDts\xE9g\xE9vel
+      k\xE9s\u0151bb nehezebb feladv\xE1nyokat tudtok megoldani, amik\xE9rt t\xF6bb
+      pontot kaphattok majd.\r\n\n\n<size=120%><b>A FELADV\xC1NYOK\r</b>\r</size>\nEgy
+      feladv\xE1ny akkor tekinthet\u0151 megoldottnak, ha a feh\xE9r n\xE9gyzetekb\u0151l
+      \xE1ll\xF3 ter\xFCletet siker\xFClt teljesen kit\xF6lteni alkatr\xE9szekkel.
+      Ekkor az \xF6sszes alkatr\xE9szt visszaveszed, megkapod a jutalmat: pontokat
+      \xE9s egy \xFAj alkatr\xE9szt, majd f\xE9lreteszed a feladv\xE1nyt.\r\n\n\n<size=150%><b>EL\u0150K\xC9SZ\xDCLETEK\r</b>\r</size>\n-   
+      Az \xF6sszes feh\xE9r feladv\xE1nyb\xF3l \xE1ll\xEDtsatok \xF6ssze egy feh\xE9r
+      feladv\xE1nypaklit. Ezut\xE1n \xE1ll\xEDts\xE1tok \xF6ssze a fekete feladv\xE1nypaklit
+      a lenti t\xE1bl\xE1zat alapj\xE1n:\r\n    |--------------------------------------|----|----|----|\n   
+      |J\xE1t\xE9kosok sz\xE1ma:                 |  2 |  3 |  4 |\n    |Fekete feladv\xE1nyok
+      sz\xE1ma:  | 12| 14| 16|\n    |--------------------------------------|----|----|----|\n-   
+      Tegy\xE9tek mindk\xE9t paklit k\xE9ppel leford\xEDtva az asztal k\xF6zep\xE9re.
+      H\xFAzzatok mindk\xE9t paklib\xF3l 4-4 feladv\xE1nyt, \xE9s tegy\xE9tek azokat
+      k\xE9ppel felfel\xE9 a paklijuk mell\xE9 egy-egy sorba.\r\n-    Tegy\xE9tek
+      az \xF6sszes alkatr\xE9szt az asztalra, hogy mindenki el\xE9rhesse: ez lesz
+      a tartal\xE9k.\r\n-    Minden j\xE1t\xE9kos vegyen mag\xE1hoz egy 1. \xE9s
+      egy 2. szint\u0171 alkatr\xE9szt a tartal\xE9kb\xF3l (minden alkatr\xE9sz akkora
+      szint\u0171, ah\xE1ny kis n\xE9gyzetb\u0151l \xE1ll).\r\n\r\n\n150%><b>A J\xC1T\xC9K
+      MENETE\r</b>\r</size>\nA kezd\u0151j\xE1t\xE9kos kezd, majd a t\xF6bbiek az
+      \xF3ramutat\xF3 j\xE1r\xE1s\xE1nak ir\xE1ny\xE1ban ker\xFClnek sorra. Amikor
+      sorra ker\xFClsz, 3 akci\xF3t hajthatsz v\xE9gre. A k\xF6vetkez\u0151 akci\xF3k
+      k\xF6z\xFCl v\xE1laszthatsz (egy akci\xF3t ak\xE1r t\xF6bbsz\xF6r is v\xE9grehajthatsz):\r\n-   
+      <b>Elveszel egy feladv\xE1nyt</b> a k\xE9t sor valamelyik\xE9b\u0151l, \xE9s
+      magad el\xE9 teszed az asztalra. H\xFAzz egy lapot a megfelel\u0151 paklib\xF3l,
+      \xE9s tedd k\xE9ppel felfel\xE9 az elvett feladv\xE1ny hely\xE9re. Egyszerre
+      legfeljebb 4 befejezetlen feladv\xE1ny lehet el\u0151tted.\r\n-    <b>Elveszel
+      egy 1. szint\u0171 alkatr\xE9szt</b>, \xE9s a saj\xE1t k\xE9szletedbe teszed.\r\n-   
+      <b>Fejlesztesz egy alkatr\xE9szt</b> egy szinttel. Tedd vissza a k\xE9szleted
+      egyik saj\xE1t alkatr\xE9sz\xE9t a k\xF6z\xF6s tartal\xE9kba, \xE9s vegy\xE9l
+      el helyette egy eggyel magasabb szint\u0171 alkatr\xE9szt.\r\n       - Ha nincs
+      a k\xF6z\xF6s tartal\xE9kban megfelel\u0151 szint\u0171 alkatr\xE9sz, vedd
+      el helyette a k\xF6vetkez\u0151 rendelkez\xE9sre \xE1ll\xF3 magasabb szint\u0171t
+      (az alkatr\xE9sz form\xE1ja nem sz\xE1m\xEDt).\r\n       - Fontos: ha akarsz,
+      elvehetsz azonos vagy alacsonyabb szint\u0171, de m\xE1s form\xE1j\xFA alkatr\xE9szt
+      is.\r\n-    <b>Egy alkatr\xE9szedet az egyik feladv\xE1nyodra teszed</b> a
+      saj\xE1t k\xE9szletedb\u0151l. Tetsz\u0151legesen forgathatod az alkatr\xE9szt,
+      de az nem takarhat le m\xE1s alkatr\xE9szeket \xE9s nem l\xF3ghat ki a feh\xE9r
+      n\xE9gyzetekb\u0151l \xE1ll\xF3 ter\xFCletr\u0151l. A m\xE1r letett alkatr\xE9szeket
+      nem veheted vissza \xE9s nem mozd\xEDthatod el a hely\xFCkr\u0151l, am\xEDg
+      meg nem oldottad a feladv\xE1nyt (l\xE1sd a Feladv\xE1nyok megold\xE1sa r\xE9szt).\r\n-   
+      <b>Mesterakci\xF3</b> (k\xF6r\xF6nk\xE9nt legfeljebb egyszer hajthat\xF3 v\xE9gre):
+      tegy\xE9l legfeljebb egy alkatr\xE9szt minden el\u0151tted l\xE9v\u0151, befejezetlen
+      feladv\xE1nyra. Minden alkatr\xE9sznek a saj\xE1t k\xE9szletedben kell lennie
+      ennek az akci\xF3nak a megkezd\xE9sekor. feladv\xE1nyra. Minden alkatr\xE9sznek
+      a saj\xE1t k\xE9szletedben kell lennie ennek az akci\xF3nak a megkezd\xE9sekor.\r\n\r\n\n<size=150%><b>FELADV\xC1NYOK
+      MEGOLD\xC1SA\r</b>\r</size>\nEgy feladv\xE1ny akkor tekinthet\u0151 megoldottnak,
+      ha a feh\xE9r n\xE9gyzetekb\u0151l \xE1ll\xF3 ter\xFCletet siker\xFClt teljesen
+      kit\xF6lteni alkatr\xE9szekkel. Ha egy akci\xF3d eredm\xE9nyek\xE9pp megoldott\xE1l
+      egy feladv\xE1nyt, az akci\xF3 v\xE9grehajt\xE1sa ut\xE1n a k\xF6vetkez\u0151ket
+      kell tenned:\r\n-    Tedd vissza a feladv\xE1nyr\xF3l az \xF6sszes alkatr\xE9szt
+      a saj\xE1t k\xE9szletedbe (\xFAjra haszn\xE1lhatod \u0151ket).\r\n-    Tedd
+      f\xE9lre a feladv\xE1nyt egy k\xE9ppel felfel\xE9 tartott kupacra \xFAgy, hogy
+      l\xE1that\xF3ak maradjanak a feladv\xE1nyok teljes\xEDt\xE9s\xE9vel megszerzett
+      pontjaid.\r\n-    Vedd el a k\xF6z\xF6s tartal\xE9kb\xF3l a feladv\xE1ny teljes\xEDt\xE9s\xE9\xE9rt
+      j\xE1r\xF3 \xFAj alkatr\xE9szt.\r\n\r\n\n<size=150%><b>A J\xC1T\xC9K V\xC9GE\r</b>\r</size>\nAmikor
+      a fekete feladv\xE1nyok paklija elfogy, a j\xE1t\xE9k a v\xE9g\xE9hez k\xF6zeledik
+      (ekkor m\xE9g marad 4 fekete feladv\xE1ny a sorban). Fejezz\xE9tek be a fordul\xF3t,
+      hogy minden j\xE1t\xE9kos ugyanannyiszor ker\xFClj\xF6n sorra, majd j\xE1tsszatok
+      le m\xE9g egy utols\xF3, teljes fordul\xF3t (l\xE1sd V\xE9gs\u0151 rendrak\xE1s).\r\n\n\n<size=150%><b>V\xC9GS\u0150
+      RENDRAK\xC1S\r</b>\r</size>\nAz utols\xF3 fordul\xF3 befejezt\xE9vel mindenkinek
+      lehet\u0151s\xE9ge ny\xEDlik m\xE9g egy v\xE9gs\u0151 rendrak\xE1sra, melynek
+      sor\xE1n teljes\xEDthetitek a m\xE9g befejezetlen feladv\xE1nyaitokat:\r\n-   
+      Letehetsz a saj\xE1t k\xE9szletedb\u0151l annyi alkatr\xE9sz a m\xE9g teljes\xEDtetlen
+      feladv\xE1nyaidra, amennyit akarsz, de minden most letett alkatr\xE9sz\xE9rt
+      1 pont levon\xE1s j\xE1r.\r\n-    Ha v\xE9gezt\xE9l a rendrak\xE1ssal, tedd
+      az \xF6sszes \xEDgy teljes\xEDtett feladv\xE1nyt a teljes\xEDtett feladv\xE1nyaid
+      kupacra (a jutalom alkatr\xE9szt ekkor m\xE1r nem kapod meg).\r\n\r\n\n<size=150%><b>V\xC9GS\u0150
+      PONTOZ\xC1S\r</b>\r</size>\nAdd \xF6ssze a teljes\xEDtett feladv\xE1nyaid kupac\xE1nak
+      pontjait, \xE9s vonj le bel\u0151le 1 pontot minden, a v\xE9gs\u0151 rendrak\xE1s
+      sor\xE1n letett alkatr\xE9sz\xE9rt. Az lesz a j\xE1t\xE9k gy\u0151ztese, aki
+      a legt\xF6bb pontot szerezte.\r\n-    D\xF6ntetlen eset\xE9n az gy\u0151z,
+      aki t\xF6bb feladv\xE1nyt teljes\xEDtett.\r\n-    Ha m\xE9g mindig d\xF6ntetlen,
+      az gy\u0151z, akinek t\xF6bb alkatr\xE9sze van.\r\n-    Ha m\xE9g ez sem d\xF6nt,
+      az \xE9rintettek osztoznak a gy\u0151zelemben. Gratul\xE1lunk!\r\n alkatr\xE9sz\xE9t
+      a k\xF6z\xF6s tartal\xE9kba, \xE9s vegy\xE9l el helyette egy eggyel magasabb
+      szint\u0171 alkatr\xE9szt.\r\n       - Ha nincs a k\xF6z\xF6s tartal\xE9kban
+      megfelel\u0151 szint\u0171 alkatr\xE9sz, vedd el helyette a k\xF6vetkez\u0151
+      rendelkez\xE9sre \xE1ll\xF3 magasabb szint\u0171t (az alkatr\xE9sz form\xE1ja
+      nem sz\xE1m\xEDt).\r\n       - Fontos: ha akarsz, elvehetsz azonos vagy alacsonyabb
+      szint\u0171, de m\xE1s form\xE1j\xFA alkatr\xE9szt is.\r\n-    <b>Egy alkatr\xE9szedet
+      az egyik feladv\xE1nyodra teszed</b> a saj\xE1t k\xE9szletedb\u0151l. Tetsz\u0151legesen
+      forgathatod az alkatr\xE9szt, de az nem takarhat le m\xE1s alkatr\xE9szeket
+      \xE9s nem l\xF3ghat ki a feh\xE9r n\xE9gyzetekb\u0151l \xE1ll\xF3 ter\xFCletr\u0151l.
+      A m\xE1r letett alkatr\xE9szeket nem veheted vissza \xE9s nem mozd\xEDthatod
+      el a hely\xFCkr\u0151l, am\xEDg meg nem oldottad a feladv\xE1nyt (l\xE1sd a
+      Feladv\xE1nyok megold\xE1sa r\xE9szt).\r\n-    <b>Mesterakci\xF3</b> (k\xF6r\xF6nk\xE9nt
+      legfeljebb egyszer hajthat\xF3 v\xE9gre): tegy\xE9l legfeljebb egy alkatr\xE9szt
+      minden el\u0151tted l\xE9v\u0151, befejezetlen feladv\xE1nyra. Minden alkatr\xE9sznek
+      a saj\xE1t k\xE9szletedben kell lennie ennek az akci\xF3nak a megkezd\xE9sekor.\r\n\r\n\n<size=150%><b>FELADV\xC1NYOK
+      MEGOLD\xC1SA\r</b>\r</size>\nEgy feladv\xE1ny akkor tekinthet\u0151 megoldottnak,
+      ha a feh\xE9r n\xE9gyzetekb\u0151l \xE1ll\xF3 ter\xFCletet siker\xFClt teljesen
+      kit\xF6lteni alkatr\xE9szekkel. Ha egy akci\xF3d eredm\xE9nyek\xE9pp megoldott\xE1l
+      egy feladv\xE1nyt, az akci\xF3 v\xE9grehajt\xE1sa ut\xE1n a k\xF6vetkez\u0151ket
+      kell tenned:\r\n-    Tedd vissza a feladv\xE1nyr\xF3l az \xF6sszes alkatr\xE9szt
+      a saj\xE1t k\xE9szletedbe (\xFAjra haszn\xE1lhatod \u0151ket).\r\n-    Tedd
+      f\xE9lre a feladv\xE1nyt egy k\xE9ppel felfel\xE9 tartott kupacra \xFAgy, hogy
+      l\xE1that\xF3ak maradjanak a feladv\xE1nyok teljes\xEDt\xE9s\xE9vel megszerzett
+      pontjaid.\r\n-    Vedd el a k\xF6z\xF6s tartal\xE9kb\xF3l a feladv\xE1ny teljes\xEDt\xE9s\xE9\xE9rt
+      j\xE1r\xF3 \xFAj alkatr\xE9szt.\r\n\r\n\n<size=150%><b>A J\xC1T\xC9K V\xC9GE\r</b>\r</size>\nAmikor
+      a fekete feladv\xE1nyok paklija elfogy, a j\xE1t\xE9k a v\xE9g\xE9hez k\xF6zeledik
+      (ekkor m\xE9g marad 4 fekete feladv\xE1ny a sorban). Fejezz\xE9tek be a fordul\xF3t,
+      hogy minden j\xE1t\xE9kos ugyanannyiszor ker\xFClj\xF6n sorra, majd j\xE1tsszatok
+      le m\xE9g egy utols\xF3, teljes fordul\xF3t (l\xE1sd V\xE9gs\u0151 rendrak\xE1s).\r\n\n\n<size=150%><b>V\xC9GS\u0150
+      RENDRAK\xC1S\r</b>\r</size>\nAz utols\xF3 fordul\xF3 befejezt\xE9vel mindenkinek
+      lehet\u0151s\xE9ge ny\xEDlik m\xE9g egy v\xE9gs\u0151 rendrak\xE1sra, melynek
+      sor\xE1n teljes\xEDthetitek a m\xE9g befejezetlen feladv\xE1nyaitokat:\r\n-   
+      Letehetsz a saj\xE1t k\xE9szletedb\u0151l annyi alkatr\xE9sz a m\xE9g teljes\xEDtetlen
+      feladv\xE1nyaidra, amennyit akarsz, de minden most letett alkatr\xE9sz\xE9rt
+      1 pont levon\xE1s j\xE1r.\r\n-    Ha v\xE9gezt\xE9l a rendrak\xE1ssal, tedd
+      az \xF6sszes \xEDgy teljes\xEDtett feladv\xE1nyt a teljes\xEDtett feladv\xE1nyaid
+      kupacra (a jutalom alkatr\xE9szt ekkor m\xE1r nem kapod meg).\r\n\r\n\n<size=150%><b>V\xC9GS\u0150
+      PONTOZ\xC1S\r</b>\r</size>\nAdd \xF6ssze a teljes\xEDtett feladv\xE1nyaid kupac\xE1nak
+      pontjait, \xE9s vonj le bel\u0151le 1 pontot minden, a v\xE9gs\u0151 rendrak\xE1s
+      sor\xE1n letett alkatr\xE9sz\xE9rt. Az lesz a j\xE1t\xE9k gy\u0151ztese, aki
+      a legt\xF6bb pontot szerezte.\r\n-    D\xF6ntetlen eset\xE9n az gy\u0151z,
+      aki t\xF6bb feladv\xE1nyt teljes\xEDtett.\r\n-    Ha m\xE9g mindig d\xF6ntetlen,
+      az gy\u0151z, akinek t\xF6bb alkatr\xE9sze van.\r\n-    Ha m\xE9g ez sem d\xF6nt,
+      az \xE9rintettek osztoznak a gy\u0151zelemben. Gratul\xE1lunk!\r\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17743500939264
+    m_Localized: "CSATLAKOZ\xC1S"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18002604068864
+    m_Localized: "SZOBA L\xC9TREHOZ\xC1SA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18242556006400
+    m_Localized: "SZOBA ELHAGY\xC1SA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18413817827328
+    m_Localized: "K\xC9SZ"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18798448087040
+    m_Localized: "FELADV\xC1NYK\xC1RTYA ELV\xC9TELE"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19029541654528
+    m_Localized: "lvl 1-es ELEM ELV\xC9TELE"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19293917024256
+    m_Localized: "ELEM FEJLESZT\xC9SE"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19415853830144
+    m_Localized: "ELEM LERAK\xC1SA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19554634960896
+    m_Localized: "MESTERAKCI\xD3"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19848068468736
+    m_Localized: "N\xC9ZET VISSZAV\xC1LT\xC1SA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20130932330496
+    m_Localized: "K\xD6VETKEZ\u0150 J\xC1T\xC9KOS \xC1LL\xC1SA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20376383000576
+    m_Localized: "K\xD6Z\xD6S K\xC9SZLET MEGN\xC9Z\xC9S"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20629215645696
+    m_Localized: "AKCI\xD3 V\xC1LASZT\xC1S"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20742457659392
+    m_Localized: "V\xE9gs\u0151 Rendrak\xE1s Befejez\xE9se"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20938012889088
+    m_Localized: "Mesterakci\xF3 Befejez\xE9se"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

@@ -1,0 +1,180 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: UI_Strings_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 6b67f3bf91b40df4ba36e590cea8b559, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 176321335296
+    m_Localized: START GAME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 521642577920
+    m_Localized: HOW TO PLAY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 724185518080
+    m_Localized: QUIT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 874601648128
+    m_Localized: Online Multiplayer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1033985200128
+    m_Localized: Local Multiplayer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1231390117888
+    m_Localized: BACK
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1406808494080
+    m_Localized: Number of Players
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1633573539840
+    m_Localized: PLAY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2361805377536
+    m_Localized: HOW TO PLAY L-PROJECT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2738785226752
+    m_Localized: "<size=150%><b>COMPONENTS</b>\r</size>\n-    32 white puzzle\rs\n-   
+      20 black puzzle\rs\n-    90 pieces (10x each of the 9 shapes)\r\n\r\n\n<size=150%><b>GAMEPLAY
+      OVERVIEW\r</b>\r</size>\nIn Project L, you complete puzzles with your pieces
+      to earn as many points as you can to win the game.\n\n\n<size=120%><b>PIECES\r</b>\r</size>\nEach
+      player starts with just two pieces. During the game, you build your supply
+      of pieces so you can complete increasingly difficult puzzles and earn plenty
+      of points.\n\n\n<size=120%><b>PUZZLES\r</b>\r</size>\nA puzzle is complited
+      when you fill its recessed area with your pieces. After that, take all you
+      pieces back, place the puzzle aside, and reap the rewards: points and a new
+      piece.\n\n\n<size=150%><b>SETUP\r</b>\r</size>\n-    Take all the white puzzles
+      and create a white puzzle deck. Then create a black puzzle deck according to
+      the table below:\r\n    |--------------------------------------|----|----|----|\n   
+      |Number of Players:   |  2 |  3 |  4 |\n    |Black puzzles:             | 12|
+      14| 16|\n    |--------------------------------------|----|----|----|\n-   
+      Put both decks in the middle of the table face down and place four puzzles
+      from each deck face up in a row next to it.\r\n-    Create a reserve of pieces
+      in reach of all players.\r\n-    Give every player a level-1 piece and a level-2
+      piece to start with.\r\n\r\n\n<size=150%><b>GAMEPLAY</b>\r</size>\nStarting
+      with the first player, players take turns in a clockwise order. On your turn,
+      you can do three actions (you can repeate actions until you do a total of three):\r\n-   
+      <b>Take a puzzle</b> from one of the rows and place it in front of you. Then
+      replace the puzzle you took from the row with another one from the corresponding
+      puzzle deck. You can have a maximum of 4 unfinished puzzles in front of you
+      at the same time.\r\n-    <b>Take a level-1 piece</b>,from the reserve and
+      place it into your supply.\r\n-    <b>Upgrade a piece</b> in your supply 1
+      level up (return the original piece to the reserve and take another piece that
+      is 1 level higher).\r\n       - If there are no pieces in the reserve that
+      are 1 level higher (no matter what shape), skip to the next available level.\r\n      
+      - Instead of upgrading to a higher level piece, you may exchange your piece
+      for one that is the same level (a different shape) or lower.\r\n-    <b>Place
+      a piece on one of your puzzles.</b> You can flip or rotate the piece so it
+      fits into the recessed area and doesn't overlap with other pieces. You cannot
+      move or take back a piece from a puzzle until you complete that puzzle (see
+      Completing Puzzles).\r\n-    <b>Master Action</b> (once per round) Place up
+      to one piece on each puzzle in front of you. All pieces you wish to place must
+      be in your supply at the start of this action.\r\n\r\n\n<size=150%><b>COMPLETING
+      PUZZLES</b>\r</size>\nA puzzle is completed once its recessed area is filled
+      with pieces. After you finish the action that let you complete a puzzle:\r\n-   
+      Take all the pieces from the puzzle bak into your supply (you can use them
+      again).\r\n-    Place the puzzle face up, apart from your unfinished puzzles,
+      to create a victory point pile showing how many points you have earned.\r\n-   
+      Get the reward on the puzzle (a new piece from the reserve into your supply).\r\n\r\n\n<size=150%><b>END
+      GAME\r</b>\r</size>\nThe endgame triggers once the black puzzle deck runs out
+      (there will still be four black puzzles available in the row when this happens).
+      Finish the current round so that everyone has played the same number of turns.
+      After that, play one final round.\r\n\n\n<size=150%><b>FINISHEING TOUCHES\r</b>\r</size>\nAfter
+      the final round ends, all players may perform Finishing Touches on the puzzles
+      in front of them that they didn't complete during the game:\r\n-    Place any
+      number of pieces from your supply on the puzzles in front of you. For each
+      piece you place this way, deduct 1 point from your final score.\r\n-    When
+      you are done with all your Finishing Touches, put the puzzles you have completed
+      on your victory point pile (but do not collect any additional rewards).\r\n\r\n\n<size=150%><b>FINAL
+      SCORING</b>\r</size>\nCount the pints on all the puzzles in your victory point
+      pile and deduct point for any Finishing Touches you made. The player with the
+      most points wins the game.\r\n-    In case of a tie, the player who has completed
+      more puzzles wins.\r\n-    If there is still a tie, the player with more pieces
+      wins.\r\n-    If there is still a tie, all tied players share the victory.
+      You are all awesome!\r\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17743500939264
+    m_Localized: CONNECT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18002604068864
+    m_Localized: CREATE ROOM
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18242556006400
+    m_Localized: LEAVE ROOM
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18413817827328
+    m_Localized: READY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18798448087040
+    m_Localized: TAKE PUZZLE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19029541654528
+    m_Localized: TAKE lvl 1 ELEMENT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19293917024256
+    m_Localized: UPGRADE ELEMENT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19415853830144
+    m_Localized: PLACE ELEMENT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19554634960896
+    m_Localized: MASTER ACTION
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19848068468736
+    m_Localized: CHANGE VIEW BACK
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20130932330496
+    m_Localized: NEXT PLAYER'S VIEW
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20376383000576
+    m_Localized: COMMON RESERVE VIEW
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20629215645696
+    m_Localized: SELECT ACTION
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20742457659392
+    m_Localized: End Final Touches
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20938012889088
+    m_Localized: End Master Action
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

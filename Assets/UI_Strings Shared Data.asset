@@ -1,0 +1,128 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: UI_Strings Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: UI_Strings
+  m_TableCollectionNameGuidString: 6b67f3bf91b40df4ba36e590cea8b559
+  m_Entries:
+  - m_Id: 19554634960896
+    m_Key: action_master
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19415853830144
+    m_Key: action_place
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19029541654528
+    m_Key: action_takeElement
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18798448087040
+    m_Key: action_takePuzzle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19293917024256
+    m_Key: action_upgrade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1231390117888
+    m_Key: back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19848068468736
+    m_Key: commonReserve_changeView
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17743500939264
+    m_Key: connect_connect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2738785226752
+    m_Key: help_rules
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2361805377536
+    m_Key: help_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1406808494080
+    m_Key: local_playerCount
+    m_Metadata:
+      m_Items: []
+  - m_Id: 521642577920
+    m_Key: main_help
+    m_Metadata:
+      m_Items: []
+  - m_Id: 724185518080
+    m_Key: main_quit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 176321335296
+    m_Key: main_start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20938012889088
+    m_Key: player_masterAction
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1633573539840
+    m_Key: play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20629215645696
+    m_Key: player_action
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20130932330496
+    m_Key: player_changeView
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20376383000576
+    m_Key: player_commonReserve
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20742457659392
+    m_Key: player_finalTouches
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18002604068864
+    m_Key: room_create
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1033985200128
+    m_Key: start_local
+    m_Metadata:
+      m_Items: []
+  - m_Id: 874601648128
+    m_Key: start_online
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18242556006400
+    m_Key: waiting_leave
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18413817827328
+    m_Key: waiting_ready
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 3157744649084338200
+  references:
+    version: 2
+    RefIds:
+    - rid: 3157744649084338200
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1775032504506
