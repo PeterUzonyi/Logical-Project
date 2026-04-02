@@ -67,7 +67,7 @@ public class ActionSelectionPanel : MonoBehaviour
             }
             return;
         }
-        if (selected == ActionType.TakeElement && TurnManager.Instance.currentPlayer.IsCardSlotsFull())
+        if (selected == ActionType.TakeElement && (CommonReserve.Instance.inventoryManager.GetItemById(0) == null || CommonReserve.Instance.inventoryManager.GetItemById(0).quantity < 1))
         {
             if (code == "hu")
             {

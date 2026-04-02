@@ -158,8 +158,8 @@ public class MyGrid : MonoBehaviourPun
 
                 int totalSquares = currentSelectedShape.TotalSquareNumber;
 
-                NetworkManager.Instance.photonView.RPC(
-                    nameof(NetworkManager.RPC_PlaceElementOnGrid),
+                GameNetworkHandler.Instance.photonView.RPC(
+                    nameof(GameNetworkHandler.RPC_PlaceElementOnGrid),
                     RpcTarget.All,
                     playerID,
                     slotIndex,
@@ -193,8 +193,9 @@ public class MyGrid : MonoBehaviourPun
                 {
                     //Online mód
                     int[] elementsSnapshot = (int[])ElementsOnCard.Clone();
-                    NetworkManager.Instance.photonView.RPC(
-                        nameof(NetworkManager.RPC_CardCompleted),
+
+                    GameNetworkHandler.Instance.photonView.RPC(
+                        nameof(GameNetworkHandler.RPC_CardCompleted),
                         RpcTarget.All,
                         ownerPlayer.PlayerID,
                         OwnerCardLoader.SlotIndex,

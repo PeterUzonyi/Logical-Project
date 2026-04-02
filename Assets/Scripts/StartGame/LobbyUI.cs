@@ -6,6 +6,8 @@ using Photon.Realtime;
 using System.Collections.Generic;
 
 using PhotonPlayer = Photon.Realtime.Player;
+using System.Runtime.CompilerServices;
+using System.Collections;
 
 /// <summary>
 /// A Lobby UI kezelõje. Ugyanabban a menü jelenetben él mint a fõmenü.
