@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using PhotonPlayer = Photon.Realtime.Player;
 using System.Runtime.CompilerServices;
 using System.Collections;
+using UnityEngine.Localization.Settings;
+using Unity.VisualScripting;
 
 /// <summary>
 /// A Lobby UI kezelõje. Ugyanabban a menü jelenetben él mint a fõmenü.
@@ -192,7 +194,19 @@ public class LobbyUI : MonoBehaviourPunCallbacks
         isReady = !isReady;
 
         var label = readyButton.GetComponentInChildren<TextMeshProUGUI>();
-        if (label) label.text = isReady ? "Mégsem" : "Kész";
+
+        string code = LocalizationSettings.SelectedLocale.Identifier.Code;
+        
+        if (code == "hu")
+        {
+            if (label) label.text = isReady ? "Mégsem" : "Kész";
+        }
+        else
+        {
+            if (label) label.text = isReady ? "Not ready" : "Ready";
+        }
+
+        
 
         PhotonNetwork.LocalPlayer.SetCustomProperties(
             new ExitGames.Client.Photon.Hashtable { { "ready", isReady } }
@@ -229,8 +243,25 @@ public class LobbyUI : MonoBehaviourPunCallbacks
     private void OnThinkingTimeChanged(float value)
     {
         float rounded = Mathf.Round(value / 5f) * 5f; // 5 mp-es lépések
-        if (thinkingTimeLabel)
-            thinkingTimeLabel.text = $"Gondolkodási idõ: {rounded}s";
+
+        string code = LocalizationSettings.SelectedLocale.Identifier.Code;
+
+        if (code == "hu")
+        {
+            if (thinkingTimeLabel)
+            {
+                thinkingTimeLabel.text = $"Gondolkodási idõ: {rounded}s";
+            }
+        }
+        else
+        {
+            if (thinkingTimeLabel)
+            {
+                thinkingTimeLabel.text = $"Thinking time: {rounded}s";
+            }
+        }
+        
+            
         NetworkManager.Instance.SetThinkingTime(rounded);
     }
 
@@ -265,8 +296,22 @@ public class LobbyUI : MonoBehaviourPunCallbacks
     //Gondolkodási idõ lekérése
     private void ApplyThinkingTime(float value)
     {
-        if (thinkingTimeLabel)
-            thinkingTimeLabel.text = $"Gondolkodási idõ: {value}s";
+        string code = LocalizationSettings.SelectedLocale.Identifier.Code;
+
+        if (code == "hu")
+        {
+            if (thinkingTimeLabel)
+            {
+                thinkingTimeLabel.text = $"Gondolkodási idõ: {value}s";
+            }
+        }
+        else
+        {
+            if (thinkingTimeLabel)
+            {
+                thinkingTimeLabel.text = $"Thinking time: {value}s";
+            }
+        }
 
         if (thinkingTimeSlider && thinkingTimeSlider.gameObject.activeSelf)
             thinkingTimeSlider.SetValueWithoutNotify(value);

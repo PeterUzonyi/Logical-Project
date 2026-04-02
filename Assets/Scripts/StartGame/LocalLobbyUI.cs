@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using UnityEngine.Localization.Settings;
 
 public class LocalLobbyUI : MonoBehaviour
 {
@@ -117,8 +118,22 @@ public class LocalLobbyUI : MonoBehaviour
     {
         float rounded = Mathf.Round(value / 5f) * 5f;
         thinkingTimeSlider.value = rounded;
-        if (thinkingTimeLabel)
-            thinkingTimeLabel.text = $"Gondolkodási idõ: {rounded}s";
+        string code = LocalizationSettings.SelectedLocale.Identifier.Code;
+
+        if (code == "hu")
+        {
+            if (thinkingTimeLabel)
+            {
+                thinkingTimeLabel.text = $"Gondolkodási idõ: {rounded}s";
+            }
+        }
+        else
+        {
+            if (thinkingTimeLabel)
+            {
+                thinkingTimeLabel.text = $"Thinking time: {rounded}s";
+            }
+        }
     }
 
     private void OnStartClicked()

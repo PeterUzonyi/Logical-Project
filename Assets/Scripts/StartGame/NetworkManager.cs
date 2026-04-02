@@ -6,6 +6,7 @@ using Photon.Realtime;
 
 using PhotonPlayer = Photon.Realtime.Player;
 using System.Linq;
+using UnityEngine.Localization.Settings;
 
 /// <summary>
 /// Photon kapcsolat és szoba kezelõ (Singleton, DontDestroyOnLoad).
@@ -44,9 +45,18 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     // Csatlakozás 
     public void ConnectToPhoton(string playerName)
     {
+        string code = LocalizationSettings.SelectedLocale.Identifier.Code;
         if (PhotonNetwork.IsConnected)
         {
-            OnStatusChanged?.Invoke("Már csatlakozva.");
+            if (code == "hu")
+            {
+                OnStatusChanged?.Invoke("Már csatlakozva.");
+            }
+            else
+            {
+                OnStatusChanged?.Invoke("Already connected.");
+            }
+            
             PhotonNetwork.JoinLobby();
             return;
         }
@@ -54,7 +64,16 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         PhotonNetwork.LocalPlayer.NickName = playerName;
         PhotonNetwork.GameVersion = gameVersion;
         PhotonNetwork.ConnectUsingSettings();
-        OnStatusChanged?.Invoke("Csatlakozás...");
+
+        if (code == "hu")
+        {
+            OnStatusChanged?.Invoke("Csatlakozás...");
+        }
+        else
+        {
+            OnStatusChanged?.Invoke("Connecting...");
+        }
+        
     }
 
     // Szoba mûveletek
@@ -75,20 +94,31 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         };
 
         PhotonNetwork.CreateRoom(roomName, options);
-        OnStatusChanged?.Invoke("Szoba létrehozása...");
+        string code = LocalizationSettings.SelectedLocale.Identifier.Code;
+
+        if (code == "hu")
+        {
+            OnStatusChanged?.Invoke("Szoba létrehozása...");
+        }
+        else
+        {
+            OnStatusChanged?.Invoke("Creating room...");
+        }        
     }
 
     public void JoinRoom(string roomName)
     {
         PhotonNetwork.JoinRoom(roomName);
-        OnStatusChanged?.Invoke("Csatlakozás a szobához...");
-    }
+        string code = LocalizationSettings.SelectedLocale.Identifier.Code;
 
-    //Ez nem kell, nem is használom
-    public void JoinRandomRoom()
-    {
-        PhotonNetwork.JoinRandomRoom();
-        OnStatusChanged?.Invoke("Véletlenszerû szoba keresése...");
+        if (code == "hu")
+        {
+            OnStatusChanged?.Invoke("Csatlakozás a szobához...");
+        }
+        else
+        {
+            OnStatusChanged?.Invoke("Connecting to the room...");
+        }        
     }
 
     public void LeaveRoom()
@@ -116,12 +146,31 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         PhotonNetwork.JoinLobby();
-        OnStatusChanged?.Invoke("Csatlakozva!");
+        string code = LocalizationSettings.SelectedLocale.Identifier.Code;
+
+        if (code == "hu")
+        {
+            OnStatusChanged?.Invoke("Csatlakozva!");
+        }
+        else
+        {
+            OnStatusChanged?.Invoke("Connected!");
+        }
     }
 
     public override void OnJoinedLobby()
     {
-        OnStatusChanged?.Invoke("Lobby kész.");
+        string code = LocalizationSettings.SelectedLocale.Identifier.Code;
+
+        if (code == "hu")
+        {
+            OnStatusChanged?.Invoke("Lobby kész.");
+        }
+        else
+        {
+            OnStatusChanged?.Invoke("Lobby is ready.");
+        }
+        
         OnLobbyJoined?.Invoke();
     }
 
@@ -145,10 +194,32 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
-        OnStatusChanged?.Invoke("Nincs szabad szoba, új létrehozása...");
+        string code = LocalizationSettings.SelectedLocale.Identifier.Code;
+
+        if (code == "hu")
+        {
+            OnStatusChanged?.Invoke("Nincs szabad szoba, új létrehozása...");
+        }
+        else
+        {
+            OnStatusChanged?.Invoke("There are no empty rooms, making a new room...");
+        }
+        
         CreateRoom("Szoba_" + Random.Range(1000, 9999));
     }
 
     public override void OnDisconnected(DisconnectCause cause)
-        => OnStatusChanged?.Invoke($"Kapcsolat megszakadt: {cause}");
+    {
+        string code = LocalizationSettings.SelectedLocale.Identifier.Code;
+
+        if (code == "hu")
+        {
+            OnStatusChanged?.Invoke($"Kapcsolat megszakadt: {cause}");
+        }
+        else
+        {
+            OnStatusChanged?.Invoke($"Connection lost: {cause}");
+        }
+    }
+        
 }
