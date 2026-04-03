@@ -4,12 +4,16 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
 
+/// <summary>
+/// The language changing button between English and Hungarian. 
+/// This changes every static and dinamic message, label and button
+/// </summary>
 public class LanguageSwitcher : MonoBehaviour
 {
 
     [SerializeField] private TMP_Text buttonText;
 
-
+    //Start is called before the first frame update
     IEnumerator Start()
     {
         yield return LocalizationSettings.InitializationOperation;
@@ -18,11 +22,16 @@ public class LanguageSwitcher : MonoBehaviour
         string saved = PlayerPrefs.GetString("Language", "en");
         var locale = LocalizationSettings.AvailableLocales.GetLocale(saved);
         if (locale != null)
+        {
             LocalizationSettings.SelectedLocale = locale;
+        }
 
         UpdateButtonText();
     }
 
+    /// <summary>
+    /// Changing between the languages
+    /// </summary>
     public void ToggleLanguage()
     {
         var current = LocalizationSettings.SelectedLocale;
@@ -39,6 +48,9 @@ public class LanguageSwitcher : MonoBehaviour
         UpdateButtonText();
     }
 
+    /// <summary>
+    /// When changing between the languages, the text must chang with it
+    /// </summary>
     void UpdateButtonText()
     {
         string code = LocalizationSettings.SelectedLocale.Identifier.Code;

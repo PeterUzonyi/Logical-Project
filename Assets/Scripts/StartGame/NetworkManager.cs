@@ -9,8 +9,7 @@ using System.Linq;
 using UnityEngine.Localization.Settings;
 
 /// <summary>
-/// Photon kapcsolat és szoba kezelõ (Singleton, DontDestroyOnLoad).
-/// Csatold egy üres GameObject-hez a menü jelenetben.
+/// Connects the players and the rooms to the photon server. This provides the online mode
 /// </summary>
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
@@ -20,7 +19,9 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public string gameVersion = "1.0";
     public byte maxPlayersPerRoom = 4;
 
-    // Események a LobbyUI feliratkozik rájuk
+    /// <summary>
+    /// Events
+    /// </summary>
     public event System.Action<string> OnStatusChanged;
     public event System.Action OnLobbyJoined;
     public event System.Action OnRoomJoined;
@@ -28,6 +29,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public event System.Action<PhotonPlayer> OnOtherPlayerEntered;
     public event System.Action<PhotonPlayer> OnOtherPlayerLeft;
 
+    //Called when the script is loaded
     void Awake()
     {
         if (Instance != null) 
@@ -42,7 +44,10 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         PhotonNetwork.AutomaticallySyncScene = true;
     }
 
-    // Csatlakozás 
+    /// <summary>
+    /// Connecting the player to the photon server
+    /// </summary>
+    /// <param name="playerName"></param>
     public void ConnectToPhoton(string playerName)
     {
         string code = LocalizationSettings.SelectedLocale.Identifier.Code;
@@ -76,7 +81,11 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         
     }
 
-    // Szoba mûveletek
+    /// <summary>
+    /// Creating an online room
+    /// </summary>
+    /// <param name="roomName"></param>
+    /// <param name="maxPlayers"></param>
     public void CreateRoom(string roomName, byte maxPlayers = 0)
     {
         if (maxPlayers == 0) maxPlayers = maxPlayersPerRoom;
@@ -106,6 +115,10 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         }        
     }
 
+    /// <summary>
+    /// Joining to an online room
+    /// </summary>
+    /// <param name="roomName"></param>
     public void JoinRoom(string roomName)
     {
         PhotonNetwork.JoinRoom(roomName);
@@ -121,28 +134,46 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         }        
     }
 
+    /// <summary>
+    /// Leaving an online room
+    /// </summary>
     public void LeaveRoom()
     {
         PhotonNetwork.LeaveRoom();
     }
 
+    /// <summary>
+    /// Setting the thinking time
+    /// </summary>
+    /// <param name="seconds"></param>
     public void SetThinkingTime(float seconds)
     {
-        if (!PhotonNetwork.IsMasterClient) return;
-        PhotonNetwork.CurrentRoom.SetCustomProperties(
-            new ExitGames.Client.Photon.Hashtable { { "thinkTime", seconds } }
-        );
+        if (!PhotonNetwork.IsMasterClient)
+        {
+            return;
+        }
+
+        PhotonNetwork.CurrentRoom.SetCustomProperties(new ExitGames.Client.Photon.Hashtable { { "thinkTime", seconds } });
     }
 
-    // Játék indítása (csak Host/MasterClient hívhatja) 
+    /// <summary>
+    /// The host can start the game
+    /// </summary>
+    /// <param name="sceneName"></param>
     public void StartGame(string sceneName)
     {
-        if (!PhotonNetwork.IsMasterClient) return;
+        if (!PhotonNetwork.IsMasterClient)
+        {
+            return;
+        }
+
         PhotonNetwork.CurrentRoom.IsOpen = false;  // ne tudjon senki csatlakozni
         PhotonNetwork.LoadLevel(sceneName);         // mindenkinél betölti a jelenetet
     }
 
-    // Photon visszahívások 
+    /// <summary>
+    /// Event overrides
+    /// </summary>
     public override void OnConnectedToMaster()
     {
         PhotonNetwork.JoinLobby();
@@ -157,6 +188,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             OnStatusChanged?.Invoke("Connected!");
         }
     }
+
 
     public override void OnJoinedLobby()
     {
@@ -175,6 +207,10 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     }
 
     public override void OnJoinedRoom() => OnRoomJoined?.Invoke();
+
+    /// <summary>
+    /// If the player lest the room becouse of the previous game ended, the they get back to the main menu
+    /// </summary>
     public override void OnLeftRoom()
     {
         OnRoomLeft?.Invoke();
@@ -221,5 +257,4 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             OnStatusChanged?.Invoke($"Connection lost: {cause}");
         }
     }
-        
 }

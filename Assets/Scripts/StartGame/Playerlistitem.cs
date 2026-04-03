@@ -18,11 +18,17 @@ using PhotonPlayer = Photon.Realtime.Player;
 /// </summary>
 public class PlayerListItem : MonoBehaviour
 {
+    /// <summary>
+    /// Player's name
+    /// </summary>
     [SerializeField] private TextMeshProUGUI playerNameLabel;
     [SerializeField] private TextMeshProUGUI readyLabel;
     [SerializeField] private GameObject hostBadge;
     [SerializeField] private Image colorImage; // ezt kösd be az Editorban
 
+    /// <summary>
+    /// Background color options
+    /// </summary>
     private readonly Color[] palette = new Color[]
     {
         new Color(0.85f, 0.22f, 0.22f),
@@ -33,18 +39,29 @@ public class PlayerListItem : MonoBehaviour
         new Color(0.95f, 0.50f, 0.10f),
     };
 
+    /// <summary>
+    /// Shows the data of every players in the room
+    /// </summary>
+    /// <param name="player"></param>
     public void Setup(PhotonPlayer player)
     {
         if (playerNameLabel)
+        {
             playerNameLabel.text = player.NickName;
+        }
 
         // Ready állapot olvasása
         bool isReady = false;
         if (player.CustomProperties.TryGetValue("ready", out var r))
+        {
             isReady = (bool)r;
+        }
 
         // Host automatikusan "kész"-nek számít
-        if (player.IsMasterClient) isReady = true;
+        if (player.IsMasterClient)
+        {
+            isReady = true;
+        }
 
         if (readyLabel)
         {
@@ -55,16 +72,21 @@ public class PlayerListItem : MonoBehaviour
         }
 
         if (hostBadge)
+        {
             hostBadge.SetActive(player.IsMasterClient);
+        }
+            
 
         // Szín megjelenítése (pl. egy Image komponensen)
         if (colorImage != null)
         {
             int colorIndex = 0;
             if (player.CustomProperties.TryGetValue("colorIndex", out var ci))
+            {
                 colorIndex = (int)ci;
+            }
 
-            colorImage.color = palette[colorIndex]; // palette itt is kell, vagy GameConfig-ból olvasd
+            colorImage.color = palette[colorIndex];
         }
     }
 }

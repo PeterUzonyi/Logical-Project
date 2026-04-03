@@ -5,23 +5,41 @@ using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using UnityEngine.Localization.Settings;
 
+/// <summary>
+/// The visualize of the local game lobby
+/// </summary>
 public class LocalLobbyUI : MonoBehaviour
 {
+    /// <summary>
+    /// The panel it self
+    /// </summary>
     [Header("Panel")]
     [SerializeField] private GameObject localLobbyPanel;
 
+    /// <summary>
+    /// Number of players
+    /// </summary>
     [Header("Játékosok száma")]
     [SerializeField] private Button btn2Players;
     [SerializeField] private Button btn3Players;
     [SerializeField] private Button btn4Players;
 
+    /// <summary>
+    /// The players data displays
+    /// </summary>
     [Header("Játékos sorok (PlayerRow_1..4)")]
     [SerializeField] private GameObject[] playerRows = new GameObject[4];
     [SerializeField] private TMP_InputField[] playerNameInputs = new TMP_InputField[4];
-        
+     
+    /// <summary>
+    /// Chooseing background color for each player
+    /// </summary>
     [Header("Szín választók")]
     [SerializeField] private TMP_Dropdown[] colorDropdowns = new TMP_Dropdown[4];
 
+    /// <summary>
+    /// Setting and showing the thinking time (minimum: 30s, maximum: 120s)
+    /// </summary>
     [Header("Gondolkodási idõ")]
     [SerializeField] private Slider thinkingTimeSlider;
     [SerializeField] private TextMeshProUGUI thinkingTimeLabel;
@@ -33,7 +51,9 @@ public class LocalLobbyUI : MonoBehaviour
     [Header("Jelenet")]
     [SerializeField] private string gameSceneName = "GameScene";
 
-    // Elõre megadott színpaletta
+    /// <summary>
+    /// Possible background colors
+    /// </summary>
     private readonly Color[] palette = new Color[]
     {
         new Color(0.85f, 0.22f, 0.22f), // piros
@@ -44,8 +64,12 @@ public class LocalLobbyUI : MonoBehaviour
         new Color(0.95f, 0.50f, 0.10f), // narancs
     };
 
+    /// <summary>
+    /// Number of active players
+    /// </summary>
     private int selectedPlayerCount = 2;
 
+    //Start is called before the first frame update
     void Start()
     {
         btn2Players.onClick.AddListener(() => SetPlayerCount(2));
@@ -70,7 +94,9 @@ public class LocalLobbyUI : MonoBehaviour
             // Opciók feltöltése sprite-okkal
             List<TMP_Dropdown.OptionData> options = new List<TMP_Dropdown.OptionData>();
             for (int j = 0; j < palette.Length; j++)
+            {
                 options.Add(new TMP_Dropdown.OptionData("", CreateColorSprite(palette[j])));
+            }
 
             dropdown.AddOptions(options);
 
@@ -86,34 +112,60 @@ public class LocalLobbyUI : MonoBehaviour
         SetPlayerCount(2);
     }
 
+    /// <summary>
+    /// Triggers when they want to change the background colors for the players
+    /// </summary>
+    /// <param name="playerIndex"></param>
+    /// <param name="colorIndex"></param>
     private void OnColorDropdownChanged(int playerIndex, int colorIndex)
     {
         GameConfig.PlayerColors[playerIndex] = palette[colorIndex];
     }
 
+    /// <summary>
+    /// Creating the colored sqaures with the possible colors
+    /// </summary>
+    /// <param name="color"></param>
+    /// <returns></returns>
     private Sprite CreateColorSprite(Color color)
     {
         Texture2D tex = new Texture2D(32, 32);
         Color[] pixels = new Color[32 * 32];
+
         for (int i = 0; i < pixels.Length; i++)
+        {
             pixels[i] = color;
+        }
+            
         tex.SetPixels(pixels);
         tex.Apply();
+
         return Sprite.Create(tex, new Rect(0, 0, 32, 32), Vector2.one * 0.5f);
     }
 
+    /// <summary>
+    /// Choosing the number of the active players
+    /// </summary>
+    /// <param name="count"></param>
     private void SetPlayerCount(int count)
     {
         selectedPlayerCount = count;
 
         for (int i = 0; i < playerRows.Length; i++)
+        {
             playerRows[i].SetActive(i < count);
+        }
+            
 
         btn2Players.interactable = count != 2;
         btn3Players.interactable = count != 3;
         btn4Players.interactable = count != 4;
     }
 
+    /// <summary>
+    /// Updates the thinking time value, when it is changed
+    /// </summary>
+    /// <param name="value"></param>
     private void OnThinkingTimeChanged(float value)
     {
         float rounded = Mathf.Round(value / 5f) * 5f;
@@ -136,13 +188,19 @@ public class LocalLobbyUI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Starting the game in local mode
+    /// </summary>
     private void OnStartClicked()
     {
         for (int i = 0; i < selectedPlayerCount; i++)
         {
             string name = playerNameInputs[i].text.Trim();
             if (string.IsNullOrEmpty(name))
+            {
                 name = $"Játékos {i + 1}";
+            }
+                
             GameConfig.PlayerNames[i] = name;
         }
 
@@ -152,11 +210,17 @@ public class LocalLobbyUI : MonoBehaviour
         SceneManager.LoadScene(gameSceneName);
     }
 
+    /// <summary>
+    /// Going back in the menu
+    /// </summary>
     private void OnBackClicked()
     {
         localLobbyPanel.SetActive(false);
     }
 
+    /// <summary>
+    /// Showing this panel
+    /// </summary>
     public void Open()
     {
         localLobbyPanel.SetActive(true);
