@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// All of the possible action types
+/// </summary>
 public enum ActionType
 {
     TakePuzzle,      //Kész
     TakeElement,     //Kész
-    UpdrageElement,  //Kész
+    UpgradeElement,  //Kész
     PlaceElement,    //Kész
-    MesterAction     //kész
+    MasterAction     //kész
 }

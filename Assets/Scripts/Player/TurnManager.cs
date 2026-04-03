@@ -7,24 +7,51 @@ using System.Linq;
 using UnityEngine.SceneManagement;
 using UnityEngine.Localization.Settings;
 
+/// <summary>
+/// Controlls the turns, last round, Finishing Touches (Végsõ rendrakás) and Game Over
+/// </summary>
 public class TurnManager : MonoBehaviour
 {
     public static TurnManager Instance { get; private set; }
 
+    /// <summary>
+    /// Every players prefab (maximum: 4 players)
+    /// </summary>
     [SerializeField] private List<Player> allPlayers; // Inspectorban: mind a 4 Player bekötve
+
+    /// <summary>
+    /// Active players (minimum: 2, maximum: 4 players)
+    /// </summary>
     public List<Player> players = new List<Player>(); // csak az aktív játékosok
+
+    /// <summary>
+    /// The player, whose turn is this turn
+    /// </summary>
     public Player currentPlayer { get; private set; } //Soron lévõ játékos
+
+    /// <summary>
+    /// Number of active players
+    /// </summary>
     public int playerCount => players.Count;
 
+    /// <summary>
+    /// Last round
+    /// </summary>
     public bool isLastRound = false;
     public Player startedLastRound;
     public bool lastRoundExtra;
 
+    /// <summary>
+    /// Final Touches (Végsõ rendrakás)
+    /// </summary>
     public bool isVegsoRendrakas;
 
+    /// <summary>
+    /// Game Over
+    /// </summary>
     public bool isGameOver = false;
 
-
+    //Called when the script is loaded
     void Awake()
     {
         Instance = this;
@@ -52,6 +79,8 @@ public class TurnManager : MonoBehaviour
             }
         }
     }
+
+    //Start is called before the first frame update
     void Start()
     {
         // Online módban a helyi játékos legyen players[0]
@@ -109,12 +138,18 @@ public class TurnManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Unsubscribes from the OnlineTurnManager events
+    /// </summary>
     void OnDestroy()
     {
         OnlineTurnManager.OnTurnChanged -= OnOnlineTurnChanged;
         OnlineTurnManager.OnTimeUp -= OnOnlineTimeUp;
     }
 
+    /// <summary>
+    /// The next player's turn starts
+    /// </summary>
     public void EndTurn()
     {
         // Következõ játékos körbe forgatva
@@ -154,6 +189,9 @@ public class TurnManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Last round before the Final Touches (Végsõ Rendrakás)
+    /// </summary>
     public void LastRound()
     {
         if (PhotonNetwork.IsConnected)
@@ -168,10 +206,17 @@ public class TurnManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Last round before the Final Touches (Végsõ Rendrakás)
+    /// </summary>
+    /// <param name="playerID"></param>
     public void ApplyLastRound(int playerID)
     {
         Player player = players.FirstOrDefault(p => p.PlayerID == playerID);
-        if (player == null) return;
+        if (player == null)
+        {
+            return;
+        }
         isLastRound = true;
         lastRoundExtra = false;
         startedLastRound = player;
@@ -196,6 +241,9 @@ public class TurnManager : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Final Touches (Végsõ Rendrakás)
+    /// </summary>
     public void VegsoRendrakas()
     {
         if (PhotonNetwork.IsConnected)
@@ -214,10 +262,17 @@ public class TurnManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Final Touches (Végsõ Rendrakás)
+    /// </summary>
+    /// <param name="startingPlayerID"></param>
     public void ApplyVegsoRendrakas(int startingPlayerID)
     {
         Player startingPlayer = players.FirstOrDefault(p => p.PlayerID == startingPlayerID);
-        if (startingPlayer == null) return;
+        if (startingPlayer == null)
+        {
+            return;
+        }
         isVegsoRendrakas = true;
         isLastRound = false;
         lastRoundExtra = false;
@@ -243,6 +298,9 @@ public class TurnManager : MonoBehaviour
         }        
     }
 
+    /// <summary>
+    /// The Game is Over
+    /// </summary>
     public void GameOver()
     {
         if (PhotonNetwork.IsConnected)
@@ -255,9 +313,11 @@ public class TurnManager : MonoBehaviour
             //Lokális mód
             ApplyGameOver();
         }
-        
     }
 
+    /// <summary>
+    /// The Game is Over and showing the final standings
+    /// </summary>
     public void ApplyGameOver()
     {
         isGameOver = true;
@@ -319,7 +379,6 @@ public class TurnManager : MonoBehaviour
                     result += "All tied players share the victory. You are all awesome!\n";
                 }
             }
-                
 
             rank += (j - i);
             i = j;
@@ -335,6 +394,10 @@ public class TurnManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Online mode. Called when the online turn changes, the UI updates automatically via OnTimerTick
+    /// </summary>
+    /// <param name="actorNumber"></param>
     private void OnOnlineTurnChanged(int actorNumber)
     {
         // Az actorNumber alapján döntjük el ki a currentPlayer
@@ -371,8 +434,7 @@ public class TurnManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Csak MasterClienten fut. Ellenõrzi kell-e állapotot váltani
-    /// mielõtt a következõ játékos körét elindítanánk.
+    /// Online mode. Runs only on the Master Client. Checks the conditions before starting the next player's turn
     /// </summary>
     private void CheckRoundState(Player nextPlayer)
     {
@@ -395,6 +457,9 @@ public class TurnManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Online mode. When the timer hits 0
+    /// </summary>
     private void OnOnlineTimeUp()
     {
         // Ha lejárt az idõ, a játékos körét befejezettnek tekintjük

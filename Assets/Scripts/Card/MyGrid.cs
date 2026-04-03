@@ -189,7 +189,7 @@ public class MyGrid : MonoBehaviourPun
     /// </summary>
     private void CheckIfElementCanBePlaced()
     {
-        if (TurnManager.Instance.currentPlayer.selectedAction == ActionType.MesterAction && TurnManager.Instance.currentPlayer.gridsUsedInMasterAction.Contains(this))
+        if (TurnManager.Instance.currentPlayer.selectedAction == ActionType.MasterAction && TurnManager.Instance.currentPlayer.gridsUsedInMasterAction.Contains(this))
         {
             return;
         }
@@ -312,7 +312,7 @@ public class MyGrid : MonoBehaviourPun
         }
 
 
-        if (TurnManager.Instance.currentPlayer.selectedAction == ActionType.MesterAction)
+        if (TurnManager.Instance.currentPlayer.selectedAction == ActionType.MasterAction)
         {//MasterAction
             if (TurnManager.Instance.currentPlayer.ElementPlacementSuccessfull)
             {

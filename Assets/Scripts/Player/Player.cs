@@ -8,34 +8,101 @@ using Photon.Pun;
 using System.Linq;
 using UnityEngine.Localization.Settings;
 
+/// <summary>
+/// This controlls what can a player do during the game (both online and local)
+/// </summary>
 public class Player : MonoBehaviour
 {
+    /// <summary>
+    /// uniq ID
+    /// </summary>
     public int PlayerID;
+
+    /// <summary>
+    /// Player's name
+    /// </summary>
     public string PlayerName;
-    public int ActionCount; //Ha ez eléri a hármat, akkor egy másik játékosra kerül a sor
-    public bool IsMyRound = false; //Ez a játékos van-e soron
 
-    public GameObject BlockingPanel; //Ha másik játékos van soron, akkor SetActive(False), különben (True)
+    /// <summary>
+    /// Actions done is this round (maximum: 3)
+    /// </summary>
+    public int ActionCount;
 
+    /// <summary>
+    /// True, when it is this player's turn
+    /// </summary>
+    public bool IsMyRound = false;
+
+    /// <summary>
+    /// Transparent blocking panel
+    /// </summary>
+    public GameObject BlockingPanel;
+
+    /// <summary>
+    /// Player's score
+    /// </summary>
     public TMP_Text Score;
     public int PlayerScore;
+
+    /// <summary>
+    /// Number of completed puzzles
+    /// </summary>
     public int CompletedPuzzles = 0;
+
+    /// <summary>
+    /// Number of elements is the player's inventory
+    /// </summary>
     public int RemainingElements = 0;
 
+    /// <summary>
+    /// The player's inventory
+    /// </summary>
     public InventoryManager inventoryManager;
 
+    /// <summary>
+    /// The player's card slots (maximum 4 cards)
+    /// </summary>
     [SerializeField]
     private CardLoader[] MyCardSlots = new CardLoader[4];
 
+    /// <summary>
+    /// The panel it self
+    /// </summary>
     public GameObject PlayerPanel;
+
+    /// <summary>
+    /// The background image color
+    /// </summary>
     [SerializeField] private Image panelBackground;
 
+    /// <summary>
+    /// The selected action
+    /// </summary>
     public ActionType selectedAction;
+
+    /// <summary>
+    /// True, when the player already used master action in this round
+    /// </summary>
     public bool masterActionUsed;
+
+    /// <summary>
+    /// True, when an action is finished
+    /// </summary>
     public bool actionHasEnded;
+
+    /// <summary>
+    /// True, when an element is successfully placed on a puzzle card
+    /// </summary>
     public bool ElementPlacementSuccessfull;
 
+    /// <summary>
+    /// Used cards, needs for the master action
+    /// </summary>
     public HashSet<MyGrid> gridsUsedInMasterAction = new HashSet<MyGrid>();
+
+    /// <summary>
+    /// How many cards are there, when the player started master action
+    /// </summary>
     public int masterActionCardCount = 0;
 
     public GameObject actionBtn;
@@ -47,6 +114,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] private UpgradePanel upgradePanel;
 
+    //Called when the script is loaded
     void Awake()
     {
         PlayerScore = 0;
@@ -58,6 +126,12 @@ public class Player : MonoBehaviour
             RemoveCard(i);
         }
     }
+
+    /// <summary>
+    /// If it is this player's trun, then able to choose actions.
+    /// If it is not this player's turn, cannot do anything, just watching
+    /// </summary>
+    /// <param name="value"></param>
     public void MyTurn(bool value)
     {
         RefreshScore(0);
@@ -108,6 +182,10 @@ public class Player : MonoBehaviour
         ThinkingTimer.Instance?.StartTimer();
     }
 
+    /// <summary>
+    /// True, when the player has 4 card (maximum: 4 cards)
+    /// </summary>
+    /// <returns></returns>
     public bool IsCardSlotsFull()
     {
         for (int i = 0; i < MyCardSlots.Length; i++)
@@ -120,6 +198,10 @@ public class Player : MonoBehaviour
         return true;
     }
 
+    /// <summary>
+    /// True, when the player has 0 cards (maximum: 4 cards)
+    /// </summary>
+    /// <returns></returns>
     public bool IsCardSlotsEmpty()
     {
         for (int i = 0; i < MyCardSlots.Length; i++)
@@ -132,7 +214,11 @@ public class Player : MonoBehaviour
         return true;
     }
 
-    // Kártya átvétele a CommonReserve-bõl
+    /// <summary>
+    /// Showing the chosen card from the common reserev (take a puzzle card action)
+    /// </summary>
+    /// <param name="card"></param>
+    /// <returns></returns>
     public bool ReceiveCard(CardType card)
     {
         // Megkeresi az elsõ üres slotot
@@ -150,7 +236,10 @@ public class Player : MonoBehaviour
         return false;
     }
 
-    // Kártya eltávolítása egy slotból (ha megoldja a lapot)
+    /// <summary>
+    /// Removing a card from the slots, happens when completing a puzzle card
+    /// </summary>
+    /// <param name="slotIndex"></param>
     public void RemoveCard(int slotIndex)
     {
         if (slotIndex < 0 || slotIndex >= MyCardSlots.Length)
@@ -163,14 +252,20 @@ public class Player : MonoBehaviour
         MyCardSlots[slotIndex].gameObject.SetActive(false);
     }
 
-
-    public void SetSelectedAction(ActionType action)//Kiválasztott Akció
+    /// <summary>
+    /// Stores the chosen action type
+    /// </summary>
+    /// <param name="action"></param>
+    public void SetSelectedAction(ActionType action)
     {
         selectedAction = action;
         UseAction();
     }
 
-    public void UseAction()//Akció végrehajtása
+    /// <summary>
+    /// The player doing the chosen action
+    /// </summary>
+    public void UseAction()
     {
         if (selectedAction == ActionType.TakePuzzle)
         {
@@ -180,7 +275,7 @@ public class Player : MonoBehaviour
         {
             TakeElement();
         }
-        else if (selectedAction == ActionType.UpdrageElement)
+        else if (selectedAction == ActionType.UpgradeElement)
         {
             UpgradeElement();
         }
@@ -188,7 +283,7 @@ public class Player : MonoBehaviour
         {
 
         }
-        else if (selectedAction == ActionType.MesterAction && masterActionUsed == false)
+        else if (selectedAction == ActionType.MasterAction && masterActionUsed == false)
         {
             MasterAction();
         }
@@ -198,6 +293,10 @@ public class Player : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Once an action is finished, the actionCount count it. 
+    /// Once it reaches 3, then the next player's trun begins
+    /// </summary>
     public void ActionHasEnded()
     {
         if (!ThinkingTimer.Instance.TimeIsUp)
@@ -267,12 +366,18 @@ public class Player : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Take a new puzzle from the common reserve (take puzzle action)
+    /// </summary>
     public void TakePuzzle()
     {
         CommonReserve.Instance.CommonReserveBlockingPanel.SetActive(false);
         OpenCommonReserve();
     }
 
+    /// <summary>
+    /// Takeing a lvl1 element from the common reserve's inventory (take an element action)
+    /// </summary>
     public void TakeElement()
     {
         if (PhotonNetwork.IsConnected)
@@ -294,6 +399,9 @@ public class Player : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Upgrades a player inventory element to another element from the common reserve's inventory (upgrade acion)
+    /// </summary>
     public void UpgradeElement()
     {
         PlayerPanel.SetActive(false);
@@ -314,6 +422,9 @@ public class Player : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// The player can place down maximum 1 element into every puzzle (master action)
+    /// </summary>
     public void MasterAction()
     {
         gridsUsedInMasterAction.Clear();
@@ -328,6 +439,9 @@ public class Player : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This player's turn is over, the next player is up next
+    /// </summary>
     public void EndMyTurn()
     {
         ThinkingTimer.Instance?.StopTimer();
@@ -346,12 +460,25 @@ public class Player : MonoBehaviour
         Debug.Log("Másik játékos köre");
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="slotIndex"></param>
+    /// <returns></returns>
     public CardLoader GetCardLoaderBySlot(int slotIndex)
     {
-        if (slotIndex < 0 || slotIndex >= MyCardSlots.Length) return null;
+        if (slotIndex < 0 || slotIndex >= MyCardSlots.Length)
+        {
+            return null;
+        }
+
         return MyCardSlots[slotIndex];
     }
 
+    /// <summary>
+    /// When the player gets reward score or loses during the Final Touches (Végsõ rendrakás) it desplays the change
+    /// </summary>
+    /// <param name="value"></param>
     public void RefreshScore(int value)
     {
         string code = LocalizationSettings.SelectedLocale.Identifier.Code;
@@ -367,11 +494,17 @@ public class Player : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Changing the view from the player, to the common reserve
+    /// </summary>
     public void OpenCommonReserve()
     {
         CommonReserve.Instance.Open(this);
     }
 
+    /// <summary>
+    /// Changing the view from the player, to the next player in line
+    /// </summary>
     public void OnChangePlayerViewClicked()
     {
         int next = (PlayerID % TurnManager.Instance.playerCount);
@@ -380,6 +513,9 @@ public class Player : MonoBehaviour
         TurnManager.Instance.players[next].PlayerPanel.SetActive(true);
     }
 
+    /// <summary>
+    /// Finishing the master action before placing into every puzzle card (master action)
+    /// </summary>
     public void OnEndMasterActionClicked()
     {
         if (gridsUsedInMasterAction.Count != 0)
@@ -399,6 +535,9 @@ public class Player : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Finishing the Final Touches (Végsõ rendrakás)
+    /// </summary>
     public void OnEndVegsoRendrakasClicked()
     {
         endVegsoRendrakasBtn.SetActive(false);
@@ -406,23 +545,33 @@ public class Player : MonoBehaviour
         EndMyTurn();
     }
 
+    /// <summary>
+    /// Online mode. Sends the player stats for the final standings once the game is over
+    /// </summary>
     public void SyncStatsToAll()
     {
-        if (!PhotonNetwork.IsConnected) return;
+        if (!PhotonNetwork.IsConnected)
+        {
+            return;
+        }
 
         // Csak a saját kliensünk küldi el a saját adatait
-        if (PhotonActorNumber != PhotonNetwork.LocalPlayer.ActorNumber) return;
+        if (PhotonActorNumber != PhotonNetwork.LocalPlayer.ActorNumber)
+        {
+            return;
+        }
 
-        OnlineTurnManager.Instance.SyncPlayerStats(
-            PlayerID,
-            PlayerScore,
-            CompletedPuzzles,
-            RemainingElements);
+        OnlineTurnManager.Instance.SyncPlayerStats(PlayerID, PlayerScore, CompletedPuzzles, RemainingElements);
     }
 
+    /// <summary>
+    /// Sets the background color for the player
+    /// </summary>
     public void ApplyColor()
     {
         if (panelBackground != null)
+        {
             panelBackground.color = GameConfig.PlayerColors[PlayerID - 1];
+        }            
     }
 }

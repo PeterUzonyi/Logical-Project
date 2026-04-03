@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// The necessary datas for the game (both online and local) and it's default values
+/// </summary>
 public static class GameConfig
 {
     //Alapértelmezett
