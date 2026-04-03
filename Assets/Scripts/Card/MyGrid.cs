@@ -7,29 +7,90 @@ using Photon.Pun;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
+/// <summary>
+/// The grid part of the puzzle card
+/// </summary>
 public class MyGrid : MonoBehaviourPun
 {
+    /// <summary>
+    /// Number of columns
+    /// </summary>
     public int columns;
+
+    /// <summary>
+    /// Number of rows
+    /// </summary>
     public int rows;
+
+    /// <summary>
+    /// The gap between the grid sqaures (needs for visualization)
+    /// </summary>
     public float squareGap;
+
+    /// <summary>
+    /// The child prefabs for every square (grid squares)
+    /// </summary>
     public GameObject gridSquare;
+
+    /// <summary>
+    /// Position of the grid squares
+    /// </summary>
     public Vector2 startPosition;
+
+    /// <summary>
+    /// Size of the grid squares
+    /// </summary>
     public float squareScale;
+
+    /// <summary>
+    /// Additional offset applied between every grid square
+    /// </summary>
     public float everySquareOffSet;
 
+    /// <summary>
+    /// True, when the grid id initialized
+    /// </summary>
     public bool isInitialized = false;
 
+    /// <summary>
+    /// Calculated offset between grid squares for positioning
+    /// </summary>
     private Vector2 offSet = new Vector2(0, 0);
+
+    /// <summary>
+    /// Every grid square in a list (from 0 to 48)
+    /// </summary>
     private List<GameObject> gridSquares = new List<GameObject>();
 
+    /// <summary>
+    /// Stores when az element is placed on a grid. After finishing the grid, we gave back evey element 
+    /// (every shape index is in the corresponding index in this block)
+    /// </summary>
     [HideInInspector]
     public int[] ElementsOnCard = new int[9];
+
+    /// <summary>
+    /// Counts the placed down grid squares
+    /// The whole element is placed, whether the grid squares number is equal with the number of squares of the element
+    /// </summary>
     public int count = 0;
+
+    /// <summary>
+    /// The corresponding index of the ElementOnCard block. Finishing the puzzle, this is the extra element
+    /// </summary>
     public int rewardElement;
+
+    /// <summary>
+    /// The point that the player gets after finisheing this puzzle
+    /// </summary>
     public int scoreNumber;
 
+    /// <summary>
+    /// The parent puzzle card of this grid
+    /// </summary>
     public CardLoader OwnerCardLoader;
 
+    //Start is called before the first frame update
     void Start()
     {
         SpawnGridSquares();
@@ -37,15 +98,25 @@ public class MyGrid : MonoBehaviourPun
         isInitialized = true;
     }
 
+    /// <summary>
+    /// Subscribes to the CheckIfElementCanBePlaced game event
+    /// </summary>
     private void OnEnable()
     {
         GameEvents.CheckIfElementCanBePlaced += CheckIfElementCanBePlaced;
     }
 
+    /// <summary>
+    /// Unsubscribes from the CheckIfElementCanBePlaced game event
+    /// </summary>
     private void OnDisable()
     {
         GameEvents.CheckIfElementCanBePlaced -= CheckIfElementCanBePlaced;
     }
+
+    /// <summary>
+    /// Making the grid squares
+    /// </summary>
     private void SpawnGridSquares()
     {
         int squareIndex = 0;
@@ -63,6 +134,10 @@ public class MyGrid : MonoBehaviourPun
             }
         }
     }
+
+    /// <summary>
+    /// Visualizing hte grid squares
+    /// </summary>
     private void SetGridSquaresPositions()
     {
         int columnNumber = 0;
@@ -109,6 +184,9 @@ public class MyGrid : MonoBehaviourPun
         }
     }
 
+    /// <summary>
+    /// Whether the element can be placed on this grid and whether placing down the element was successful
+    /// </summary>
     private void CheckIfElementCanBePlaced()
     {
         if (TurnManager.Instance.currentPlayer.selectedAction == ActionType.MesterAction && TurnManager.Instance.currentPlayer.gridsUsedInMasterAction.Contains(this))
@@ -125,7 +203,10 @@ public class MyGrid : MonoBehaviourPun
                 break;
             }
         }
-        if (!anySelected) return; // ez kiszûri az összes "idegen" Grid-et
+        if (!anySelected)
+        {
+            return; // ez kiszûri az összes "idegen" Grid-et
+        }
 
         var squareIndexes = new List<int>();
 
@@ -251,7 +332,6 @@ public class MyGrid : MonoBehaviourPun
                     TurnManager.Instance.currentPlayer.ActionHasEnded();
                 }
             }
-
             return;
         }
         else
@@ -262,18 +342,35 @@ public class MyGrid : MonoBehaviourPun
         }  
     }
 
+    /// <summary>
+    /// Getting the correct grid square based on the index
+    /// </summary>
+    /// <param name="index"></param>
+    /// <returns></returns>
     public GridSquare GetGridSquare(int index)
     {
-        if (index < 0 || index >= gridSquares.Count) return null;
+        if (index < 0 || index >= gridSquares.Count)
+        {
+            return null;
+        }
+
         return gridSquares[index].GetComponent<GridSquare>();
     }
 
+
+    /// <summary>
+    /// Online mode, when the puzzle card is completed
+    /// </summary>
+    /// <param name="playerID"></param>
+    /// <param name="slotIndex"></param>
+    /// <param name="elements"></param>
+    /// <param name="score"></param>
+    /// <param name="rewardElement"></param>
     [PunRPC]
     private void RPC_CardCompleted(int playerID, int slotIndex, int[] elements, int score, int rewardElement)
     {
         // Megkeressük a játékost PlayerID alapján
-        Player ownerPlayer = TurnManager.Instance.players
-            .FirstOrDefault(p => p.PlayerID == playerID);
+        Player ownerPlayer = TurnManager.Instance.players.FirstOrDefault(p => p.PlayerID == playerID);
 
         if (ownerPlayer == null)
         {
@@ -302,9 +399,15 @@ public class MyGrid : MonoBehaviourPun
 
         // ElementsOnCard nullázása lokálisan
         for (int i = 0; i < ElementsOnCard.Length; i++)
+        {
             ElementsOnCard[i] = 0;
+        }
     }
 
+    /// <summary>
+    /// Called when the whole element is successfully placed on this grid
+    /// </summary>
+    /// <param name="id"></param>
     public void ElementIsPlacedOnCard(int id)
     {
         //Csak akkor hívódik meg, ha az egész elemet leraktuk
@@ -316,7 +419,11 @@ public class MyGrid : MonoBehaviourPun
         }
     }
 
-    //Online miatt
+    /// <summary>
+    /// Online mode, called when the whole element is successfully placed on this grid
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="totalSquares"></param>
     public void ElementIsPlacedOnCard(int id, int totalSquares)
     {
         count++;
@@ -327,6 +434,10 @@ public class MyGrid : MonoBehaviourPun
         }
     }
 
+    /// <summary>
+    /// True, whether the puzzle is completed
+    /// </summary>
+    /// <returns></returns>
     public bool IsTheCardFull()
     {
         bool full = true;

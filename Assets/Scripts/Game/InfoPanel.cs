@@ -5,9 +5,20 @@ using UnityEngine;
 using Photon.Pun;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Pops up to inform the players about the last round, the Final Touches (Végsõ Rendrakás) 
+/// and the fianl standings after the game is over
+/// </summary>
 public class InfoPanel : MonoBehaviour
 {
+    /// <summary>
+    /// The massage part
+    /// </summary>
     [SerializeField] private TMP_Text infoText;
+
+    /// <summary>
+    /// The panel itself
+    /// </summary>
     [SerializeField] private GameObject panel;
 
     public static InfoPanel Instance { get; private set; }
@@ -15,26 +26,36 @@ public class InfoPanel : MonoBehaviour
     [Header("Jelenet neve")]
     [SerializeField] private string menuSceneName = "StartGameScene";
 
+    //Called when the script is loaded
     void Awake()
     {
         Instance = this;
         panel.SetActive(false);
     }
 
-    // Hívd meg amikor meg akarod jeleníteni
+    /// <summary>
+    /// Shows the panel and the message
+    /// </summary>
+    /// <param name="message"></param>
     public void Show(string message)
     {
         infoText.text = message;
         panel.SetActive(true);
     }
 
-    // Az OK gombhoz rendeld hozzá az Inspectorban
+    /// <summary>
+    /// When the panel's Ok button is clicked closes the panel. 
+    /// If the game is over, then every player returns to the starting menu
+    /// </summary>
     public void OnOkClicked()
     {
         panel.SetActive(false);
 
         // Csak GameOver után navigálunk vissza
-        if (TurnManager.Instance == null || !TurnManager.Instance.isGameOver) return;
+        if (TurnManager.Instance == null || !TurnManager.Instance.isGameOver)
+        {
+            return;
+        }
 
         if (PhotonNetwork.IsConnected && PhotonNetwork.InRoom)
         {

@@ -7,37 +7,61 @@ using System.Collections;
 using UnityEngine.EventSystems;
 using Photon.Pun;
 
+/// <summary>
+/// Visualizes and executes the upgrade action
+/// </summary>
 public class UpgradePanel : MonoBehaviour
 {
     public static UpgradePanel Instance { get; private set; }
 
+    /// <summary>
+    /// The panel it self
+    /// </summary>
     [Header("Panel")]
     public GameObject upgradePanel;
 
-
+    /// <summary>
+    /// The player's invetory
+    /// </summary>
     [Header("Játékos elemei felsõ rész")]
     public Transform playerItemsContainer;  // a 9 InventoryItem szülõje (játékos)
 
+    /// <summary>
+    /// The Common Reserve's invenoty
+    /// </summary>
     [Header("CommonReserve elemei alsó rész")]
     public Transform commonItemsContainer;  // a 9 InventoryItem szülõje (CommonReserve)
 
+    /// <summary>
+    /// A button that contains an image of an element and a text (element's level and quantity)
+    /// </summary>
     public GameObject itemButtonPrefab; // Image + Button + TMP_Text
 
-    // Belsõ állapot
+    /// <summary>
+    /// The player, whose turn is this
+    /// </summary>
     private Player currentPlayer;
+
+    /// <summary>
+    /// The selected element from the player's inventory (this will be upgraded)
+    /// </summary>
     private InventoryItem selectedPlayerItem;    // mit ad vissza a játékos
+
+    /// <summary>
+    /// Possible upgrade elements options from the Common Reserve's inventory
+    /// </summary>
     private List<InventoryItem> validCommonOptions = new List<InventoryItem>();
 
+    //Called when the script is loaded
     void Awake()
     {
         Instance = this;
-        //upgradePanel.SetActive(false);
     }
 
-    //
-    // Megnyitás
-    //
-
+    /// <summary>
+    /// The player opens the upgrade panel
+    /// </summary>
+    /// <param name="player"></param>
     public void Open(Player player)
     {
         currentPlayer = player;
@@ -50,6 +74,9 @@ public class UpgradePanel : MonoBehaviour
         BuildCommonButtons(null);
     }
 
+    /// <summary>
+    /// Building the player's inventory with buttons
+    /// </summary>
     private void BuildPlayerButtons()
     {
         ClearContainer(playerItemsContainer);
@@ -67,6 +94,10 @@ public class UpgradePanel : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Building the Common Reserve's inventory with buttons
+    /// </summary>
+    /// <param name="validOptions"></param>
     private void BuildCommonButtons(List<InventoryItem> validOptions)
     {
         ClearContainer(commonItemsContainer);
@@ -84,6 +115,13 @@ public class UpgradePanel : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Creating the buttons for the invetorys
+    /// </summary>
+    /// <param name="container"></param>
+    /// <param name="item"></param>
+    /// <param name="selectable"></param>
+    /// <param name="onClick"></param>
     private void CreateButton(Transform container, InventoryItem item, bool selectable, System.Action onClick)
     {
         GameObject btn = Instantiate(itemButtonPrefab, container);
@@ -92,12 +130,16 @@ public class UpgradePanel : MonoBehaviour
         Sprite sprite = Resources.Load<Sprite>($"Elements/Element{item.ID + 1}");
         Image img = btn.GetComponent<Image>();
         if (img != null && sprite != null)
+        {
             img.sprite = sprite;
+        }
 
         // Darabszám szöveg
         TMP_Text label = btn.GetComponentInChildren<TMP_Text>();
         if (label != null)
+        {
             label.text = $"Lv{item.level}\nx{item.quantity}";
+        }
 
         // Gomb
         Button button = btn.GetComponent<Button>();
@@ -105,16 +147,25 @@ public class UpgradePanel : MonoBehaviour
         {
             button.interactable = selectable;
             if (onClick != null)
+            {
                 button.onClick.AddListener(() => onClick());
+            }
         }
 
         // Highlight törlése
         SetHighlight(btn.transform, false);
     }
 
+    /// <summary>
+    /// Tiggered when the player chooses the element wants to upgrade
+    /// </summary>
+    /// <param name="item"></param>
     private void OnPlayerItemClicked(InventoryItem item)
     {
-        if (item.quantity <= 0) return;
+        if (item.quantity <= 0)
+        {
+            return;
+        }
 
         selectedPlayerItem = item;
 
@@ -126,9 +177,17 @@ public class UpgradePanel : MonoBehaviour
         BuildCommonButtons(validCommonOptions);
     }
 
+    /// <summary>
+    /// Swapping the two element: the player loses the chosen element (the common reserve gets it) and 
+    /// gets the chosen element from the Common Reserve's inventory (the common reserve loses it)
+    /// </summary>
+    /// <param name="commonItem"></param>
     private void ExecuteSwap(InventoryItem commonItem)
     {
-        if (selectedPlayerItem == null || commonItem == null) return;
+        if (selectedPlayerItem == null || commonItem == null)
+        {
+            return;
+        }
 
         if (PhotonNetwork.IsConnected)
         {
@@ -178,10 +237,11 @@ public class UpgradePanel : MonoBehaviour
         }
     }
 
-    //
-    //Segédek
-    //
-
+    /// <summary>
+    /// Highlights the possibilities for the swap based on the player's selected element
+    /// </summary>
+    /// <param name="container"></param>
+    /// <param name="selectedItem"></param>
     private void RefreshHighlight(Transform container, InventoryItem selectedItem)
     {
         int index = 0;
@@ -195,12 +255,21 @@ public class UpgradePanel : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Clearing the container for the next use
+    /// </summary>
+    /// <param name="container"></param>
     private void ClearContainer(Transform container)
     {
         foreach (Transform child in container)
+        {
             Destroy(child.gameObject);
+        }
     }
 
+    /// <summary>
+    /// Closes the upgrade panel
+    /// </summary>
     private void Close()
     {
         ClearContainer(playerItemsContainer);
@@ -212,13 +281,24 @@ public class UpgradePanel : MonoBehaviour
         currentPlayer.PlayerPanel.SetActive(true);
     }
 
+    /// <summary>
+    /// Highlights a given element
+    /// </summary>
+    /// <param name="t"></param>
+    /// <param name="active"></param>
     private void SetHighlight(Transform t, bool active)
     {
         Outline outline = t.GetComponent<Outline>();
-        if (outline != null) { outline.enabled = active; return; }
+        if (outline != null) 
+        { 
+            outline.enabled = active; 
+            return; 
+        }
 
         Image bg = t.GetComponent<Image>();
         if (bg != null)
+        {
             bg.color = active ? new Color(1f, 0.85f, 0f, 1f) : Color.white;
+        }
     }
 }

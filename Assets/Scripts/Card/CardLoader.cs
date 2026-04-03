@@ -10,37 +10,79 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 
+/// <summary>
+/// Visualize the puzzle cards
+/// </summary>
 public class CardLoader : MonoBehaviour, IPointerClickHandler
 {
+    /// <summary>
+    /// Puzzle card background image
+    /// </summary>
     public Image BgImage;
+
+    /// <summary>
+    /// Puzzle card reward score, that the player gets once the puzzle is completed
+    /// </summary>
     public TextMeshProUGUI ScoreText;
     
+    /// <summary>
+    /// Possible reward element sprites (9 different shape)
+    /// </summary>
     public Sprite[] RewardSprites;
+
+    /// <summary>
+    /// Puzzle card reward elemet, that the player gets once the puzzle is completed
+    /// </summary>
     public Image RewardImage;
 
+    /// <summary>
+    /// The background image of the grid part
+    /// </summary>
     public Image GridBgImage;
+
+    /// <summary>
+    /// The grid part of the puzzle card
+    /// </summary>
     public GameObject Grid;
 
+    /// <summary>
+    /// The puzzle card's position index in CommonReserve from 0 to 7 (white cards: 0-3, black cards: 4-7)
+    /// </summary>
     public int SlotIndex;
 
+    /// <summary>
+    /// puzzle card puzzle grid script needs for each GridSquare
+    /// </summary>
     [HideInInspector]
     public MyGrid gridScript;
 
+    /// <summary>
+    /// The new puzzle card ready to visualize
+    /// </summary>
     public CardType CurrentCard { get; set; }
 
-    private CardType pendingCard = null; // eltároljuk a kártyát, ha még nem kész
+    /// <summary>
+    /// If the next card is too early, we store it
+    /// </summary>
+    private CardType pendingCard = null;
 
+
+    //Called when the script is loaded
     void Awake()
     {
         gridScript = Grid.GetComponent<MyGrid>();
     }
 
-    // Start is called before the first frame update
+    //Start is called before the first frame update
     void Start()
     {
         StartCoroutine(WaitForInitialization());
     }
 
+    /// <summary>
+    /// Wait for the gridsquares and the cardmanager to be initialized
+    /// </summary>
+    /// <returns></returns>
     IEnumerator WaitForInitialization()
     {
         while (!gridScript.isInitialized || !CardManager.Instance.IsReady)
@@ -57,6 +99,10 @@ public class CardLoader : MonoBehaviour, IPointerClickHandler
         }
     }
 
+    /// <summary>
+    /// Visualize the give card in the parameter when everything is ready for it (accessable from other classes)
+    /// </summary>
+    /// <param name="card"></param>
     public void ShowCard(CardType card)
     {
         CurrentCard = card;
@@ -69,6 +115,11 @@ public class CardLoader : MonoBehaviour, IPointerClickHandler
             pendingCard = card; // majd a coroutine végén rajzoljuk ki
         }
     }
+
+    /// <summary>
+    /// Visualize the give card in the parameter
+    /// </summary>
+    /// <param name="card"></param>
     private void Visualize(CardType card)
     {
         //Background Color
@@ -113,7 +164,7 @@ public class CardLoader : MonoBehaviour, IPointerClickHandler
                 squareScript.activeImage.color = Color.black;
                 squareScript.activeImage.gameObject.SetActive(true);
             }
-            else //if (card.Matrix[(i / 7), (i % 7)] == 0)
+            else
             {
                 img.color = Color.white;
                 squareScript.SquareOccupied = false;
@@ -122,11 +173,18 @@ public class CardLoader : MonoBehaviour, IPointerClickHandler
         }
     }
 
+    /// <summary>
+    /// This triggers when a player clicks on a puzzle card in the common reserve
+    /// </summary>
+    /// <param name="eventData"></param>
     public void OnPointerClick(PointerEventData eventData)
     {
         CommonReserve.Instance.OnSlotClicked(SlotIndex);
     }
 
+    /// <summary>
+    /// After a card is completed, then it disappears and reset its grid
+    /// </summary>
     public void ResetGrid()
     {
         foreach (Transform child in Grid.transform)

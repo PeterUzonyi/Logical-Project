@@ -5,43 +5,92 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 
+/// <summary>
+/// The element itself. Theese are in the inventories.
+/// </summary>
 public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+    /// <summary>
+    /// Quantity of the element in text form
+    /// </summary>
     public TMP_Text countText;
 
+    /// <summary>
+    /// Number of squares of the element
+    /// </summary>
     public int TotalSquareNumber;
 
+    /// <summary>
+    /// Rotation points for the rotations and flips
+    /// </summary>
     public Vector3 rotationPoint;
 
+    /// <summary>
+    /// Quantity of the element
+    /// </summary>
     public int quantity = 1;
 
+    /// <summary>
+    /// The level of the element
+    /// </summary>
     public int level;
 
-
+    /// <summary>
+    /// The parent Object, needs for placing an element
+    /// </summary>
     [HideInInspector]
     public Transform parentAfterDrag;
+
+    /// <summary>
+    /// Counts how many squares of the current element have been placed
+    /// </summary>
     [HideInInspector]
     public int count = 0;
 
+    /// <summary>
+    /// The element that is being dragged
+    /// </summary>
     public static InventoryItem SelectedInventoryItem {  get; set; }
+
+    /// <summary>
+    /// Uniq ID for every type of element (from 0 to 8)
+    /// </summary>
     public int ID;
     
-
+    /// <summary>
+    /// Need for the dragging
+    /// </summary>
     [HideInInspector]
     private Vector3[] originalPositions;
     private Vector3[] originalScales;
     private Transform[] children;
     private float scale;
+
+    /// <summary>
+    /// Whether the element is dragabble
+    /// </summary>
     private bool Draggable = true;
-    public bool dragLocked = false; //A CommonResereve itemek miatt kell
+
+    /// <summary>
+    /// Cannot be dragged (needs in common reserve)
+    /// </summary>
+    public bool dragLocked = false;
+
+    /// <summary>
+    /// The color of the element (after placing down, the grid square's color must be the same as this element)
+    /// </summary>
     private Color color;
 
     public Color ItemColor { get; private set; }
 
     public InventoryManager myInventoryManager;
 
+    /// <summary>
+    /// Whether the element is currently being dragged
+    /// </summary>
     public static bool IsDragging = false;
 
+    //Start is called before the first frame update
     void Start()
     {
         myInventoryManager.RegisterItem(this);
@@ -55,6 +104,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         }
     }
 
+    //Called when the script is loaded
     void Awake()
     {
         Draggable = true;
@@ -75,6 +125,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         scale = 1 / children[0].localScale.x;
     }
 
+    //Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -128,6 +179,10 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         }
     }
 
+    /// <summary>
+    /// Triggers when the element begins to be dragged
+    /// </summary>
+    /// <param name="eventData"></param>
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (!Draggable)
@@ -140,7 +195,6 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         parentAfterDrag = transform.parent;
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
-        //image.raycastTarget = false;
         for (int i = 0; i < children.Length; i++)
         {
             children[i].localScale = Vector3.one;
@@ -152,9 +206,15 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         // Szín mentése itt, amíg biztosan elérhetõ
         Image img = GetComponentInChildren<Image>();
         if (img != null)
+        {
             ItemColor = img.color;
+        }            
     }
 
+    /// <summary>
+    /// Triggers when the element is being dragged
+    /// </summary>
+    /// <param name="eventData"></param>
     public void OnDrag(PointerEventData eventData)
     {
         if (Draggable)
@@ -163,6 +223,10 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         }
     }
 
+    /// <summary>
+    /// Triggers when the draggin is ended
+    /// </summary>
+    /// <param name="eventData"></param>
     public void OnEndDrag(PointerEventData eventData)
     {
         if (!Draggable)
@@ -184,11 +248,19 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         SelectedInventoryItem = null;
     }
 
+    /// <summary>
+    /// Whether the quantity of the element is changed, it changes too
+    /// </summary>
     public void RefreshCount()
     {
         countText.text = quantity.ToString();
     }
 
+    /// <summary>
+    /// Sets, whether the elements can be dragged or not. 
+    /// If an element's quantity is 0, then it cannot be dragged
+    /// </summary>
+    /// <param name="value"></param>
     public void SetDraggable(bool value)
     {
         Draggable = value;

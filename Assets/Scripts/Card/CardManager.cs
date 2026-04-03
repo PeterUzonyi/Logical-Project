@@ -4,17 +4,35 @@ using UnityEngine;
 using Photon.Pun;
 using System.Linq;
 
+/// <summary>
+/// Controls both the white and the black puzzle decks
+/// </summary>
 public class CardManager : MonoBehaviourPun
 {
     public static CardManager Instance { get; private set; }
 
+    /// <summary>
+    /// Every card is stored here in a .txt file
+    /// </summary>
     public TextAsset cardFile;
 
+    /// <summary>
+    /// The white puzzle cards deck
+    /// </summary>
     public List<CardType> WhiteCards { get; private set; } = new List<CardType>();
+
+    /// <summary>
+    /// The black puzzle cards deck
+    /// </summary>
     public List<CardType> BlackCards { get; private set; } = new List<CardType>();
 
+    /// <summary>
+    /// True, when the cardmanager is initialized
+    /// </summary>
     public bool IsReady { get; private set; } = false;
 
+
+    //Called when the script is loaded
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -25,11 +43,16 @@ public class CardManager : MonoBehaviourPun
         Instance = this;
     }
 
+    //Start is called before the first frame update
     void Start()
     {
         LoadCards();
     }
 
+    /// <summary>
+    /// Load every cards from the .txt file and store them in the two decks (white and black). 
+    /// Then shuffle both decks
+    /// </summary>
     private void LoadCards()
     {
         int idCounter = 0;
@@ -48,6 +71,7 @@ public class CardManager : MonoBehaviourPun
                     Matrix[row, col] = int.Parse(parts[i + 3]);
                 }
 
+                /*
                 GameObject cardObject = new GameObject("Card");
                 CardType card = cardObject.AddComponent<CardType>();
                 card.Color = parts[0];
@@ -55,9 +79,12 @@ public class CardManager : MonoBehaviourPun
                 card.RewardElement = int.Parse(parts[2]);
                 card.Matrix = Matrix;
                 card.UniqueID = idCounter;
+                */
+
+                CardType card = new CardType(parts[0], int.Parse(parts[1]), int.Parse(parts[2]), Matrix, idCounter);
                 idCounter++;
 
-                DontDestroyOnLoad(cardObject);
+                //DontDestroyOnLoad(cardObject);
 
                 if (card.Color == "White")
                 {
@@ -69,11 +96,6 @@ public class CardManager : MonoBehaviourPun
                 }
             }
         }
-
-        /*
-        BlackCards = ShuffleList(BlackCards);
-        WhiteCards = ShuffleList(WhiteCards);
-        */
 
         if (PhotonNetwork.IsConnected)
         {
@@ -105,29 +127,30 @@ public class CardManager : MonoBehaviourPun
         }
     }
 
+    /// <summary>
+    /// In online mode, the order of both decks must be the same at every player. 
+    /// This method arranges the client's decks to be the same as the MasterClient's decks.
+    /// </summary>
+    /// <param name="blackOrder"></param>
+    /// <param name="whiteOrder"></param>
     [PunRPC]
     private void RPC_SyncCardOrder(int[] blackOrder, int[] whiteOrder)
     {
         // Átrendezi a fekete paklit a MasterClient sorrendje szerint
-        BlackCards = blackOrder
-            .Select(id => BlackCards.FirstOrDefault(c => c.UniqueID == id))
-            .Where(c => c != null)
-            .ToList();
+        BlackCards = blackOrder.Select(id => BlackCards.FirstOrDefault(c => c.UniqueID == id)).Where(c => c != null).ToList();
 
         // Átrendezi a fehér paklit a MasterClient sorrendje szerint
-        WhiteCards = whiteOrder
-            .Select(id => WhiteCards.FirstOrDefault(c => c.UniqueID == id))
-            .Where(c => c != null)
-            .ToList();
+        WhiteCards = whiteOrder.Select(id => WhiteCards.FirstOrDefault(c => c.UniqueID == id)).Where(c => c != null).ToList();
 
         // Most már szinkronban van, készen áll
         IsReady = true;
     }
 
     /// <summary>
-    /// Húz egy lapot a megadott pakliból, majd kiveszi onnan.
-    /// color: "White" vagy "Black"
+    /// Draw a card from the given color deck
     /// </summary>
+    /// <param name="color"></param>
+    /// <returns></returns>
     public CardType DrawCard(string color)
     {
         List<CardType> deck = null;
@@ -153,24 +176,13 @@ public class CardManager : MonoBehaviourPun
     }
 
     /// <summary>
-    /// Visszaadja a pakli tetején lévõ lapot kivétel nélkül (csak betekintés).
+    /// Shuffles the given deck using the Fisher-Yetes shuffle algorithm
     /// </summary>
-    public CardType PeekCard(string color)
-    {
-        List<CardType> deck = null;
-        if (color == "White")
-        {
-            deck = WhiteCards;
-        }
-        else
-        {
-            deck = BlackCards;
-        }
-
-        return deck.Count > 0 ? deck[0] : null;
-    }
-
-    //Fisher-Yates shuffle algorithm
+    /// <param name="cardList"></param>
+    /// <returns>
+    /// With the black puzzle deck, after the shuffling, it removes some cards from the deck to get 
+    /// the correct amount of cards for the game depending on the number of players
+    /// </returns>
     public List<CardType> ShuffleList(List<CardType> cardList)
     {
         /*
