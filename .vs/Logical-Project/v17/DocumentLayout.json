@@ -3,24 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|c:\\users\\your-computer\\desktop\\logical-project\\assets\\scripts\\startgame\\lobbyui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\startgame\\lobbyui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F13410FC-C00C-2A0C-728D-7C405DFBE19A}|Test.EditMode.csproj|C:\\Users\\your-computer\\Desktop\\Logical-Project\\assets\\tests\\editmode\\gameconfigtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F13410FC-C00C-2A0C-728D-7C405DFBE19A}|Test.EditMode.csproj|solutionrelative:assets\\tests\\editmode\\gameconfigtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|c:\\users\\your-computer\\desktop\\logical-project\\assets\\scripts\\startgame\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\startgame\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|c:\\users\\your-computer\\desktop\\logical-project\\assets\\scripts\\startgame\\networkmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\startgame\\networkmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|c:\\users\\your-computer\\desktop\\logical-project\\assets\\scripts\\game\\inventoryitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\game\\inventoryitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|c:\\users\\your-computer\\desktop\\logical-project\\assets\\scripts\\startgame\\networkmanagerspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{81498644-91CD-2382-AFF5-7EDB08994C62}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\startgame\\networkmanagerspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F13410FC-C00C-2A0C-728D-7C405DFBE19A}|Test.EditMode.csproj|c:\\users\\your-computer\\desktop\\logical-project\\assets\\tests\\editmode\\actiontypetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F13410FC-C00C-2A0C-728D-7C405DFBE19A}|Test.EditMode.csproj|solutionrelative:assets\\tests\\editmode\\actiontypetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,71 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "NetworkManagerSpawner.cs",
-              "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\StartGame\\NetworkManagerSpawner.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\StartGame\\NetworkManagerSpawner.cs",
-              "ToolTip": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\StartGame\\NetworkManagerSpawner.cs",
-              "RelativeToolTip": "Assets\\Scripts\\StartGame\\NetworkManagerSpawner.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-03T14:38:23.888Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "NetworkManager.cs",
-              "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\StartGame\\NetworkManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\StartGame\\NetworkManager.cs",
-              "ToolTip": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\StartGame\\NetworkManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\StartGame\\NetworkManager.cs",
-              "ViewState": "AQIAAO4AAAAAAAAAAAAQwAQBAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-03T14:38:22.442Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MainMenu.cs",
-              "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\StartGame\\MainMenu.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\StartGame\\MainMenu.cs",
-              "ToolTip": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\StartGame\\MainMenu.cs",
-              "RelativeToolTip": "Assets\\Scripts\\StartGame\\MainMenu.cs",
-              "ViewState": "AQIAAAcAAAAAAAAAAAAAABsAAAAAAAAA",
+              "Title": "ActionTypeTests.cs",
+              "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Tests\\EditMode\\ActionTypeTests.cs",
+              "RelativeDocumentMoniker": "Assets\\Tests\\EditMode\\ActionTypeTests.cs",
+              "ToolTip": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Tests\\EditMode\\ActionTypeTests.cs",
+              "RelativeToolTip": "Assets\\Tests\\EditMode\\ActionTypeTests.cs",
+              "ViewState": "AQIAACwAAAAAAAAAAAAswDgAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-03T14:38:20.716Z",
+              "WhenOpened": "2026-04-03T15:24:07.297Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "LobbyUI.cs",
-              "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\StartGame\\LobbyUI.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\StartGame\\LobbyUI.cs",
-              "ToolTip": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\StartGame\\LobbyUI.cs",
-              "RelativeToolTip": "Assets\\Scripts\\StartGame\\LobbyUI.cs",
-              "ViewState": "AQIAAFYBAAAAAAAAAAAWwI8BAAA/AAAA",
+              "Title": "GameConfigTests.cs",
+              "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Tests\\EditMode\\GameConfigTests.cs",
+              "RelativeDocumentMoniker": "Assets\\Tests\\EditMode\\GameConfigTests.cs",
+              "ToolTip": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Tests\\EditMode\\GameConfigTests.cs",
+              "RelativeToolTip": "Assets\\Tests\\EditMode\\GameConfigTests.cs",
+              "ViewState": "AQIAADsAAAAAAAAAAAAswEsAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-03T14:38:15.907Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "InventoryItem.cs",
-              "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Game\\InventoryItem.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Game\\InventoryItem.cs",
-              "ToolTip": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Game\\InventoryItem.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Game\\InventoryItem.cs",
-              "ViewState": "AQIAAFkAAAAAAAAAAAAuwFwAAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-03T12:40:57.837Z",
+              "WhenOpened": "2026-04-03T15:24:04.502Z",
               "EditorCaption": ""
             }
           ]
