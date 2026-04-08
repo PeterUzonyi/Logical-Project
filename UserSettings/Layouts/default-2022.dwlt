@@ -8,23 +8,97 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
-  m_EditorHideFlags: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 12004, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
-    x: 0
-    y: 43.2
-    width: 1536
-    height: 780.8
+    x: 1131.2001
+    y: 98.4
+    width: 417.6
+    height: 606.4
+  m_ShowMode: 0
+  m_Title: Test Runner
+  m_RootView: {fileID: 4}
+  m_MinSize: {x: 100, y: 121}
+  m_MaxSize: {x: 4000, y: 4021}
+  m_Maximized: 0
+--- !u!114 &2
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12004, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PixelRect:
+    serializedVersion: 2
+    x: 7.2000003
+    y: 50.4
+    width: 1521.6
+    height: 766.4
   m_ShowMode: 4
   m_Title: Project
-  m_RootView: {fileID: 2}
+  m_RootView: {fileID: 5}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
-  m_Maximized: 1
---- !u!114 &2
+  m_Maximized: 0
+--- !u!114 &3
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: TestRunnerWindow
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 417.6
+    height: 606.4
+  m_MinSize: {x: 100, y: 121}
+  m_MaxSize: {x: 4000, y: 4021}
+  m_ActualView: {fileID: 15}
+  m_Panes:
+  - {fileID: 15}
+  m_Selected: 0
+  m_LastSelected: 0
+--- !u!114 &4
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children:
+  - {fileID: 3}
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 417.6
+    height: 606.4
+  m_MinSize: {x: 100, y: 121}
+  m_MaxSize: {x: 4000, y: 4021}
+  vertical: 0
+  controlID: 3693
+--- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -37,22 +111,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Children:
-  - {fileID: 3}
-  - {fileID: 5}
-  - {fileID: 4}
+  - {fileID: 6}
+  - {fileID: 8}
+  - {fileID: 7}
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1536
-    height: 780.8
+    width: 1521.6
+    height: 766.4
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
   m_TopViewHeight: 30
   m_UseBottomView: 1
   m_BottomViewHeight: 20
---- !u!114 &3
+--- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -69,12 +143,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1536
+    width: 1521.6
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
   m_LastLoadedLayoutName: 
---- !u!114 &4
+--- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,86 +164,11 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 760.8
-    width: 1536
+    y: 746.4
+    width: 1521.6
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
---- !u!114 &5
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 1
-  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Children:
-  - {fileID: 6}
-  - {fileID: 11}
-  m_Position:
-    serializedVersion: 2
-    x: 0
-    y: 30
-    width: 1536
-    height: 730.8
-  m_MinSize: {x: 300, y: 100}
-  m_MaxSize: {x: 24288, y: 16192}
-  vertical: 0
-  controlID: 111
---- !u!114 &6
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 1
-  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Children:
-  - {fileID: 7}
-  - {fileID: 10}
-  m_Position:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1108
-    height: 730.8
-  m_MinSize: {x: 200, y: 100}
-  m_MaxSize: {x: 16192, y: 16192}
-  vertical: 1
-  controlID: 38
---- !u!114 &7
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 1
-  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Children:
-  - {fileID: 8}
-  - {fileID: 9}
-  m_Position:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1108
-    height: 486.4
-  m_MinSize: {x: 200, y: 50}
-  m_MaxSize: {x: 16192, y: 8096}
-  vertical: 0
-  controlID: 39
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -179,23 +178,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 1
-  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Children: []
+  m_Children:
+  - {fileID: 9}
+  - {fileID: 14}
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 0
-    width: 321.6
-    height: 486.4
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 13}
-  m_Panes:
-  - {fileID: 13}
-  m_Selected: 0
-  m_LastSelected: 0
+    y: 30
+    width: 1521.6
+    height: 716.4
+  m_MinSize: {x: 300, y: 100}
+  m_MaxSize: {x: 24288, y: 16192}
+  vertical: 0
+  controlID: 3682
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -205,24 +203,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 1
-  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: GameView
+  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
   m_EditorClassIdentifier: 
-  m_Children: []
+  m_Children:
+  - {fileID: 10}
+  - {fileID: 13}
   m_Position:
     serializedVersion: 2
-    x: 321.6
+    x: 0
     y: 0
-    width: 786.4
-    height: 486.4
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 12}
-  m_Panes:
-  - {fileID: 14}
-  - {fileID: 12}
-  m_Selected: 1
-  m_LastSelected: 0
+    width: 1097.6
+    height: 716.4
+  m_MinSize: {x: 200, y: 100}
+  m_MaxSize: {x: 16192, y: 16192}
+  vertical: 1
+  controlID: 3610
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -232,24 +228,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 1
-  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ProjectBrowser
+  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
   m_EditorClassIdentifier: 
-  m_Children: []
+  m_Children:
+  - {fileID: 11}
+  - {fileID: 12}
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 486.4
-    width: 1108
-    height: 244.4
-  m_MinSize: {x: 231, y: 271}
-  m_MaxSize: {x: 10001, y: 10021}
-  m_ActualView: {fileID: 15}
-  m_Panes:
-  - {fileID: 15}
-  - {fileID: 16}
-  m_Selected: 0
-  m_LastSelected: 1
+    y: 0
+    width: 1097.6
+    height: 476.8
+  m_MinSize: {x: 200, y: 50}
+  m_MaxSize: {x: 16192, y: 8096}
+  vertical: 0
+  controlID: 3611
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -265,18 +259,2086 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1108
+    x: 0
     y: 0
-    width: 428
-    height: 730.8
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+    width: 318.4
+    height: 476.8
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &12
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: GameView
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 318.4
+    y: 0
+    width: 779.19995
+    height: 476.8
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 16}
+  m_Panes:
+  - {fileID: 18}
+  - {fileID: 16}
+  m_Selected: 1
+  m_LastSelected: 0
+--- !u!114 &13
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: ProjectBrowser
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 476.8
+    width: 1097.6
+    height: 239.60004
+  m_MinSize: {x: 231, y: 271}
+  m_MaxSize: {x: 10001, y: 10021}
+  m_ActualView: {fileID: 19}
+  m_Panes:
+  - {fileID: 19}
+  - {fileID: 20}
+  m_Selected: 0
+  m_LastSelected: 1
+--- !u!114 &14
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 1097.6
+    y: 0
+    width: 424
+    height: 716.4
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 21}
+  m_Panes:
+  - {fileID: 21}
+  m_Selected: 0
+  m_LastSelected: 0
+--- !u!114 &15
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 13401, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Test Runner
+    m_Image: {fileID: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 1131.2001
+    y: 98.4
+    width: 417.6
+    height: 585.4
+  m_SerializedDataModeController:
+    m_DataMode: 0
+    m_PreferredDataMode: 0
+    m_SupportedDataModes: 
+    isAutomatic: 1
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+    m_OverlaysVisible: 1
+  m_Spl:
+    ID: 3782
+    splitterInitialOffset: 0
+    currentActiveSplitter: -1
+    realSizes:
+    - 387.2
+    - 128.8
+    relativeSizes:
+    - 0.75
+    - 0.25
+    minSizes:
+    - 32
+    - 32
+    maxSizes:
+    - 0
+    - 0
+    lastTotalSize: 516
+    splitSize: 6
+    xOffset: 0
+    m_Version: 1
+    oldRealSizes: 
+    oldMinSizes: 
+    oldMaxSizes: 
+    oldSplitSize: 0
+  m_TestTypeToolbarIndex: 0
+  m_PlayModeTestListGUI:
+    m_Window: {fileID: 15}
+    m_NewResultList:
+    - id: 1032
+      uniqueId: '[Logical project][suite]'
+      name: Logical project
+      fullName: Logical project
+      resultStatus: 2
+      duration: 0.1935589
+      messages: One or more child tests had errors
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 
+      parentUniqueId: 
+    - id: 1066
+      uniqueId: '[Tests.PlayMode][C:/Users/your-computer/Desktop/Logical-Project/Library/ScriptAssemblies/Tests.PlayMode.dll][suite]'
+      name: Tests.PlayMode.dll
+      fullName: C:/Users/your-computer/Desktop/Logical-Project/Library/ScriptAssemblies/Tests.PlayMode.dll
+      resultStatus: 2
+      duration: 0.0978998
+      messages: One or more child tests had errors
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1032
+      parentUniqueId: '[Logical project][suite]'
+    - id: 1033
+      uniqueId: Tests.PlayMode.dll/[Tests.PlayMode][CardLoaderVisualizationTests][suite]
+      name: CardLoaderVisualizationTests
+      fullName: CardLoaderVisualizationTests
+      resultStatus: 2
+      duration: 0.0855075
+      messages: One or more child tests had errors
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1066
+      parentUniqueId: '[Tests.PlayMode][C:/Users/your-computer/Desktop/Logical-Project/Library/ScriptAssemblies/Tests.PlayMode.dll][suite]'
+    - id: 1034
+      uniqueId: Tests.PlayMode.dll/CardLoaderVisualizationTests/[Tests.PlayMode][CardLoaderVisualizationTests.CardLoader_ShowCard_SetCurrentCard]
+      name: CardLoader_ShowCard_SetCurrentCard
+      fullName: CardLoaderVisualizationTests.CardLoader_ShowCard_SetCurrentCard
+      resultStatus: 2
+      duration: 0.0683326
+      messages: 'SetUp : Unhandled log message: ''[Exception] NullReferenceException:
+        Object reference not set to an instance of an object''. Use UnityEngine.TestTools.LogAssert.Expect'
+      output: 'NullReferenceException: Object reference not set to an instance of
+        an object
+
+'
+      stacktrace: 'CardLoader.Awake () (at Assets/Scripts/Card/CardLoader.cs:73)
+
+        UnityEngine.GameObject:AddComponent()
+
+        CardLoaderVisualizationTests:Setup()
+        (at Assets/Tests/PlayMode/CardLoaderVisualizationTests.cs:25)
+
+        System.Reflection.MethodBase:Invoke(Object,
+        Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object, Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator,
+        IntPtr)
+
+        
+
+'
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1033
+      parentUniqueId: Tests.PlayMode.dll/[Tests.PlayMode][CardLoaderVisualizationTests][suite]
+    - id: 1035
+      uniqueId: Tests.PlayMode.dll/CardLoaderVisualizationTests/[Tests.PlayMode][CardLoaderVisualizationTests.CardLoader_WhiteCard_HasCorrectColors]
+      name: CardLoader_WhiteCard_HasCorrectColors
+      fullName: CardLoaderVisualizationTests.CardLoader_WhiteCard_HasCorrectColors
+      resultStatus: 2
+      duration: 0.0030963
+      messages: 'SetUp : Unhandled log message: ''[Exception] NullReferenceException:
+        Object reference not set to an instance of an object''. Use UnityEngine.TestTools.LogAssert.Expect'
+      output: 'NullReferenceException: Object reference not set to an instance of
+        an object
+
+'
+      stacktrace: 'CardLoader.Awake () (at Assets/Scripts/Card/CardLoader.cs:73)
+
+        UnityEngine.GameObject:AddComponent()
+
+        CardLoaderVisualizationTests:Setup()
+        (at Assets/Tests/PlayMode/CardLoaderVisualizationTests.cs:25)
+
+        System.Reflection.MethodBase:Invoke(Object,
+        Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object, Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator,
+        IntPtr)
+
+        
+
+'
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1033
+      parentUniqueId: Tests.PlayMode.dll/[Tests.PlayMode][CardLoaderVisualizationTests][suite]
+    - id: 1036
+      uniqueId: Tests.PlayMode.dll/[Tests.PlayMode][CardManagerInitializationTests][suite]
+      name: CardManagerInitializationTests
+      fullName: CardManagerInitializationTests
+      resultStatus: 2
+      duration: 0.5525902
+      messages: One or more child tests had errors
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1066
+      parentUniqueId: '[Tests.PlayMode][C:/Users/your-computer/Desktop/Logical-Project/Library/ScriptAssemblies/Tests.PlayMode.dll][suite]'
+    - id: 1038
+      uniqueId: Tests.PlayMode.dll/CardManagerInitializationTests/[Tests.PlayMode][CardManagerInitializationTests.CardManager_HasWhiteAndBlackDecks]
+      name: CardManager_HasWhiteAndBlackDecks
+      fullName: CardManagerInitializationTests.CardManager_HasWhiteAndBlackDecks
+      resultStatus: 2
+      duration: 0.0163203
+      messages: 'Unhandled log message: ''[Exception] NullReferenceException: Object
+        reference not set to an instance of an object''. Use UnityEngine.TestTools.LogAssert.Expect'
+      output: 'NullReferenceException: Object reference not set to an instance of
+        an object
+
+'
+      stacktrace: 'CardManager.LoadCards () (at Assets/Scripts/Card/CardManager.cs:59)
+
+        CardManager.Start
+        () (at Assets/Scripts/Card/CardManager.cs:49)
+
+        
+
+'
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1036
+      parentUniqueId: Tests.PlayMode.dll/[Tests.PlayMode][CardManagerInitializationTests][suite]
+    - id: 1037
+      uniqueId: Tests.PlayMode.dll/CardManagerInitializationTests/[Tests.PlayMode][CardManagerInitializationTests.CardManager_IsInitialized]
+      name: CardManager_IsInitialized
+      fullName: CardManagerInitializationTests.CardManager_IsInitialized
+      resultStatus: 1
+      duration: 0.5171434
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1036
+      parentUniqueId: Tests.PlayMode.dll/[Tests.PlayMode][CardManagerInitializationTests][suite]
+    - id: 1039
+      uniqueId: Tests.PlayMode.dll/[Tests.PlayMode][GameTurnFlowTests][suite]
+      name: GameTurnFlowTests
+      fullName: GameTurnFlowTests
+      resultStatus: 2
+      duration: 0.0300554
+      messages: One or more child tests had errors
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1066
+      parentUniqueId: '[Tests.PlayMode][C:/Users/your-computer/Desktop/Logical-Project/Library/ScriptAssemblies/Tests.PlayMode.dll][suite]'
+    - id: 1043
+      uniqueId: Tests.PlayMode.dll/GameTurnFlowTests/[Tests.PlayMode][GameTurnFlowTests.Player_CompletedPuzzles_Increments]
+      name: Player_CompletedPuzzles_Increments
+      fullName: GameTurnFlowTests.Player_CompletedPuzzles_Increments
+      resultStatus: 2
+      duration: 0.0059315
+      messages: 'SetUp : Unhandled log message: ''[Exception] NullReferenceException:
+        Object reference not set to an instance of an object''. Use UnityEngine.TestTools.LogAssert.Expect'
+      output: 'NullReferenceException: Object reference not set to an instance of
+        an object
+
+        NullReferenceException: Object reference not set to an
+        instance of an object
+
+        NullReferenceException: Object reference
+        not set to an instance of an object
+
+'
+      stacktrace: 'TurnManager.Awake () (at Assets/Scripts/Player/TurnManager.cs:69)
+
+        UnityEngine.GameObject:AddComponent()
+
+        GameTurnFlowTests:Setup()
+        (at Assets/Tests/PlayMode/GameTurnFlowTests.cs:26)
+
+        System.Reflection.MethodBase:Invoke(Object,
+        Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object, Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator,
+        IntPtr)
+
+        
+
+'
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1039
+      parentUniqueId: Tests.PlayMode.dll/[Tests.PlayMode][GameTurnFlowTests][suite]
+    - id: 1044
+      uniqueId: Tests.PlayMode.dll/GameTurnFlowTests/[Tests.PlayMode][GameTurnFlowTests.Player_PlayerName_SetCorrectly]
+      name: Player_PlayerName_SetCorrectly
+      fullName: GameTurnFlowTests.Player_PlayerName_SetCorrectly
+      resultStatus: 2
+      duration: 0.0054879
+      messages: 'SetUp : Unhandled log message: ''[Exception] NullReferenceException:
+        Object reference not set to an instance of an object''. Use UnityEngine.TestTools.LogAssert.Expect'
+      output: 'NullReferenceException: Object reference not set to an instance of
+        an object
+
+        NullReferenceException: Object reference not set to an
+        instance of an object
+
+        NullReferenceException: Object reference
+        not set to an instance of an object
+
+'
+      stacktrace: 'TurnManager.Awake () (at Assets/Scripts/Player/TurnManager.cs:69)
+
+        UnityEngine.GameObject:AddComponent()
+
+        GameTurnFlowTests:Setup()
+        (at Assets/Tests/PlayMode/GameTurnFlowTests.cs:26)
+
+        System.Reflection.MethodBase:Invoke(Object,
+        Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object, Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator,
+        IntPtr)
+
+        
+
+'
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1039
+      parentUniqueId: Tests.PlayMode.dll/[Tests.PlayMode][GameTurnFlowTests][suite]
+    - id: 1042
+      uniqueId: Tests.PlayMode.dll/GameTurnFlowTests/[Tests.PlayMode][GameTurnFlowTests.Player_RefreshScore_IncrementsScore]
+      name: Player_RefreshScore_IncrementsScore
+      fullName: GameTurnFlowTests.Player_RefreshScore_IncrementsScore
+      resultStatus: 2
+      duration: 0.0048687
+      messages: 'SetUp : Unhandled log message: ''[Exception] NullReferenceException:
+        Object reference not set to an instance of an object''. Use UnityEngine.TestTools.LogAssert.Expect'
+      output: 'NullReferenceException: Object reference not set to an instance of
+        an object
+
+        NullReferenceException: Object reference not set to an
+        instance of an object
+
+        NullReferenceException: Object reference
+        not set to an instance of an object
+
+'
+      stacktrace: 'TurnManager.Awake () (at Assets/Scripts/Player/TurnManager.cs:69)
+
+        UnityEngine.GameObject:AddComponent()
+
+        GameTurnFlowTests:Setup()
+        (at Assets/Tests/PlayMode/GameTurnFlowTests.cs:26)
+
+        System.Reflection.MethodBase:Invoke(Object,
+        Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object, Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator,
+        IntPtr)
+
+        
+
+'
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1039
+      parentUniqueId: Tests.PlayMode.dll/[Tests.PlayMode][GameTurnFlowTests][suite]
+    - id: 1041
+      uniqueId: Tests.PlayMode.dll/GameTurnFlowTests/[Tests.PlayMode][GameTurnFlowTests.Player_Score_DefaultsToZero]
+      name: Player_Score_DefaultsToZero
+      fullName: GameTurnFlowTests.Player_Score_DefaultsToZero
+      resultStatus: 2
+      duration: 0.0044481
+      messages: 'SetUp : Unhandled log message: ''[Exception] NullReferenceException:
+        Object reference not set to an instance of an object''. Use UnityEngine.TestTools.LogAssert.Expect'
+      output: 'NullReferenceException: Object reference not set to an instance of
+        an object
+
+        NullReferenceException: Object reference not set to an
+        instance of an object
+
+        NullReferenceException: Object reference
+        not set to an instance of an object
+
+'
+      stacktrace: 'TurnManager.Awake () (at Assets/Scripts/Player/TurnManager.cs:69)
+
+        UnityEngine.GameObject:AddComponent()
+
+        GameTurnFlowTests:Setup()
+        (at Assets/Tests/PlayMode/GameTurnFlowTests.cs:26)
+
+        System.Reflection.MethodBase:Invoke(Object,
+        Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object, Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator,
+        IntPtr)
+
+        
+
+'
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1039
+      parentUniqueId: Tests.PlayMode.dll/[Tests.PlayMode][GameTurnFlowTests][suite]
+    - id: 1040
+      uniqueId: Tests.PlayMode.dll/GameTurnFlowTests/[Tests.PlayMode][GameTurnFlowTests.TurnManager_HasCorrectPlayers]
+      name: TurnManager_HasCorrectPlayers
+      fullName: GameTurnFlowTests.TurnManager_HasCorrectPlayers
+      resultStatus: 2
+      duration: 0.0044971
+      messages: 'SetUp : Unhandled log message: ''[Exception] NullReferenceException:
+        Object reference not set to an instance of an object''. Use UnityEngine.TestTools.LogAssert.Expect'
+      output: 'NullReferenceException: Object reference not set to an instance of
+        an object
+
+        NullReferenceException: Object reference not set to an
+        instance of an object
+
+        NullReferenceException: Object reference
+        not set to an instance of an object
+
+'
+      stacktrace: 'TurnManager.Awake () (at Assets/Scripts/Player/TurnManager.cs:69)
+
+        UnityEngine.GameObject:AddComponent()
+
+        GameTurnFlowTests:Setup()
+        (at Assets/Tests/PlayMode/GameTurnFlowTests.cs:26)
+
+        System.Reflection.MethodBase:Invoke(Object,
+        Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object, Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator,
+        IntPtr)
+
+        
+
+'
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1039
+      parentUniqueId: Tests.PlayMode.dll/[Tests.PlayMode][GameTurnFlowTests][suite]
+    - id: 1045
+      uniqueId: Tests.PlayMode.dll/[Tests.PlayMode][GridSquareInteractionTests][suite]
+      name: GridSquareInteractionTests
+      fullName: GridSquareInteractionTests
+      resultStatus: 1
+      duration: 0.0405206
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1066
+      parentUniqueId: '[Tests.PlayMode][C:/Users/your-computer/Desktop/Logical-Project/Library/ScriptAssemblies/Tests.PlayMode.dll][suite]'
+    - id: 1046
+      uniqueId: Tests.PlayMode.dll/GridSquareInteractionTests/[Tests.PlayMode][GridSquareInteractionTests.GridSquare_DefaultState]
+      name: GridSquare_DefaultState
+      fullName: GridSquareInteractionTests.GridSquare_DefaultState
+      resultStatus: 1
+      duration: 0.0058557
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1045
+      parentUniqueId: Tests.PlayMode.dll/[Tests.PlayMode][GridSquareInteractionTests][suite]
+    - id: 1047
+      uniqueId: Tests.PlayMode.dll/GridSquareInteractionTests/[Tests.PlayMode][GridSquareInteractionTests.GridSquare_Selected_CanBeChanged]
+      name: GridSquare_Selected_CanBeChanged
+      fullName: GridSquareInteractionTests.GridSquare_Selected_CanBeChanged
+      resultStatus: 1
+      duration: 0.0092873
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1045
+      parentUniqueId: Tests.PlayMode.dll/[Tests.PlayMode][GridSquareInteractionTests][suite]
+    - id: 1049
+      uniqueId: Tests.PlayMode.dll/GridSquareInteractionTests/[Tests.PlayMode][GridSquareInteractionTests.GridSquare_SquareIndex_CanBeSet]
+      name: GridSquare_SquareIndex_CanBeSet
+      fullName: GridSquareInteractionTests.GridSquare_SquareIndex_CanBeSet
+      resultStatus: 1
+      duration: 0.0129496
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1045
+      parentUniqueId: Tests.PlayMode.dll/[Tests.PlayMode][GridSquareInteractionTests][suite]
+    - id: 1048
+      uniqueId: Tests.PlayMode.dll/GridSquareInteractionTests/[Tests.PlayMode][GridSquareInteractionTests.GridSquare_SquareOccupied_CanBeChanged]
+      name: GridSquare_SquareOccupied_CanBeChanged
+      fullName: GridSquareInteractionTests.GridSquare_SquareOccupied_CanBeChanged
+      resultStatus: 1
+      duration: 0.0075282
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1045
+      parentUniqueId: Tests.PlayMode.dll/[Tests.PlayMode][GridSquareInteractionTests][suite]
+    - id: 1050
+      uniqueId: Tests.PlayMode.dll/[Tests.PlayMode][InventoryManagerTests][suite]
+      name: InventoryManagerTests
+      fullName: InventoryManagerTests
+      resultStatus: 2
+      duration: 0.0535908
+      messages: One or more child tests had errors
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1066
+      parentUniqueId: '[Tests.PlayMode][C:/Users/your-computer/Desktop/Logical-Project/Library/ScriptAssemblies/Tests.PlayMode.dll][suite]'
+    - id: 1051
+      uniqueId: Tests.PlayMode.dll/InventoryManagerTests/[Tests.PlayMode][InventoryManagerTests.InventoryItem_DefaultValues]
+      name: InventoryItem_DefaultValues
+      fullName: InventoryManagerTests.InventoryItem_DefaultValues
+      resultStatus: 2
+      duration: 0.0108131
+      messages: 'SetUp : Unhandled log message: ''[Exception] NullReferenceException:
+        Object reference not set to an instance of an object''. Use UnityEngine.TestTools.LogAssert.Expect'
+      output: 'NullReferenceException: Object reference not set to an instance of
+        an object
+
+        NullReferenceException: Object reference not set to an
+        instance of an object
+
+        NullReferenceException: Object reference
+        not set to an instance of an object
+
+        NullReferenceException: Object
+        reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+'
+      stacktrace: 'InventoryItem.RefreshCount () (at Assets/Scripts/Game/InventoryItem.cs:256)
+
+        InventoryItem.Awake
+        () (at Assets/Scripts/Game/InventoryItem.cs:111)
+
+        UnityEngine.GameObject:AddComponent()
+
+        InventoryManagerTests:Setup()
+        (at Assets/Tests/PlayMode/InventoryManagerTests.cs:35)
+
+        System.Reflection.MethodBase:Invoke(Object,
+        Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object, Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator,
+        IntPtr)
+
+        
+
+'
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1050
+      parentUniqueId: Tests.PlayMode.dll/[Tests.PlayMode][InventoryManagerTests][suite]
+    - id: 1055
+      uniqueId: Tests.PlayMode.dll/InventoryManagerTests/[Tests.PlayMode][InventoryManagerTests.InventoryItem_IsDragging_Flag]
+      name: InventoryItem_IsDragging_Flag
+      fullName: InventoryManagerTests.InventoryItem_IsDragging_Flag
+      resultStatus: 2
+      duration: 0.010102
+      messages: 'SetUp : Unhandled log message: ''[Exception] NullReferenceException:
+        Object reference not set to an instance of an object''. Use UnityEngine.TestTools.LogAssert.Expect'
+      output: 'NullReferenceException: Object reference not set to an instance of
+        an object
+
+        NullReferenceException: Object reference not set to an
+        instance of an object
+
+        NullReferenceException: Object reference
+        not set to an instance of an object
+
+        NullReferenceException: Object
+        reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+'
+      stacktrace: 'InventoryItem.RefreshCount () (at Assets/Scripts/Game/InventoryItem.cs:256)
+
+        InventoryItem.Awake
+        () (at Assets/Scripts/Game/InventoryItem.cs:111)
+
+        UnityEngine.GameObject:AddComponent()
+
+        InventoryManagerTests:Setup()
+        (at Assets/Tests/PlayMode/InventoryManagerTests.cs:35)
+
+        System.Reflection.MethodBase:Invoke(Object,
+        Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object, Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator,
+        IntPtr)
+
+        
+
+'
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1050
+      parentUniqueId: Tests.PlayMode.dll/[Tests.PlayMode][InventoryManagerTests][suite]
+    - id: 1052
+      uniqueId: Tests.PlayMode.dll/InventoryManagerTests/[Tests.PlayMode][InventoryManagerTests.InventoryItem_Quantity_CanBeDecremented]
+      name: InventoryItem_Quantity_CanBeDecremented
+      fullName: InventoryManagerTests.InventoryItem_Quantity_CanBeDecremented
+      resultStatus: 2
+      duration: 0.0088143
+      messages: 'SetUp : Unhandled log message: ''[Exception] NullReferenceException:
+        Object reference not set to an instance of an object''. Use UnityEngine.TestTools.LogAssert.Expect'
+      output: 'NullReferenceException: Object reference not set to an instance of
+        an object
+
+        NullReferenceException: Object reference not set to an
+        instance of an object
+
+        NullReferenceException: Object reference
+        not set to an instance of an object
+
+        NullReferenceException: Object
+        reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+'
+      stacktrace: 'InventoryItem.RefreshCount () (at Assets/Scripts/Game/InventoryItem.cs:256)
+
+        InventoryItem.Awake
+        () (at Assets/Scripts/Game/InventoryItem.cs:111)
+
+        UnityEngine.GameObject:AddComponent()
+
+        InventoryManagerTests:Setup()
+        (at Assets/Tests/PlayMode/InventoryManagerTests.cs:35)
+
+        System.Reflection.MethodBase:Invoke(Object,
+        Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object, Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator,
+        IntPtr)
+
+        
+
+'
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1050
+      parentUniqueId: Tests.PlayMode.dll/[Tests.PlayMode][InventoryManagerTests][suite]
+    - id: 1053
+      uniqueId: Tests.PlayMode.dll/InventoryManagerTests/[Tests.PlayMode][InventoryManagerTests.InventoryItem_Quantity_CanBeIncremented]
+      name: InventoryItem_Quantity_CanBeIncremented
+      fullName: InventoryManagerTests.InventoryItem_Quantity_CanBeIncremented
+      resultStatus: 2
+      duration: 0.0093918
+      messages: 'SetUp : Unhandled log message: ''[Exception] NullReferenceException:
+        Object reference not set to an instance of an object''. Use UnityEngine.TestTools.LogAssert.Expect'
+      output: 'NullReferenceException: Object reference not set to an instance of
+        an object
+
+        NullReferenceException: Object reference not set to an
+        instance of an object
+
+        NullReferenceException: Object reference
+        not set to an instance of an object
+
+        NullReferenceException: Object
+        reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+'
+      stacktrace: 'InventoryItem.RefreshCount () (at Assets/Scripts/Game/InventoryItem.cs:256)
+
+        InventoryItem.Awake
+        () (at Assets/Scripts/Game/InventoryItem.cs:111)
+
+        UnityEngine.GameObject:AddComponent()
+
+        InventoryManagerTests:Setup()
+        (at Assets/Tests/PlayMode/InventoryManagerTests.cs:35)
+
+        System.Reflection.MethodBase:Invoke(Object,
+        Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object, Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator,
+        IntPtr)
+
+        
+
+'
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1050
+      parentUniqueId: Tests.PlayMode.dll/[Tests.PlayMode][InventoryManagerTests][suite]
+    - id: 1054
+      uniqueId: Tests.PlayMode.dll/InventoryManagerTests/[Tests.PlayMode][InventoryManagerTests.InventoryItem_SelectedInventoryItem_CanBeSet]
+      name: InventoryItem_SelectedInventoryItem_CanBeSet
+      fullName: InventoryManagerTests.InventoryItem_SelectedInventoryItem_CanBeSet
+      resultStatus: 2
+      duration: 0.0090202
+      messages: 'SetUp : Unhandled log message: ''[Exception] NullReferenceException:
+        Object reference not set to an instance of an object''. Use UnityEngine.TestTools.LogAssert.Expect'
+      output: 'NullReferenceException: Object reference not set to an instance of
+        an object
+
+        NullReferenceException: Object reference not set to an
+        instance of an object
+
+        NullReferenceException: Object reference
+        not set to an instance of an object
+
+        NullReferenceException: Object
+        reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+'
+      stacktrace: 'InventoryItem.RefreshCount () (at Assets/Scripts/Game/InventoryItem.cs:256)
+
+        InventoryItem.Awake
+        () (at Assets/Scripts/Game/InventoryItem.cs:111)
+
+        UnityEngine.GameObject:AddComponent()
+
+        InventoryManagerTests:Setup()
+        (at Assets/Tests/PlayMode/InventoryManagerTests.cs:35)
+
+        System.Reflection.MethodBase:Invoke(Object,
+        Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object, Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator,
+        IntPtr)
+
+        
+
+'
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1050
+      parentUniqueId: Tests.PlayMode.dll/[Tests.PlayMode][InventoryManagerTests][suite]
+    - id: 1056
+      uniqueId: Tests.PlayMode.dll/[Tests.PlayMode][MyGridElementPlacementTests][suite]
+      name: MyGridElementPlacementTests
+      fullName: MyGridElementPlacementTests
+      resultStatus: 2
+      duration: 0.0250771
+      messages: One or more child tests had errors
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1066
+      parentUniqueId: '[Tests.PlayMode][C:/Users/your-computer/Desktop/Logical-Project/Library/ScriptAssemblies/Tests.PlayMode.dll][suite]'
+    - id: 1060
+      uniqueId: Tests.PlayMode.dll/MyGridElementPlacementTests/[Tests.PlayMode][MyGridElementPlacementTests.MyGrid_GetGridSquare_ReturnsNull_ForInvalidIndex]
+      name: MyGrid_GetGridSquare_ReturnsNull_ForInvalidIndex
+      fullName: MyGridElementPlacementTests.MyGrid_GetGridSquare_ReturnsNull_ForInvalidIndex
+      resultStatus: 2
+      duration: 0.0045002
+      messages: 'SetUp : Unhandled log message: ''[Exception] NullReferenceException:
+        Object reference not set to an instance of an object''. Use UnityEngine.TestTools.LogAssert.Expect'
+      output: 'NullReferenceException: Object reference not set to an instance of
+        an object
+
+'
+      stacktrace: 'CardLoader.Awake () (at Assets/Scripts/Card/CardLoader.cs:73)
+
+        UnityEngine.GameObject:AddComponent()
+
+        MyGridElementPlacementTests:Setup()
+        (at Assets/Tests/PlayMode/MyGridElementPlacementTests.cs:40)
+
+        System.Reflection.MethodBase:Invoke(Object,
+        Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object, Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator,
+        IntPtr)
+
+        
+
+'
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1056
+      parentUniqueId: Tests.PlayMode.dll/[Tests.PlayMode][MyGridElementPlacementTests][suite]
+    - id: 1057
+      uniqueId: Tests.PlayMode.dll/MyGridElementPlacementTests/[Tests.PlayMode][MyGridElementPlacementTests.MyGrid_IsInitialized]
+      name: MyGrid_IsInitialized
+      fullName: MyGridElementPlacementTests.MyGrid_IsInitialized
+      resultStatus: 2
+      duration: 0.0044817
+      messages: 'SetUp : Unhandled log message: ''[Exception] NullReferenceException:
+        Object reference not set to an instance of an object''. Use UnityEngine.TestTools.LogAssert.Expect'
+      output: 'NullReferenceException: Object reference not set to an instance of
+        an object
+
+'
+      stacktrace: 'CardLoader.Awake () (at Assets/Scripts/Card/CardLoader.cs:73)
+
+        UnityEngine.GameObject:AddComponent()
+
+        MyGridElementPlacementTests:Setup()
+        (at Assets/Tests/PlayMode/MyGridElementPlacementTests.cs:40)
+
+        System.Reflection.MethodBase:Invoke(Object,
+        Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object, Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator,
+        IntPtr)
+
+        
+
+'
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1056
+      parentUniqueId: Tests.PlayMode.dll/[Tests.PlayMode][MyGridElementPlacementTests][suite]
+    - id: 1058
+      uniqueId: Tests.PlayMode.dll/MyGridElementPlacementTests/[Tests.PlayMode][MyGridElementPlacementTests.MyGrid_IsTheCardFull_ReturnsFalse]
+      name: MyGrid_IsTheCardFull_ReturnsFalse
+      fullName: MyGridElementPlacementTests.MyGrid_IsTheCardFull_ReturnsFalse
+      resultStatus: 2
+      duration: 0.0048389
+      messages: 'SetUp : Unhandled log message: ''[Exception] NullReferenceException:
+        Object reference not set to an instance of an object''. Use UnityEngine.TestTools.LogAssert.Expect'
+      output: 'NullReferenceException: Object reference not set to an instance of
+        an object
+
+'
+      stacktrace: 'CardLoader.Awake () (at Assets/Scripts/Card/CardLoader.cs:73)
+
+        UnityEngine.GameObject:AddComponent()
+
+        MyGridElementPlacementTests:Setup()
+        (at Assets/Tests/PlayMode/MyGridElementPlacementTests.cs:40)
+
+        System.Reflection.MethodBase:Invoke(Object,
+        Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object, Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator,
+        IntPtr)
+
+        
+
+'
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1056
+      parentUniqueId: Tests.PlayMode.dll/[Tests.PlayMode][MyGridElementPlacementTests][suite]
+    - id: 1059
+      uniqueId: Tests.PlayMode.dll/MyGridElementPlacementTests/[Tests.PlayMode][MyGridElementPlacementTests.MyGrid_IsTheCardFull_ReturnsTrue_WhenAllOccupied]
+      name: MyGrid_IsTheCardFull_ReturnsTrue_WhenAllOccupied
+      fullName: MyGridElementPlacementTests.MyGrid_IsTheCardFull_ReturnsTrue_WhenAllOccupied
+      resultStatus: 2
+      duration: 0.0056512
+      messages: 'SetUp : Unhandled log message: ''[Exception] NullReferenceException:
+        Object reference not set to an instance of an object''. Use UnityEngine.TestTools.LogAssert.Expect'
+      output: 'NullReferenceException: Object reference not set to an instance of
+        an object
+
+'
+      stacktrace: 'CardLoader.Awake () (at Assets/Scripts/Card/CardLoader.cs:73)
+
+        UnityEngine.GameObject:AddComponent()
+
+        MyGridElementPlacementTests:Setup()
+        (at Assets/Tests/PlayMode/MyGridElementPlacementTests.cs:40)
+
+        System.Reflection.MethodBase:Invoke(Object,
+        Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object, Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator,
+        IntPtr)
+
+        
+
+'
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1056
+      parentUniqueId: Tests.PlayMode.dll/[Tests.PlayMode][MyGridElementPlacementTests][suite]
+    - id: 1061
+      uniqueId: Tests.PlayMode.dll/[Tests.PlayMode][PuzzleCompletionIntegrationTests][suite]
+      name: PuzzleCompletionIntegrationTests
+      fullName: PuzzleCompletionIntegrationTests
+      resultStatus: 2
+      duration: 0.0402333
+      messages: One or more child tests had errors
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1066
+      parentUniqueId: '[Tests.PlayMode][C:/Users/your-computer/Desktop/Logical-Project/Library/ScriptAssemblies/Tests.PlayMode.dll][suite]'
+    - id: 1063
+      uniqueId: Tests.PlayMode.dll/PuzzleCompletionIntegrationTests/[Tests.PlayMode][PuzzleCompletionIntegrationTests.Integration_InventoryManagement]
+      name: Integration_InventoryManagement
+      fullName: PuzzleCompletionIntegrationTests.Integration_InventoryManagement
+      resultStatus: 2
+      duration: 0.0078347
+      messages: 'SetUp : Unhandled log message: ''[Exception] NullReferenceException:
+        Object reference not set to an instance of an object''. Use UnityEngine.TestTools.LogAssert.Expect'
+      output: 'NullReferenceException: Object reference not set to an instance of
+        an object
+
+        NullReferenceException: Object reference not set to an
+        instance of an object
+
+        NullReferenceException: Object reference
+        not set to an instance of an object
+
+        NullReferenceException: Object
+        reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+'
+      stacktrace: 'Player.RefreshScore (System.Int32 value) (at Assets/Scripts/Player/Player.cs:489)
+
+        Player.Awake
+        () (at Assets/Scripts/Player/Player.cs:121)
+
+        UnityEngine.GameObject:AddComponent()
+
+        PuzzleCompletionIntegrationTests:Setup()
+        (at Assets/Tests/PlayMode/PuzzleCompletionIntegrationTests.cs:24)
+
+        System.Reflection.MethodBase:Invoke(Object,
+        Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object, Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator,
+        IntPtr)
+
+        
+
+'
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1061
+      parentUniqueId: Tests.PlayMode.dll/[Tests.PlayMode][PuzzleCompletionIntegrationTests][suite]
+    - id: 1064
+      uniqueId: Tests.PlayMode.dll/PuzzleCompletionIntegrationTests/[Tests.PlayMode][PuzzleCompletionIntegrationTests.Integration_MultiplePuzzles]
+      name: Integration_MultiplePuzzles
+      fullName: PuzzleCompletionIntegrationTests.Integration_MultiplePuzzles
+      resultStatus: 2
+      duration: 0.0095406
+      messages: 'SetUp : Unhandled log message: ''[Exception] NullReferenceException:
+        Object reference not set to an instance of an object''. Use UnityEngine.TestTools.LogAssert.Expect'
+      output: 'NullReferenceException: Object reference not set to an instance of
+        an object
+
+        NullReferenceException: Object reference not set to an
+        instance of an object
+
+        NullReferenceException: Object reference
+        not set to an instance of an object
+
+        NullReferenceException: Object
+        reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+'
+      stacktrace: 'Player.RefreshScore (System.Int32 value) (at Assets/Scripts/Player/Player.cs:489)
+
+        Player.Awake
+        () (at Assets/Scripts/Player/Player.cs:121)
+
+        UnityEngine.GameObject:AddComponent()
+
+        PuzzleCompletionIntegrationTests:Setup()
+        (at Assets/Tests/PlayMode/PuzzleCompletionIntegrationTests.cs:24)
+
+        System.Reflection.MethodBase:Invoke(Object,
+        Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object, Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator,
+        IntPtr)
+
+        
+
+'
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1061
+      parentUniqueId: Tests.PlayMode.dll/[Tests.PlayMode][PuzzleCompletionIntegrationTests][suite]
+    - id: 1065
+      uniqueId: Tests.PlayMode.dll/PuzzleCompletionIntegrationTests/[Tests.PlayMode][PuzzleCompletionIntegrationTests.Integration_PlayerInitialization]
+      name: Integration_PlayerInitialization
+      fullName: PuzzleCompletionIntegrationTests.Integration_PlayerInitialization
+      resultStatus: 2
+      duration: 0.0092005
+      messages: 'SetUp : Unhandled log message: ''[Exception] NullReferenceException:
+        Object reference not set to an instance of an object''. Use UnityEngine.TestTools.LogAssert.Expect'
+      output: 'NullReferenceException: Object reference not set to an instance of
+        an object
+
+        NullReferenceException: Object reference not set to an
+        instance of an object
+
+        NullReferenceException: Object reference
+        not set to an instance of an object
+
+        NullReferenceException: Object
+        reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+'
+      stacktrace: 'Player.RefreshScore (System.Int32 value) (at Assets/Scripts/Player/Player.cs:489)
+
+        Player.Awake
+        () (at Assets/Scripts/Player/Player.cs:121)
+
+        UnityEngine.GameObject:AddComponent()
+
+        PuzzleCompletionIntegrationTests:Setup()
+        (at Assets/Tests/PlayMode/PuzzleCompletionIntegrationTests.cs:24)
+
+        System.Reflection.MethodBase:Invoke(Object,
+        Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object, Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator,
+        IntPtr)
+
+        
+
+'
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1061
+      parentUniqueId: Tests.PlayMode.dll/[Tests.PlayMode][PuzzleCompletionIntegrationTests][suite]
+    - id: 1062
+      uniqueId: Tests.PlayMode.dll/PuzzleCompletionIntegrationTests/[Tests.PlayMode][PuzzleCompletionIntegrationTests.Integration_PlayerScoreManagement]
+      name: Integration_PlayerScoreManagement
+      fullName: PuzzleCompletionIntegrationTests.Integration_PlayerScoreManagement
+      resultStatus: 2
+      duration: 0.0086062
+      messages: 'SetUp : Unhandled log message: ''[Exception] NullReferenceException:
+        Object reference not set to an instance of an object''. Use UnityEngine.TestTools.LogAssert.Expect'
+      output: 'NullReferenceException: Object reference not set to an instance of
+        an object
+
+        NullReferenceException: Object reference not set to an
+        instance of an object
+
+        NullReferenceException: Object reference
+        not set to an instance of an object
+
+        NullReferenceException: Object
+        reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+        NullReferenceException:
+        Object reference not set to an instance of an object
+
+'
+      stacktrace: 'Player.RefreshScore (System.Int32 value) (at Assets/Scripts/Player/Player.cs:489)
+
+        Player.Awake
+        () (at Assets/Scripts/Player/Player.cs:121)
+
+        UnityEngine.GameObject:AddComponent()
+
+        PuzzleCompletionIntegrationTests:Setup()
+        (at Assets/Tests/PlayMode/PuzzleCompletionIntegrationTests.cs:24)
+
+        System.Reflection.MethodBase:Invoke(Object,
+        Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object, Object[])
+
+        NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo,
+        Object)
+
+        UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator,
+        IntPtr)
+
+        
+
+'
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1061
+      parentUniqueId: Tests.PlayMode.dll/[Tests.PlayMode][PuzzleCompletionIntegrationTests][suite]
+    m_ResultText: 'CardLoaderVisualizationTests (0,086s)
+
+      ---
+
+      One or
+      more child tests had errors'
+    m_ResultStacktrace: 
+    m_TestListState:
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 135c3c4d
+      m_LastClickedID: 1295801363
+      m_ExpandedIDs: bf149293655b13c7131c6c06b7f32f1efc88502e6833c933135c3c4d9c5ee553dd2ea75fffffff7f
+      m_RenameOverlay:
+        m_UserAcceptedRename: 0
+        m_Name: 
+        m_OriginalName: 
+        m_EditFieldRect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        m_UserData: 0
+        m_IsWaitingForDelay: 0
+        m_IsRenaming: 0
+        m_OriginalEventType: 11
+        m_IsRenamingFilename: 0
+        m_ClientGUIView: {fileID: 0}
+      m_SearchString: 
+    m_TestRunnerUIFilter:
+      PassedHidden: 0
+      FailedHidden: 0
+      NotRunHidden: 0
+      m_SearchString: 
+      selectedCategoryMask: 0
+      availableCategories:
+      - Uncategorized
+    m_SelectedOption: 0
+  m_EditModeTestListGUI:
+    m_Window: {fileID: 15}
+    m_NewResultList:
+    - id: 1000
+      uniqueId: '[Logical project][suite]'
+      name: Logical project
+      fullName: Logical project
+      resultStatus: 1
+      duration: 0.0646615
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 
+      parentUniqueId: 
+    - id: 1027
+      uniqueId: '[Tests.EditMode][C:/Users/your-computer/Desktop/Logical-Project/Library/ScriptAssemblies/Tests.EditMode.dll][suite]'
+      name: Tests.EditMode.dll
+      fullName: C:/Users/your-computer/Desktop/Logical-Project/Library/ScriptAssemblies/Tests.EditMode.dll
+      resultStatus: 1
+      duration: 0.0470034
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1000
+      parentUniqueId: '[Logical project][suite]'
+    - id: 1001
+      uniqueId: Tests.EditMode.dll/[Tests.EditMode][ActionTypeTests][suite]
+      name: ActionTypeTests
+      fullName: ActionTypeTests
+      resultStatus: 1
+      duration: 0.0297266
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1027
+      parentUniqueId: '[Tests.EditMode][C:/Users/your-computer/Desktop/Logical-Project/Library/ScriptAssemblies/Tests.EditMode.dll][suite]'
+    - id: 1008
+      uniqueId: Tests.EditMode.dll/ActionTypeTests/[Tests.EditMode][ActionTypeTests.ActionType_CanBeCastFromInt]
+      name: ActionType_CanBeCastFromInt
+      fullName: ActionTypeTests.ActionType_CanBeCastFromInt
+      resultStatus: 1
+      duration: 0.0139548
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.EditMode.dll/[Tests.EditMode][ActionTypeTests][suite]
+    - id: 1009
+      uniqueId: Tests.EditMode.dll/ActionTypeTests/[Tests.EditMode][ActionTypeTests.ActionType_CanBeCompared]
+      name: ActionType_CanBeCompared
+      fullName: ActionTypeTests.ActionType_CanBeCompared
+      resultStatus: 1
+      duration: 0.0002214
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.EditMode.dll/[Tests.EditMode][ActionTypeTests][suite]
+    - id: 1006
+      uniqueId: Tests.EditMode.dll/ActionTypeTests/[Tests.EditMode][ActionTypeTests.ActionType_MasterAction_HasCorrectValue]
+      name: ActionType_MasterAction_HasCorrectValue
+      fullName: ActionTypeTests.ActionType_MasterAction_HasCorrectValue
+      resultStatus: 1
+      duration: 0.0007407
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.EditMode.dll/[Tests.EditMode][ActionTypeTests][suite]
+    - id: 1005
+      uniqueId: Tests.EditMode.dll/ActionTypeTests/[Tests.EditMode][ActionTypeTests.ActionType_PlaceElement_HasCorrectValue]
+      name: ActionType_PlaceElement_HasCorrectValue
+      fullName: ActionTypeTests.ActionType_PlaceElement_HasCorrectValue
+      resultStatus: 1
+      duration: 0.0002093
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.EditMode.dll/[Tests.EditMode][ActionTypeTests][suite]
+    - id: 1003
+      uniqueId: Tests.EditMode.dll/ActionTypeTests/[Tests.EditMode][ActionTypeTests.ActionType_TakeElement_HasCorrectValue]
+      name: ActionType_TakeElement_HasCorrectValue
+      fullName: ActionTypeTests.ActionType_TakeElement_HasCorrectValue
+      resultStatus: 1
+      duration: 0.0001403
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.EditMode.dll/[Tests.EditMode][ActionTypeTests][suite]
+    - id: 1002
+      uniqueId: Tests.EditMode.dll/ActionTypeTests/[Tests.EditMode][ActionTypeTests.ActionType_TakePuzzle_HasCorrectValue]
+      name: ActionType_TakePuzzle_HasCorrectValue
+      fullName: ActionTypeTests.ActionType_TakePuzzle_HasCorrectValue
+      resultStatus: 1
+      duration: 0.0001298
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.EditMode.dll/[Tests.EditMode][ActionTypeTests][suite]
+    - id: 1007
+      uniqueId: Tests.EditMode.dll/ActionTypeTests/[Tests.EditMode][ActionTypeTests.ActionType_TotalCount_IsFive]
+      name: ActionType_TotalCount_IsFive
+      fullName: ActionTypeTests.ActionType_TotalCount_IsFive
+      resultStatus: 1
+      duration: 0.0001921
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.EditMode.dll/[Tests.EditMode][ActionTypeTests][suite]
+    - id: 1004
+      uniqueId: Tests.EditMode.dll/ActionTypeTests/[Tests.EditMode][ActionTypeTests.ActionType_UpgradeElement_HasCorrectValue]
+      name: ActionType_UpgradeElement_HasCorrectValue
+      fullName: ActionTypeTests.ActionType_UpgradeElement_HasCorrectValue
+      resultStatus: 1
+      duration: 0.0001218
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: Tests.EditMode.dll/[Tests.EditMode][ActionTypeTests][suite]
+    - id: 1010
+      uniqueId: Tests.EditMode.dll/[Tests.EditMode][CardTypeTests][suite]
+      name: CardTypeTests
+      fullName: CardTypeTests
+      resultStatus: 1
+      duration: 0.006592
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1027
+      parentUniqueId: '[Tests.EditMode][C:/Users/your-computer/Desktop/Logical-Project/Library/ScriptAssemblies/Tests.EditMode.dll][suite]'
+    - id: 1012
+      uniqueId: Tests.EditMode.dll/CardTypeTests/[Tests.EditMode][CardTypeTests.CardType_BlackCard_ColorIsBlack]
+      name: CardType_BlackCard_ColorIsBlack
+      fullName: CardTypeTests.CardType_BlackCard_ColorIsBlack
+      resultStatus: 1
+      duration: 0.0003998
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1010
+      parentUniqueId: Tests.EditMode.dll/[Tests.EditMode][CardTypeTests][suite]
+    - id: 1016
+      uniqueId: Tests.EditMode.dll/CardTypeTests/[Tests.EditMode][CardTypeTests.CardType_Matrix_IsCorrectSize]
+      name: CardType_Matrix_IsCorrectSize
+      fullName: CardTypeTests.CardType_Matrix_IsCorrectSize
+      resultStatus: 1
+      duration: 0.0002326
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1010
+      parentUniqueId: Tests.EditMode.dll/[Tests.EditMode][CardTypeTests][suite]
+    - id: 1017
+      uniqueId: Tests.EditMode.dll/CardTypeTests/[Tests.EditMode][CardTypeTests.CardType_Matrix_StoresValuesCorrectly]
+      name: CardType_Matrix_StoresValuesCorrectly
+      fullName: CardTypeTests.CardType_Matrix_StoresValuesCorrectly
+      resultStatus: 1
+      duration: 0.0003475
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1010
+      parentUniqueId: Tests.EditMode.dll/[Tests.EditMode][CardTypeTests][suite]
+    - id: 1014
+      uniqueId: Tests.EditMode.dll/CardTypeTests/[Tests.EditMode][CardTypeTests.CardType_RewardElement_IsSetCorrectly]
+      name: CardType_RewardElement_IsSetCorrectly
+      fullName: CardTypeTests.CardType_RewardElement_IsSetCorrectly
+      resultStatus: 1
+      duration: 0.0002448
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1010
+      parentUniqueId: Tests.EditMode.dll/[Tests.EditMode][CardTypeTests][suite]
+    - id: 1013
+      uniqueId: Tests.EditMode.dll/CardTypeTests/[Tests.EditMode][CardTypeTests.CardType_Score_IsSetCorrectly]
+      name: CardType_Score_IsSetCorrectly
+      fullName: CardTypeTests.CardType_Score_IsSetCorrectly
+      resultStatus: 1
+      duration: 0.0002301
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1010
+      parentUniqueId: Tests.EditMode.dll/[Tests.EditMode][CardTypeTests][suite]
+    - id: 1015
+      uniqueId: Tests.EditMode.dll/CardTypeTests/[Tests.EditMode][CardTypeTests.CardType_UniqueID_IsSetCorrectly]
+      name: CardType_UniqueID_IsSetCorrectly
+      fullName: CardTypeTests.CardType_UniqueID_IsSetCorrectly
+      resultStatus: 1
+      duration: 0.0002324
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1010
+      parentUniqueId: Tests.EditMode.dll/[Tests.EditMode][CardTypeTests][suite]
+    - id: 1011
+      uniqueId: Tests.EditMode.dll/CardTypeTests/[Tests.EditMode][CardTypeTests.CardType_WhiteCard_ColorIsWhite]
+      name: CardType_WhiteCard_ColorIsWhite
+      fullName: CardTypeTests.CardType_WhiteCard_ColorIsWhite
+      resultStatus: 1
+      duration: 0.0001654
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1010
+      parentUniqueId: Tests.EditMode.dll/[Tests.EditMode][CardTypeTests][suite]
+    - id: 1018
+      uniqueId: Tests.EditMode.dll/[Tests.EditMode][GameConfigTests][suite]
+      name: GameConfigTests
+      fullName: GameConfigTests
+      resultStatus: 1
+      duration: 0.0087996
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1027
+      parentUniqueId: '[Tests.EditMode][C:/Users/your-computer/Desktop/Logical-Project/Library/ScriptAssemblies/Tests.EditMode.dll][suite]'
+    - id: 1019
+      uniqueId: Tests.EditMode.dll/GameConfigTests/[Tests.EditMode][GameConfigTests.GameConfig_DefaultPlayerCount_Is2]
+      name: GameConfig_DefaultPlayerCount_Is2
+      fullName: GameConfigTests.GameConfig_DefaultPlayerCount_Is2
+      resultStatus: 1
+      duration: 0.0017598
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1018
+      parentUniqueId: Tests.EditMode.dll/[Tests.EditMode][GameConfigTests][suite]
+    - id: 1021
+      uniqueId: Tests.EditMode.dll/GameConfigTests/[Tests.EditMode][GameConfigTests.GameConfig_DefaultPlayerNames_AreCorrect]
+      name: GameConfig_DefaultPlayerNames_AreCorrect
+      fullName: GameConfigTests.GameConfig_DefaultPlayerNames_AreCorrect
+      resultStatus: 1
+      duration: 0.0002016
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1018
+      parentUniqueId: Tests.EditMode.dll/[Tests.EditMode][GameConfigTests][suite]
+    - id: 1020
+      uniqueId: Tests.EditMode.dll/GameConfigTests/[Tests.EditMode][GameConfigTests.GameConfig_DefaultThinkingTime_Is30]
+      name: GameConfig_DefaultThinkingTime_Is30
+      fullName: GameConfigTests.GameConfig_DefaultThinkingTime_Is30
+      resultStatus: 1
+      duration: 0.0006249
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1018
+      parentUniqueId: Tests.EditMode.dll/[Tests.EditMode][GameConfigTests][suite]
+    - id: 1026
+      uniqueId: Tests.EditMode.dll/GameConfigTests/[Tests.EditMode][GameConfigTests.GameConfig_PlayerColors_CanBeChanged]
+      name: GameConfig_PlayerColors_CanBeChanged
+      fullName: GameConfigTests.GameConfig_PlayerColors_CanBeChanged
+      resultStatus: 1
+      duration: 0.0007024
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1018
+      parentUniqueId: Tests.EditMode.dll/[Tests.EditMode][GameConfigTests][suite]
+    - id: 1025
+      uniqueId: Tests.EditMode.dll/GameConfigTests/[Tests.EditMode][GameConfigTests.GameConfig_PlayerColors_HasFourEntries]
+      name: GameConfig_PlayerColors_HasFourEntries
+      fullName: GameConfigTests.GameConfig_PlayerColors_HasFourEntries
+      resultStatus: 1
+      duration: 0.0001714
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1018
+      parentUniqueId: Tests.EditMode.dll/[Tests.EditMode][GameConfigTests][suite]
+    - id: 1022
+      uniqueId: Tests.EditMode.dll/GameConfigTests/[Tests.EditMode][GameConfigTests.GameConfig_PlayerCount_CanBeChanged]
+      name: GameConfig_PlayerCount_CanBeChanged
+      fullName: GameConfigTests.GameConfig_PlayerCount_CanBeChanged
+      resultStatus: 1
+      duration: 0.000189
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1018
+      parentUniqueId: Tests.EditMode.dll/[Tests.EditMode][GameConfigTests][suite]
+    - id: 1024
+      uniqueId: Tests.EditMode.dll/GameConfigTests/[Tests.EditMode][GameConfigTests.GameConfig_PlayerNames_CanBeChanged]
+      name: GameConfig_PlayerNames_CanBeChanged
+      fullName: GameConfigTests.GameConfig_PlayerNames_CanBeChanged
+      resultStatus: 1
+      duration: 0.0001854
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1018
+      parentUniqueId: Tests.EditMode.dll/[Tests.EditMode][GameConfigTests][suite]
+    - id: 1023
+      uniqueId: Tests.EditMode.dll/GameConfigTests/[Tests.EditMode][GameConfigTests.GameConfig_ThinkingTime_CanBeChanged]
+      name: GameConfig_ThinkingTime_CanBeChanged
+      fullName: GameConfigTests.GameConfig_ThinkingTime_CanBeChanged
+      resultStatus: 1
+      duration: 0.0001793
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1018
+      parentUniqueId: Tests.EditMode.dll/[Tests.EditMode][GameConfigTests][suite]
+    m_ResultText: 
+    m_ResultStacktrace: 
+    m_TestListState:
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: d621b8bb365203dbdc9b6ff26833c9332cf2e447ffffff7f
+      m_RenameOverlay:
+        m_UserAcceptedRename: 0
+        m_Name: 
+        m_OriginalName: 
+        m_EditFieldRect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        m_UserData: 0
+        m_IsWaitingForDelay: 0
+        m_IsRenaming: 0
+        m_OriginalEventType: 11
+        m_IsRenamingFilename: 0
+        m_ClientGUIView: {fileID: 0}
+      m_SearchString: 
+    m_TestRunnerUIFilter:
+      PassedHidden: 0
+      FailedHidden: 0
+      NotRunHidden: 0
+      m_SearchString: 
+      selectedCategoryMask: 0
+      availableCategories:
+      - Uncategorized
+--- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -296,10 +2358,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 321.6
-    y: 73.6
-    width: 784.4
-    height: 465.4
+    x: 325.6
+    y: 80.8
+    width: 777.19995
+    height: 455.8
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -352,29 +2414,29 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 784.4
-      height: 444.4
-    m_Scale: {x: 0.5106771, y: 0.5106771}
-    m_Translation: {x: 392.2, y: 222.2}
+      width: 777.19995
+      height: 434.8
+    m_Scale: {x: 0.5032407, y: 0.5032407}
+    m_Translation: {x: 388.59998, y: 217.4}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -768
-      y: -435.1086
-      width: 1536
-      height: 870.2172
+      x: -772.19507
+      y: -432.00003
+      width: 1544.3901
+      height: 864.00006
     m_MinimalGUI: 1
-  m_defaultScale: 0.5106771
-  m_LastWindowPixelSize: {x: 980.5, y: 581.75}
+  m_defaultScale: 0.5032407
+  m_LastWindowPixelSize: {x: 971.49994, y: 569.75}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
   m_XRRenderMode: 0
   m_RenderTexture: {fileID: 0}
---- !u!114 &13
+--- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -394,10 +2456,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 0
-    y: 73.6
-    width: 320.6
-    height: 465.4
+    x: 7.2000003
+    y: 80.8
+    width: 317.4
+    height: 455.8
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -413,7 +2475,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 5294fbff8494fbffdcadfbff18aefbffa49dfdff684bffffa4a6fffff6fafffff2820000d4d4000074d50000bcd50000
+      m_ExpandedIDs: 947cffffc87cffffa87effffb47fffffe87fffff5281ffff2accffffb2ccffff1cceffff68ceffff90d6ffff9cddffffc8e5ffff0ee6ffffaee6ffff7ae7ffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -429,7 +2491,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 8}
+        m_ClientGUIView: {fileID: 11}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -437,7 +2499,7 @@ MonoBehaviour:
       m_IsLocked: 0
     m_CurrentSortingName: TransformSorting
   m_WindowGUID: 4c969a2b90040154d917609493e03593
---- !u!114 &14
+--- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -885,7 +2947,7 @@ MonoBehaviour:
   m_SceneVisActive: 1
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
---- !u!114 &15
+--- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -905,10 +2967,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 0
-    y: 560
-    width: 1107
-    height: 223.4
+    x: 7.2000003
+    y: 557.60004
+    width: 1096.6
+    height: 218.60004
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -930,7 +2992,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Tests/PlayMode
+    - Assets/Scripts/Card
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -938,16 +3000,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Tests/PlayMode
+  - Assets/Scripts/Card
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\your-computer\Desktop\Logical-Project
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 168.6}
-    m_SelectedIDs: 28710000
-    m_LastClickedID: 28968
-    m_ExpandedIDs: 0000000010710000127100002471000000ca9a3b
+    scrollPos: {x: 0, y: 113.39996}
+    m_SelectedIDs: e6690000
+    m_LastClickedID: 27110
+    m_ExpandedIDs: 00000000d0690000de690000e0690000b86a0000ba6a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -963,7 +3025,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 10}
+      m_ClientGUIView: {fileID: 13}
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
@@ -975,7 +3037,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000001071000012710000
+    m_ExpandedIDs: 00000000d0690000de690000e0690000b86a0000ba6a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1019,7 +3081,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 10}
+      m_ClientGUIView: {fileID: 13}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -1031,7 +3093,7 @@ MonoBehaviour:
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 149
---- !u!114 &16
+--- !u!114 &20
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1051,10 +3113,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 0
-    y: 560
-    width: 1107
-    height: 223.4
+    x: 7.2000003
+    y: 557.60004
+    width: 1096.6
+    height: 218.60004
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1065,7 +3127,7 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
     m_OverlaysVisible: 1
---- !u!114 &17
+--- !u!114 &21
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1085,10 +3147,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1108
-    y: 73.6
-    width: 427
-    height: 709.8
+    x: 1104.8
+    y: 80.8
+    width: 423
+    height: 695.4
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0

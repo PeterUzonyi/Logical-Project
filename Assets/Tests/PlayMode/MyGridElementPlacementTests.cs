@@ -13,7 +13,6 @@ public class MyGridElementPlacementTests
 {
     private GameObject gridGO;
     private MyGrid myGrid;
-    //private List<GameObject> createdSquares;
 
     [SetUp]
     public void Setup()

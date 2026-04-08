@@ -71,20 +71,8 @@ public class CardManager : MonoBehaviourPun
                     Matrix[row, col] = int.Parse(parts[i + 3]);
                 }
 
-                /*
-                GameObject cardObject = new GameObject("Card");
-                CardType card = cardObject.AddComponent<CardType>();
-                card.Color = parts[0];
-                card.Score = int.Parse(parts[1]);
-                card.RewardElement = int.Parse(parts[2]);
-                card.Matrix = Matrix;
-                card.UniqueID = idCounter;
-                */
-
                 CardType card = new CardType(parts[0], int.Parse(parts[1]), int.Parse(parts[2]), Matrix, idCounter);
                 idCounter++;
-
-                //DontDestroyOnLoad(cardObject);
 
                 if (card.Color == "White")
                 {
