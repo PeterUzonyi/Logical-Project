@@ -66,7 +66,7 @@ public class ActionSelectionPanel : MonoBehaviour
             
             return;
         }
-        if (selected == ActionType.PlaceElement || selected == ActionType.MasterAction)
+        if ((selected == ActionType.PlaceElement || selected == ActionType.MasterAction) && (TurnManager.Instance.currentPlayer.IsCardSlotsEmpty() || TurnManager.Instance.currentPlayer.RemainingElements == 0))
         {
             if (TurnManager.Instance.currentPlayer.IsCardSlotsEmpty())
             {

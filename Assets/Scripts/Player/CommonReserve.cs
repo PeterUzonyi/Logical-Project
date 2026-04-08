@@ -143,7 +143,9 @@ public class CommonReserve : MonoBehaviourPun
     private IEnumerator LockInventoryWhenReady()
     {
         //9 fajta Item van
-        int expectedCount = 90;
+        int expectedCount = 9;
+
+        
 
         while (inventoryManager.GetAllItems().Count() < expectedCount)
         {
@@ -154,6 +156,9 @@ public class CommonReserve : MonoBehaviourPun
         {
             item.SetDraggable(false);
         }
+
+        TakeFromInventory(0, TurnManager.Instance.playerCount);
+        TakeFromInventory(1, TurnManager.Instance.playerCount);
 
         CommonReserveReady = true;
     }
@@ -212,7 +217,6 @@ public class CommonReserve : MonoBehaviourPun
         TurnManager.Instance.currentPlayer.ActionHasEnded();
         Debug.Log("TakePuzzle has Ended");
         OnBackClicked();
-        
 
         RefreshRemainingCardCount();
 

@@ -228,22 +228,6 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public override void OnPlayerLeftRoom(PhotonPlayer otherPlayer)
         => OnOtherPlayerLeft?.Invoke(otherPlayer);
 
-    public override void OnJoinRandomFailed(short returnCode, string message)
-    {
-        string code = LocalizationSettings.SelectedLocale.Identifier.Code;
-
-        if (code == "hu")
-        {
-            OnStatusChanged?.Invoke("Nincs szabad szoba, új létrehozása...");
-        }
-        else
-        {
-            OnStatusChanged?.Invoke("There are no empty rooms, making a new room...");
-        }
-        
-        CreateRoom("Szoba_" + Random.Range(1000, 9999));
-    }
-
     public override void OnDisconnected(DisconnectCause cause)
     {
         string code = LocalizationSettings.SelectedLocale.Identifier.Code;
