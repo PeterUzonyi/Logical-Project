@@ -3,7 +3,11 @@
   "WorkspaceRootPath": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{27211F1A-CD4F-93EB-12B3-1B5F87BC2E47}|Tests.PlayMode.csproj|c:\\users\\your-computer\\desktop\\logical-project\\assets\\tests\\playmode\\cardmanagerinitializationtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B6AC9CEC-5950-1931-4B7E-188E457B4E96}|Game.csproj|c:\\users\\your-computer\\desktop\\logical-project\\assets\\scripts\\game\\upgradepanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B6AC9CEC-5950-1931-4B7E-188E457B4E96}|Game.csproj|solutionrelative:assets\\scripts\\game\\upgradepanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27211F1A-CD4F-93EB-12B3-1B5F87BC2E47}|Tests.PlayMode.csproj|C:\\Users\\your-computer\\Desktop\\Logical-Project\\assets\\tests\\playmode\\cardmanagerinitializationtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{27211F1A-CD4F-93EB-12B3-1B5F87BC2E47}|Tests.PlayMode.csproj|solutionrelative:assets\\tests\\playmode\\cardmanagerinitializationtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -11,7 +15,7 @@
       "RelativeMoniker": "D:0:0:{27211F1A-CD4F-93EB-12B3-1B5F87BC2E47}|Tests.PlayMode.csproj|solutionrelative:assets\\tests\\playmode\\cardloadervisualizationtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B6AC9CEC-5950-1931-4B7E-188E457B4E96}|Game.csproj|c:\\users\\your-computer\\desktop\\logical-project\\assets\\scripts\\card\\cardloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B6AC9CEC-5950-1931-4B7E-188E457B4E96}|Game.csproj|C:\\Users\\your-computer\\Desktop\\Logical-Project\\assets\\scripts\\card\\cardloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B6AC9CEC-5950-1931-4B7E-188E457B4E96}|Game.csproj|solutionrelative:assets\\scripts\\card\\cardloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -42,11 +46,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "UpgradePanel.cs",
+              "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Game\\UpgradePanel.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Game\\UpgradePanel.cs",
+              "ToolTip": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Game\\UpgradePanel.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Game\\UpgradePanel.cs",
+              "ViewState": "AQIAAE0BAAAAAAAAAAAiwG0BAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T10:51:22.852Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "CardLoader.cs",
               "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Card\\CardLoader.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Card\\CardLoader.cs",
@@ -54,12 +71,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Card\\CardLoader.cs",
               "ViewState": "AQIAAEAAAAAAAAAAAAAiwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-08T09:46:43.209Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-08T09:46:43.209Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "CardManager.cs",
               "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\Card\\CardManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Card\\CardManager.cs",
@@ -67,12 +83,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Card\\CardManager.cs",
               "ViewState": "AQIAAHkAAAAAAAAAAAAAADcAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-08T09:22:04.791Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-08T09:22:04.791Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "CardLoaderVisualizationTests.cs",
               "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Tests\\PlayMode\\CardLoaderVisualizationTests.cs",
               "RelativeDocumentMoniker": "Assets\\Tests\\PlayMode\\CardLoaderVisualizationTests.cs",
@@ -80,12 +95,11 @@
               "RelativeToolTip": "Assets\\Tests\\PlayMode\\CardLoaderVisualizationTests.cs",
               "ViewState": "AQIAAEwAAAAAAAAAAAAQwFMAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-08T09:18:49.363Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-08T09:18:49.363Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "CardManagerInitializationTests.cs",
               "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Tests\\PlayMode\\CardManagerInitializationTests.cs",
               "RelativeDocumentMoniker": "Assets\\Tests\\PlayMode\\CardManagerInitializationTests.cs",
@@ -93,12 +107,11 @@
               "RelativeToolTip": "Assets\\Tests\\PlayMode\\CardManagerInitializationTests.cs",
               "ViewState": "AQIAACIAAAAAAAAAAAAQwCsAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-08T08:59:14.536Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-08T08:59:14.536Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "GameTurnFlowTests.cs",
               "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Tests\\PlayMode\\GameTurnFlowTests.cs",
               "RelativeDocumentMoniker": "Assets\\Tests\\PlayMode\\GameTurnFlowTests.cs",
@@ -110,7 +123,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "MyGridElementPlacementTests.cs",
               "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Tests\\PlayMode\\MyGridElementPlacementTests.cs",
               "RelativeDocumentMoniker": "Assets\\Tests\\PlayMode\\MyGridElementPlacementTests.cs",
@@ -122,7 +135,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "InventoryManagerTests.cs",
               "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Tests\\PlayMode\\InventoryManagerTests.cs",
               "RelativeDocumentMoniker": "Assets\\Tests\\PlayMode\\InventoryManagerTests.cs",
@@ -134,7 +147,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "PuzzleCompletionIntegrationTests.cs",
               "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Tests\\PlayMode\\PuzzleCompletionIntegrationTests.cs",
               "RelativeDocumentMoniker": "Assets\\Tests\\PlayMode\\PuzzleCompletionIntegrationTests.cs",

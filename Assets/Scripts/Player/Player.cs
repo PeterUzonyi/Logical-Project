@@ -329,6 +329,7 @@ public class Player : MonoBehaviour
         actionBtn.SetActive(false);
         endMasterActionBtn.SetActive(false);
         endVegsoRendrakasBtn.SetActive(false);
+        upgradePanel.Close();
 
         ActionCount++;
         Debug.Log(ActionCount);

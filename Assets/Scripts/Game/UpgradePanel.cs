@@ -6,6 +6,7 @@ using TMPro;
 using System.Collections;
 using UnityEngine.EventSystems;
 using Photon.Pun;
+using UnityEngine.Localization.Settings;
 
 /// <summary>
 /// Visualizes and executes the upgrade action
@@ -21,10 +22,30 @@ public class UpgradePanel : MonoBehaviour
     public GameObject upgradePanel;
 
     /// <summary>
+    /// The player's name
+    /// </summary>
+    public TMP_Text playerTitle;
+
+    /// <summary>
+    /// Labels displaying the quantity of the player's elements
+    /// </summary>
+    public Transform playerItemTextContainer;
+
+    /// <summary>
     /// The player's invetory
     /// </summary>
     [Header("Játékos elemei felsõ rész")]
     public Transform playerItemsContainer;  // a 9 InventoryItem szülõje (játékos)
+
+    /// <summary>
+    /// The Common Reserve's title
+    /// </summary>
+    public TMP_Text commonTitle;
+
+    /// <summary>
+    /// Labels displaying the quantity of the Common Reserve's elements
+    /// </summary>
+    public Transform commonItemTextContainer;
 
     /// <summary>
     /// The Common Reserve's invenoty
@@ -35,7 +56,12 @@ public class UpgradePanel : MonoBehaviour
     /// <summary>
     /// A button that contains an image of an element and a text (element's level and quantity)
     /// </summary>
-    public GameObject itemButtonPrefab; // Image + Button + TMP_Text
+    public GameObject itemButtonPrefab; // Image + Button
+    
+    /// <summary>
+    /// A label with a Text component, displayes the quantity of the elements
+    /// </summary>
+    public GameObject itemTextPrefab; //Panel + TMPro
 
     /// <summary>
     /// The player, whose turn is this
@@ -91,6 +117,22 @@ public class UpgradePanel : MonoBehaviour
                 selectable,
                 selectable ? () => OnPlayerItemClicked(captured) : (System.Action)null
             );
+
+            CreateLabel(
+                playerItemTextContainer,
+                item,
+                item.quantity
+                );
+        }
+
+        string code = LocalizationSettings.SelectedLocale.Identifier.Code;
+        if (code == "hu")
+        {
+            playerTitle.text = currentPlayer.name + " alkatrészei";
+        }
+        else
+        {
+            playerTitle.text = currentPlayer.name + "'s inventory";
         }
     }
 
@@ -112,6 +154,22 @@ public class UpgradePanel : MonoBehaviour
                 selectable,
                 selectable ? () => ExecuteSwap(captured) : (System.Action)null
             );
+
+            CreateLabel(
+                commonItemTextContainer,
+                item,
+                item.quantity
+                );
+        }
+
+        string code = LocalizationSettings.SelectedLocale.Identifier.Code;
+        if (code == "hu")
+        {
+            commonTitle.text = "CommonReserve alkatrészei";
+        }
+        else
+        {
+            commonTitle.text = "CommonReserve's inventory";
         }
     }
 
@@ -134,13 +192,6 @@ public class UpgradePanel : MonoBehaviour
             img.sprite = sprite;
         }
 
-        // Darabszám szöveg
-        TMP_Text label = btn.GetComponentInChildren<TMP_Text>();
-        if (label != null)
-        {
-            label.text = $"Lv{item.level}\nx{item.quantity}";
-        }
-
         // Gomb
         Button button = btn.GetComponent<Button>();
         if (button != null)
@@ -154,6 +205,15 @@ public class UpgradePanel : MonoBehaviour
 
         // Highlight törlése
         SetHighlight(btn.transform, false);
+    }
+
+    private void CreateLabel(Transform container, InventoryItem item, int quantity)
+    {
+        GameObject itemText = Instantiate(itemTextPrefab, container);
+
+        TMP_Text label = itemText.GetComponentInChildren<TMP_Text>();
+
+        label.text = "Level " + item.level + "x" + quantity.ToString();
     }
 
     /// <summary>
@@ -270,10 +330,12 @@ public class UpgradePanel : MonoBehaviour
     /// <summary>
     /// Closes the upgrade panel
     /// </summary>
-    private void Close()
+    public void Close()
     {
         ClearContainer(playerItemsContainer);
+        ClearContainer(playerItemTextContainer);
         ClearContainer(commonItemsContainer);
+        ClearContainer(commonItemTextContainer);
 
         selectedPlayerItem = null;
         validCommonOptions.Clear();
