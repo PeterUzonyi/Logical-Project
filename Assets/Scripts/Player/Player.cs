@@ -142,23 +142,32 @@ public class Player : MonoBehaviour
         {
             bool isLocalPlayer = PhotonActorNumber == PhotonNetwork.LocalPlayer.ActorNumber;
             bool actuallyMyTurn = isLocalPlayer && OnlineTurnManager.Instance.IsMyTurn;
-            BlockingPanel.SetActive(!actuallyMyTurn);
+            if (BlockingPanel != null)
+            {
+                BlockingPanel.SetActive(!actuallyMyTurn);
+            }
 
             if (!actuallyMyTurn)
             {
                 if (isLocalPlayer)
                 {
-                    FindAnyObjectByType<ActionSelectionPanel>().HidePanel();
+                    if (FindAnyObjectByType<ActionSelectionPanel>() != null)
+                    {
+                        FindAnyObjectByType<ActionSelectionPanel>().HidePanel();
+                    }
                 }                
                 return;
             }
         }
         else
-        {
-            if ((PlayerPanel != null) && (BlockingPanel != null))
+        {// Lokális logika marad
+            if (PlayerPanel != null)
             {
-                // Lokális logika marad
+                
                 PlayerPanel.SetActive(value);
+            }
+            if (BlockingPanel != null)
+            {
                 BlockingPanel.SetActive(!value);
             }
             
@@ -336,7 +345,10 @@ public class Player : MonoBehaviour
         actionBtn.SetActive(false);
         endMasterActionBtn.SetActive(false);
         endVegsoRendrakasBtn.SetActive(false);
-        upgradePanel.Close();
+        if (upgradePanel != null && upgradePanel.gameObject.activeSelf)
+        {
+            upgradePanel.Close();
+        }
 
         ActionCount++;
         Debug.Log(ActionCount);

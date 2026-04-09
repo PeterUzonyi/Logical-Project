@@ -332,15 +332,36 @@ public class UpgradePanel : MonoBehaviour
     /// </summary>
     public void Close()
     {
-        ClearContainer(playerItemsContainer);
-        ClearContainer(playerItemTextContainer);
-        ClearContainer(commonItemsContainer);
-        ClearContainer(commonItemTextContainer);
-
+        if (playerItemsContainer != null)
+        {
+            ClearContainer(playerItemsContainer);
+        }
+        if (playerItemTextContainer)
+        {
+            ClearContainer(playerItemTextContainer);
+        }
+        if (commonItemsContainer)
+        {
+            ClearContainer(commonItemsContainer);
+        }
+        if (commonItemTextContainer)
+        {
+            ClearContainer(commonItemTextContainer);
+        }
+        
         selectedPlayerItem = null;
         validCommonOptions.Clear();
-        upgradePanel.SetActive(false);
-        currentPlayer.PlayerPanel.SetActive(true);
+
+        if (currentPlayer != null && currentPlayer.PlayerPanel != null)
+        {
+            currentPlayer.PlayerPanel.SetActive(true);
+        }
+        if (upgradePanel != null)
+        {
+            upgradePanel.SetActive(false);
+        }
+        
+        currentPlayer = null;
     }
 
     /// <summary>
