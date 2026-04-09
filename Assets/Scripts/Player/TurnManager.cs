@@ -253,7 +253,7 @@ public class TurnManager : MonoBehaviour
     /// <summary>
     /// Final Touches (Végsõ Rendrakás)
     /// </summary>
-    public void VegsoRendrakas()
+    private void VegsoRendrakas()
     {
         if (PhotonNetwork.IsConnected)
         {
@@ -310,7 +310,7 @@ public class TurnManager : MonoBehaviour
     /// <summary>
     /// The Game is Over
     /// </summary>
-    public void GameOver()
+    private void GameOver()
     {
         if (PhotonNetwork.IsConnected)
         {

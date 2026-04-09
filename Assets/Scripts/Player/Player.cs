@@ -281,7 +281,7 @@ public class Player : MonoBehaviour
     /// <summary>
     /// The player doing the chosen action
     /// </summary>
-    public void UseAction()
+    private void UseAction()
     {
         if (selectedAction == ActionType.TakePuzzle)
         {
@@ -389,7 +389,7 @@ public class Player : MonoBehaviour
     /// <summary>
     /// Take a new puzzle from the common reserve (take puzzle action)
     /// </summary>
-    public void TakePuzzle()
+    private void TakePuzzle()
     {
         CommonReserve.Instance.CommonReserveBlockingPanel.SetActive(false);
         OpenCommonReserve();
@@ -398,7 +398,7 @@ public class Player : MonoBehaviour
     /// <summary>
     /// Takeing a lvl1 element from the common reserve's inventory (take an element action)
     /// </summary>
-    public void TakeElement()
+    private void TakeElement()
     {
         if (PhotonNetwork.IsConnected)
         {
@@ -422,7 +422,7 @@ public class Player : MonoBehaviour
     /// <summary>
     /// Upgrades a player inventory element to another element from the common reserve's inventory (upgrade acion)
     /// </summary>
-    public void UpgradeElement()
+    private void UpgradeElement()
     {
         PlayerPanel.SetActive(false);
 
@@ -445,7 +445,7 @@ public class Player : MonoBehaviour
     /// <summary>
     /// The player can place down maximum 1 element into every puzzle (master action)
     /// </summary>
-    public void MasterAction()
+    private void MasterAction()
     {
         gridsUsedInMasterAction.Clear();
 

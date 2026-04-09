@@ -143,10 +143,10 @@ public class ThinkingTimer : MonoBehaviour
         timerRunning = false;
     }
 
-/// <summary>
-/// Online mode. The timer is ticking
-/// </summary>
-/// <param name="time"></param>
+    /// <summary>
+    /// Online mode. The timer is ticking
+    /// </summary>
+    /// <param name="time"></param>
     private void OnOnlineTimerTick(float time)
     {
         UpdateDisplay(time);

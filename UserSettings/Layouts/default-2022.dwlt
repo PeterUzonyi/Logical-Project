@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 109
+  controlID: 107
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -413,7 +413,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: c0aff7ff7efef7ffd814f8ff0c15f8ff742cf8ff2244f8ff5644f8ffa647f8fff85df8ff2c5ef8ffbc67f8ffe680f8ff1a81f8ff928af8ffeaa0f8ff1ea1f8ffa0a7f8ff42bff8ff76bff8fff8c5f8ffc6e0f8fffae0f8ffa0e4f8ff54fcf8ff88fcf8ff2e00f9ff8e16f9ffc216f9ff302bf9ff5444f9ff8844f9fff658f9fff66ff9ff2a70f9ffae72f9ff9e89f9ffd289f9ff409ef9ff36b5f9ff6ab5f9ffeeb7f9ffe6cef9ff1acff9ff9ed1f9ff96e8f9ffcae8f9ff4eebf9ff4802faff7c02faff0005faff501dfaff841dfafffe1ffaff8239faffb639faffb83bfaff0a52faff3e52faffb053faffec6afaff206bfaff926cfaffe482faff1883faff1a85faff549dfaff889dfaff8a9ffaff7cb6faffb0b6faffb2b8faffb8d0faffecd0faffe4d2faffdae9faff0eeafaff10ecfaff0403fbff3803fbff3a05fbff401cfbff741cfbff761efbff7035fbffa435fbffa637fbff3c4ffbff704ffbff7251fbffaa68fbff22befbff56befbff58c0fbffaac0fbffdec0fbffcad4fbff44d6fbff78d6fbff84dcfbff68ddfbff9cddfbff06dffbff48e0fbff7ce0fbffe6e1fbff36e4fbff6ae4fbffd4e5fbff0ae6fbff3ee6fbff40fafbffdcfdfbff10fefbff1212fcff7caffcffb0affcffbcb5fcff9cb6fcffd0b6fcff04b9fcffe8b9fcff1cbafcff50bcfcff86bcfcffbabcfcff34c5fcff6ac5fcff9ec5fcffd2c7fcffc4c8fcfff8c8fcffe4cafcff1acbfcff4ecbfcff80d3fcffb6d3fcffead3fcffd6d5fcffa6dafcffdadafcff0ae3fcffcee3fcff7637fdffa837fdfffe50fdff3a51fdffbab5fdff2a05feff9692feff227fffff3a94ffffb6daffff32faffff14fbffffc46c00002c72000014860000d4f000004ac20100
+      m_ExpandedIDs: 14fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -944,10 +944,10 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 98.20001}
-    m_SelectedIDs: 38710000
-    m_LastClickedID: 28984
-    m_ExpandedIDs: 0000000020710000267100002871000000ca9a3b
+    scrollPos: {x: 0, y: 178.20001}
+    m_SelectedIDs: 36710000
+    m_LastClickedID: 28982
+    m_ExpandedIDs: 000000002071000022710000247100002671000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -975,7 +975,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000002071000022710000247100002671000028710000
+    m_ExpandedIDs: 0000000020710000227100002471000026710000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

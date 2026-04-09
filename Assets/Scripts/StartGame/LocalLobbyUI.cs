@@ -217,12 +217,4 @@ public class LocalLobbyUI : MonoBehaviour
     {
         localLobbyPanel.SetActive(false);
     }
-
-    /// <summary>
-    /// Showing this panel
-    /// </summary>
-    public void Open()
-    {
-        localLobbyPanel.SetActive(true);
-    }
 }

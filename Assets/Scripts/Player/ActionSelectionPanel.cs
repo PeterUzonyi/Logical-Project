@@ -159,7 +159,7 @@ public class ActionSelectionPanel : MonoBehaviour
     /// but there are no unsolved puzzles to put it down
     /// </summary>
     /// <param name="ErrorMessage"></param>
-    public void ShowErrorMessage(string ErrorMessage)
+    private void ShowErrorMessage(string ErrorMessage)
     {
         if (ErrorMessage == "")
         {

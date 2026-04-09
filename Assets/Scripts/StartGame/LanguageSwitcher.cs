@@ -51,7 +51,7 @@ public class LanguageSwitcher : MonoBehaviour
     /// <summary>
     /// When changing between the languages, the text must chang with it
     /// </summary>
-    void UpdateButtonText()
+    private void UpdateButtonText()
     {
         string code = LocalizationSettings.SelectedLocale.Identifier.Code;
         buttonText.text = code == "en" ? "hu" : "en";

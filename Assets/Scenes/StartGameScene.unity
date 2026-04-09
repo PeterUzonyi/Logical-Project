@@ -5388,7 +5388,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 601531022}
-        m_TargetAssemblyTypeName: LanguageSwitcher, Assembly-CSharp
+        m_TargetAssemblyTypeName: LanguageSwitcher, Game
         m_MethodName: ToggleLanguage
         m_Mode: 1
         m_Arguments:

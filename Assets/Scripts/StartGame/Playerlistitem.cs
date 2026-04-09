@@ -24,7 +24,7 @@ public class PlayerListItem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI playerNameLabel;
     [SerializeField] private TextMeshProUGUI readyLabel;
     [SerializeField] private GameObject hostBadge;
-    [SerializeField] private Image colorImage; // ezt kösd be az Editorban
+    [SerializeField] private Image colorImage;
 
     /// <summary>
     /// Background color options
