@@ -69,7 +69,7 @@ public class PuzzleCompletionIntegrationTests
         player.RefreshScore(10);
         yield return null;
 
-        Assert.AreEqual(initialScore + 10, player.Score);
+        Assert.AreEqual(initialScore + 10, player.PlayerScore);
     }
 
     [UnityTest]
@@ -109,7 +109,7 @@ public class PuzzleCompletionIntegrationTests
 
         Assert.AreEqual(3, completedCount);
         Assert.AreEqual(30, totalScore);
-        Assert.AreEqual(30, player.Score);
+        Assert.AreEqual(30, player.PlayerScore);
     }
 
     [UnityTest]

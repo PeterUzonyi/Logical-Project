@@ -155,9 +155,13 @@ public class Player : MonoBehaviour
         }
         else
         {
-            // Lokális logika marad
-            PlayerPanel.SetActive(value);
-            BlockingPanel.SetActive(!value);
+            if ((PlayerPanel != null) && (BlockingPanel != null))
+            {
+                // Lokális logika marad
+                PlayerPanel.SetActive(value);
+                BlockingPanel.SetActive(!value);
+            }
+            
             if (!value)
             {
                 return;
@@ -172,7 +176,10 @@ public class Player : MonoBehaviour
 
         if (!TurnManager.Instance.isVegsoRendrakas)
         {
-            FindAnyObjectByType<ActionSelectionPanel>().ShowPanel();
+            if (FindAnyObjectByType<ActionSelectionPanel>() != null)
+            {
+                FindAnyObjectByType<ActionSelectionPanel>().ShowPanel();
+            }
         }
         else
         {
@@ -242,7 +249,7 @@ public class Player : MonoBehaviour
     /// <param name="slotIndex"></param>
     public void RemoveCard(int slotIndex)
     {
-        if (slotIndex < 0 || slotIndex >= MyCardSlots.Length)
+        if (MyCardSlots == null || MyCardSlots[slotIndex] == null || slotIndex < 0 || slotIndex >= MyCardSlots.Length)
         {
             return;
         }
@@ -482,16 +489,20 @@ public class Player : MonoBehaviour
     /// <param name="value"></param>
     public void RefreshScore(int value)
     {
-        string code = LocalizationSettings.SelectedLocale.Identifier.Code;
         PlayerScore += value;
 
-        if (code == "hu")
+        if (Score != null)
         {
-            Score.text = PlayerName + " pontszáma: \n" + PlayerScore.ToString();
-        }
-        else
-        {
-            Score.text = PlayerName + "'s score: \n" + PlayerScore.ToString();
+            string code = LocalizationSettings.SelectedLocale.Identifier.Code;
+
+            if (code == "hu")
+            {
+                Score.text = PlayerName + " pontszáma: \n" + PlayerScore.ToString();
+            }
+            else
+            {
+                Score.text = PlayerName + "'s score: \n" + PlayerScore.ToString();
+            }
         }
     }
 
@@ -500,7 +511,11 @@ public class Player : MonoBehaviour
     /// </summary>
     public void OpenCommonReserve()
     {
-        CommonReserve.Instance.Open(this);
+        if (CommonReserve.Instance != null)
+        {
+            CommonReserve.Instance.Open(this);
+        }
+        
     }
 
     /// <summary>

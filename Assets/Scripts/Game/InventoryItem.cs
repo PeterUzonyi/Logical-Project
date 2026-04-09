@@ -93,14 +93,20 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     //Start is called before the first frame update
     void Start()
     {
-        myInventoryManager.RegisterItem(this);
-
-        //Elem színének eltárolása
-        Transform childTransform = transform.GetChild(0);
-        Image childImage = childTransform.GetComponent<Image>();
-        if (childImage != null)
+        if (myInventoryManager != null)
         {
-            color = childImage.color;
+            myInventoryManager.RegisterItem(this);
+        }
+
+        if (transform.childCount > 0)
+        {
+            //Elem színének eltárolása
+            Transform childTransform = transform.GetChild(0);
+            Image childImage = childTransform.GetComponent<Image>();
+            if (childImage != null)
+            {
+                color = childImage.color;
+            }
         }
     }
 
@@ -122,12 +128,23 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             originalScales[i] = children[i].localScale;
         }
 
-        scale = 1 / children[0].localScale.x;
+        if (count > 0)
+        {
+            scale = 1 / children[0].localScale.x;
+        }
+        else
+        {
+            scale = 1f;
+        }
     }
 
     //Update is called once per frame
     void Update()
     {
+        if (countText == null || string.IsNullOrEmpty(countText.text))//Tesztelés miatt
+        {
+            return;
+        }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             //Rotation around
@@ -253,7 +270,10 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     /// </summary>
     public void RefreshCount()
     {
-        countText.text = quantity.ToString();
+        if (countText != null)
+        {
+            countText.text = quantity.ToString();
+        }
     }
 
     /// <summary>

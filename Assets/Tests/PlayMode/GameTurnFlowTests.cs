@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
-using Photon.Pun;
-using UnityEngine.UI;
 
 /// <summary>
 /// PlayMode teszt: Teljes körforduló szimulálása
@@ -21,32 +19,37 @@ public class GameTurnFlowTests
     public void Setup()
     {
         createdGameObjects = new List<GameObject>();
-
-        turnManagerGO = new GameObject("TurnManager");
-        turnManager = turnManagerGO.AddComponent<TurnManager>();
-        createdGameObjects.Add(turnManagerGO);
-
         testPlayers = new List<Player>();
         GameConfig.PlayerCount = 2;
+
+        turnManagerGO = new GameObject("TurnManager");
+        createdGameObjects.Add(turnManagerGO);
 
         for (int i = 0; i < 2; i++)
         {
             GameObject playerGO = new GameObject($"Player_{i}");
             playerGO.transform.SetParent(turnManagerGO.transform);
+
             Player player = playerGO.AddComponent<Player>();
-            player.PlayerID = i;
+
+            GameObject scoreGO = new GameObject("ScoreText");
+            player.Score = scoreGO.AddComponent<TMPro.TextMeshProUGUI>();
+            createdGameObjects.Add(scoreGO);
+
+            player.PlayerID = i+1;
             player.PlayerName = $"Játékos {i + 1}";
 
             GameObject inventoryGO = new GameObject("InventoryManager");
             inventoryGO.transform.SetParent(playerGO.transform);
+
             InventoryManager inventoryManager = inventoryGO.AddComponent<InventoryManager>();
             player.inventoryManager = inventoryManager;
 
             testPlayers.Add(player);
             createdGameObjects.Add(playerGO);
         }
-
-        turnManager.players = testPlayers;
+        turnManager = turnManagerGO.AddComponent<TurnManager>();
+        turnManager.players = new List<Player>(testPlayers);
     }
 
     [TearDown]
@@ -65,7 +68,7 @@ public class GameTurnFlowTests
     [UnityTest]
     public IEnumerator TurnManager_HasCorrectPlayers()
     {
-        yield return null;
+        yield return new WaitForSeconds(0.5f);
         Assert.AreEqual(2, turnManager.players.Count);
     }
 
@@ -73,7 +76,7 @@ public class GameTurnFlowTests
     public IEnumerator Player_Score_DefaultsToZero()
     {
         yield return null;
-        Assert.AreEqual(0, testPlayers[0].Score);
+        Assert.AreEqual(0, testPlayers[0].PlayerScore);
     }
 
     [UnityTest]
@@ -81,10 +84,10 @@ public class GameTurnFlowTests
     {
         yield return null;
         testPlayers[0].RefreshScore(10);
-        Assert.AreEqual(10, testPlayers[0].Score);
+        Assert.AreEqual(10, testPlayers[0].PlayerScore);
 
         testPlayers[0].RefreshScore(5);
-        Assert.AreEqual(15, testPlayers[0].Score);
+        Assert.AreEqual(15, testPlayers[0].PlayerScore);
     }
 
     [UnityTest]

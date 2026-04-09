@@ -17,7 +17,7 @@ public class TurnManager : MonoBehaviour
     /// <summary>
     /// Every players prefab (maximum: 4 players)
     /// </summary>
-    [SerializeField] private List<Player> allPlayers; // Inspectorban: mind a 4 Player bekötve
+    [SerializeField] public List<Player> allPlayers; // Inspectorban: mind a 4 Player bekötve
 
     /// <summary>
     /// Active players (minimum: 2, maximum: 4 players)
@@ -55,6 +55,12 @@ public class TurnManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
+
+        if (allPlayers == null)
+        {
+            allPlayers = new List<Player>();
+        }
+
         isLastRound = false;
         isGameOver = false;
         lastRoundExtra = false;
@@ -68,14 +74,17 @@ public class TurnManager : MonoBehaviour
         // Csak annyi játékost aktiválunk amennyien játszanak
         for (int i = 0; i < allPlayers.Count; i++)
         {
-            if (i < count)
+            if (allPlayers[i] != null)
             {
-                allPlayers[i].gameObject.SetActive(true);
-                players.Add(allPlayers[i]);
-            }
-            else
-            {
-                allPlayers[i].gameObject.SetActive(false);
+                if (i < count)
+                {
+                    allPlayers[i].gameObject.SetActive(true);
+                    players.Add(allPlayers[i]);
+                }
+                else
+                {
+                    allPlayers[i].gameObject.SetActive(false);
+                }
             }
         }
     }

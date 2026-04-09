@@ -1,9 +1,7 @@
 using System.Collections;
-using System.Reflection;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
-using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 /// <summary>
 /// PlayMode tesztek a CardManager inicializálásához (offline mód)
@@ -19,6 +17,9 @@ public class CardManagerInitializationTests
     {
         cardManagerGO = new GameObject("CardManager");
         cardManager = cardManagerGO.AddComponent<CardManager>();
+
+        cardManager.filePath = "Cards/Cards";
+        
     }
 
     [TearDown]
@@ -40,9 +41,6 @@ public class CardManagerInitializationTests
     [UnityTest]
     public IEnumerator CardManager_HasWhiteAndBlackDecks()
     {
-        TextAsset testsCardFile = Resources.Load<TextAsset>("Cards/TestCards");
-        Assert.IsNotNull(testsCardFile);
-
         yield return new WaitForSeconds(0.5f);
         Assert.IsNotNull(cardManager.WhiteCards);
         Assert.IsNotNull(cardManager.BlackCards);

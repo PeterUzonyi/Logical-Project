@@ -16,40 +16,23 @@ public class CardLoaderVisualizationTests
     private GameObject gridGO;
     private MyGrid myGrid;
     private CardType testCard;
+    private GameObject cardManagerGO;
 
     [SetUp]
     public void Setup()
     {
+        // Először a CardManager-t kell létrehozni!
+        cardManagerGO = new GameObject("CardManager");
+        CardManager cardManager = cardManagerGO.AddComponent<CardManager>();
+
         // CardLoader GameObject létrehozása
         cardLoaderGO = new GameObject("CardLoader");
-        cardLoader = cardLoaderGO.AddComponent<CardLoader>();
 
-        // UI elemek mock-olása
-        GameObject bgImageGO = new GameObject("BgImage");
-        bgImageGO.transform.SetParent(cardLoaderGO.transform);
-        Image bgImage = bgImageGO.AddComponent<Image>();
-        cardLoader.BgImage = bgImage;
-
-        GameObject scoreTextGO = new GameObject("ScoreText");
-        scoreTextGO.transform.SetParent(cardLoaderGO.transform);
-        TextMeshProUGUI scoreText = scoreTextGO.AddComponent<TextMeshProUGUI>();
-        cardLoader.ScoreText = scoreText;
-
-        GameObject rewardImageGO = new GameObject("RewardImage");
-        rewardImageGO.transform.SetParent(cardLoaderGO.transform);
-        Image rewardImage = rewardImageGO.AddComponent<Image>();
-        cardLoader.RewardImage = rewardImage;
-
-        GameObject gridBgImageGO = new GameObject("GridBgImage");
-        gridBgImageGO.transform.SetParent(cardLoaderGO.transform);
-        Image gridBgImage = gridBgImageGO.AddComponent<Image>();
-        cardLoader.GridBgImage = gridBgImage;
-
-        // Grid GameObject
+        // Grid GameObject létrehozása
         gridGO = new GameObject("Grid");
         gridGO.transform.SetParent(cardLoaderGO.transform);
         myGrid = gridGO.AddComponent<MyGrid>();
-        
+
         // Mock GridSquare prefab
         GameObject gridSquarePrefab = new GameObject("GridSquare");
         RectTransform rectTransform = gridSquarePrefab.AddComponent<RectTransform>();
@@ -57,7 +40,7 @@ public class CardLoaderVisualizationTests
         GridSquare gridSquareComponent = gridSquarePrefab.AddComponent<GridSquare>();
         Image img = gridSquarePrefab.AddComponent<Image>();
         gridSquareComponent.activeImage = img;
-        
+
         myGrid.columns = 7;
         myGrid.rows = 7;
         myGrid.gridSquare = gridSquarePrefab;
@@ -66,8 +49,41 @@ public class CardLoaderVisualizationTests
         myGrid.everySquareOffSet = 1f;
         myGrid.startPosition = Vector2.zero;
 
+        // UI elemek létrehozása (mielőtt a CardLoader komponens létrejönne)
+        GameObject bgImageGO = new GameObject("BgImage");
+        bgImageGO.transform.SetParent(cardLoaderGO.transform);
+        Image bgImage = bgImageGO.AddComponent<Image>();
+
+        GameObject scoreTextGO = new GameObject("ScoreText");
+        scoreTextGO.transform.SetParent(cardLoaderGO.transform);
+        TextMeshProUGUI scoreText = scoreTextGO.AddComponent<TextMeshProUGUI>();
+
+        GameObject rewardImageGO = new GameObject("RewardImage");
+        rewardImageGO.transform.SetParent(cardLoaderGO.transform);
+        Image rewardImage = rewardImageGO.AddComponent<Image>();
+
+        GameObject gridBgImageGO = new GameObject("GridBgImage");
+        gridBgImageGO.transform.SetParent(cardLoaderGO.transform);
+        Image gridBgImage = gridBgImageGO.AddComponent<Image>();
+
+        // Most adjuk hozzá a CardLoader komponenst
+        cardLoader = cardLoaderGO.AddComponent<CardLoader>();
         cardLoader.Grid = gridGO;
         cardLoader.gridScript = myGrid;
+
+        // UI elemek beállítása
+        cardLoader.BgImage = bgImage;
+        cardLoader.ScoreText = scoreText;
+        cardLoader.RewardImage = rewardImage;
+        cardLoader.GridBgImage = gridBgImage;
+
+        // RewardSprites mock
+        cardLoader.RewardSprites = new Sprite[9];
+        for (int i = 0; i < 9; i++)
+        {
+            Texture2D tex = new Texture2D(10, 10);
+            cardLoader.RewardSprites[i] = Sprite.Create(tex, new Rect(0, 0, 10, 10), Vector2.zero);
+        }
 
         // Test kártya létrehozása
         int[,] testMatrix = new int[7, 7];
@@ -82,6 +98,10 @@ public class CardLoaderVisualizationTests
         if (cardLoaderGO != null)
         {
             Object.Destroy(cardLoaderGO);
+        }
+        if (cardManagerGO != null)
+        {
+            Object.Destroy(cardManagerGO);
         }
     }
 

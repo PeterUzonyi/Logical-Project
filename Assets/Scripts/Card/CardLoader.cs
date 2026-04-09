@@ -70,7 +70,10 @@ public class CardLoader : MonoBehaviour, IPointerClickHandler
     //Called when the script is loaded
     void Awake()
     {
-        gridScript = Grid.GetComponent<MyGrid>();
+        if (Grid != null)
+        {
+            gridScript = Grid.GetComponent<MyGrid>();
+        }
     }
 
     //Start is called before the first frame update

@@ -32,12 +32,22 @@ public class InventoryManagerTests
             GameObject itemGO = new GameObject($"Item_{i}");
             itemGO.transform.SetParent(inventoryManagerGO.transform);
 
+            GameObject childGO = new GameObject("VisualChild");
+            childGO.transform.SetParent(itemGO.transform);
+            childGO.AddComponent<Image>();
+
             InventoryItem item = itemGO.AddComponent<InventoryItem>();
+
+            // TMP Text szimulálása
+            GameObject textGO = new GameObject("Text");
+            textGO.transform.SetParent(itemGO.transform);
+            item.countText = textGO.AddComponent<TMPro.TextMeshProUGUI>();
+
             item.ID = i;
             item.quantity = 5 + i;
             item.TotalSquareNumber = i + 1;
-
-            Image img = itemGO.AddComponent<Image>();
+            item.countText.text = item.quantity.ToString();
+            item.myInventoryManager = inventoryManager;
 
             testItems.Add(item);
             createdGameObjects.Add(itemGO);

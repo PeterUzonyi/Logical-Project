@@ -11,10 +11,7 @@ public class CardManager : MonoBehaviourPun
 {
     public static CardManager Instance { get; private set; }
 
-    /// <summary>
-    /// Every card is stored here in a .txt file
-    /// </summary>
-    public TextAsset cardFile;
+    public string filePath = "Cards/Cards";
 
     /// <summary>
     /// The white puzzle cards deck
@@ -46,17 +43,18 @@ public class CardManager : MonoBehaviourPun
     //Start is called before the first frame update
     void Start()
     {
-        LoadCards();
+        LoadCards(filePath);
     }
 
     /// <summary>
     /// Load every cards from the .txt file and store them in the two decks (white and black). 
     /// Then shuffle both decks
     /// </summary>
-    private void LoadCards()
+    private void LoadCards(string path)
     {
         int idCounter = 0;
-        string[] lines = cardFile.text.Split('\n');
+        TextAsset file = Resources.Load<TextAsset>(path);
+        string[] lines = file.text.Split('\n');
 
         foreach (string line in lines)
         {
@@ -190,7 +188,11 @@ public class CardManager : MonoBehaviourPun
         if (cardList[0].Color == "Black")
         {
             //A count 2-4
-            int count = TurnManager.Instance.playerCount;
+            int count = 2;
+            if (TurnManager.Instance != null)
+            {
+                count = TurnManager.Instance.playerCount;
+            }
             int startIndex = 12;
             int range = 0;
 

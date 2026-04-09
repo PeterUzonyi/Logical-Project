@@ -20,9 +20,11 @@ public class MyGridElementPlacementTests
         gridGO = new GameObject("MyGrid");
         myGrid = gridGO.AddComponent<MyGrid>();
 
+        GameObject cardManagerGO = new GameObject("CardManager");
+        CardManager cardManager = cardManagerGO.AddComponent<CardManager>();
+
         GameObject gridSquarePrefab = new GameObject("GridSquare");
-        RectTransform rectTransform = gridSquarePrefab.AddComponent<RectTransform>();
-        rectTransform.sizeDelta = new Vector2(50, 50);
+        gridSquarePrefab.AddComponent<RectTransform>();
         GridSquare gridSquareScript = gridSquarePrefab.AddComponent<GridSquare>();
         Image img = gridSquarePrefab.AddComponent<Image>();
         gridSquareScript.activeImage = img;
@@ -30,17 +32,15 @@ public class MyGridElementPlacementTests
         myGrid.columns = 7;
         myGrid.rows = 7;
         myGrid.gridSquare = gridSquarePrefab;
-        myGrid.squareScale = 1f;
-        myGrid.squareGap = 2f;
-        myGrid.everySquareOffSet = 1f;
-        myGrid.startPosition = Vector2.zero;
+        myGrid.isInitialized = true;
 
         GameObject cardLoaderGO = new GameObject("CardLoader");
         CardLoader cardLoader = cardLoaderGO.AddComponent<CardLoader>();
-        myGrid.OwnerCardLoader = cardLoader;
 
-        myGrid.scoreNumber = 5;
-        myGrid.rewardElement = 1;
+        cardLoader.Grid = gridGO;
+        cardLoader.gridScript = myGrid;
+
+        myGrid.OwnerCardLoader = cardLoader;
     }
 
     [TearDown]
