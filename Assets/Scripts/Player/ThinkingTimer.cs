@@ -64,13 +64,11 @@ public class ThinkingTimer : MonoBehaviour
         {
             // Online: feliratkozás az OnlineTurnManager tick eseményére
             OnlineTurnManager.OnTimerTick += OnOnlineTimerTick;
-            OnlineTurnManager.OnTurnChanged += OnOnlineTurnChanged;
         }
-        else
-        {
-            // Lokális: saját idõzítõ indul a kör kezdetekor
-            // A TurnManager hívja a StartTimer()-t
-        }
+
+         // Lokális: saját idõzítõ indul a kör kezdetekor
+         // A TurnManager hívja a StartTimer()-t
+
     }
 
     /// <summary>
@@ -79,7 +77,6 @@ public class ThinkingTimer : MonoBehaviour
     void OnDestroy()
     {
         OnlineTurnManager.OnTimerTick -= OnOnlineTimerTick;
-        OnlineTurnManager.OnTurnChanged -= OnOnlineTurnChanged;
     }
 
     //Update is called once per frame
@@ -154,19 +151,6 @@ public class ThinkingTimer : MonoBehaviour
     {
         UpdateDisplay(time);
     }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="actorNumber"></param>
-    private void OnOnlineTurnChanged(int actorNumber)
-    {
-        // Az OnlineTurnManager.RPC_SetTurn már reseteli az idõt,
-        // az OnTimerTick majd frissíti a UI-t automatikusan.
-        // Ha szükséges, itt vizuálisan is jelezhetjük a körváltást.
-    }
-
-    // --- Belsõ segédmetódusok ---
 
     /// <summary>
     /// Online mode. Displays the time for every player
