@@ -214,6 +214,7 @@ public class LobbyUI : MonoBehaviourPunCallbacks
 
         bool isHost = PhotonNetwork.IsMasterClient;
         startButton.gameObject.SetActive(isHost);
+        readyButton.gameObject.SetActive(!isHost);
         if (thinkingTimeSlider)
         {
             thinkingTimeSlider.gameObject.SetActive(isHost);

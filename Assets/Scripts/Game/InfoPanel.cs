@@ -11,6 +11,8 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class InfoPanel : MonoBehaviour
 {
+    public static InfoPanel Instance { get; private set; }
+
     /// <summary>
     /// The massage part
     /// </summary>
@@ -20,8 +22,6 @@ public class InfoPanel : MonoBehaviour
     /// The panel itself
     /// </summary>
     [SerializeField] private GameObject panel;
-
-    public static InfoPanel Instance { get; private set; }
 
     [Header("Jelenet neve")]
     [SerializeField] private string menuSceneName = "StartGameScene";

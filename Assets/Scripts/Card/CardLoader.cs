@@ -86,7 +86,7 @@ public class CardLoader : MonoBehaviour, IPointerClickHandler
     /// Wait for the gridsquares and the cardmanager to be initialized
     /// </summary>
     /// <returns></returns>
-    IEnumerator WaitForInitialization()
+    private IEnumerator WaitForInitialization()
     {
         while (!gridScript.isInitialized || !CardManager.Instance.IsReady)
         {

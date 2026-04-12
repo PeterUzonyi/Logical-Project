@@ -78,7 +78,6 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         {
             OnStatusChanged?.Invoke("Connecting...");
         }
-        
     }
 
     /// <summary>
@@ -88,7 +87,10 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     /// <param name="maxPlayers"></param>
     public void CreateRoom(string roomName, byte maxPlayers = 0)
     {
-        if (maxPlayers == 0) maxPlayers = maxPlayersPerRoom;
+        if (maxPlayers == 0)
+        {
+            maxPlayers = maxPlayersPerRoom;
+        }
 
         RoomOptions options = new RoomOptions
         {

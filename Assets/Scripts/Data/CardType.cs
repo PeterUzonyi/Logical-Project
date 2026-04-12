@@ -6,7 +6,7 @@ using UnityEngine;
 /// <summary>
 /// Puzzle card structure
 /// </summary>
-public class CardType// : MonoBehaviour
+public class CardType
 {
     /// <summary>
     /// Color of the puzzle card (black or white)

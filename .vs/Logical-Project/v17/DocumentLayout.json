@@ -1,12 +1,53 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B6AC9CEC-5950-1931-4B7E-188E457B4E96}|Game.csproj|c:\\users\\your-computer\\desktop\\logical-project\\assets\\scripts\\startgame\\lobbyui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B6AC9CEC-5950-1931-4B7E-188E457B4E96}|Game.csproj|solutionrelative:assets\\scripts\\startgame\\lobbyui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6AC9CEC-5950-1931-4B7E-188E457B4E96}|Game.csproj|C:\\Users\\your-computer\\Desktop\\Logical-Project\\assets\\scripts\\startgame\\networkmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B6AC9CEC-5950-1931-4B7E-188E457B4E96}|Game.csproj|solutionrelative:assets\\scripts\\startgame\\networkmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "NetworkManager.cs",
+              "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\StartGame\\NetworkManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\StartGame\\NetworkManager.cs",
+              "ToolTip": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\StartGame\\NetworkManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\StartGame\\NetworkManager.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAAAFwAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T09:57:26.03Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LobbyUI.cs",
+              "DocumentMoniker": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\StartGame\\LobbyUI.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\StartGame\\LobbyUI.cs",
+              "ToolTip": "C:\\Users\\your-computer\\Desktop\\Logical-Project\\Assets\\Scripts\\StartGame\\LobbyUI.cs",
+              "RelativeToolTip": "Assets\\Scripts\\StartGame\\LobbyUI.cs",
+              "ViewState": "AQIAANIAAAAAAAAAAAAAAOQAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T09:53:04.803Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

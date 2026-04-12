@@ -169,7 +169,7 @@ public class CardManager : MonoBehaviourPun
     /// With the black puzzle deck, after the shuffling, it removes some cards from the deck to get 
     /// the correct amount of cards for the game depending on the number of players
     /// </returns>
-    public List<CardType> ShuffleList(List<CardType> cardList)
+    private List<CardType> ShuffleList(List<CardType> cardList)
     {
         /*
             Megkapja a teljes listát, mit ketté választ

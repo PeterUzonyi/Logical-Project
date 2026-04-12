@@ -52,6 +52,11 @@ public class OnlineTurnManager : MonoBehaviourPun
 
     public int ActiveActorNumber => activeActorNumber;
 
+    /// <summary>
+    /// Online mode. True, when it is the current player's turn
+    /// </summary>
+    public bool IsMyTurn => PhotonNetwork.LocalPlayer.ActorNumber == activeActorNumber;
+
     //Called when the script is loaded
     void Awake()
     {
@@ -151,10 +156,7 @@ public class OnlineTurnManager : MonoBehaviourPun
     }
 
 
-    /// <summary>
-    /// Online mode. True, when it is the current player's turn
-    /// </summary>
-    public bool IsMyTurn => PhotonNetwork.LocalPlayer.ActorNumber == activeActorNumber;
+
 
     /// <summary>
     /// Online mode. Called when the current player finished an action or the round
