@@ -179,7 +179,7 @@ public class CardManager : MonoBehaviourPun
         */
         for (int i = cardList.Count - 1; i > 0; i--)
         {
-            int j = UnityEngine.Random.Range(0, i + 1);
+            int j = Random.Range(0, i + 1);
             CardType temp = cardList[i];
             cardList[i] = cardList[j];
             cardList[j] = temp;
