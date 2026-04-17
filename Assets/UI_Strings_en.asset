@@ -175,6 +175,10 @@ MonoBehaviour:
     m_Localized: End Master Action
     m_Metadata:
       m_Items: []
+  - m_Id: 5806865330941952
+    m_Localized: Exit Action
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -107,6 +107,7 @@ public class Player : MonoBehaviour
 
     public GameObject actionBtn;
     public GameObject changePlayerViewBtn;
+    public GameObject exitActionBtn;
     public GameObject endMasterActionBtn;
     public GameObject endVegsoRendrakasBtn;
 
@@ -297,7 +298,7 @@ public class Player : MonoBehaviour
         }
         else if (selectedAction==ActionType.PlaceElement)
         {
-
+            exitActionBtn.SetActive(true);
         }
         else if (selectedAction == ActionType.MasterAction && masterActionUsed == false)
         {
@@ -391,6 +392,7 @@ public class Player : MonoBehaviour
     /// </summary>
     private void TakePuzzle()
     {
+        exitActionBtn.SetActive(true);
         CommonReserve.Instance.CommonReserveBlockingPanel.SetActive(false);
         OpenCommonReserve();
     }
@@ -539,6 +541,27 @@ public class Player : MonoBehaviour
 
         PlayerPanel.SetActive(false);
         TurnManager.Instance.players[next].PlayerPanel.SetActive(true);
+    }
+
+    /// <summary>
+    /// Cancelling TakePuzzle and PlaceElement actions
+    /// </summary>
+    public void OnExitActionClicked()
+    {
+        exitActionBtn.SetActive(false);
+        
+        if (selectedAction == ActionType.PlaceElement)
+        {
+            Debug.Log("PlaceElement was cancelled");
+            ElementPlacementSuccessfull = false;
+            TurnManager.Instance.currentPlayer.ActionHasEnded();
+        }
+        else
+        {
+            Debug.Log("TakePuzzle was cancelled");
+            ActionCount--;
+            TurnManager.Instance.currentPlayer.ActionHasEnded();
+        }
     }
 
     /// <summary>

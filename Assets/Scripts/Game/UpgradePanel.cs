@@ -384,4 +384,16 @@ public class UpgradePanel : MonoBehaviour
             bg.color = active ? new Color(1f, 0.85f, 0f, 1f) : Color.white;
         }
     }
+
+    /// <summary>
+    /// Cancelling the upgrade action
+    /// </summary>
+    public void OnExitClicked()
+    {
+        Close();
+        if (FindAnyObjectByType<ActionSelectionPanel>() != null)
+        {
+            FindAnyObjectByType<ActionSelectionPanel>().ShowPanel();
+        }
+    }
 }

@@ -199,6 +199,10 @@ MonoBehaviour:
     m_Localized: "Mesterakci\xF3 Befejez\xE9se"
     m_Metadata:
       m_Items: []
+  - m_Id: 5806865330941952
+    m_Localized: "Akci\xF3 megszak\xEDt\xE1sa"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -115,6 +115,10 @@ MonoBehaviour:
     m_Key: waiting_ready
     m_Metadata:
       m_Items: []
+  - m_Id: 5806865330941952
+    m_Key: upgrade_end
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -92,11 +92,8 @@ public class GridSquare : MonoBehaviour
     /// <param name="collision"></param>
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (!InventoryItem.IsDragging)
-        {
-            hoverImage.gameObject.SetActive(false);
-            Selected = false;
-        }
+        hoverImage.gameObject.SetActive(false);
+        Selected = false;
     }
 
     /// <summary>
