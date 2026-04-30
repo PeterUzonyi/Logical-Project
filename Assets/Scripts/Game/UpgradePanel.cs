@@ -292,8 +292,8 @@ public class UpgradePanel : MonoBehaviour
             Debug.Log($"Upgrade: visszaadta [ID={selectedPlayerItem.ID} Lv{selectedPlayerItem.level}] " +
                       $"kapta [ID={commonItem.ID} Lv{commonItem.level}]");
 
-            Close();
             currentPlayer.ActionHasEnded();
+            Close();
         }
     }
 
@@ -336,15 +336,15 @@ public class UpgradePanel : MonoBehaviour
         {
             ClearContainer(playerItemsContainer);
         }
-        if (playerItemTextContainer)
+        if (playerItemTextContainer != null)
         {
             ClearContainer(playerItemTextContainer);
         }
-        if (commonItemsContainer)
+        if (commonItemsContainer != null)
         {
             ClearContainer(commonItemsContainer);
         }
-        if (commonItemTextContainer)
+        if (commonItemTextContainer != null)
         {
             ClearContainer(commonItemTextContainer);
         }
@@ -360,7 +360,7 @@ public class UpgradePanel : MonoBehaviour
         {
             upgradePanel.SetActive(false);
         }
-        
+
         currentPlayer = null;
     }
 

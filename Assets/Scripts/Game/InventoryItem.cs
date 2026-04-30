@@ -108,6 +108,17 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 color = childImage.color;
             }
         }
+
+        if (quantity == 0)
+        {
+            Draggable = false;
+
+            //Az elem színét szürkére állítjuk
+            foreach (Transform child in transform)
+            {
+                child.GetComponent<Image>().color = Color.gray;
+            }
+        }
     }
 
     //Called when the script is loaded

@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 780.8
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Project
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 98
+  controlID: 108
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -269,8 +269,8 @@ MonoBehaviour:
     y: 0
     width: 428
     height: 730.8
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -413,7 +413,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: e8f7ffff14fbffff
+      m_ExpandedIDs: dadcf9ffea77fafff477faffa278faffd67efaff947ffaff4080faff4480faff7286faff6edafaffd4f2faffd8f2faff00f3faffb229fbffb629fbff8238fbffce86fbff9a9ffbff56a7fbff20e4fbff4ae4fbff68e4fbff72e4fbff1ee5fbff22e5fbff00edfbff963bfcff0c84fcffcc6dfdff5a86fdff96deffffd0deffff7ef8ffffc2f8ffff14fbfffff4ffffff80fa0000a2fa0000bc3b0100743d01004855010000570100c66c0100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -808,7 +808,7 @@ MonoBehaviour:
   m_Position:
     m_Target: {x: 1780.3453, y: 352.88348, z: 1.6170609}
     speed: 2
-    m_Value: {x: 960, y: 540, z: 0}
+    m_Value: {x: 1780.3453, y: 352.88348, z: 1.6170609}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -860,7 +860,7 @@ MonoBehaviour:
   m_Size:
     m_Target: 102.29723
     speed: 2
-    m_Value: 345.7329
+    m_Value: 102.29723
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -944,10 +944,10 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 270.2}
-    m_SelectedIDs: 3a710000
-    m_LastClickedID: 28986
-    m_ExpandedIDs: 000000001e710000207100002271000024710000367100003871000000ca9a3b
+    scrollPos: {x: 0, y: 139}
+    m_SelectedIDs: 34710000
+    m_LastClickedID: 28980
+    m_ExpandedIDs: 000000001e7100002071000022710000247100004071000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

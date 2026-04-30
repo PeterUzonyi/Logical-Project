@@ -4152,6 +4152,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 4693302771386618670}
     m_Modifications:
     - target: {fileID: 3267109292742984, guid: 009513bfdb4f45f4e94f99e1bdf76a64, type: 3}
+      propertyPath: quantity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267109292742984, guid: 009513bfdb4f45f4e94f99e1bdf76a64, type: 3}
       propertyPath: countText
       value: 
       objectReference: {fileID: 8016252489311160058}
@@ -4181,6 +4185,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 193558055657525126, guid: 009513bfdb4f45f4e94f99e1bdf76a64, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 354567196917522774, guid: 009513bfdb4f45f4e94f99e1bdf76a64, type: 3}
+      propertyPath: quantity
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 354567196917522774, guid: 009513bfdb4f45f4e94f99e1bdf76a64, type: 3}
@@ -4288,6 +4296,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1476739308157476578, guid: 009513bfdb4f45f4e94f99e1bdf76a64, type: 3}
+      propertyPath: quantity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1476739308157476578, guid: 009513bfdb4f45f4e94f99e1bdf76a64, type: 3}
       propertyPath: countText
       value: 
       objectReference: {fileID: 7884029412515707069}
@@ -4356,6 +4368,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4199455567399365536, guid: 009513bfdb4f45f4e94f99e1bdf76a64, type: 3}
+      propertyPath: quantity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199455567399365536, guid: 009513bfdb4f45f4e94f99e1bdf76a64, type: 3}
       propertyPath: countText
       value: 
       objectReference: {fileID: 6671726393531340453}
@@ -4363,6 +4379,10 @@ PrefabInstance:
       propertyPath: myInventoryManager
       value: 
       objectReference: {fileID: 8575602417381876541}
+    - target: {fileID: 4460162510023846630, guid: 009513bfdb4f45f4e94f99e1bdf76a64, type: 3}
+      propertyPath: quantity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4460162510023846630, guid: 009513bfdb4f45f4e94f99e1bdf76a64, type: 3}
       propertyPath: countText
       value: 
@@ -4452,6 +4472,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5458746618442128455, guid: 009513bfdb4f45f4e94f99e1bdf76a64, type: 3}
+      propertyPath: quantity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5458746618442128455, guid: 009513bfdb4f45f4e94f99e1bdf76a64, type: 3}
       propertyPath: countText
       value: 
       objectReference: {fileID: 4152432108306563766}
@@ -4515,6 +4539,10 @@ PrefabInstance:
       propertyPath: myInventoryManager
       value: 
       objectReference: {fileID: 8575602417381876541}
+    - target: {fileID: 6580131673364422340, guid: 009513bfdb4f45f4e94f99e1bdf76a64, type: 3}
+      propertyPath: quantity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6580131673364422340, guid: 009513bfdb4f45f4e94f99e1bdf76a64, type: 3}
       propertyPath: countText
       value: 

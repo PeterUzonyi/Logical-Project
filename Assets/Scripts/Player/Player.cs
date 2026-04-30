@@ -344,6 +344,7 @@ public class Player : MonoBehaviour
 
         //Esetleges gombok eltüntetése
         actionBtn.SetActive(false);
+        exitActionBtn.SetActive(false);
         endMasterActionBtn.SetActive(false);
         endVegsoRendrakasBtn.SetActive(false);
         if (upgradePanel != null && upgradePanel.gameObject.activeSelf)
