@@ -78,6 +78,8 @@ public class ActionSelectionPanel : MonoBehaviour
                 {
                     ShowErrorMessage("You cannot choose this action, because you don't have any puzzle!");
                 }
+
+                return;
             }
             if (TurnManager.Instance.currentPlayer.RemainingElements == 0)
             {
